@@ -19,7 +19,7 @@
 ---
 ### **Integrantes**
 
-xxxxxxxx - Sebastian Ernesto Gutarra Velapatiño 
+U20241A314 - Sebastian Ernesto Gutarra Velapatiño 
 
 xxxxxxxx - Miguel Angel Hallasi Saravia 
 
