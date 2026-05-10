@@ -1831,6 +1831,94 @@ mvn test -Dtest=CucumberTestRunner
 - Revisión de código obligatoria (mínimo 1 approval)
 
 ### 7.1.2. Build & Test Suite Pipeline Components.
+
+#### 7.1.2.1 Backend (Java Spring Boot + JUnit)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias | JUnit 5 + Mockito |
+| Integration Tests | Pruebas de integración | Spring Boot Test + `@Transactional` |
+| Build | Compilación y empaquetado | Maven |
+
+**Workflow - Backend CI:**
+
+```yaml
+# .github/workflows/maven.yml
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      database:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: "spring"
+          POSTGRES_USER: "root"
+          POSTGRES_PASSWORD: "password"
+
+    env:
+      SPRING_PROFILES_ACTIVE: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run tests
+        run: mvn test
+```
+
+**Estructura de Tests - JUnit:**
+
+```
+Backend/src/test/
+├── java/com/matchpoint/
+│   ├── bookings/
+│   │   ├── application/internal/commandservices/
+│   │   │   └── BookingCommandServiceImplTest.java      # Unit tests (Mockito)
+│   │   └── interfaces/rest/
+│   │       ├── BookingIntegrationTest.java              # Integration tests (BD real)
+│   │       └── CoachBookingIntegrationTest.java        # Integration tests (BD real)
+│   ├── users/
+│   │   └── application/internal/commandservices/
+│   │       └── UserProfileCommandServiceImplTest.java # Unit tests (Mockito)
+│   ├── payments/
+│   ├── coaches/
+│   └── courts/
+└── resources/
+    └── application-test.properties                     # Config para PostgreSQL en CI
+```
+
+**Tipos de Tests:**
+
+| Tipo | Anotación | BD | Uso |
+|------|-----------|-----|-----|
+| Unit Test | `@ExtendWith(MockitoExtension.class)` | Mock | Validar lógica de negocio |
+| Integration Test | `@SpringBootTest` + `@Transactional` | PostgreSQL real | Validar queries y persistencia |
+
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
 ### 7.2.2. Stages Deployment Pipeline Components.
