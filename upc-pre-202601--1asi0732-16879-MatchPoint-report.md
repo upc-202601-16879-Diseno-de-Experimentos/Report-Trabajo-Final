@@ -2002,7 +2002,34 @@ jobs:
 
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CD | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | Render | Soporte para aplicaciones Java |
+| Frontend (Vue) | Vercel | Despliegue automático con CDN global |
+
 ### 7.2.2. Stages Deployment Pipeline Components.
+
+##### Backend (Java Spring) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Compilación Maven |
+| Test | Automatic | Unit + Integration tests |
+| Staging | Merge a develop | Despliegue automático a Render |
+| Production | Release tag + approval | Despliegue a producción |
+
+##### Frontend (Vue) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Build con environment de dev |
+| Preview | PR abierto | URL de preview automática |
+| Staging | Merge a develop | Despliegue automático a Vercel |
+| Production | Release tag | Despliegue a producción |
+
 ## 7.3. Continuous deployment
 ### 7.3.1. Tools and Practices.
 ### 7.3.2. Production Deployment Pipeline Components.
