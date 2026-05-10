@@ -641,6 +641,74 @@ Todos mostraron un interés en nuestra propuesta cómo una fácil alternativa pa
 
 ## 2.4. Ubiquitous Language
 
+En esta sección se presenta el glosario de términos y conceptos del business domain de MatchPoint/PlayMatch, utilizados por todos los miembros del equipo y stakeholders del proyecto.
+
+| **Término (EN)** | **Término (ES)** | **Definición** |
+|------------------|------------------|----------------|
+| **Court** | Cancha | Espacio deportivo alquilable donde se practican actividades físicas como fútbol, tenis, pádel, vóley o básquet. |
+| **Sports Venue** | Centro Deportivo | Establecimiento que agrupa una o más canchas y ofrece servicios de alquiler. |
+| **Field** | Campo | Término alternativo para referirse a una cancha, utilizado principalmente para deportes como fútbol. |
+| **Pitch** | Campo de Juego | Término común en fútbol para referirse al campo de juego. |
+| **Booking** | Reserva | Acción de apartar una cancha para un horario específico y fecha determinada. |
+| **Reservation** | Reservación | Sinónimo de reserva; proceso de apartar un espacio deportivo con confirmación. |
+| **Player** | Jugador | Usuario de la plataforma que busca canchas, reservas espacios y organiza actividades deportivas. |
+| **Amateur** | Aficionado | Jugador no profesional que practica deporte de forma recreativa o competitiva amateur. |
+| **Trainer** | Entrenador | Profesional deportivo independiente que ofrece servicios de enseñanza,指导和 entrenamiento en una o más disciplinas deportivas. |
+| **Coach** | Entrenador | Término alternativo para entrenador, usado indistintamente en el documento. |
+| **Independent Trainer** | Entrenador Independiente | Entrenador que trabaja por cuenta propia, sin vínculo con clubes o centros deportivos formales. |
+| **Match** | Partido | Evento deportivo organizado entre jugadores o equipos, con fecha, hora y lugar definidos. |
+| **Game** | Juego | Término alternativo para partido o evento deportivo informal. |
+| **Tournament** | Torneo | Competencia formal con múltiples equipos o jugadores, reglas definidas y generalmente premios o reconocimientos. |
+| **Championship** | Campeonato | Tipo de torneo de mayor envergadura o importancia. |
+| **Availability** | Disponibilidad | Horarios o espacios abiertos que un proveedor tiene para ofrecer alquiler o servicios. |
+| **Time Slot** | Franja Horaria | Período específico de tiempo (por ejemplo, una hora) para el cual una cancha o entrenador está disponible. |
+| **Rating** | Calificación | Puntuación numérica (generalmente de 1 a 5 estrellas) que un usuario asigna a un entrenador o cancha. |
+| **Review** | Reseña | Comentario escrito por un usuario describiendo su experiencia con un entrenador o cancha. |
+| **Testimonial** | Testimonio | Reseña positiva o recomendación deixada por un cliente satisfecho. |
+| **Fee** | Tarifa | Precio establecido por un entrenador por sus servicios de entrenamiento. |
+| **Rate** | Tarifa | Sinónimo de tarifa; precio por hora o sesión de entrenamiento. |
+| **Subscription Plan** | Plan de Suscripción | Tipo de membresía que ofrece acceso a funciones premium de la plataforma a cambio de un pago periódico. |
+| **Free Plan** | Plan Gratis | Nivel de acceso básico sin costo que incluye funcionalidades limitadas de la plataforma. |
+| **Premium Plan** | Plan Premium | Nivel de acceso de pago con beneficios adicionales como mayor visibilidad para entrenadores o reserva sin anuncios. |
+| **Payment** | Pago | Transacción financiera realizada por el usuario para reservar una cancha o contratar servicios de un entrenador. |
+| **Transaction** | Transacción | Operacion financiera completada a través de la plataforma. |
+| **Digital Receipt** | Comprobante Digital | Documento electrónico que certifica la realización de un pago. |
+| **Sports Discipline** | Disciplina Deportiva | Tipo de deporte o actividad física como fútbol, tenis, pádel, vóley, básquet, entre otros. |
+| **Sport Type** | Tipo de Deporte | Sinónimo de disciplina deportiva. |
+| **Session** | Sesión | Una clase o entrenamiento individual impartido por un entrenador a uno o más jugadores. |
+| **Training Session** | Sesión de Entrenamiento | Sesión programada donde un entrenador trabaja con un cliente para mejorar sus habilidades deportivas. |
+| **Client** | Cliente | Persona que contrata los servicios de un entrenador o el alquiler de una cancha. |
+| **Service** | Servicio | Lo que ofrece un entrenador o la plataforma: alquiler de canchas, sesiones de entrenamiento, organización de torneos, etc. |
+| **Schedule** | Agenda | Calendario que muestra los horarios disponibles y ocupados de un entrenador o cancha. |
+| **Availability Calendar** | Calendario de Disponibilidad | Herramienta visual que muestra los horários abertos para reserva. |
+| **Confirmation** | Confirmación | Notificación de que una reserva ha sido aceptada y está garantizada. |
+| **Rejection** | Rechazo | Notificación de que una solicitud de reserva no fue aceptada. |
+| **Cancellation** | Cancelación | Anulación de una reserva confirmada por parte del usuario o del proveedor. |
+| **Cancellation Policy** | Política de Cancelación | Reglas que definen las condiciones y posibles penalizaciones al cancelar una reserva. |
+| **Search** | Búsqueda | Acción de encontrar canchas o entrenadores mediante filtros y palabras clave. |
+| **Filter** | Filtro | Criterio de búsqueda como ubicación, deporte, precio, disponibilidad o calificación. |
+| **Location** | Ubicación | Dirección física o zona geográfica de una cancha o entrenador. |
+| **Neighborhood** | Barrio/Distrito | Área específica dentro de una ciudad donde se encuentra la cancha. |
+| **User Profile** | Perfil de Usuario | Información personal y configuración de cuenta de un jugador o entrenador. |
+| **Professional Profile** | Perfil Profesional | Sección del perfil de un entrenador que incluye experiencia, especialidades, tarifas y reseñas. |
+| **Curriculum** | Currículum | Documento que detalla la experiencia, logros y credenciales de un entrenador. |
+| **Reputation** | Reputación | Imagen pública de un entrenador basada en reseñas y calificaciones acumuladas. |
+| **Trust** | Confianza | Nivel de seguridad que un usuario tiene en la plataforma, entrenadores o canchas. |
+| **Team** | Equipo | Grupo de jugadores que participan juntos en partidos o torneos. |
+| **Community** | Comunidad | Grupo de usuarios activos en la plataforma que interactúan y comparten experiencias deportivas. |
+| **Invitation** | Invitación | Acción de invitar a otros usuarios a unirse a un partido o torneo. |
+| **Registration** | Inscripción | Proceso de registrarse para participar en un torneo o evento deportivo. |
+| **Check-in** | Registro de Asistencia | Confirmación de presencia en una reserva o sesión confirmada. |
+| **Referral** | Referencia | Recomendación de un usuario hacia otro para utilizar la plataforma o un servicio específico. |
+| **Voucher** | Cupón | Beneficio o descuento aplicado a una reserva o pago. |
+| **Dispute** | Reclamo | Situación donde un usuario reporta un problema con un servicio o transacción. |
+| **Support** | Soporte | Asistencia proporcionada por el equipo de MatchPoint para resolver problemas de los usuarios. |
+| **Visibility** | Visibilidad | Grado en que un entrenador o cancha aparece en los resultados de búsqueda de la plataforma. |
+| **Lead** | Prospecto | Usuario potencial que muestra interés en los servicios de un entrenador. |
+| **Conversion** | Conversión | Acción de un usuario de realizar una reserva o contratar un servicio después de explorar la plataforma. |
+| **Retention** | Retención | Capacidad de mantener a los usuarios activos utilizando la plataforma de forma recurrente. |
+| **Engagement** | Interacción | Nivel de actividad y participación de los usuarios en la plataforma (reseñas, partidos creados, etc.). |
+
 
 # Capítulo III: Requirements Specification
 
