@@ -1927,6 +1927,79 @@ Backend/src/test/
 | Unit Test | `@ExtendWith(MockitoExtension.class)` | Mock | Validar lógica de negocio |
 | Integration Test | `@SpringBootTest` + `@Transactional` | PostgreSQL real | Validar queries y persistencia |
 
+#### 7.1.2.2 Frontend (Vue + Vite + Vitest)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias de composables y componentes | Vitest + Vue Test Utils |
+| Component Tests | Pruebas de comportamiento de componentes | Vue Test Utils |
+| Build | Compilación para producción | Vite |
+
+**Workflow - Frontend CI:**
+
+```yaml
+# .github/workflows/frontend-ci.yml
+name: Frontend CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:unit
+```
+
+**Resultados de Tests - Frontend:**
+
+![frontend-ci-workflow](./images/frontend-ci-workflow.png)
+> Frontend CI - Workflow en GitHub Actions
+
+![frontend-ci-test-results](./images/frontend-ci-test-results.png)
+> Frontend CI - Resultados de tests
+
+**package.json - Scripts:**
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:unit": "vitest run"
+  }
+}
+```
+
+**Tipos de Tests:**
+
+| Tipo | Herramienta | Descripción |
+|------|-------------|-------------|
+| Unit Test | Vitest | Validar lógica de composables y helpers |
+| Component Test | Vue Test Utils + happy-dom | Validar renderizado e interacciones de componentes |
+
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
 ### 7.2.2. Stages Deployment Pipeline Components.
