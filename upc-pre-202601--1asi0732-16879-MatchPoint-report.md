@@ -2010,7 +2010,17 @@ jobs:
 | Backend (Java Spring) | Render | Soporte para aplicaciones Java |
 | Frontend (Vue) | Vercel | Despliegue automático con CDN global |
 
+#### Estrategias de Despliegue
+
+#### Environments
+
+![envs](./images/diagram-1778455140955.png)
+
 ### 7.2.2. Stages Deployment Pipeline Components.
+
+#### Diagrama de Stages - CD Pipeline
+
+![stages](./images/diagram-1778455063397.png)
 
 ##### Backend (Java Spring) - Stages
 
