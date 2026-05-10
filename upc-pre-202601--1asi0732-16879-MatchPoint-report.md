@@ -1815,6 +1815,21 @@ mvn test -Dtest=CucumberTestRunner
 # Capítulo VII: DevOps Practices
 ## 7.1. Continuous Integration
 ### 7.1.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CI | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | GitHub Actions | Soporte nativo para Maven/Gradle, JUnit |
+| Frontend (Vue) | GitHub Actions | Compatible con npm/vite |
+
+#### Prácticas de Integración Continua
+
+**Políticas de Merge:**
+- Todos los commits deben pasar build y tests antes de merge
+- Branch protection en `main`/`develop`
+- Revisión de código obligatoria (mínimo 1 approval)
+
 ### 7.1.2. Build & Test Suite Pipeline Components.
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
