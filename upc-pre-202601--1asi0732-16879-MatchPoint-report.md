@@ -1360,6 +1360,93 @@ Para la puesta en línea de nuestro proyecto, utilizamos Netlify, una plataforma
 ### 5.2.5. Implemented Native-Mobile Application Evidence
 ### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
 ### 5.2.7. RESTful API documentation
+
+#### Bound context
+
+- IAM: Maneja la autenticación, autorización y gestión de usuarios y roles. 
+- Booking: Gestiona las reservas de las canchas.
+- Coaches: Información general de los entrenadores.
+- Courts: Información general de las canchas.
+- Payment: Gestiona los pagos de las reservas.
+- Users: Información general de los usuarios.
+
+#### API
+
+Todos los endpoints están organizados siguiendo la convención RESTful bajo la ruta /api/v1/ y están documentados
+según contexto.
+
+### Documentacion IAM
+AuthenticationController
+
+| Tag   | HTTP Method | Endpoint | Description | Operation  |
+| ----- | ----------- | -------- | ----------- | ---------- |
+| IAM   | POST        | /api/v1/authentication/sign-in | iniciar sesión | SignIn |
+| IAM   | POST        | /api/v1/authentication/sign-up | registrarse | SignUp |
+
+UsersController
+
+| Tag   | HTTP Method | Endpoint | Description | Operation  |
+| ----- | ----------- | -------- | ----------- | ---------- |
+| IAM   | GET         | /api/v1/users | obtener todos los usuarios | GetAllUsers |
+| IAM   | GET         | /api/v1/users/{userId} | obtener usuario por ID | GetUserById |
+
+RolesController
+
+| Tag   | HTTP Method | Endpoint | Description | Operation  |
+| ----- | ----------- | -------- | ----------- | ---------- |
+| IAM   | GET         | /api/v1/roles | obtener todos los roles | GetAllRoles |
+
+### Documentacion Users
+UserProfilesController
+
+| Tag   | HTTP Method | Endpoint | Description | Operation  |
+| ----- | ----------- | -------- | ----------- | ---------- |
+| Users | POST        | /api/v1/user-profiles | crear perfil de usuario | CreateUserProfile |
+| Users | GET         | /api/v1/user-profiles | obtener todos los perfiles | GetAllUserProfiles |
+| Users | GET         | /api/v1/user-profiles/{id} | obtener perfil por ID | GetUserProfileById |
+| Users | PUT         | /api/v1/user-profiles/{id} | actualizar perfil | UpdateUserProfile |
+| Users | DELETE      | /api/v1/user-profiles/{id} | eliminar perfil | DeleteUserProfile |
+
+### Documentacion Payments
+PaymentsController
+
+| Tag     | HTTP Method | Endpoint | Description | Operation  |
+| ------- | ----------- | -------- | ----------- | ---------- |
+| Payment | POST        | /api/v1/payments | crear pago | CreatePayment |
+| Payment | GET         | /api/v1/payments/{id} | obtener pago por ID | GetPaymentById |
+
+### Documentacion Coaches
+CoachesController
+
+| Tag     | HTTP Method | Endpoint | Description | Operation  |
+| ------- | ----------- | -------- | ----------- | ---------- |
+| Coaches | POST        | /api/v1/coaches | crear entrenador | CreateCoach |
+| Coaches | GET         | /api/v1/coaches | obtener todos los entrenadores | GetAllCoaches |
+| Coaches | GET         | /api/v1/coaches/{id} | obtener entrenador por ID | GetCoachById |
+| Coaches | PUT         | /api/v1/coaches/{id} | actualizar entrenador | UpdateCoach |
+| Coaches | DELETE      | /api/v1/coaches/{id} | eliminar entrenador | DeleteCoach |
+
+### Documentacion Courts
+CourtsController
+
+| Tag    | HTTP Method | Endpoint | Description | Operation  |
+| ------ | ----------- | -------- | ----------- | ---------- |
+| Courts | POST        | /api/v1/courts | crear cancha | CreateCourt |
+| Courts | GET         | /api/v1/courts | obtener todas las canchas | GetAllCourts |
+| Courts | GET         | /api/v1/courts/{id} | obtener cancha por ID | GetCourtById |
+| Courts | PUT         | /api/v1/courts/{id} | actualizar cancha | UpdateCourt |
+| Courts | DELETE      | /api/v1/courts/{id} | eliminar cancha | DeleteCourt |
+
+### Documentacion Bookings
+BookingsController
+
+| Tag      | HTTP Method | Endpoint | Description | Operation  |
+| -------- | ----------- | -------- | ----------- | ---------- |
+| Bookings | POST        | /api/v1/bookings | crear reserva | CreateBooking |
+| Bookings | GET         | /api/v1/bookings | obtener todas las reservas | GetAllBookings |
+| Bookings | GET         | /api/v1/bookings/{id} | obtener reserva por ID | GetBookingById |
+| Bookings | PUT         | /api/v1/bookings/{id} | actualizar reserva | UpdateBooking |
+| Bookings | DELETE      | /api/v1/bookings/{id} | eliminar reserva | DeleteBooking |
 ### 5.2.8. Team Collaboration Insights
 ## 5.3. Video About-the-Product
 
@@ -1368,8 +1455,275 @@ Para la puesta en línea de nuestro proyecto, utilizamos Netlify, una plataforma
 # Capítulo VI: Product Verification & Validation
 ## 6.1. Testing Suites & Validation
 ### 6.1.1. Core Entities Unit Tests.
+### Estrategia de Pruebas Unitarias - MatchPoint
+
+Este documento describe las pruebas unitarias implementadas para el backend de MatchPoint, las tecnologías utilizadas y la justificación de cada caso de prueba basada en el contexto del negocio.
+
+### Definición de Prueba Unitaria en MatchPoint
+
+En este proyecto, una **Prueba Unitaria** se define como la verificación de una unidad de lógica de negocio (usualmente un método en un `CommandServiceImpl`) en total aislamiento. 
+- **Aislamiento**: Se utiliza **Mockito** para simular (mockear) todas las dependencias externas (repositorios, servicios externos).
+- **Sin Base de Datos**: No se realizan llamadas a bases de datos reales ni en memoria (H2).
+- **Rapidez**: Se ejecutan en milisegundos al no cargar el contexto de Spring.
+
+### Tecnologías Utilizadas
+
+- **JUnit 5**: Framework principal para la ejecución de pruebas.
+- **Mockito**: Biblioteca para la creación de objetos simulados (mocks) y verificación de comportamientos.
+- **AssertJ**: Biblioteca para realizar aserciones de forma fluida y legible.
+
+### Pruebas de IAM (Identity and Access Management)
+
+El contexto de IAM es fundamental para la seguridad de la plataforma. Asegura que solo los usuarios autorizados (deportistas y entrenadores) puedan acceder a sus respectivas funcionalidades.
+
+### Casos de Prueba en `UserCommandServiceImplTest`
+
+1.  **Registro Exitoso (Sign Up Success)**
+    - **Descripción**: Verifica que un nuevo usuario pueda registrarse correctamente si el nombre de usuario no existe.
+    - **Idea/Origen**: `UserCommandServiceImpl.handle(SignUpCommand command)` - Valida la lógica de verificar existencia de usuario y encriptación de contraseña.
+    - **Necesidad en MatchPoint**: Es vital para el crecimiento de la comunidad deportiva. Sin un registro confiable, los nuevos deportistas y entrenadores no podrían unirse a la plataforma.
+2.  **Fallo por Usuario Duplicado (Sign Up Failure - Duplicate Username)**
+    - **Descripción**: Asegura que el sistema lance una excepción si se intenta registrar un nombre de usuario que ya existe.
+    - **Idea/Origen**: `UserCommandServiceImpl.handle(SignUpCommand command)` - Valida el flujo alternativo cuando `userRepository.existsByUsername` es true.
+    - **Necesidad en MatchPoint**: Evita conflictos de identidad y asegura que cada perfil (especialmente el de los entrenadores) sea único y confiable para los alumnos.
+3.  **Inicio de Sesión Exitoso (Sign In Success)**
+    - **Descripción**: Verifica que se genere un token válido cuando las credenciales son correctas.
+    - **Idea/Origen**: `UserCommandServiceImpl.handle(SignInCommand command)` - Valida la integración con `TokenService` y `HashingService`.
+    - **Necesidad en MatchPoint**: Permite que los usuarios accedan a sus herramientas de gestión de horarios, pagos y estadísticas de forma segura.
+4.  **Fallo por Contraseña Inválida (Sign In Failure - Invalid Password)**
+    - **Descripción**: Asegura que el sistema rechace el acceso si la contraseña es incorrecta.
+    - **Idea/Origen**: `UserCommandServiceImpl.handle(SignInCommand command)` - Valida que se lance una excepción si `hashingService.matches` retorna false.
+    - **Necesidad en MatchPoint**: Protege la información sensible de los usuarios, como datos de pagos y registros de entrenamientos.
+
+
+
+### Pruebas de Bookings (Reservas)
+
+El sistema de reservas es el núcleo del valor de MatchPoint. Su correcto funcionamiento garantiza que los deportistas puedan asegurar su espacio de práctica sin errores.
+
+### Casos de Prueba en `BookingCommandServiceImplTest`
+
+1.  **Creación de Reserva Exitosa (Create Booking Success)**
+    - **Descripción**: Verifica que una reserva se guarde correctamente cuando el usuario y la cancha existen.
+    - **Idea/Origen**: `BookingCommandServiceImpl.handle(CreateBookingCommand command)` - Verifica la orquestación entre `UserProfileRepository`, `CourtRepository` y `BookingRepository`.
+    - **Necesidad en MatchPoint**: Es la funcionalidad principal. Garantiza que la "solución integral que simplifica la reserva" funcione como se espera.
+2.  **Fallo por Usuario Inexistente (Create Booking Failure - User Not Found)**
+    - **Descripción**: Asegura que no se puedan crear reservas para usuarios que no están registrados en el sistema.
+    - **Idea/Origen**: `BookingCommandServiceImpl.handle(CreateBookingCommand command)` - Valida el manejo de errores cuando un agregado relacionado no existe.
+    - **Necesidad en MatchPoint**: Mantiene la integridad de los datos y asegura que cada reserva esté vinculada a una persona real responsable.
+3.  **Eliminación de Reserva Exitosa (Delete Booking Success)**
+    - **Descripción**: Verifica que una reserva se pueda eliminar si el ID existe.
+    - **Idea/Origen**: `BookingCommandServiceImpl.handle(DeleteBookingCommand command)` - Valida la lógica de pre-verificación de existencia antes de borrar.
+    - **Necesidad en MatchPoint**: Permite la flexibilidad necesaria para deportistas y administradores de canchas ante cambios de planes o cancelaciones.
+
+
+### Pruebas de Coaches (Entrenadores)
+
+Los entrenadores son un pilar de la plataforma. Su correcta gestión asegura que los deportistas puedan encontrarlos y mejorar su rendimiento.
+
+### Casos de Prueba en `CoachCommandServiceImplTest`
+
+1.  **Creación de Entrenador Exitosa**
+    - **Descripción**: Verifica que un entrenador se guarde correctamente si su nombre no está registrado.
+    - **Idea/Origen**: `CoachCommandServiceImpl.handle(CreateCoachCommand command)` - Valida el flujo básico de creación.
+    - **Necesidad en MatchPoint**: Permite expandir la oferta de servicios profesionales en la plataforma.
+2.  **Fallo por Nombre Duplicado**
+    - **Descripción**: Evita que se registren dos entrenadores con el mismo nombre.
+    - **Idea/Origen**: `CoachCommandServiceImpl.handle(CreateCoachCommand command)` - Valida la restricción de nombre único en el dominio de entrenadores.
+    - **Necesidad en MatchPoint**: Garantiza la unicidad y claridad en la búsqueda de profesionales por parte de los alumnos.
+3.  **Eliminación de Entrenador Exitosa**
+    - **Descripción**: Asegura que un perfil de entrenador pueda ser removido del sistema.
+    - **Idea/Origen**: `CoachCommandServiceImpl.handle(DeleteCoachCommand command)`.
+    - **Necesidad en MatchPoint**: Permite mantener actualizada la lista de profesionales activos.
+
+
+
+### Pruebas de Courts (Canchas)
+
+La información precisa de las canchas es esencial para que la reserva sea efectiva y los deportistas lleguen al lugar correcto.
+
+### Casos de Prueba en `CourtCommandServiceImplTest`
+
+1.  **Creación de Cancha Exitosa**
+    - **Descripción**: Verifica el registro correcto de una nueva cancha deportiva.
+    - **Idea/Origen**: `CourtCommandServiceImpl.handle(CreateCourtCommand command)`.
+    - **Necesidad en MatchPoint**: Es fundamental para aumentar las opciones disponibles de reserva para los usuarios.
+2.  **Fallo por Nombre de Cancha Duplicado**
+    - **Descripción**: Asegura que no existan dos registros para la misma cancha.
+    - **Idea/Origen**: `CourtCommandServiceImpl.handle(CreateCourtCommand command)`.
+    - **Necesidad en MatchPoint**: Evita confusiones logísticas y errores en la gestión de turnos por sede.
+3.  **Eliminación de Cancha Exitosa**
+    - **Descripción**: Permite dar de baja canchas que ya no estén disponibles.
+    - **Idea/Origen**: `CourtCommandServiceImpl.handle(DeleteCourtCommand command)`.
+    - **Necesidad en MatchPoint**: Asegura que el catálogo de canchas sea veraz y actual.
+
+
+
+### Pruebas de Payments (Pagos)
+
+La gestión de pagos es crítica para la viabilidad de la plataforma y la confianza de los proveedores (entrenadores y dueños de canchas).
+
+### Casos de Prueba en `PaymentCommandServiceImplTest`
+
+1.  **Registro de Pago Exitoso**
+    - **Descripción**: Verifica que un pago se vincule correctamente a un usuario existente.
+    - **Idea/Origen**: `PaymentCommandServiceImpl.handle(CreatePaymentCommand command)`.
+    - **Necesidad en MatchPoint**: Asegura que las transacciones financieras sean rastreables y correctas.
+2.  **Fallo por Usuario Inexistente**
+    - **Descripción**: Impide que se procesen pagos vinculados a IDs de usuario no válidos.
+    - **Idea/Origen**: `PaymentCommandServiceImpl.handle(CreatePaymentCommand command)`.
+    - **Necesidad en MatchPoint**: Protege la integridad financiera y evita errores en la conciliación de pagos.
+
+
+### Pruebas de Users (Perfiles de Usuario)
+
+Los perfiles de usuario contienen la información de contacto esencial para la coordinación de partidos y entrenamientos.
+
+### Casos de Prueba en `UserProfileCommandServiceImplTest`
+
+1.  **Creación de Perfil Exitosa**
+    - **Descripción**: Valida el registro de un perfil con un email único.
+    - **Idea/Origen**: `UserProfileCommandServiceImpl.handle(CreateUserProfileCommand command)`.
+    - **Necesidad en MatchPoint**: Permite que deportistas y entrenadores tengan su información centralizada para ser contactados.
+2.  **Fallo por Email Duplicado**
+    - **Descripción**: Asegura que no existan dos perfiles con el mismo correo electrónico.
+    - **Idea/Origen**: `UserProfileCommandServiceImpl.handle(CreateUserProfileCommand command)`.
+    - **Necesidad en MatchPoint**: Evita conflictos de cuenta y asegura una comunicación fluida.
+3.  **Eliminación de Perfil Exitosa**
+    - **Descripción**: Permite a los usuarios ejercer su derecho de eliminar su información personal.
+    - **Idea/Origen**: `UserProfileCommandServiceImpl.handle(DeleteUserProfileCommand command)`.
+    - **Necesidad en MatchPoint**: Cumple con la gestión de privacidad y limpieza de datos.
+
+#### Pruebas de unit test
+
+##### IAM
+![iam-1-unittest](./images/iam-unittest1.png)
+![iam-2-unittest](./images/iam-unittest2.png)
+##### Bookings
+![booking-unittest](./images/bookings-unittest.png)
+##### Coach
+![coach-unittest](./images/coach-unittest.png)
+##### Courts
+![court-unittest](./images/courts-unittest.png)
+##### Payment
+![payment-unittest](./images/payment-unittest.png)
+##### User 
+![user-unittest](./images/user-unittest.png)
+
 ### 6.1.2. Core Integration Tests.
+### Estrategia de Pruebas de Integración - MatchPoint
+
+Este documento describe las pruebas de integración implementadas para asegurar que los componentes del sistema funcionen correctamente en conjunto.
+
+### Definición de Prueba de Integración en MatchPoint
+
+Una **Prueba de Integración** verifica la interacción entre múltiples capas de la aplicación, incluyendo:
+- El contexto de Spring Boot.
+- La capa de persistencia (Base de Datos).
+- La integración entre diferentes Bounded Contexts.
+
+Difieren de las pruebas unitarias en que **no se mockean los repositorios** (usualmente se usa una base de datos en memoria como H2 o Testcontainers) y se carga parte o todo el ecosistema de Spring.
+
+### Tecnologías Utilizadas
+
+- **Spring Boot Test**: Para levantar el contexto de la aplicación.
+- **H2 Database**: Base de datos en memoria para pruebas de persistencia (si aplica).
+- **JUnit 5**: Framework de ejecución.
+
+### Pruebas de Contexto y Carga
+
+### Casos de Prueba en `MatchpointApplicationTests`
+
+1.  **Carga del Contexto (Context Loads)**
+    - **Descripción**: Verifica que la aplicación Spring Boot pueda iniciar correctamente sin errores de configuración de beans o dependencias circulares.
+    - **Idea/Origen**: Estándar de Spring Boot para validar la salud de la configuración.
+    - **Necesidad en MatchPoint**: Asegura que cualquier cambio en la configuración (inyectar nuevos servicios, cambiar perfiles de base de datos) no rompa el inicio de la plataforma.
+
+---
+
+### Pruebas de Flujo de Negocio (End-to-End)
+
+Estas pruebas validan el recorrido completo de una petición desde el API hasta la base de datos persistente.
+
+### Casos de Prueba en `BookingIntegrationTest`
+
+1.  **Creación de Reserva vía API**
+    - **Descripción**: Realiza una petición POST al endpoint de reservas y verifica que los datos se persistan correctamente en la base de datos.
+    - **Arquitectura de la Prueba**: 
+        - **MockMvc**: Simula las peticiones HTTP al controlador.
+        - **H2 Database**: Proporciona un entorno de persistencia real pero volátil para la prueba.
+        - **Transactional**: Asegura que cada prueba sea independiente y se limpie la base de datos al finalizar.
+    - [x] **Idea/Origen**: `BookingsController.createBooking(CreateBookingResource resource)` - Valida la integración de validaciones, transformadores, servicios y repositorios.
+    - [x] **Necesidad en MatchPoint**: Es el flujo más crítico del sistema. Un test unitario no es suficiente para asegurar que los mapeos de base de datos y los controladores REST estén correctamente configurados.
+
+### Casos de Prueba en `CoachBookingIntegrationTest`
+
+1.  **Validación de Reservas por Entrenador**
+    - **Descripción**: Verifica que el sistema permita asignar un entrenador a una reserva y recuperarla mediante un filtro específico.
+    - **Arquitectura de la Prueba**: 
+        - **Escenario Completo**: Se crean las entidades base (Usuario, Cancha, Entrenador) y se vinculan mediante el API.
+        - **Verificación de Respuesta**: Asegura que el JSON retornado contenga los IDs correctos de usuario y cancha.
+    - **Idea/Origen**: `BookingsController.getBookingsByCoachId(Long coachId)` - Valida la nueva relación entre los contextos de `Bookings` y `Coaches`.
+    - **Necesidad en MatchPoint**: Permite cumplir con el requerimiento de "gestionar visibilidad y estadísticas" para los entrenadores, asegurando que solo vean sus propias reservas asignadas.
+
+### Pruebas de Integration test
+
+#### Pruebas de Bookings
+![bookings-integrationtest](./images/booking-integrationtest.png)
+#### Pruebas de Coach Bookings
+![coach-bookings-integrationtest](./images/coachbooking-integrationtest.png)
+
 ### 6.1.3. Core Behavior-Driven Development
+# Documentación de Pruebas BDD (Behavior-Driven Development)
+
+Este documento detalla la estrategia de pruebas orientadas al comportamiento implementada en MatchPoint utilizando **Cucumber** y la sintaxis **Gherkin**.
+
+#### ¿Qué es BDD en este proyecto?
+
+En MatchPoint, BDD se utiliza para cerrar la brecha entre los requerimientos de negocio y el código técnico. Cada "Característica" (`.feature`) describe una funcionalidad desde el punto de vista del usuario (Deportista o Entrenador).
+
+#### Herramientas utilizadas:
+- **Gherkin**: Lenguaje natural para definir escenarios (Dado/Cuando/Entonces).
+- **Cucumber**: Framework para ejecutar escenarios Gherkin en Java.
+- **JUnit 5**: Motor de ejecución de las pruebas.
+
+#### Escenarios.
+##### Escenario 1: 
+```
+language: en
+
+Feature: Gestión de Reservas
+  Como usuario deportista
+  Quiero realizar una reserva de cancha
+  Para asegurar mi espacio de práctica deportiva
+
+  Scenario: Realizar una reserva exitosa
+    Given que existe un usuario registrado con email "deportista@test.com"
+    And existe una cancha deportiva llamada "Cancha Central"
+    When el usuario solicita una reserva para mañana de 10:00 a 12:00
+    Then la respuesta del sistema debe indicar que la reserva fue creada
+    And la reserva debe estar guardada en la base de datos
+```
+
+##### Escenario 2: 
+```
+language: en
+
+Feature: Gestión de Sesiones de Entrenamiento
+  Como entrenador independiente
+  Quiero visualizar las reservas que tengo asignadas
+  Para organizar mi agenda de clases
+
+  Scenario: Entrenador consulta sus reservas asignadas
+    Given existe un entrenador llamado "Coach Pro" con especialidad "Tenis"
+    And el entrenador tiene 2 reservas asignadas en el sistema
+    When el entrenador consulta su lista de reservas
+    Then el sistema debe retornar exactamente 2 reservas
+    And todas las reservas deben pertenecer al entrenador "Coach Pro"
+```
+#### Ejecución de Pruebas.
+mvn test -Dtest=CucumberTestRunner
+![cucumber-test-runner](./images/bdd-test.png)
 ### 6.1.4. Core System Tests.
 ## 6.2. Static testing & Verification
 ### 6.2.1. Static Code Analysis
