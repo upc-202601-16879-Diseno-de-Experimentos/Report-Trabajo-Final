@@ -1707,6 +1707,160 @@ En esta sección se presentan los Sprint Backlogs derivados del Product Backlog 
 ### 5.2.2. Implemented Landing Page Evidence
 ### 5.2.3. Implemented Frontend-Web Application Evidence
 ### 5.2.4. Acuerdo de Servicio - SaaS
+
+El presente documento establece el acuerdo de nivel de servicio (SLA - Service Level Agreement) entre MatchPoint y los usuarios de la plataforma PlayMatch. Este acuerdo define los compromisos de disponibilidad, soporte, seguridad y mantenimiento del servicio tecnológico proporcionado.
+
+#### 5.2.4.1. Descripción del Servicio
+
+PlayMatch es una plataforma SaaS (Software as a Service) desarrollada por MatchPoint que permite a los usuarios:
+
+- Buscar y reservar canchas deportivas en tiempo real
+- Contratar servicios de entrenador
+- Gestionar pagos de manera segura
+- Organizar partidos y torneos
+- Dejar valoraciones y reseñas
+
+El servicio está disponible a través de:
+- **Frontend Web:** https://matchpoint-frontend-hkfqnuy5y-stephanos-projects-199e78ac.vercel.app
+- **Backend API:** https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
+
+#### 5.2.4.2. Disponibilidad del Servicio
+
+| Métrica | Compromiso | Descripción |
+|---------|------------|-------------|
+| Uptime Mensual | 99.5% | Porcentaje de tiempo que el servicio está operativo |
+| Tiempo de Respuesta | < 3 segundos | Tiempo promedio de carga de páginas |
+| Disponibilidad API | 99.5% | Disponibilidad de los endpoints REST |
+| Mantenimiento Programado | < 4 horas/mes | Tiempo máximo de mantenimiento planificado |
+
+**Matriz de Disponibilidad:**
+
+| Nivel de Servicio | Descripción | Disponibilidad |
+|-------------------|-------------|-----------------|
+| Crítico | Generación de reservas y pagos | 99.9% |
+| Alto | Búsqueda de canchas y perfiles | 99.5% |
+| Medio | Valoraciones y comentarios | 99.0% |
+| Bajo | Estadísticas y reportes | 98.5% |
+
+#### 5.2.4.3. Compromisos de Soporte Técnico
+
+| Canal de Soporte | Disponibilidad | Tiempo de Respuesta |
+|-----------------|----------------|-------------------|
+| Email support@matchpoint.com | 24/7 | 24-48 horas |
+|Centro de ayuda en línea | 24/7 | Inmediato |
+| Chat en aplicación | 8am - 10pm (L-S) | < 15 minutos |
+
+**Niveles de Severidad:**
+
+| Severidad | Descripción | Tiempo de Resolución |
+|----------|------------|------------------|
+| Crítica | Sistema no disponible, pérdida de datos | < 4 horas |
+| Alta | Funcionalidad principal afectada | < 24 horas |
+| Media | Funcionalidad secundaria afectada | < 72 horas |
+| Baja | Mejoras cosmeticías | < 7 días |
+
+#### 5.2.4.4. Mantenimiento y Actualizaciones
+
+**Mantenimiento Programado:**
+
+- Las actualizaciones de seguridad se aplicarán dentro de las 72 horas posteriores a su liberación
+- El mantenimiento planificado se realizará en horarios de baja actividad (madrugada, 2am-6am)
+- Los usuarios serán notificados con 48 horas de anticipación
+
+**Actualizaciones del Sistema:**
+
+- Actualizaciones menores (patches): Mensuales
+- Actualizaciones mayores: Trimestrales
+- Nuevas funcionalidades: Según backlog del producto
+
+#### 5.2.4.5. Seguridad y Protección de Datos
+
+**Medidas de Seguridad:**
+
+- Cifrado de datos en tránsito mediante TLS 1.3
+- Almacenamiento cifrado de contraseñas con bcrypt
+- Autenticación mediante JWT con rotación de tokens
+- Protección contra CSRF y XSS
+- Copias de seguridad diarias automatizadas
+
+**Cumplimiento:**
+
+- Los datos de usuarios son tratados según la legislación peruana de protección de datos personales
+- Cumplimiento con OWASP Top 10 para seguridad web
+- Políticas de retención de datos: 2 años inactivos
+
+#### 5.2.4.6. Responsabilidades del Proveedor (MatchPoint)
+
+MatchPoint se compromete a:
+
+- Mantener la disponibilidad del servicio según los niveles establecidos
+- Proteger la confidencialidad y seguridad de los datos de los usuarios
+- Proveer soporte técnico según los tiempos comprometidos
+- Comunicar cualquier interrupción del servicio con anticipación
+- Mantener actualizar la documentación de la API
+
+#### 5.2.4.7. Responsabilidades del Usuario
+
+Los usuarios se comprometen a:
+
+- Mantener sus credenciales de acceso de forma segura
+- Reportar cualquier anomalía o incidente de seguridad
+- No intentar acceder a sistemas terceros sin autorización
+- Cumplir con los términos de uso de la plataforma
+- Realizar pagos de las reservaciones a tiempo
+
+#### 5.2.4.8. Limitaciones y Exclusiones
+
+**El SLA no cubre:**
+
+- Problemas de conectividad del usuario final
+- Fallos de servicios de terceros ajenos a Render/Vercel
+- Fuerza mayor (desastres naturales, cortes de energía)
+- Mantenimiento de emergencia no planificado
+- Uso indebido o violación de Términos de Uso
+
+**Límites de Uso:**
+
+- Máximo de 1000 solicitudes API por minuto por usuario
+- Máximo de 100 reservas activas por usuário
+- Almacenamiento de 50MB por perfil de usuario
+
+#### 5.2.4.9. Terminación del Servicio
+
+**Por parte del usuario:**
+
+- El usuário puede cerrar su cuenta en cualquier momento
+- Los datos serán eliminados dentro de 30 días de la solicitud
+
+**Por parte de MatchPoint:**
+
+- Notificación con 30 días de anticipación
+- Reembolso proporcional en caso de suscripción anual
+
+**En caso de Terminación:**
+
+- Exportación de datos disponible por 30 días
+- Eliminación segura de datos después de ese período
+
+#### 5.2.4.10. Métricas de Monitoreo
+
+MatchPoint utiliza herramientas de monitoreo para garantizar los niveles de servicio:
+
+- **Uptime Monitoring:** Pingdom, UptimeRobot
+- **Performance:** Vercel Analytics, Render Metrics
+- **Logs:** Stackdriver, CloudWatch
+- **Alerting:** PagerDuty, OpsGenie
+
+**Dashboard público de disponibilidad:**
+
+Los usuarios pueden consultar el estado del servicio en: status.matchpoint.com
+
+---
+
+**Versión del SLA:** 1.0  
+**Fecha de vigencia:** Mayo 2026  
+**Próxima revisión:** Julio 2026
+
 ### 5.2.5. Implemented Native-Mobile Application Evidence
 ### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
 ### 5.2.7. RESTful API documentation
