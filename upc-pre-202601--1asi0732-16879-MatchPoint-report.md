@@ -2018,17 +2018,17 @@ jobs:
 |-------|---------|-------------|
 | Build | Push a cualquier branch | Compilación Maven |
 | Test | Automatic | Unit + Integration tests |
-| Staging | Merge a develop | Despliegue automático a Render |
-| Production | Release tag + approval | Despliegue a producción |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
 
 ##### Frontend (Vue) - Stages
 
 | Stage | Trigger | Descripción |
 |-------|---------|-------------|
 | Build | Push a cualquier branch | Build con environment de dev |
-| Preview | PR abierto | URL de preview automática |
-| Staging | Merge a develop | Despliegue automático a Vercel |
-| Production | Release tag | Despliegue a producción |
+| Preview | PR abierta | URL de preview automática |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
 
 ## 7.3. Continuous deployment
 ### 7.3.1. Tools and Practices.
