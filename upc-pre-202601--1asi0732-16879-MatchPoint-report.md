@@ -1912,6 +1912,14 @@ Backend/src/test/
     └── application-test.properties                     # Config para PostgreSQL en CI
 ```
 
+**Resultados de Tests - Backend:**
+
+![backend-ci-workflow](./images/backend-ci-workflow.png)
+> Backend CI - Workflow en GitHub Actions
+
+![backend-ci-test-results](./images/backend-ci-test-results.png)
+> Backend CI - Resultados de tests
+
 **Tipos de Tests:**
 
 | Tipo | Anotación | BD | Uso |
