@@ -1593,7 +1593,117 @@ Para la puesta en línea de nuestro proyecto, utilizamos Netlify, una plataforma
 - **Despliegues automáticos continuos**: Cada vez que se fusiona una rama o se realiza un nuevo commit en la rama principal, Netlify actualiza el sitio automáticamente, asegurando que siempre esté reflejando la versión más reciente del código.
 
 ## 5.2. Product Implementation & Deployment.
+
 ### 5.2.1. Sprint Backlogs.
+
+En esta sección se presentan los Sprint Backlogs derivados del Product Backlog definido en la sección 3.3. Cada sprint agrupa las user stories priorizadas según la capacidad del equipo y los objetivos de cada entrega. La duración estándar de cada sprint es de **2 semanas**.
+
+---
+
+#### Sprint 1
+
+**Duración:** 02 de abril de 2026 – 08 de mayo de 2026 (6 semanas para TP1)  
+**Objetivo:** Completar la infraestructura base del proyecto, incluyendo el sistema de autenticación (registro e inicio de sesión), la base del backend con arquitectura DDD, y el frontend inicial con la landing page funcional.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB01 | US01 | Registrar cuenta de jugador | 5 | Sebastian |
+| SB02 | US02 | Iniciar sesión como jugador | 3 | Sebastian |
+| SB03 | US09 | Registrar cuenta de entrenador | 5 | Miguel |
+| SB04 | US10 | Actualizar perfil profesional | 3 | Miguel |
+| SB05 | TS01 | Implementar autenticación basada en JWT | 5 | Stephano |
+| SB06 | TS02 | Validación de JWT en endpoints protegidos | 3 | Stephano |
+| SB07 | TS03 | Manejo de expiración de tokens JWT | 3 | Stephano |
+| SB08 | TS04 | Almacenamiento seguro de tokens | 2 | Stephano |
+| SB09 | Landing Page | Implementación de landing page | 8 | Andy |
+| SB10 | Frontend Base | Configuración de proyecto frontend (Vue.js) | 5 | Andy |
+| SB11 | Backend Base | Configuración de proyecto backend (Spring Boot + DDD) | 8 | Ruben |
+| SB12 | DB Setup | Configuración de base de datos y modelos de dominio | 5 | Ruben |
+
+**Total Story Points Sprint 1:** 55
+
+**Definition of Done:**
+- [ ] Sistema de registro e inicio de sesión funcionando con JWT
+- [ ] Landing page responsive y desplegada en Netlify
+- [ ] Backend con arquitectura DDD levantado y accesible via Swagger
+- [ ] Repositorios configurados con GitFlow
+- [ ] Código documentado y con convenciones aplicadas
+
+---
+
+#### Sprint 2
+
+**Duración:** 09 de mayo de 2026 – 01 de junio de 2026 (3 semanas para TB2)  
+**Objetivo:** Implementar la funcionalidad core de búsqueda y reserva de canchas, incluyendo filtros, gestión de horarios y panel de administración.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB13 | US03 | Buscar canchas por ubicación | 5 | Sebastian |
+| SB14 | US04 | Filtrar canchas por deporte | 3 | Sebastian |
+| SB15 | US05 | Reservar cancha en línea | 8 | Miguel |
+| SB16 | US06 | Pagar reserva con tarjeta | 5 | Miguel |
+| SB17 | TS05 | Implementar API de búsqueda de canchas | 5 | Stephano |
+| SB18 | TS06 | Sistema de reservas en tiempo real | 8 | Stephano |
+| SB19 | TS07 | Integración con pasarela de pagos | 5 | Ruben |
+| SB20 | TS08 | Generación de comprobantes digitales | 5 | Ruben |
+| SB21 | Frontend Búsqueda | Vista de búsqueda y listado de canchas | 8 | Andy |
+| SB22 | Frontend Reserva | Flujo de reserva de cancha | 8 | Andy |
+
+**Total Story Points Sprint 2:** 60
+
+**Definition of Done:**
+- [ ] Búsqueda y filtrado de canchas funcionando
+- [ ] Proceso de reserva completo con confirmación
+- [ ] Pagos integrados y generando comprobantes
+- [ ] Frontend responsive con todas las vistas implementadas
+- [ ] Tests unitarios de los servicios core ejecutándose
+
+---
+
+#### Sprint 3
+
+**Duración:** 02 de junio de 2026 – 15 de julio de 2026 (6 semanas para TF1)  
+**Objetivo:** Completar la gestión de entrenadores, sistema de valoraciones, organización de partidos/torneos y funcionalidades restantes del producto.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB23 | US07 | Valorar cancha reservada | 3 | Sebastian |
+| SB24 | US15 | Recibir reseñas de jugadores | 3 | Sebastian |
+| SB25 | US11 | Publicar disponibilidad de horarios | 5 | Miguel |
+| SB26 | US12 | Aceptar o rechazar reservas | 5 | Miguel |
+| SB27 | US13 | Gestionar pagos recibidos | 5 | Stephano |
+| SB28 | US14 | Ver estadísticas de rendimiento | 3 | Stephano |
+| SB29 | US08 | Crear partido con amigos | 5 | Ruben |
+| SB30 | US16 | Organizar torneos comunitarios | 8 | Ruben |
+| SB31 | TS09 | API de gestión de entrenadores | 5 | Andy |
+| SB32 | TS10 | Panel de administración de agenda | 5 | Andy |
+| SB33 | TS11 | Notificaciones de reserva a entrenadores | 5 | Todos |
+| SB34 | TS12 | Gestión de pagos para entrenadores | 3 | Todos |
+| SB35 | TS13 | Sistema de valoraciones y reseñas | 5 | Todos |
+| SB36 | TS14 | Moderación de comentarios | 3 | Todos |
+| SB37 | TS15 | Organización de torneos | 8 | Todos |
+| SB38 | TS16 | Estadísticas de participación y rendimiento | 5 | Todos |
+
+**Total Story Points Sprint 3:** 76
+
+**Definition of Done:**
+- [ ] Gestión completa de entrenadores con agendas
+- [ ] Sistema de valoraciones y reseñas funcionando
+- [ ] Creación de partidos y torneos operativos
+- [ ] Dashboard de estadísticas para entrenadores
+- [ ] Notificaciones push/email implementadas
+- [ ] Tests de integración y BDD completados
+- [ ] Producto desplegado y funcionando en producción
+
+---
+
+#### Resumen de Sprints
+
+| Sprint | Duración | Story Points | Objetivo Principal |
+|--------|----------|-------------|-------------------|
+| Sprint 1 | 02/04/26 – 08/05/26 | 55 | Infraestructura base y autenticación |
+| Sprint 2 | 09/05/26 – 01/06/26 | 60 | Búsqueda y reserva de canchas |
+| Sprint 3 | 02/06/26 – 15/07/26 | 76 | Gestión de entrenadores, reseñas y torneos |
 ### 5.2.2. Implemented Landing Page Evidence
 ### 5.2.3. Implemented Frontend-Web Application Evidence
 ### 5.2.4. Acuerdo de Servicio - SaaS
