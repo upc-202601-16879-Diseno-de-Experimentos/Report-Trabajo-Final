@@ -21,7 +21,7 @@
 
 U20241A314 - Sebastian Ernesto Gutarra Velapatiño 
 
-xxxxxxxx - Miguel Angel Hallasi Saravia 
+U202312391 - Miguel Angel Hallasi Saravia 
 
 xxxxxxxx - Andy Alejandro Mio Mejia  
 
@@ -305,7 +305,7 @@ De esta manera, PlayMatch se convierte en un ecosistema que integra oferta y dem
 | Integrantes | Descripción | Conocimientos |
 | :--- | :--- | :--- |
 | <img src="images/" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u202022211 |  |  |
-| <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202022211 |  |  |
+| <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202312391 |  |  |
 | <img src="images/" alt="Integrante3" width="100" height="120"><br>**Andy Alejandro Mio Mejia**<br>u202022211 |  |  |
 | <img src="images/" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202022211 |  |  |
 | <img src="images/" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 |  |  |
