@@ -2411,15 +2411,551 @@ mvn test -Dtest=CucumberTestRunner
 # Capítulo VII: DevOps Practices
 ## 7.1. Continuous Integration
 ### 7.1.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CI | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | GitHub Actions | Soporte nativo para Maven/Gradle, JUnit |
+| Frontend (Vue) | GitHub Actions | Compatible con npm/vite |
+
+#### Prácticas de Integración Continua
+
+**Políticas de Merge:**
+- Todos los commits deben pasar build y tests antes de merge
+- Branch protection en `main`/`develop`
+- Revisión de código obligatoria (mínimo 1 approval)
+
 ### 7.1.2. Build & Test Suite Pipeline Components.
+
+#### 7.1.2.1 Backend (Java Spring Boot + JUnit)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias | JUnit 5 + Mockito |
+| Integration Tests | Pruebas de integración | Spring Boot Test + `@Transactional` |
+| Build | Compilación y empaquetado | Maven |
+
+**Workflow - Backend CI:**
+
+```yaml
+# .github/workflows/maven.yml
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      database:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: "spring"
+          POSTGRES_USER: "root"
+          POSTGRES_PASSWORD: "password"
+
+    env:
+      SPRING_PROFILES_ACTIVE: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run tests
+        run: mvn test
+```
+
+**Estructura de Tests - JUnit:**
+
+```
+Backend/src/test/
+├── java/com/matchpoint/
+│   ├── bookings/
+│   │   ├── application/internal/commandservices/
+│   │   │   └── BookingCommandServiceImplTest.java      # Unit tests (Mockito)
+│   │   └── interfaces/rest/
+│   │       ├── BookingIntegrationTest.java              # Integration tests (BD real)
+│   │       └── CoachBookingIntegrationTest.java        # Integration tests (BD real)
+│   ├── users/
+│   │   └── application/internal/commandservices/
+│   │       └── UserProfileCommandServiceImplTest.java # Unit tests (Mockito)
+│   ├── payments/
+│   ├── coaches/
+│   └── courts/
+└── resources/
+    └── application-test.properties                     # Config para PostgreSQL en CI
+```
+
+**Resultados de Tests - Backend:**
+
+![backend-ci-workflow](./images/backend-ci-workflow.png)
+> Backend CI - Workflow en GitHub Actions
+
+![backend-ci-test-results](./images/backend-ci-test-results.png)
+> Backend CI - Resultados de tests
+
+**Tipos de Tests:**
+
+| Tipo | Anotación | BD | Uso |
+|------|-----------|-----|-----|
+| Unit Test | `@ExtendWith(MockitoExtension.class)` | Mock | Validar lógica de negocio |
+| Integration Test | `@SpringBootTest` + `@Transactional` | PostgreSQL real | Validar queries y persistencia |
+
+#### 7.1.2.2 Frontend (Vue + Vite + Vitest)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias de composables y componentes | Vitest + Vue Test Utils |
+| Component Tests | Pruebas de comportamiento de componentes | Vue Test Utils |
+| Build | Compilación para producción | Vite |
+
+**Workflow - Frontend CI:**
+
+```yaml
+# .github/workflows/frontend-ci.yml
+name: Frontend CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:unit
+```
+
+**Resultados de Tests - Frontend:**
+
+![frontend-ci-workflow](./images/frontend-ci-workflow.png)
+> Frontend CI - Workflow en GitHub Actions
+
+![frontend-ci-test-results](./images/frontend-ci-test-results.png)
+> Frontend CI - Resultados de tests
+
+**package.json - Scripts:**
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:unit": "vitest run"
+  }
+}
+```
+
+**Tipos de Tests:**
+
+| Tipo | Herramienta | Descripción |
+|------|-------------|-------------|
+| Unit Test | Vitest | Validar lógica de composables y helpers |
+| Component Test | Vue Test Utils + happy-dom | Validar renderizado e interacciones de componentes |
+
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CD | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | Render | Soporte para aplicaciones Java |
+| Frontend (Vue) | Vercel | Despliegue automático con CDN global |
+
+#### Estrategias de Despliegue
+
+#### Environments
+
+![envs](./images/diagram-1778455140955.png)
+
 ### 7.2.2. Stages Deployment Pipeline Components.
+
+#### Diagrama de Stages - CD Pipeline
+
+![stages](./images/diagram-1778455063397.png)
+
+##### Backend (Java Spring) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Compilación Maven |
+| Test | Automatic | Unit + Integration tests |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
+
+##### Frontend (Vue) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Build con environment de dev |
+| Preview | PR abierta | URL de preview automática |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
+
 ## 7.3. Continuous deployment
 ### 7.3.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CD | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | Render + GitHub Actions | Despliegue automático desde main a producción |
+| Frontend Web (Vue) | Vercel + GitHub Actions | Despliegue automático con zero-downtime |
+| App Móvil (Android/Kotlin) | Google Play Console + GitHub Actions | Despliegue automático a Play Store (canales gradualmente) |
+
+#### Estrategias de Despliegue Automático a Producción
+
+**Políticas de Despliegue Continuo:**
+
+- Todos los commits a `main` se despliegan automáticamente a producción sin intervención manual
+- Rollbacks automáticos si los health checks fallan
+- Canales graduals para app móvil: 10% → 25% → 50% → 100%
+- Monitoreo en tiempo real post-despliegue
+- Alertas inmediatas si se detectan errores críticos
+
+#### Diferencia CD (Delivery) vs CD (Deployment)
+
+| Aspecto | Continuous Delivery | Continuous Deployment |
+|--------|-------------------|----------------------|
+| **Aprobación** | Manual antes de producción | Automática a producción |
+| **Riesgo** | Menor (requiere validación) | Mayor (requiere monitoreo robusto) |
+| **Frecuencia** | Cuando se aprueba | Cada commit a main |
+| **PlayMatch** | Usado en Staging | Usado en Production |
+
 ### 7.3.2. Production Deployment Pipeline Components.
 
+#### Diagrama General - CD (Deployment) Pipeline
 
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONTINUOUS DEPLOYMENT FLOW                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Developer Push to main                                          │
+│         ↓                                                         │
+│  GitHub Actions Trigger                                          │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  1. BACKEND (Java Spring)                                │   │
+│  │     - Build & Test (Maven)                              │   │
+│  │     - Deploy to Render (Production)                     │   │
+│  │     - Run smoke tests                                   │   │
+│  │     - Alert on failure                                  │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  2. FRONTEND WEB (Vue)                                   │   │
+│  │     - Build (Vite) with PROD environment               │   │
+│  │     - Deploy to Vercel (Production)                     │   │
+│  │     - Invalidate CDN cache                              │   │
+│  │     - Run E2E tests                                     │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  3. MOBILE APP (Android/Kotlin)                          │   │
+│  │     - Build signed APK/AAB (Gradle)                     │   │
+│  │     - Deploy to Google Play Console                      │   │
+│  │     - Gradual rollout (10% initial)                     │   │
+│  │     - Monitor crash rates & ANRs                        │   │
+│  │     - Auto-expand % if stable                           │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  Health Checks & Monitoring                                      │
+│         ↓                                                         │
+│  Deployment Complete / Rollback if Failed                        │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### Backend (Java Spring) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Maven | `mvn clean package -DskipTests` |
+| **Deploy** | Render | Push a contenedor; Render redeploy automático |
+| **Database** | PostgreSQL | Migraciones automáticas (Flyway) |
+| **Health Check** | Spring Boot Actuator | GET `/actuator/health` (timeout 30s) |
+| **Monitoring** | New Relic / Datadog | Monitoreo de performance y errores |
+| **Rollback** | Render | Automático si health check falla |
+
+**Workflow - Backend Production Deployment:**
+
+```yaml
+# .github/workflows/backend-deploy-prod.yml
+name: Backend Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Deploy to Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_PRODUCTION_DEPLOY_HOOK }}
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK"
+
+      - name: Health Check
+        run: |
+          for i in {1..30}; do
+            if curl -f https://api.playmatch.com/actuator/health; then
+              echo " API is healthy"
+              exit 0
+            fi
+            echo " Waiting for API... ($i/30)"
+            sleep 2
+          done
+          echo " Health check failed"
+          exit 1
+
+      - name: Notify Slack
+        if: always()
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "Backend Production Deployment: ${{ job.status }}"
+            }
+```
+
+#### Frontend Web (Vue) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Vite | `npm run build` (producción optimizada) |
+| **Deploy** | Vercel | Detecta cambios en git; deploya automático |
+| **CDN** | Vercel Edge Network | Distribuye a nivel global |
+| **SSL** | Vercel Managed SSL | Certificado automático |
+| **Monitoring** | Vercel Analytics | Métricas de performance |
+| **E2E Tests** | Playwright | Valida flujos críticos post-deploy |
+
+**Workflow - Frontend Production Deployment:**
+
+```yaml
+# .github/workflows/frontend-deploy-prod.yml
+name: Frontend Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:unit
+
+      - name: Build for production
+        env:
+          VITE_API_URL: https://api.playmatch.com
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: vercel/action@master
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          production: true
+
+      - name: E2E Tests (Production)
+        run: npm run test:e2e:prod
+```
+
+#### Mobile App (Android/Kotlin) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Gradle | `./gradlew bundleRelease` (genera AAB) |
+| **Sign** | Keystore | Firma con clave de producción |
+| **Deploy** | Google Play Console | Carga AAB a Play Store |
+| **Rollout** | Play Console | Inicia con 10%, escala gradualmente |
+| **Monitoring** | Play Console Dashboard | Crash rates, ANRs, reviews |
+| **Rollback** | Play Console | Manual si se detectan fallos críticos |
+
+**Workflow - Mobile App Production Deployment:**
+
+```yaml
+# .github/workflows/mobile-deploy-prod.yml
+name: Mobile App Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/mobile-deploy-prod.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Build Release Bundle
+        run: |
+          cd mobile
+          ./gradlew bundleRelease
+
+      - name: Sign Bundle
+        env:
+          KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_FILE" | base64 -d > keystore.jks
+          # Gradle ya gestiona la firma automáticamente con gradle.properties
+
+      - name: Upload to Google Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_CONSOLE_SERVICE_ACCOUNT }}
+          packageName: com.matchpoint.app
+          releaseFiles: 'mobile/app/build/outputs/bundle/release/*.aab'
+          track: production
+          inAppUpdatePriority: 5
+          rolloutPercentage: 10
+
+      - name: Monitor Rollout
+        run: |
+          echo " Initial rollout: 10%"
+          echo " Monitoring crash rates for 24 hours..."
+          echo " If stable, gradual expansion: 10% → 25% → 50% → 100%"
+
+      - name: Notify Team
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": " Mobile App v${{ github.ref }} deployed to Play Store (10% rollout)"
+            }
+```
+
+#### Monitoreo Post-Deployment
+
+| Servicio | Métrica Crítica | Umbral de Alerta |
+|----------|-----------------|------------------|
+| **Backend** | Latencia API | > 500ms |
+| **Backend** | Error Rate | > 1% |
+| **Backend** | CPU / Memoria | > 80% |
+| **Frontend** | Largest Contentful Paint (LCP) | > 2.5s |
+| **Frontend** | First Input Delay (FID) | > 100ms |
+| **Mobile** | Crash Rate | > 0.1% |
+| **Mobile** | ANR Rate | > 0.05% |
+| **Mobile** | Rating (Play Store) | < 3.5 estrellas |
+
+#### Estrategia de Rollback
+
+**Trigger de Rollback Automático:**
+
+```
+IF health_check_failed OR error_rate > 5% OR crash_rate > 1%
+  THEN rollback_to_previous_version
+  SEND alert_to_oncall_engineer
+END
+```
+
+**Rollback Manual:**
+
+- Backend: Render permite revert a versión anterior en 1 click
+- Frontend: Vercel revert a último deployment funcional
+- Mobile: Google Play manual rollback (limita a 2 versiones anteriores)
 
 ## Conclusiones
 ### Conclusiones y recomendaciones.
