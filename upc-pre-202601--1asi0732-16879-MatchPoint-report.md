@@ -1956,6 +1956,33 @@ A continuación se presentan las evidencias de la implementación de la aplicaci
 <img src="images/ss/mb_perfil.png" alt="Perfil" width="400">
 
 ### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
+
+A continuación se presentan las evidencias de la implementación del backend, mostrando las bases de datos y tablas creadas.
+
+#### Bookings
+
+<img src="images/ss/bk_bookings.png" alt="Bookings" width="800">
+
+#### Coach Services and Reviews
+
+<img src="images/ss/bk_coachservicesandreview.png" alt="Coach Services and Reviews" width="800">
+
+#### Coaches
+
+<img src="images/ss/bk_coaches.png" alt="Coaches" width="800">
+
+#### Client Relations
+
+<img src="images/ss/bk_cra.png" alt="Client Relations" width="800">
+
+#### Payments and User Profiles
+
+<img src="images/ss/bk_paymentanduserprofile.png" alt="Payments and User Profiles" width="800">
+
+#### Users
+
+<img src="images/ss/bk_user.png" alt="Users" width="800">
+
 ### 5.2.7. RESTful API documentation
 
 #### Bound context
