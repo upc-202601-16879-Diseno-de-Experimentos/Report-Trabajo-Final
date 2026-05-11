@@ -23,7 +23,7 @@ U20241A314 - Sebastian Ernesto Gutarra Velapatiño
 
 U202312391 - Miguel Angel Hallasi Saravia 
 
-xxxxxxxx - Andy Alejandro Mio Mejia  
+U202218531 - Andy Alejandro Mio Mejia  
 
 xxxxxxxx - Stephano Renan Valdivia Quispe
 
@@ -1332,13 +1332,25 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 #### Software Devlopment
 
-1. JetBrains WebStorm: Es un entorno de desarrollo integrado (IDE) enfocado en el desarrollo web. Ofrece herramientas que facilitan la prueba del proyecto en diversos navegadores como Chrome, Microsoft Edge, Safari y Mozilla Firefox. El uso de WebStorm aporta un valor agregado al desarrollo, ya que permite visualizar cómo funciona la aplicación en múltiples plataformas y proporciona soporte avanzado para la edición de código en varios lenguajes compatibles. Ruta de Referencia: https://www.jetbrains.com/es-es/webstorm/.
+**Frontend Web**
 
-2. HTML5: Lenguaje de marcado utilizado para estructurar y presentar contenido en la web. Es una herramienta fundamental en nuestro proyecto, ya que se emplea para construir la base del contenido de la aplicación. Ruta de Referencia: https://www.w3schools.com/html/.
+1. JetBrains WebStorm: Es un entorno de desarrollo integrado (IDE) enfocado en el desarrollo web. Ofrece herramientas que facilitan la prueba del proyecto en diversos navegadores como Chrome, Microsoft Edge, Safari y Mozilla Firefox. El uso de WebStorm aporta un valor agregado al desarrollo, ya que permite visualizar cómo funciona la aplicación en múltiples plataformas y proporciona soporte avanzado para la edición de código en TypeScript y Angular. Ruta de Referencia: https://www.jetbrains.com/es-es/webstorm/.
 
-3. CSS: Conocido como Hojas de Estilo en Cascada (Cascading Style Sheets), este lenguaje trabaja en conjunto con HTML5 para definir el diseño y la presentación visual de la aplicación. Permite personalizar estilos como colores, tipografías y distribución de los elementos. Ruta de Referencia: https://developer.mozilla.org/es/docs/Web/CSS.
+2. Angular: Framework progresivo de código abierto para construir aplicaciones web dinámicas y escalables. Utilizamos Angular como framework principal para desarrollar el frontend web de PlayMatch, proporcionando componentes reutilizables, inyección de dependencias y reactividad con RxJS. Ruta de Referencia: https://angular.io/.
 
-4. JavaScript: Lenguaje de programación orientado a objetos e interpretado en el navegador. Se utilizará principalmente para desarrollar la interfaz dinámica de usuario en nuestro proyecto, facilitando la interactividad dentro de la aplicación. Ruta de Referencia: https://developer.mozilla.org/es/docs/Web/JavaScript.
+3. TypeScript: Lenguaje de programación superconjunto de JavaScript que añade tipado estático y características de programación orientada a objetos. Se utiliza como lenguaje base en Angular para mejorar la calidad del código, detectar errores en tiempo de compilación y facilitar el mantenimiento. Ruta de Referencia: https://www.typescriptlang.org/.
+
+4. Node.js y npm: Entorno de ejecución de JavaScript y gestor de paquetes utilizado para instalar dependencias, compilar y ejecutar scripts de desarrollo. Esencial para el workflow de Angular, testing y build del proyecto web. Ruta de Referencia: https://nodejs.org/.
+
+**Frontend Móvil (Android)**
+
+5. Android Studio: Entorno de desarrollo integrado oficial para construir aplicaciones nativas Android. Proporciona emuladores, depurador, analizador de rendimiento y herramientas de layout para diseñar la interfaz de usuario de la app móvil. Ruta de Referencia: https://developer.android.com/studio.
+
+6. Kotlin: Lenguaje de programación moderno, conciso y seguro que se ejecuta en la máquina virtual de Java (JVM) y es el lenguaje oficial para el desarrollo de Android. Se utiliza para implementar la lógica de negocio y componentes de UI en la aplicación móvil de PlayMatch. Ruta de Referencia: https://kotlinlang.org/.
+
+7. Android SDK: Kit de desarrollo que incluye bibliotecas, emuladores, documentación y herramientas necesarias para compilar, probar y empaquetar aplicaciones Android. Proporciona acceso a APIs nativas del sistema operativo. Ruta de Referencia: https://developer.android.com/studio/releases/platforms.
+
+8. Gradle: Herramienta de automatización de compilación utilizada por Android Studio para gestionar dependencias, configurar builds y ejecutar pruebas en proyectos Android. Ruta de Referencia: https://gradle.org/.
 
 #### Software Deployment
 
@@ -1350,30 +1362,58 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 5.1.2. Source Code Management
 
-El proyecto sigue las convenciones del modelo GitFlow como flujo de trabajo para el control de versiones, utilizando GitHub como plataforma central. Se compartirán los enlaces a los repositorios en GitHub correspondientes a la Landing Page, y este mismo enfoque será aplicado de manera consistente en los demás productos del proyecto.
+El proyecto sigue las convenciones del modelo GitFlow como flujo de trabajo para el control de versiones, utilizando GitHub como plataforma central. Dado que PlayMatch incluye múltiples componentes (landing page, web application, mobile application y backend), se mantienen repositorios separados por componente para mayor modularidad, claridad y facilidad de mantenimiento.
 
-#### Repositorio de GitHub:
+#### Estructura de Repositorios en GitHub:
 
-- URL para acceder a nuestro reporte en GitHub: https://github.com/AplicacionesOpenSource-Grupo1/upc-pre-202520--1asi0729-7369-MatchPoint-report
+Cada componente tiene su propio repositorio independiente con su ciclo de vida de desarrollo:
 
-- URL para acceder nuestro repositorio de Landing Page: https://github.com/AplicacionesOpenSource-Grupo1/upc-pre-202502-si729-7369-PlayMatch-Landing-Page
+- **Reporte**: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final.git
+
+- **Landing Page**: https://github.com
+
+- **Frontend Web (Angular)**: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Frontend.git
+
+- **Frontend Móvil (Android/Kotlin)**: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Mobile.git
+- **Backend**: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Backend.git
+
+Esta estructura permite que cada equipo trabaje de forma independiente, con sus propias ramas de feature, release y hotfix, facilitando la integración continua y evitando conflictos de merge.
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-#### **HTML5**
-El Lenguaje de Marcado de Hipertexto (HTML) constituye la base para estructurar el contenido en páginas web. Por convención, el archivo principal de un sitio suele llamarse `index.html`. Algunas buenas prácticas al trabajar con HTML son:
+#### **TypeScript (Frontend Web con Angular)**
 
-- Usar etiquetas en minúsculas para mantener uniformidad y facilitar la lectura.
-- Cerrar correctamente todas las etiquetas, aunque no sea obligatorio en todos los casos, para evitar errores y mejorar la compatibilidad.
-- Incluir comentarios breves y claros para documentar el código.
-- Evitar líneas de código demasiado extensas y solo usar espacios en blanco cuando sea necesario para una mejor organización visual.
-- No omitir elementos esenciales como `<title>`, `<html>`, `<body>`, y `<head>`, ya que son fundamentales para la estructura del documento.
-- Agregar el atributo `lang` en la etiqueta `<html>` para definir el idioma del contenido.
-- Especificar atributos como `alt`, `width` y `height` en imágenes, para mejorar la accesibilidad y evitar cargas irregulares.
-- Evitar dejar espacios innecesarios alrededor de símbolos y signos para mejorar la claridad.
-- Incluir siempre la metaetiqueta `<meta name="viewport">` para asegurar una correcta visualización en dispositivos móviles.
+TypeScript es el lenguaje principal para el desarrollo del frontend web. Algunas convenciones clave incluyen:
+
+- Usar tipado fuerte en todas las variables, parámetros de funciones y retornos para detectar errores en tiempo de compilación.
+- Nombres de variables y funciones en camelCase, mientras que clases y interfaces en PascalCase.
+- Usar interfaces para definir contratos de datos y evitar el uso de `any`.
+- Implementar una estructura clara de carpetas: `components/`, `services/`, `models/`, `guards/`, `interceptors/`.
+- Aplicar una indentación de 2 espacios para mantener legibilidad.
+- Usar `const` y `let` en lugar de `var`; evitar variables globales.
+- Documentar métodos públicos con comentarios JSDoc explicando parámetros y retornos.
+- Utilizar RxJS Observables correctamente con operadores como `map`, `filter`, `switchMap` para manejo reactivo de flujos de datos.
+- Validar formularios utilizando validadores reactivos de Angular.
+
+#### **Kotlin (Frontend Móvil Android)**
+
+Kotlin es el lenguaje oficial para desarrollo nativo de Android. Convenciones a seguir:
+
+- Nombres de clases en PascalCase, variables y funciones en camelCase.
+- Usar `val` para variables inmutables por defecto, `var` solo cuando sea necesario.
+- Implementar null-safety usando tipos nullable (`?`) y el operador Elvis (`?:`).
+- Estructura clara: `activities/`, `fragments/`, `viewmodels/`, `repositories/`, `models/`, `ui/`.
+- Usar coroutines para operaciones asincrónicas en lugar de callbacks.
+- Implementar ViewModel y LiveData para gestión de estado y ciclo de vida.
+- Documentar funciones públicas con comentarios KDoc.
+- Utilizar extension functions para reducir boilerplate.
+- Mantener indentación de 4 espacios conforme a convenciones de Java.
+- Seguir Material Design guidelines para UI.
 
 #### **CSS (Cascading Style Sheets)**
+
 CSS permite dar estilo y personalizar el diseño visual de los sitios web. Algunas convenciones importantes a seguir al escribir CSS son:
 
 - Usar una nomenclatura coherente para nombres de clases, identificadores y selectores, facilitando la colaboración y el mantenimiento.
@@ -1385,17 +1425,6 @@ CSS permite dar estilo y personalizar el diseño visual de los sitios web. Algun
 - Optimizar el código evitando duplicidades y combinando reglas similares.
 - Probar estilos en distintos navegadores y dispositivos para verificar su consistencia visual.
 - Validar el código CSS usando herramientas como el validador de W3C para identificar errores.
-
-#### **JavaScript**
-JavaScript se usa para incorporar interactividad y comportamiento dinámico en las páginas web. Para mantener un código eficiente y comprensible, se recomienda lo siguiente:
-
-- Mantener una nomenclatura consistente en variables, funciones y objetos.
-- Aplicar una indentación clara y utilizar espacios en blanco adecuados, por ejemplo, después de palabras clave como `if`, `for` o `function`.
-- Incluir comentarios explicativos que ayuden a entender la lógica de determinadas partes del código.
-- Reducir al mínimo el uso de variables globales, favoreciendo los contextos locales.
-- Implementar mecanismos de manejo de errores como `try-catch` para evitar fallos inesperados en la ejecución.
-- Usar técnicas de optimización como el almacenamiento en caché, minimización y combinación de scripts para mejorar el rendimiento.
-- Realizar pruebas cruzadas en varios navegadores y dispositivos para asegurar la correcta funcionalidad del código.
 
 #### **Gherkin**
 Gherkin es un lenguaje de texto estructurado utilizado para definir pruebas de comportamiento de forma legible por cualquier miembro del equipo. Algunas pautas clave incluyen:
@@ -1412,13 +1441,37 @@ Gherkin es un lenguaje de texto estructurado utilizado para definir pruebas de c
 
 ### **Configuraciones de despliegue del proyecto**
 
-Para la puesta en línea de nuestro proyecto, utilizamos Netlify, una plataforma especializada en el alojamiento web y despliegue continuo de aplicaciones y sitios estáticos. Esta herramienta simplifica enormemente el proceso de publicación y actualización de nuestros desarrollos. Su funcionamiento se basa en los siguientes puntos:
+PlayMatch utiliza diferentes plataformas de despliegue según el componente, asegurando que cada aplicación llegue a sus usuarios de forma eficiente y confiable.
 
-- **Integración con repositorios Git**: Netlify se enlaza fácilmente con plataformas como GitHub, GitLab o Bitbucket. Cada vez que actualizamos el código y lo subimos a nuestro repositorio, Netlify detecta los cambios y comienza automáticamente el proceso de construcción del sitio.
-- **Compilación automatizada del sitio**: Durante el proceso de build, Netlify transforma el código fuente (HTML, CSS, JavaScript) en una versión optimizada del sitio estático. Además, realiza tareas como la compilación de archivos, minificación y optimización de imágenes.
+#### **Landing Page y Frontend Web (Netlify)**
+
+Para la puesta en línea del Landing Page y la aplicación web (Angular), utilizamos Netlify, una plataforma especializada en el alojamiento web y despliegue continuo de aplicaciones modernas. Su funcionamiento se basa en los siguientes puntos:
+
+- **Integración con repositorios Git**: Netlify se enlaza fácilmente con GitHub. Cada vez que actualizamos el código y lo subimos a nuestro repositorio, Netlify detecta los cambios y comienza automáticamente el proceso de construcción del sitio.
+- **Compilación automatizada**: Durante el proceso de build, Netlify ejecuta `ng build` en Angular, transformando el código fuente TypeScript, componentes y estilos en una versión optimizada y compilada.
 - **Despliegue en red CDN**: Una vez que la construcción se completa con éxito, el sitio es desplegado a través de una red global de entrega de contenido (CDN), lo que garantiza tiempos de carga rápidos y disponibilidad en cualquier parte del mundo.
-- **Vistas previas automáticas por rama**: Por cada rama de trabajo activa o pull request, Netlify genera automáticamente una versión previa del sitio. Esto permite revisar los cambios antes de integrarlos al proyecto principal, favoreciendo el trabajo colaborativo y la detección temprana de errores.
-- **Despliegues automáticos continuos**: Cada vez que se fusiona una rama o se realiza un nuevo commit en la rama principal, Netlify actualiza el sitio automáticamente, asegurando que siempre esté reflejando la versión más reciente del código.
+- **Vistas previas automáticas por rama**: Por cada rama de trabajo activa o pull request, Netlify genera automáticamente una versión previa del sitio. Esto permite revisar los cambios antes de integrarlos al proyecto principal.
+- **Despliegues automáticos continuos**: Cada vez que se fusiona una rama o se realiza un nuevo commit en la rama principal, Netlify actualiza el sitio automáticamente.
+
+#### **Aplicación Móvil Android (Google Play Store)**
+
+Para la distribución de la aplicación móvil desarrollada en Kotlin, se implementa el siguiente flujo de despliegue:
+
+- **Compilación y empaquetamiento**: Gradle compila el código Kotlin, ejecuta pruebas unitarias y genera un archivo APK (o AAB) firmado digitalmente con la clave de release.
+- **Google Play Console**: Se utiliza Google Play Console para gestionar todas las fases del lanzamiento y distribución de la aplicación.
+  - **Canales de distribución**: Implementamos canales internos para testing, beta para usuarios experimentados, y production para lanzamiento público.
+  - **Gestión de versiones**: Se administran versionCode y versionName para controlar actualizaciones y rollouts progresivos.
+  - **Monitoreo**: Se monitorean métricas de estabilidad, crashes, ANRs (Application Not Responding) y ratings de usuarios.
+- **Certificación y seguridad**: La aplicación se somete a pruebas automáticas de seguridad de Google Play antes de ser disponible para usuarios.
+- **Rollout gradual**: Las nuevas versiones se lanzan gradualmente (10% → 25% → 50% → 100%) para detectar problemas antes de alcanzar a todos los usuarios.
+- **Actualizaciones automáticas**: Los usuarios reciben actualizaciones automáticas de la aplicación a través de Google Play.
+
+#### **Backend**
+
+El backend (API REST) sigue su propio flujo de despliegue, típicamente en plataformas como:
+- Servidores dedicados o cloud providers (AWS, GCP, Azure)
+- Contenedorización con Docker y orquestación con Kubernetes (opcional)
+- Integración continua con pipelines de CI/CD (GitHub Actions, Jenkins, etc.)
 
 ## 5.2. Product Implementation & Deployment.
 ### 5.2.1. Sprint Backlogs.
