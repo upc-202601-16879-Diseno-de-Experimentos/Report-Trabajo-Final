@@ -1705,7 +1705,53 @@ En esta sección se presentan los Sprint Backlogs derivados del Product Backlog 
 | Sprint 2 | 09/05/26 – 01/06/26 | 60 | Búsqueda y reserva de canchas |
 | Sprint 3 | 02/06/26 – 15/07/26 | 76 | Gestión de entrenadores, reseñas y torneos |
 ### 5.2.2. Implemented Landing Page Evidence
+
 ### 5.2.3. Implemented Frontend-Web Application Evidence
+
+A continuación se presentan las evidencias de la implementación de la aplicación web PlayMatch, mostrando las principales funcionalidades desarrolladas.
+
+####Autenticación
+
+**Login**
+
+<img src="images/ss/login.png" alt="Login" width="800">
+
+**Registro**
+
+<img src="images/ss/registro.png" alt="Registro" width="800">
+
+#### Dashboard
+
+<img src="images/ss/dashboard.png" alt="Dashboard" width="800">
+
+#### Perfil
+
+<img src="images/ss/perfil.png" alt="Perfil" width="800">
+
+#### Servicios
+
+<img src="images/ss/servicios.png" alt="Servicios" width="800">
+
+#### Horario
+
+<img src="images/ss/horario.png" alt="Horario" width="800">
+
+#### Reservas
+
+<img src="images/ss/reservas.png" alt="Reservas" width="800">
+
+#### Clientes
+
+<img src="images/ss/clientes.png" alt="Clientes" width="800">
+
+#### Ingresos
+
+<img src="images/ss/ingresos.png" alt="Ingresos" width="800">
+
+#### Ajustes
+
+<img src="images/ss/ajustes.png" alt="Ajustes" width="800">
+
 ### 5.2.4. Acuerdo de Servicio - SaaS
 
 El presente documento establece el acuerdo de nivel de servicio (SLA - Service Level Agreement) entre MatchPoint y los usuarios de la plataforma PlayMatch. Este acuerdo define los compromisos de disponibilidad, soporte, seguridad y mantenimiento del servicio tecnológico proporcionado.
