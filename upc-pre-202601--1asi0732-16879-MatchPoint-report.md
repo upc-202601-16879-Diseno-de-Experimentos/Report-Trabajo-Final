@@ -468,8 +468,8 @@ En el siguiente cuadro se describe las accionesrealizadas y enunciados de conclu
 
 | **Criterio específico** | **Acciones realizadas** | **Conclusiones** |
 |-------------------------|--------------------------|------------------|
-| **Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software** | | |
-|   **Emite juicios informados considerando el impacto de lassoluciones de ingeniería de software en contextos globales,económicos, ambientales y sociales**| | | 
+| **Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software** |Velasquez Chambi, Ruben Genaro <br>**TP**<br>Se desarrollaron pruebas unitarias y pruebas integrales para validar el correcto funcionamiento de los servicios y endpoints del backend de la aplicación PlayMatch. Asimismo, se realizó la documentación de la API para garantizar claridad, mantenibilidad y facilidad de integración entre los distintos componentes del sistema. Estas actividades contribuyen a reducir errores, asegurar la calidad del software y brindar una experiencia confiable para entrenadores y deportistas que utilizarán la plataforma. |La implementación de pruebas y documentación permitió fortalecer la confiabilidad y mantenibilidad del sistema, evidenciando la importancia de aplicar buenas prácticas profesionales y éticas en el desarrollo de software orientado a usuarios reales. |
+|   **Emite juicios informados considerando el impacto de lassoluciones de ingeniería de software en contextos globales,económicos, ambientales y sociales**|Velasquez Chambi, Ruben Genaro <br>**TP**<br>Se desarrollaron pruebas automatizadas y documentación técnica considerando la necesidad de ofrecer una plataforma estable y accesible para deportistas y entrenadores independientes. La validación del backend permite minimizar fallos durante la reserva de canchas, gestión de entrenamientos y procesamiento de información, contribuyendo a mejorar la experiencia de los usuarios y optimizar procesos deportivos mediante herramientas digitales.|El trabajo realizado demuestra que la calidad y estabilidad del software tienen un impacto directo en la confianza de los usuarios y en la accesibilidad de servicios deportivos, favoreciendo la transformación digital y la optimización de recursos dentro de la comunidad deportiva. | 
 
 <div style="page-break-after: always;"></div>
 
@@ -501,8 +501,8 @@ De esta manera, PlayMatch se convierte en un ecosistema que integra oferta y dem
 | <img src="images/" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u202022211 |  |  |
 | <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202312391 |  |  |
 | <img src="images/" alt="Integrante3" width="100" height="120"><br>**Andy Alejandro Mio Mejia**<br>u202022211 |  |  |
-| <img src="images/stephano.png" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202311294 | Estudiante de Ingeniería de Software, 7mo ciclo, 19 años. Apasionado por el desarrollo de software y la tecnología. | Desarrollador Fullstack con visión arquitectónica. Experto en backend (Java/Spring Boot, C#/.NET Core) y frontend (Vue.js, Angular, Next.js). Dominio en diseño de sistemas modernos aplicando Domain-Driven Design (DDD), arquitecturas de microservicios y bases de datos relacionales/NoSQL. Experiencia trabajando bajo metodologías ágiles. |
-| <img src="images/stephano" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 |  |  |
+| <img src="images/" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202022211 |  |  |
+| <img src="images/ruben.jpg" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 | Soy un estudiante de 8vo ciclo de la carrera de ingenieria de software, me gusta aprender nuevas tecnologias y aplicarlas en proyectos innovadores.  | Tengo conocimientos en multiples lengujaes python,c++,c#,java,kotlin,dart,javascript,typescript y frameworks como nodejs,django,flutter, spring boot y bases de datos sql y no sql. Tambien tengo conocimientos en metodologias agiles como scrum|
 
 
 
@@ -2165,8 +2165,47 @@ BookingsController
 | Bookings | PUT         | /api/v1/bookings/{id} | actualizar reserva | UpdateBooking |
 | Bookings | DELETE      | /api/v1/bookings/{id} | eliminar reserva | DeleteBooking |
 ### 5.2.8. Team Collaboration Insights
+Durante el desarrollo del proyecto MatchPoint, se realizó un seguimiento continuo de la actividad de trabajo mediante las analíticas proporcionadas por GitHub. Estas métricas permitieron evaluar el nivel de contribución, frecuencia de commits y participación en los distintos repositorios del proyecto.
+
+El ecosistema de MatchPoint fue dividido en cuatro repositorios principales: reporte académico, backend, frontend web y aplicación móvil. Esta separación permitió mantener una mejor organización del código, facilitar el trabajo colaborativo y distribuir adecuadamente las responsabilidades de desarrollo.
+
+![organizacion](./images/organizacion-github.png)
+
+**Repositorio de Reporte**
+
+El repositorio de reporte fue utilizado para gestionar la documentación académica y técnica del proyecto. Las analíticas muestran la evolución progresiva de la documentación, así como la actualización constante de diagramas, evidencias y apartados relacionados con el desarrollo de MatchPoint
+
+![repositorio-porte](./images/contributors-report.png)
+
+**Repositorio Backend**
+
+El repositorio backend concentró el desarrollo de la lógica de negocio, endpoints REST, pruebas unitarias, pruebas integrales y documentación de la API. Las métricas reflejan una alta actividad relacionada con la implementación y validación de funcionalidades esenciales para el funcionamiento de la plataforma.
+
+![repositorio-backend](./images/contributiors-backend.png)
+
+**Repositorio Frontend Web**
+
+El repositorio frontend web se encargó de la interfaz de usuario, componentes visuales y experiencia del usuario. Las métricas reflejan una actividad constante en la implementación y mejora de la interfaz de usuario.
+
+![repositorio-frontend](./images/contibutiors-front.png)
+
+**Repositorio Mobile**
+
+El repositorio mobile se encargó de la interfaz de usuario, componentes visuales y experiencia del usuario. Las métricas reflejan una actividad constante en la implementación y mejora de la interfaz de usuario.
+
+![repositorio-mobile](./images/contribuitors-movil.png)
+
+**Análisis temporal de commits**
+
+Adicionalmente, se analizaron las métricas temporales de actividad del proyecto. Las gráficas obtenidas muestran que la mayor cantidad de commits se concentró durante el mes de mayo, periodo en el cual se inició oficialmente el desarrollo de MatchPoint.
+
+![coomits](./images/commints-backend.png)
+
 ## 5.3. Video About-the-Product
 
+![abouth-product](./images/abouth-product.png)
+
+link: https://drive.google.com/drive/folders/1MyKL9n-xxVZmLDKc7TqeWE0-Bz4VgN54?usp=sharing 
 
 # Part II: Verification, Validation & Pipeline 
 # Capítulo VI: Product Verification & Validation
@@ -2442,6 +2481,15 @@ Feature: Gestión de Sesiones de Entrenamiento
 mvn test -Dtest=CucumberTestRunner
 ![cucumber-test-runner](./images/bdd-test.png)
 ### 6.1.4. Core System Tests.
+
+Para evaluar el rendimiento general y la optimización del sistema desde la perspectiva del usuario final, se realizaron pruebas utilizando Google PageSpeed Insights sobre la aplicación web desplegada (frontend). Estas pruebas permitieron medir métricas clave de desempeño como Performance, Accessibility, Best Practices y SEO, verificando así la eficiencia del tiempo de carga, la usabilidad y la correcta implementación de estándares web.
+
+![google-pagespeed-insights](./images/pagespeed-1.png)
+![google-pagespeed-insights](./images/pagespeed-2.png)
+![google-pagespeed-insights](./images/pagespeed-3.png)
+![google-pagespeed-insights](./images/pagespeed-4.png)
+![google-pagespeed-insights](./images/pagespeed-5.png)
+
 ## 6.2. Static testing & Verification
 ### 6.2.1. Static Code Analysis
 #### 6.2.1.1. Coding standard & Code conventions.
