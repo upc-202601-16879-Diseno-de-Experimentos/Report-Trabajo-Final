@@ -1171,14 +1171,14 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
-![wireframes](./images/WIREF.png)
+![wireframes](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/WIREF.PNG)
 
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
-![wireflow diagram1](./images/flow1.png)
-![](./images/flow2.png)
-![](./images/flow3.png)
-![](./images/flow4.png)
-![](./images/flow5.png)
+![wireflow diagram1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow1.PNG)
+![wireflow diagram2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow2.PNG)
+![wireflow diagram3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow3.PNG)
+![wireflow diagram4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow4.PNG)
+![wireflow diagram5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow5.PNG)
 
 ### 4.4.3. Mobile Applications Mock-ups.
 ![](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/MOCKU%7D.PNG)
@@ -1193,9 +1193,10 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 ## 4.5. Mobile Applications Prototyping.
 
 ### 4.5.1. Android Mobile Applications Prototyping.
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=0-1&t=TQpIm5SmWsNhJTd8-1
 
 ### 4.5.2. iOS Mobile Applications Prototyping.
-
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t=TQpIm5SmWsNhJTd8-1
 
 ## 4.6. Web Applications UX/UI Design
 
@@ -1222,6 +1223,8 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 <img src="images/user-flow.png"/>
 
 ## 4.7. Web Applications Prototyping
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t=TQpIm5SmWsNhJTd8-1
+
 ## 4.8. Domain-Driven Software Architecture
 ### 4.8.1. Software Architecture Context Diagram
 
