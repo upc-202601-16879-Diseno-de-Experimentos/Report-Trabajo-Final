@@ -1171,18 +1171,24 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
-![](./images/WIREF.png)
+![wireframes](./images/WIREF.png)
 
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
-![](./images/flow1.png)
+![wireflow diagram1](./images/flow1.png)
 ![](./images/flow2.png)
 ![](./images/flow3.png)
 ![](./images/flow4.png)
 ![](./images/flow5.png)
 
 ### 4.4.3. Mobile Applications Mock-ups.
+![](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/MOCKU%7D.PNG)
 
 ### 4.4.4. Mobile Applications User Flow Diagrams.
+![user flow1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow1.PNG)
+![user flow2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow2.PNG)
+![user flow3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow3.PNG)
+![user flow4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow4.PNG)
+![user flow5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow5.PNG)
 
 ## 4.5. Mobile Applications Prototyping.
 
