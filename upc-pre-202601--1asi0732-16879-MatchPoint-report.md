@@ -4,7 +4,7 @@
 # **Universidad Peruana de Ciencias Aplicadas**
 ## **Ingeniería de Software**
 
-**Periodo:** 2025-20  
+**Periodo:** 2026-10  
 **Curso:** 1ASI0732 – Diseño de Experimentos de Ingeniería de Software
 **NRC:** 16879  
 **Docente:** Sánchez Ponce, Alex Humberto
@@ -13,8 +13,8 @@
 
 ## **Informe del Trabajo Final**
 
-**Startup:** MatchPoint (cambiar)  
-**Producto:** MatchPoint (cambiar)  
+**Startup:** MatchPoint
+**Producto:** MatchPoint
 
 ---
 ### **Integrantes**
@@ -23,11 +23,11 @@ U20241A314 - Sebastian Ernesto Gutarra Velapatiño
 
 U202312391 - Miguel Angel Hallasi Saravia 
 
-xxxxxxxx - Andy Alejandro Mio Mejia  
+U202218531 - Andy Alejandro Mio Mejia  
 
-xxxxxxxx - Stephano Renan Valdivia Quispe
+U202311294 - Stephano Renan Valdivia Quispe
 
-U202117342 -Ruben Genaro Velasquez Chambi 
+U202117342 - Ruben Genaro Velasquez Chambi 
 
 **Mayo 2026**
 </div>
@@ -52,16 +52,19 @@ El uso de repositorios específicos por subcomponente también contribuyó a man
 A continuación, se detallan los repositorios utilizados a lo largo del proyecto:
 
 #### Link del repositorio del Reporte: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final
 
-#### Link del repositorio de la Landing Page: 
+#### Link del repositorio del frontEnd: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Frontend
 
-#### Link del repositorio del frontEnd 
+#### Link del repositorio del BackEnd: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Backend
 
-#### Link del repositorio del BackEnd 
+#### Link a la pagina FrontEnd: 
+https://matchpoint-frontend-hkfqnuy5y-stephanos-projects-199e78ac.vercel.app
 
-#### Link a la pagina FrontEnd 
-
-#### Link al BackEnd
+#### Link al BackEnd (Swagger):
+https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
 
 <div style="page-break-after:always;"></div>
 
@@ -79,64 +82,126 @@ A continuación, se detallan los repositorios utilizados a lo largo del proyecto
 
 ## Part I: As-Is Software Project
 
-- [Capítulo I: Introducción](#capitulo-i-introduccion)
-  - [1.1. Startup Profile](#11-startup-profile)
-    - [1.1.1. Descripción de la Startup](#111-descripcion-de-la-startup)
+- [**Universidad Peruana de Ciencias Aplicadas**](#universidad-peruana-de-ciencias-aplicadas)
+  - [**Ingeniería de Software**](#ingeniería-de-software)
+  - [**Informe del Trabajo Final**](#informe-del-trabajo-final)
+    - [**Integrantes**](#integrantes)
+- [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+- [Project Report Collaboration Insights](#project-report-collaboration-insights)
+      - [Link del repositorio del Reporte:](#link-del-repositorio-del-reporte)
+      - [Link del repositorio del frontEnd:](#link-del-repositorio-del-frontend)
+      - [Link del repositorio del BackEnd:](#link-del-repositorio-del-backend)
+      - [Link a la pagina FrontEnd:](#link-a-la-pagina-frontend)
+      - [Link al BackEnd (Swagger):](#link-al-backend-swagger)
+- [Contenido](#contenido)
+  - [Tabla de Contenidos](#tabla-de-contenidos)
+  - [Part I: As-Is Software Project](#part-i-as-is-software-project)
+  - [Part II: Verification, Validation \& Pipeline](#part-ii-verification-validation--pipeline)
+  - [Part III: Experiment-Driven Lifecycle](#part-iii-experiment-driven-lifecycle)
+- [Student Outcome](#student-outcome)
+- [Capitulo I: Introduccion](#capitulo-i-introduccion)
+  - [1.1. StartUp Profile](#11-startup-profile)
+    - [1.1.1. Description de la StartUp](#111-description-de-la-startup)
     - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
   - [1.2. Solution Profile](#12-solution-profile)
-    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problematica)
+    - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
+      - [Antecedentes y problemática](#antecedentes-y-problemática)
+      - [What?](#what)
+      - [Why?](#why)
+      - [Where?](#where)
+      - [When?](#when)
+      - [Who?](#who)
+      - [How?](#how)
     - [1.2.2. Lean UX Process](#122-lean-ux-process)
       - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
+      - [PlayMatch - Solución a la Reserva Deportiva y Conexión con Entrenadores](#playmatch---solución-a-la-reserva-deportiva-y-conexión-con-entrenadores)
       - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
+        - [PlayMatch - Información del Producto](#playmatch---información-del-producto)
+        - [¿Dónde encaja nuestro producto, en su trabajo o en su vida?](#dónde-encaja-nuestro-producto-en-su-trabajo-o-en-su-vida)
+        - [¿Qué problema resuelve nuestro producto?](#qué-problema-resuelve-nuestro-producto)
+        - [¿Cuándo y cómo se utiliza nuestro producto?](#cuándo-y-cómo-se-utiliza-nuestro-producto)
+        - [¿Qué características son importantes?](#qué-características-son-importantes)
+        - [¿Cómo debe verse y comportarse nuestro producto?](#cómo-debe-verse-y-comportarse-nuestro-producto)
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
+        - [Hipótesis 2:](#hipótesis-2)
+        - [Hipótesis 3:](#hipótesis-3)
+        - [Hipótesis 4:](#hipótesis-4)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
-  - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
-
-- [Capítulo II: Requirements Elicitation & Analysis](#capitulo-ii-requirements-elicitation--analysis)
+  - [1.3. Segmentos Objetivo](#13-segmentos-objetivo)
+    - [1. Deportistas Aficionados (usuarios en búsqueda de canchas y entrenadores)](#1-deportistas-aficionados-usuarios-en-búsqueda-de-canchas-y-entrenadores)
+    - [2. Entrenadores Independientes (proveedores de servicios deportivos)](#2-entrenadores-independientes-proveedores-de-servicios-deportivos)
+- [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
-    - [2.1.1. Análisis competitivo](#211-analisis-competitivo)
-    - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tacticas-frente-a-competidores)
+    - [2.1.1. Análisis competitivo.](#211-análisis-competitivo)
+    - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
+      - [Estrategias](#estrategias)
+    - [Tácticas](#tácticas)
   - [2.2. Entrevistas](#22-entrevistas)
-    - [2.2.1. Diseño de entrevistas](#221-diseno-de-entrevistas)
-    - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
-    - [2.2.3. Análisis de entrevistas](#223-analisis-de-entrevistas)
+    - [2.2.1 Diseño de entrevistas](#221-diseño-de-entrevistas)
+    - [2.2.2 Registro de entrevistas.](#222-registro-de-entrevistas)
+    - [2.2.3. Análisis de entrevistas.](#223-análisis-de-entrevistas)
   - [2.3. Needfinding](#23-needfinding)
     - [2.3.1. User Personas](#231-user-personas)
+    - [Aficionado:](#aficionado)
+    - [Entrenador:](#entrenador)
     - [2.3.2. User Task Matrix](#232-user-task-matrix)
     - [2.3.3. User Journey Mapping](#233-user-journey-mapping)
     - [2.3.4. Empathy Mapping](#234-empathy-mapping)
-    - [2.3.5. As-is Scenario Mapping](#235-as-is-scenario-mapping)
+  - [2.3.5. As-is Scenario Mapping](#235-as-is-scenario-mapping)
   - [2.4. Ubiquitous Language](#24-ubiquitous-language)
-
-- [Capítulo III: Requirements Specification](#capitulo-iii-requirements-specification)
+- [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
-  - [3.2. User Stories](#32-user-stories)
-  - [3.3. Product Backlog](#33-product-backlog)
-  - [3.4. Impact Mapping](#34-impact-mapping)
-- [Capítulo IV: Product Design](#capitulo-iv-product-design)
+  - [3.2 User Stories.](#32-user-stories)
+  - [E01 - Gestión de Cuentas y Autenticación](#e01---gestión-de-cuentas-y-autenticación)
+  - [E02 - Búsqueda y Reserva de Canchas](#e02---búsqueda-y-reserva-de-canchas)
+  - [E03 - Gestión de Entrenadores y Servicios](#e03---gestión-de-entrenadores-y-servicios)
+  - [E04 - Gestión de Vehículos](#e04---gestión-de-vehículos)
+  - [E05 - Valoraciones y Reseñas](#e05---valoraciones-y-reseñas)
+  - [E06 - Organización de Partidos y Torneos](#e06---organización-de-partidos-y-torneos)
+  - [User Stories](#user-stories)
+  - [Technical Stories](#technical-stories)
+  - [3.3 Product Backlog.](#33-product-backlog)
+  - [3.4 Impact Mapping.](#34-impact-mapping)
+- [Capítulo IV: Product Design](#capítulo-iv-product-design)
   - [4.1. Style Guidelines](#41-style-guidelines)
     - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
     - [4.1.2. Web Style Guidelines](#412-web-style-guidelines)
     - [4.1.3. Mobile Style Guidelines](#413-mobile-style-guidelines)
-      - [4.1.3.1. iOS Mobile Style Guidelines](#4131-ios-mobile-style-guidelines)
-      - [4.1.3.2. Android Mobile Style Guidelines](#4132-android-mobile-style-guidelines)
+      - [4.1.3.1 IOS Mobile Style Guidelines](#4131-ios-mobile-style-guidelines)
+      - [4.1.3.2 Android Mobile Style Guidelines](#4132-android-mobile-style-guidelines)
   - [4.2. Information Architecture](#42-information-architecture)
     - [4.2.1. Organization Systems](#421-organization-systems)
+      - [Visual Hierarchy](#visual-hierarchy)
+      - [Secuencial Organization](#secuencial-organization)
+      - [Matricial Organization](#matricial-organization)
+      - [Esquemas de Categorización](#esquemas-de-categorización)
     - [4.2.2. Labeling Systems](#422-labeling-systems)
+      - [Principios de Etiquetado](#principios-de-etiquetado)
+      - [Etiquetas principales propuestas](#etiquetas-principales-propuestas)
     - [4.2.3. SEO Tags and Meta Tags](#423-seo-tags-and-meta-tags)
     - [4.2.4. Searching Systems](#424-searching-systems)
+      - [Tipos de búsqueda ofrecidos](#tipos-de-búsqueda-ofrecidos)
+      - [Presentación de resultados](#presentación-de-resultados)
     - [4.2.5. Navigation Systems](#425-navigation-systems)
   - [4.3. Landing Page UI Design](#43-landing-page-ui-design)
     - [4.3.1. Landing Page Wireframe](#431-landing-page-wireframe)
+      - [Home](#home)
+      - [About Us](#about-us)
+    - [Learn More](#learn-more)
+    - [Suscribe](#suscribe)
     - [4.3.2. Landing Page Mock-up](#432-landing-page-mock-up)
-  - [4.4. Mobile Applications UX/UI Design](#44-mobile-applications-uxui-design)
-    - [4.4.1. Mobile Applications Wireframes](#441-mobile-applications-wireframes)
-    - [4.4.2. Mobile Applications Wireflow Diagrams](#442-mobile-applications-wireflow-diagrams)
-    - [4.4.3. Mobile Applications Mock-ups](#443-mobile-applications-mock-ups)
-    - [4.4.4. Mobile Applications User Flow Diagrams](#444-mobile-applications-user-flow-diagrams)
-  - [4.5. Mobile Applications Prototyping](#45-mobile-applications-prototyping)
-    - [4.5.1. Android Mobile Applications Prototyping](#451-android-mobile-applications-prototyping)
-    - [4.5.2. iOS Mobile Applications Prototyping](#452-ios-mobile-applications-prototyping)
+      - [Home](#home-1)
+      - [About Us](#about-us-1)
+    - [Learn More](#learn-more-1)
+    - [Suscribe](#suscribe-1)
+  - [4.4 Mobile Applications UX/UI Design](#44-mobile-applications-uxui-design)
+    - [4.4.1 Mobile Applications Wireframes](#441-mobile-applications-wireframes)
+    - [4.4.2. Mobile Applications Wireflow Diagrams.](#442-mobile-applications-wireflow-diagrams)
+    - [4.4.3. Mobile Applications Mock-ups.](#443-mobile-applications-mock-ups)
+    - [4.4.4. Mobile Applications User Flow Diagrams.](#444-mobile-applications-user-flow-diagrams)
+  - [4.5. Mobile Applications Prototyping.](#45-mobile-applications-prototyping)
+    - [4.5.1. Android Mobile Applications Prototyping.](#451-android-mobile-applications-prototyping)
+    - [4.5.2. iOS Mobile Applications Prototyping.](#452-ios-mobile-applications-prototyping)
   - [4.6. Web Applications UX/UI Design](#46-web-applications-uxui-design)
     - [4.6.1. Web Applications Wireframes](#461-web-applications-wireframes)
     - [4.6.2. Web Applications Wireflow Diagrams](#462-web-applications-wireflow-diagrams)
@@ -150,25 +215,154 @@ A continuación, se detallan los repositorios utilizados a lo largo del proyecto
   - [4.9. Software Object-Oriented Design](#49-software-object-oriented-design)
     - [4.9.1. Class Diagrams](#491-class-diagrams)
     - [4.9.2. Class Dictionary](#492-class-dictionary)
+      - [1. Clase: User](#1-clase-user)
+      - [2. Clase: Pay](#2-clase-pay)
+      - [3. Clase: Reserve](#3-clase-reserve)
+      - [4. Clase: Rate](#4-clase-rate)
+      - [5. Clase: Coach](#5-clase-coach)
+      - [6. Clase: PlanSubscription](#6-clase-plansubscription)
+      - [7. Clase: Sportsman](#7-clase-sportsman)
+      - [8. Clase: Tournament](#8-clase-tournament)
   - [4.10. Database Design](#410-database-design)
     - [4.10.1. Relational/Non-Relational Database Diagram](#4101-relationalnon-relational-database-diagram)
-
-- [Capítulo V: Product Implementation](#capitulo-v-product-implementation)
-  - [5.1. Software Configuration Management](#51-software-configuration-management)
-    - [5.1.1. Software Development Environment Configuration](#511-software-development-environment-configuration)
+- [Capítulo V: Product Implementatio](#capítulo-v-product-implementatio)
+  - [5.1. Software Configuration Management.](#51-software-configuration-management)
+    - [5.1.1. Software Development Enviroment Configuration](#511-software-development-enviroment-configuration)
+      - [Requirements Management](#requirements-management)
+      - [Software Devlopment](#software-devlopment)
+      - [Software Deployment](#software-deployment)
+      - [Software Documentation and Project Management](#software-documentation-and-project-management)
     - [5.1.2. Source Code Management](#512-source-code-management)
-    - [5.1.3. Source Code Style Guide & Conventions](#513-source-code-style-guide--conventions)
+      - [Repositorio de GitHub:](#repositorio-de-github)
+    - [5.1.3. Source Code Style Guide \& Conventions](#513-source-code-style-guide--conventions)
+      - [**HTML5**](#html5)
+      - [**CSS (Cascading Style Sheets)**](#css-cascading-style-sheets)
+      - [**JavaScript**](#javascript)
+      - [**Gherkin**](#gherkin)
     - [5.1.4. Software Deployment Configuration](#514-software-deployment-configuration)
-  - [5.2. Product Implementation & Deployment](#52-product-implementation--deployment)
-    - [5.2.1. Sprint Backlogs](#521-sprint-backlogs)
+    - [**Configuraciones de despliegue del proyecto**](#configuraciones-de-despliegue-del-proyecto)
+  - [5.2. Product Implementation \& Deployment.](#52-product-implementation--deployment)
+    - [5.2.1. Sprint Backlogs.](#521-sprint-backlogs)
+      - [Sprint 1](#sprint-1)
+      - [Sprint 2](#sprint-2)
+      - [Sprint 3](#sprint-3)
+      - [Resumen de Sprints](#resumen-de-sprints)
     - [5.2.2. Implemented Landing Page Evidence](#522-implemented-landing-page-evidence)
     - [5.2.3. Implemented Frontend-Web Application Evidence](#523-implemented-frontend-web-application-evidence)
+      - [Dashboard](#dashboard)
+      - [Perfil](#perfil)
+      - [Servicios](#servicios)
+      - [Horario](#horario)
+      - [Reservas](#reservas)
+      - [Clientes](#clientes)
+      - [Ingresos](#ingresos)
+      - [Ajustes](#ajustes)
     - [5.2.4. Acuerdo de Servicio - SaaS](#524-acuerdo-de-servicio---saas)
+      - [5.2.4.1. Descripción del Servicio](#5241-descripción-del-servicio)
+      - [5.2.4.2. Disponibilidad del Servicio](#5242-disponibilidad-del-servicio)
+      - [5.2.4.3. Compromisos de Soporte Técnico](#5243-compromisos-de-soporte-técnico)
+      - [5.2.4.4. Mantenimiento y Actualizaciones](#5244-mantenimiento-y-actualizaciones)
+      - [5.2.4.5. Seguridad y Protección de Datos](#5245-seguridad-y-protección-de-datos)
+      - [5.2.4.6. Responsabilidades del Proveedor (MatchPoint)](#5246-responsabilidades-del-proveedor-matchpoint)
+      - [5.2.4.7. Responsabilidades del Usuario](#5247-responsabilidades-del-usuario)
+      - [5.2.4.8. Limitaciones y Exclusiones](#5248-limitaciones-y-exclusiones)
+      - [5.2.4.9. Terminación del Servicio](#5249-terminación-del-servicio)
+      - [5.2.4.10. Métricas de Monitoreo](#52410-métricas-de-monitoreo)
     - [5.2.5. Implemented Native-Mobile Application Evidence](#525-implemented-native-mobile-application-evidence)
     - [5.2.6. Implemented RESTful API and/or Serverless Backend Evidence](#526-implemented-restful-api-andor-serverless-backend-evidence)
     - [5.2.7. RESTful API documentation](#527-restful-api-documentation)
+      - [Bound context](#bound-context)
+      - [API](#api)
+    - [Documentacion IAM](#documentacion-iam)
+    - [Documentacion Users](#documentacion-users)
+    - [Documentacion Payments](#documentacion-payments)
+    - [Documentacion Coaches](#documentacion-coaches)
+    - [Documentacion Courts](#documentacion-courts)
+    - [Documentacion Bookings](#documentacion-bookings)
     - [5.2.8. Team Collaboration Insights](#528-team-collaboration-insights)
   - [5.3. Video About-the-Product](#53-video-about-the-product)
+- [Part II: Verification, Validation \& Pipeline](#part-ii-verification-validation--pipeline-1)
+- [Capítulo VI: Product Verification \& Validation](#capítulo-vi-product-verification--validation)
+  - [6.1. Testing Suites \& Validation](#61-testing-suites--validation)
+    - [6.1.1. Core Entities Unit Tests.](#611-core-entities-unit-tests)
+    - [Estrategia de Pruebas Unitarias - MatchPoint](#estrategia-de-pruebas-unitarias---matchpoint)
+    - [Definición de Prueba Unitaria en MatchPoint](#definición-de-prueba-unitaria-en-matchpoint)
+    - [Tecnologías Utilizadas](#tecnologías-utilizadas)
+    - [Pruebas de IAM (Identity and Access Management)](#pruebas-de-iam-identity-and-access-management)
+    - [Casos de Prueba en `UserCommandServiceImplTest`](#casos-de-prueba-en-usercommandserviceimpltest)
+    - [Pruebas de Bookings (Reservas)](#pruebas-de-bookings-reservas)
+    - [Casos de Prueba en `BookingCommandServiceImplTest`](#casos-de-prueba-en-bookingcommandserviceimpltest)
+    - [Pruebas de Coaches (Entrenadores)](#pruebas-de-coaches-entrenadores)
+    - [Casos de Prueba en `CoachCommandServiceImplTest`](#casos-de-prueba-en-coachcommandserviceimpltest)
+    - [Pruebas de Courts (Canchas)](#pruebas-de-courts-canchas)
+    - [Casos de Prueba en `CourtCommandServiceImplTest`](#casos-de-prueba-en-courtcommandserviceimpltest)
+    - [Pruebas de Payments (Pagos)](#pruebas-de-payments-pagos)
+    - [Casos de Prueba en `PaymentCommandServiceImplTest`](#casos-de-prueba-en-paymentcommandserviceimpltest)
+    - [Pruebas de Users (Perfiles de Usuario)](#pruebas-de-users-perfiles-de-usuario)
+    - [Casos de Prueba en `UserProfileCommandServiceImplTest`](#casos-de-prueba-en-userprofilecommandserviceimpltest)
+      - [Pruebas de unit test](#pruebas-de-unit-test)
+        - [IAM](#iam)
+        - [Bookings](#bookings)
+        - [Coach](#coach)
+        - [Courts](#courts)
+        - [Payment](#payment)
+        - [User](#user)
+    - [6.1.2. Core Integration Tests.](#612-core-integration-tests)
+    - [Estrategia de Pruebas de Integración - MatchPoint](#estrategia-de-pruebas-de-integración---matchpoint)
+    - [Definición de Prueba de Integración en MatchPoint](#definición-de-prueba-de-integración-en-matchpoint)
+    - [Tecnologías Utilizadas](#tecnologías-utilizadas-1)
+    - [Pruebas de Contexto y Carga](#pruebas-de-contexto-y-carga)
+    - [Casos de Prueba en `MatchpointApplicationTests`](#casos-de-prueba-en-matchpointapplicationtests)
+    - [Pruebas de Flujo de Negocio (End-to-End)](#pruebas-de-flujo-de-negocio-end-to-end)
+    - [Casos de Prueba en `BookingIntegrationTest`](#casos-de-prueba-en-bookingintegrationtest)
+    - [Casos de Prueba en `CoachBookingIntegrationTest`](#casos-de-prueba-en-coachbookingintegrationtest)
+    - [Pruebas de Integration test](#pruebas-de-integration-test)
+      - [Pruebas de Bookings](#pruebas-de-bookings)
+      - [Pruebas de Coach Bookings](#pruebas-de-coach-bookings)
+    - [6.1.3. Core Behavior-Driven Development](#613-core-behavior-driven-development)
+- [Documentación de Pruebas BDD (Behavior-Driven Development)](#documentación-de-pruebas-bdd-behavior-driven-development)
+      - [¿Qué es BDD en este proyecto?](#qué-es-bdd-en-este-proyecto)
+      - [Herramientas utilizadas:](#herramientas-utilizadas)
+      - [Escenarios.](#escenarios)
+        - [Escenario 1:](#escenario-1)
+        - [Escenario 2:](#escenario-2)
+      - [Ejecución de Pruebas.](#ejecución-de-pruebas)
+    - [6.1.4. Core System Tests.](#614-core-system-tests)
+  - [6.2. Static testing \& Verification](#62-static-testing--verification)
+    - [6.2.1. Static Code Analysis](#621-static-code-analysis)
+      - [6.2.1.1. Coding standard \& Code conventions.](#6211-coding-standard--code-conventions)
+      - [6.2.1.2. Code Quality \& Code Security.](#6212-code-quality--code-security)
+    - [6.2.2. Reviews](#622-reviews)
+  - [6.3. Validation Interviews.](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
+    - [6.3.3. Evaluaciones según heurísticas.](#633-evaluaciones-según-heurísticas)
+  - [6.4. Auditoría de Experiencias de Usuario](#64-auditoría-de-experiencias-de-usuario)
+    - [6.4.1. Auditoría realizada.](#641-auditoría-realizada)
+      - [6.4.1.1. Información del grupo auditado.](#6411-información-del-grupo-auditado)
+      - [6.4.1.2. Cronograma de auditoría realizada.](#6412-cronograma-de-auditoría-realizada)
+      - [6.4.1.3. Contenido de auditoría realizada.](#6413-contenido-de-auditoría-realizada)
+    - [6.4.2. Auditoría recibida.](#642-auditoría-recibida)
+      - [6.4.2.1. Información del grupo auditor.](#6421-información-del-grupo-auditor)
+      - [6.4.2.2. Cronograma de auditoría recibida.](#6422-cronograma-de-auditoría-recibida)
+      - [6.4.2.3. Contenido de auditoría recibida.](#6423-contenido-de-auditoría-recibida)
+      - [6.4.2.4. Resumen de modificaciones para subsanar hallazgos.](#6424-resumen-de-modificaciones-para-subsanar-hallazgos)
+- [Capítulo VII: DevOps Practices](#capítulo-vii-devops-practices)
+  - [7.1. Continuous Integration](#71-continuous-integration)
+    - [7.1.1. Tools and Practices.](#711-tools-and-practices)
+    - [7.1.2. Build \& Test Suite Pipeline Components.](#712-build--test-suite-pipeline-components)
+  - [7.2. Continuous Delivery](#72-continuous-delivery)
+    - [7.2.1. Tools and Practices.](#721-tools-and-practices)
+    - [7.2.2. Stages Deployment Pipeline Components.](#722-stages-deployment-pipeline-components)
+  - [7.3. Continuous deployment](#73-continuous-deployment)
+    - [7.3.1. Tools and Practices.](#731-tools-and-practices)
+    - [7.3.2. Production Deployment Pipeline Components.](#732-production-deployment-pipeline-components)
+  - [Conclusiones](#conclusiones)
+    - [Conclusiones y recomendaciones.](#conclusiones-y-recomendaciones)
+    - [Video App Validation](#video-app-validation)
+    - [Video About-the-Team.](#video-about-the-team)
+- [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
 
 ## Part II: Verification, Validation & Pipeline
 
@@ -274,8 +468,8 @@ En el siguiente cuadro se describe las accionesrealizadas y enunciados de conclu
 
 | **Criterio específico** | **Acciones realizadas** | **Conclusiones** |
 |-------------------------|--------------------------|------------------|
-| **Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software** | | |
-|   **Emite juicios informados considerando el impacto de lassoluciones de ingeniería de software en contextos globales,económicos, ambientales y sociales**| | | 
+| **Reconoce responsabilidad ética y profesional en situaciones de ingeniería de software** |Velasquez Chambi, Ruben Genaro <br>**TP**<br>Se desarrollaron pruebas unitarias y pruebas integrales para validar el correcto funcionamiento de los servicios y endpoints del backend de la aplicación PlayMatch. Asimismo, se realizó la documentación de la API para garantizar claridad, mantenibilidad y facilidad de integración entre los distintos componentes del sistema. Estas actividades contribuyen a reducir errores, asegurar la calidad del software y brindar una experiencia confiable para entrenadores y deportistas que utilizarán la plataforma. |La implementación de pruebas y documentación permitió fortalecer la confiabilidad y mantenibilidad del sistema, evidenciando la importancia de aplicar buenas prácticas profesionales y éticas en el desarrollo de software orientado a usuarios reales. |
+|   **Emite juicios informados considerando el impacto de lassoluciones de ingeniería de software en contextos globales,económicos, ambientales y sociales**|Velasquez Chambi, Ruben Genaro <br>**TP**<br>Se desarrollaron pruebas automatizadas y documentación técnica considerando la necesidad de ofrecer una plataforma estable y accesible para deportistas y entrenadores independientes. La validación del backend permite minimizar fallos durante la reserva de canchas, gestión de entrenamientos y procesamiento de información, contribuyendo a mejorar la experiencia de los usuarios y optimizar procesos deportivos mediante herramientas digitales.|El trabajo realizado demuestra que la calidad y estabilidad del software tienen un impacto directo en la confianza de los usuarios y en la accesibilidad de servicios deportivos, favoreciendo la transformación digital y la optimización de recursos dentro de la comunidad deportiva. | 
 
 <div style="page-break-after: always;"></div>
 
@@ -307,8 +501,8 @@ De esta manera, PlayMatch se convierte en un ecosistema que integra oferta y dem
 | <img src="images/" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u202022211 |  |  |
 | <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202312391 |  |  |
 | <img src="images/" alt="Integrante3" width="100" height="120"><br>**Andy Alejandro Mio Mejia**<br>u202022211 |  |  |
-| <img src="images/" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202022211 |  |  |
-| <img src="images/" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 |  |  |
+| <img src="images/stephano.png" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202311294 | Estudiante de 7mo ciclo de Ingeniería de Software con 19 años. | Desarrollador Fullstack con visión arquitectónica. Experto en backend (Java/Spring Boot, C#/.NET Core) y frontend (Vue.js, Angular, Next.js). Dominio en diseño de sistemas con DDD, arquitecturas de microservicios y bases de datos relacionales/NoSQL. Experiencia en metodologías ágiles para transformar requerimientos en soluciones tecnológicas robustas. |
+| <img src="images/ruben.jpg" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 | Soy un estudiante de 8vo ciclo de la carrera de ingenieria de software, me gusta aprender nuevas tecnologias y aplicarlas en proyectos innovadores.  | Tengo conocimientos en multiples lengujaes python,c++,c#,java,kotlin,dart,javascript,typescript y frameworks como nodejs,django,flutter, spring boot y bases de datos sql y no sql. Tambien tengo conocimientos en metodologias agiles como scrum|
 
 
 
@@ -1171,24 +1365,24 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
-![wireframes](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/WIREF.PNG)
+![wireframes](images/WIREF.PNG)
 
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
-![wireflow diagram1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow1.PNG)
-![wireflow diagram2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow2.PNG)
-![wireflow diagram3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow3.PNG)
-![wireflow diagram4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow4.PNG)
-![wireflow diagram5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow5.PNG)
+![wireflow diagram1](images/flow1.PNG)
+![wireflow diagram2](images/flow2.PNG)
+![wireflow diagram3](images/flow3.PNG)
+![wireflow diagram4](images/flow4.PNG)
+![wireflow diagram5](images/flow5.PNG)
 
 ### 4.4.3. Mobile Applications Mock-ups.
-![](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/MOCKU%7D.PNG)
+![mockup](images/MOCKU}.PNG)
 
 ### 4.4.4. Mobile Applications User Flow Diagrams.
-![user flow1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow1.PNG)
-![user flow2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow2.PNG)
-![user flow3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow3.PNG)
-![user flow4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow4.PNG)
-![user flow5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow5.PNG)
+![user flow1](images/uflow1.PNG)
+![user flow2](images/uflow2.PNG)
+![user flow3](images/uflow3.PNG)
+![user flow4](images/uflow4.PNG)
+![user flow5](images/uflow5.PNG)
 
 ## 4.5. Mobile Applications Prototyping.
 
@@ -1372,13 +1566,25 @@ https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t
 
 #### Software Devlopment
 
-1. JetBrains WebStorm: Es un entorno de desarrollo integrado (IDE) enfocado en el desarrollo web. Ofrece herramientas que facilitan la prueba del proyecto en diversos navegadores como Chrome, Microsoft Edge, Safari y Mozilla Firefox. El uso de WebStorm aporta un valor agregado al desarrollo, ya que permite visualizar cómo funciona la aplicación en múltiples plataformas y proporciona soporte avanzado para la edición de código en varios lenguajes compatibles. Ruta de Referencia: https://www.jetbrains.com/es-es/webstorm/.
+**Frontend Web**
 
-2. HTML5: Lenguaje de marcado utilizado para estructurar y presentar contenido en la web. Es una herramienta fundamental en nuestro proyecto, ya que se emplea para construir la base del contenido de la aplicación. Ruta de Referencia: https://www.w3schools.com/html/.
+1. JetBrains WebStorm: Es un entorno de desarrollo integrado (IDE) enfocado en el desarrollo web. Ofrece herramientas que facilitan la prueba del proyecto en diversos navegadores como Chrome, Microsoft Edge, Safari y Mozilla Firefox. El uso de WebStorm aporta un valor agregado al desarrollo, ya que permite visualizar cómo funciona la aplicación en múltiples plataformas y proporciona soporte avanzado para la edición de código en TypeScript y Angular. Ruta de Referencia: https://www.jetbrains.com/es-es/webstorm/.
 
-3. CSS: Conocido como Hojas de Estilo en Cascada (Cascading Style Sheets), este lenguaje trabaja en conjunto con HTML5 para definir el diseño y la presentación visual de la aplicación. Permite personalizar estilos como colores, tipografías y distribución de los elementos. Ruta de Referencia: https://developer.mozilla.org/es/docs/Web/CSS.
+2. Angular: Framework progresivo de código abierto para construir aplicaciones web dinámicas y escalables. Utilizamos Angular como framework principal para desarrollar el frontend web de PlayMatch, proporcionando componentes reutilizables, inyección de dependencias y reactividad con RxJS. Ruta de Referencia: https://angular.io/.
 
-4. JavaScript: Lenguaje de programación orientado a objetos e interpretado en el navegador. Se utilizará principalmente para desarrollar la interfaz dinámica de usuario en nuestro proyecto, facilitando la interactividad dentro de la aplicación. Ruta de Referencia: https://developer.mozilla.org/es/docs/Web/JavaScript.
+3. TypeScript: Lenguaje de programación superconjunto de JavaScript que añade tipado estático y características de programación orientada a objetos. Se utiliza como lenguaje base en Angular para mejorar la calidad del código, detectar errores en tiempo de compilación y facilitar el mantenimiento. Ruta de Referencia: https://www.typescriptlang.org/.
+
+4. Node.js y npm: Entorno de ejecución de JavaScript y gestor de paquetes utilizado para instalar dependencias, compilar y ejecutar scripts de desarrollo. Esencial para el workflow de Angular, testing y build del proyecto web. Ruta de Referencia: https://nodejs.org/.
+
+**Frontend Móvil (Android)**
+
+5. Android Studio: Entorno de desarrollo integrado oficial para construir aplicaciones nativas Android. Proporciona emuladores, depurador, analizador de rendimiento y herramientas de layout para diseñar la interfaz de usuario de la app móvil. Ruta de Referencia: https://developer.android.com/studio.
+
+6. Kotlin: Lenguaje de programación moderno, conciso y seguro que se ejecuta en la máquina virtual de Java (JVM) y es el lenguaje oficial para el desarrollo de Android. Se utiliza para implementar la lógica de negocio y componentes de UI en la aplicación móvil de PlayMatch. Ruta de Referencia: https://kotlinlang.org/.
+
+7. Android SDK: Kit de desarrollo que incluye bibliotecas, emuladores, documentación y herramientas necesarias para compilar, probar y empaquetar aplicaciones Android. Proporciona acceso a APIs nativas del sistema operativo. Ruta de Referencia: https://developer.android.com/studio/releases/platforms.
+
+8. Gradle: Herramienta de automatización de compilación utilizada por Android Studio para gestionar dependencias, configurar builds y ejecutar pruebas en proyectos Android. Ruta de Referencia: https://gradle.org/.
 
 #### Software Deployment
 
@@ -1390,30 +1596,58 @@ https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t
 
 ### 5.1.2. Source Code Management
 
-El proyecto sigue las convenciones del modelo GitFlow como flujo de trabajo para el control de versiones, utilizando GitHub como plataforma central. Se compartirán los enlaces a los repositorios en GitHub correspondientes a la Landing Page, y este mismo enfoque será aplicado de manera consistente en los demás productos del proyecto.
+El proyecto sigue las convenciones del modelo GitFlow como flujo de trabajo para el control de versiones, utilizando GitHub como plataforma central. Dado que PlayMatch incluye múltiples componentes (landing page, web application, mobile application y backend), se mantienen repositorios separados por componente para mayor modularidad, claridad y facilidad de mantenimiento.
 
-#### Repositorio de GitHub:
+#### Estructura de Repositorios en GitHub:
 
-- URL para acceder a nuestro reporte en GitHub: https://github.com/AplicacionesOpenSource-Grupo1/upc-pre-202520--1asi0729-7369-MatchPoint-report
+Cada componente tiene su propio repositorio independiente con su ciclo de vida de desarrollo:
 
-- URL para acceder nuestro repositorio de Landing Page: https://github.com/AplicacionesOpenSource-Grupo1/upc-pre-202502-si729-7369-PlayMatch-Landing-Page
+- **Reporte**: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final.git
+
+- **Landing Page**: https://github.com
+
+- **Frontend Web (Angular)**: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Frontend.git
+
+- **Frontend Móvil (Android/Kotlin)**: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Mobile.git
+- **Backend**: 
+https://github.com/upc-202601-16879-Diseno-de-Experimentos/Backend.git
+
+Esta estructura permite que cada equipo trabaje de forma independiente, con sus propias ramas de feature, release y hotfix, facilitando la integración continua y evitando conflictos de merge.
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-#### **HTML5**
-El Lenguaje de Marcado de Hipertexto (HTML) constituye la base para estructurar el contenido en páginas web. Por convención, el archivo principal de un sitio suele llamarse `index.html`. Algunas buenas prácticas al trabajar con HTML son:
+#### **TypeScript (Frontend Web con Angular)**
 
-- Usar etiquetas en minúsculas para mantener uniformidad y facilitar la lectura.
-- Cerrar correctamente todas las etiquetas, aunque no sea obligatorio en todos los casos, para evitar errores y mejorar la compatibilidad.
-- Incluir comentarios breves y claros para documentar el código.
-- Evitar líneas de código demasiado extensas y solo usar espacios en blanco cuando sea necesario para una mejor organización visual.
-- No omitir elementos esenciales como `<title>`, `<html>`, `<body>`, y `<head>`, ya que son fundamentales para la estructura del documento.
-- Agregar el atributo `lang` en la etiqueta `<html>` para definir el idioma del contenido.
-- Especificar atributos como `alt`, `width` y `height` en imágenes, para mejorar la accesibilidad y evitar cargas irregulares.
-- Evitar dejar espacios innecesarios alrededor de símbolos y signos para mejorar la claridad.
-- Incluir siempre la metaetiqueta `<meta name="viewport">` para asegurar una correcta visualización en dispositivos móviles.
+TypeScript es el lenguaje principal para el desarrollo del frontend web. Algunas convenciones clave incluyen:
+
+- Usar tipado fuerte en todas las variables, parámetros de funciones y retornos para detectar errores en tiempo de compilación.
+- Nombres de variables y funciones en camelCase, mientras que clases y interfaces en PascalCase.
+- Usar interfaces para definir contratos de datos y evitar el uso de `any`.
+- Implementar una estructura clara de carpetas: `components/`, `services/`, `models/`, `guards/`, `interceptors/`.
+- Aplicar una indentación de 2 espacios para mantener legibilidad.
+- Usar `const` y `let` en lugar de `var`; evitar variables globales.
+- Documentar métodos públicos con comentarios JSDoc explicando parámetros y retornos.
+- Utilizar RxJS Observables correctamente con operadores como `map`, `filter`, `switchMap` para manejo reactivo de flujos de datos.
+- Validar formularios utilizando validadores reactivos de Angular.
+
+#### **Kotlin (Frontend Móvil Android)**
+
+Kotlin es el lenguaje oficial para desarrollo nativo de Android. Convenciones a seguir:
+
+- Nombres de clases en PascalCase, variables y funciones en camelCase.
+- Usar `val` para variables inmutables por defecto, `var` solo cuando sea necesario.
+- Implementar null-safety usando tipos nullable (`?`) y el operador Elvis (`?:`).
+- Estructura clara: `activities/`, `fragments/`, `viewmodels/`, `repositories/`, `models/`, `ui/`.
+- Usar coroutines para operaciones asincrónicas en lugar de callbacks.
+- Implementar ViewModel y LiveData para gestión de estado y ciclo de vida.
+- Documentar funciones públicas con comentarios KDoc.
+- Utilizar extension functions para reducir boilerplate.
+- Mantener indentación de 4 espacios conforme a convenciones de Java.
+- Seguir Material Design guidelines para UI.
 
 #### **CSS (Cascading Style Sheets)**
+
 CSS permite dar estilo y personalizar el diseño visual de los sitios web. Algunas convenciones importantes a seguir al escribir CSS son:
 
 - Usar una nomenclatura coherente para nombres de clases, identificadores y selectores, facilitando la colaboración y el mantenimiento.
@@ -1425,17 +1659,6 @@ CSS permite dar estilo y personalizar el diseño visual de los sitios web. Algun
 - Optimizar el código evitando duplicidades y combinando reglas similares.
 - Probar estilos en distintos navegadores y dispositivos para verificar su consistencia visual.
 - Validar el código CSS usando herramientas como el validador de W3C para identificar errores.
-
-#### **JavaScript**
-JavaScript se usa para incorporar interactividad y comportamiento dinámico en las páginas web. Para mantener un código eficiente y comprensible, se recomienda lo siguiente:
-
-- Mantener una nomenclatura consistente en variables, funciones y objetos.
-- Aplicar una indentación clara y utilizar espacios en blanco adecuados, por ejemplo, después de palabras clave como `if`, `for` o `function`.
-- Incluir comentarios explicativos que ayuden a entender la lógica de determinadas partes del código.
-- Reducir al mínimo el uso de variables globales, favoreciendo los contextos locales.
-- Implementar mecanismos de manejo de errores como `try-catch` para evitar fallos inesperados en la ejecución.
-- Usar técnicas de optimización como el almacenamiento en caché, minimización y combinación de scripts para mejorar el rendimiento.
-- Realizar pruebas cruzadas en varios navegadores y dispositivos para asegurar la correcta funcionalidad del código.
 
 #### **Gherkin**
 Gherkin es un lenguaje de texto estructurado utilizado para definir pruebas de comportamiento de forma legible por cualquier miembro del equipo. Algunas pautas clave incluyen:
@@ -1452,21 +1675,407 @@ Gherkin es un lenguaje de texto estructurado utilizado para definir pruebas de c
 
 ### **Configuraciones de despliegue del proyecto**
 
-Para la puesta en línea de nuestro proyecto, utilizamos Netlify, una plataforma especializada en el alojamiento web y despliegue continuo de aplicaciones y sitios estáticos. Esta herramienta simplifica enormemente el proceso de publicación y actualización de nuestros desarrollos. Su funcionamiento se basa en los siguientes puntos:
+PlayMatch utiliza diferentes plataformas de despliegue según el componente, asegurando que cada aplicación llegue a sus usuarios de forma eficiente y confiable.
 
-- **Integración con repositorios Git**: Netlify se enlaza fácilmente con plataformas como GitHub, GitLab o Bitbucket. Cada vez que actualizamos el código y lo subimos a nuestro repositorio, Netlify detecta los cambios y comienza automáticamente el proceso de construcción del sitio.
-- **Compilación automatizada del sitio**: Durante el proceso de build, Netlify transforma el código fuente (HTML, CSS, JavaScript) en una versión optimizada del sitio estático. Además, realiza tareas como la compilación de archivos, minificación y optimización de imágenes.
+#### **Landing Page y Frontend Web (Netlify)**
+
+Para la puesta en línea del Landing Page y la aplicación web (Angular), utilizamos Netlify, una plataforma especializada en el alojamiento web y despliegue continuo de aplicaciones modernas. Su funcionamiento se basa en los siguientes puntos:
+
+- **Integración con repositorios Git**: Netlify se enlaza fácilmente con GitHub. Cada vez que actualizamos el código y lo subimos a nuestro repositorio, Netlify detecta los cambios y comienza automáticamente el proceso de construcción del sitio.
+- **Compilación automatizada**: Durante el proceso de build, Netlify ejecuta `ng build` en Angular, transformando el código fuente TypeScript, componentes y estilos en una versión optimizada y compilada.
 - **Despliegue en red CDN**: Una vez que la construcción se completa con éxito, el sitio es desplegado a través de una red global de entrega de contenido (CDN), lo que garantiza tiempos de carga rápidos y disponibilidad en cualquier parte del mundo.
-- **Vistas previas automáticas por rama**: Por cada rama de trabajo activa o pull request, Netlify genera automáticamente una versión previa del sitio. Esto permite revisar los cambios antes de integrarlos al proyecto principal, favoreciendo el trabajo colaborativo y la detección temprana de errores.
-- **Despliegues automáticos continuos**: Cada vez que se fusiona una rama o se realiza un nuevo commit en la rama principal, Netlify actualiza el sitio automáticamente, asegurando que siempre esté reflejando la versión más reciente del código.
+- **Vistas previas automáticas por rama**: Por cada rama de trabajo activa o pull request, Netlify genera automáticamente una versión previa del sitio. Esto permite revisar los cambios antes de integrarlos al proyecto principal.
+- **Despliegues automáticos continuos**: Cada vez que se fusiona una rama o se realiza un nuevo commit en la rama principal, Netlify actualiza el sitio automáticamente.
+
+#### **Aplicación Móvil Android (Google Play Store)**
+
+Para la distribución de la aplicación móvil desarrollada en Kotlin, se implementa el siguiente flujo de despliegue:
+
+- **Compilación y empaquetamiento**: Gradle compila el código Kotlin, ejecuta pruebas unitarias y genera un archivo APK (o AAB) firmado digitalmente con la clave de release.
+- **Google Play Console**: Se utiliza Google Play Console para gestionar todas las fases del lanzamiento y distribución de la aplicación.
+  - **Canales de distribución**: Implementamos canales internos para testing, beta para usuarios experimentados, y production para lanzamiento público.
+  - **Gestión de versiones**: Se administran versionCode y versionName para controlar actualizaciones y rollouts progresivos.
+  - **Monitoreo**: Se monitorean métricas de estabilidad, crashes, ANRs (Application Not Responding) y ratings de usuarios.
+- **Certificación y seguridad**: La aplicación se somete a pruebas automáticas de seguridad de Google Play antes de ser disponible para usuarios.
+- **Rollout gradual**: Las nuevas versiones se lanzan gradualmente (10% → 25% → 50% → 100%) para detectar problemas antes de alcanzar a todos los usuarios.
+- **Actualizaciones automáticas**: Los usuarios reciben actualizaciones automáticas de la aplicación a través de Google Play.
+
+#### **Backend**
+
+El backend (API REST) sigue su propio flujo de despliegue, típicamente en plataformas como:
+- Servidores dedicados o cloud providers (AWS, GCP, Azure)
+- Contenedorización con Docker y orquestación con Kubernetes (opcional)
+- Integración continua con pipelines de CI/CD (GitHub Actions, Jenkins, etc.)
 
 ## 5.2. Product Implementation & Deployment.
+
 ### 5.2.1. Sprint Backlogs.
+
+En esta sección se presentan los Sprint Backlogs derivados del Product Backlog definido en la sección 3.3. Cada sprint agrupa las user stories priorizadas según la capacidad del equipo y los objetivos de cada entrega. La duración estándar de cada sprint es de **2 semanas**.
+
+---
+
+#### Sprint 1
+
+**Duración:** 02 de abril de 2026 – 08 de mayo de 2026 (6 semanas para TP1)  
+**Objetivo:** Completar la infraestructura base del proyecto, incluyendo el sistema de autenticación (registro e inicio de sesión), la base del backend con arquitectura DDD, y el frontend inicial con la landing page funcional.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB01 | US01 | Registrar cuenta de jugador | 5 | Sebastian |
+| SB02 | US02 | Iniciar sesión como jugador | 3 | Sebastian |
+| SB03 | US09 | Registrar cuenta de entrenador | 5 | Miguel |
+| SB04 | US10 | Actualizar perfil profesional | 3 | Miguel |
+| SB05 | TS01 | Implementar autenticación basada en JWT | 5 | Stephano |
+| SB06 | TS02 | Validación de JWT en endpoints protegidos | 3 | Stephano |
+| SB07 | TS03 | Manejo de expiración de tokens JWT | 3 | Stephano |
+| SB08 | TS04 | Almacenamiento seguro de tokens | 2 | Stephano |
+| SB09 | Landing Page | Implementación de landing page | 8 | Andy |
+| SB10 | Frontend Base | Configuración de proyecto frontend (Vue.js) | 5 | Andy |
+| SB11 | Backend Base | Configuración de proyecto backend (Spring Boot + DDD) | 8 | Ruben |
+| SB12 | DB Setup | Configuración de base de datos y modelos de dominio | 5 | Ruben |
+
+**Total Story Points Sprint 1:** 55
+
+**Definition of Done:**
+- [ ] Sistema de registro e inicio de sesión funcionando con JWT
+- [ ] Landing page responsive y desplegada en Netlify
+- [ ] Backend con arquitectura DDD levantado y accesible via Swagger
+- [ ] Repositorios configurados con GitFlow
+- [ ] Código documentado y con convenciones aplicadas
+
+---
+
+#### Sprint 2
+
+**Duración:** 09 de mayo de 2026 – 01 de junio de 2026 (3 semanas para TB2)  
+**Objetivo:** Implementar la funcionalidad core de búsqueda y reserva de canchas, incluyendo filtros, gestión de horarios y panel de administración.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB13 | US03 | Buscar canchas por ubicación | 5 | Sebastian |
+| SB14 | US04 | Filtrar canchas por deporte | 3 | Sebastian |
+| SB15 | US05 | Reservar cancha en línea | 8 | Miguel |
+| SB16 | US06 | Pagar reserva con tarjeta | 5 | Miguel |
+| SB17 | TS05 | Implementar API de búsqueda de canchas | 5 | Stephano |
+| SB18 | TS06 | Sistema de reservas en tiempo real | 8 | Stephano |
+| SB19 | TS07 | Integración con pasarela de pagos | 5 | Ruben |
+| SB20 | TS08 | Generación de comprobantes digitales | 5 | Ruben |
+| SB21 | Frontend Búsqueda | Vista de búsqueda y listado de canchas | 8 | Andy |
+| SB22 | Frontend Reserva | Flujo de reserva de cancha | 8 | Andy |
+
+**Total Story Points Sprint 2:** 60
+
+**Definition of Done:**
+- [ ] Búsqueda y filtrado de canchas funcionando
+- [ ] Proceso de reserva completo con confirmación
+- [ ] Pagos integrados y generando comprobantes
+- [ ] Frontend responsive con todas las vistas implementadas
+- [ ] Tests unitarios de los servicios core ejecutándose
+
+---
+
+#### Sprint 3
+
+**Duración:** 02 de junio de 2026 – 15 de julio de 2026 (6 semanas para TF1)  
+**Objetivo:** Completar la gestión de entrenadores, sistema de valoraciones, organización de partidos/torneos y funcionalidades restantes del producto.
+
+| Sprint Backlog Item | User Story ID | Título | Story Points | Asignado a |
+|---------------------|---------------|--------|--------------|------------|
+| SB23 | US07 | Valorar cancha reservada | 3 | Sebastian |
+| SB24 | US15 | Recibir reseñas de jugadores | 3 | Sebastian |
+| SB25 | US11 | Publicar disponibilidad de horarios | 5 | Miguel |
+| SB26 | US12 | Aceptar o rechazar reservas | 5 | Miguel |
+| SB27 | US13 | Gestionar pagos recibidos | 5 | Stephano |
+| SB28 | US14 | Ver estadísticas de rendimiento | 3 | Stephano |
+| SB29 | US08 | Crear partido con amigos | 5 | Ruben |
+| SB30 | US16 | Organizar torneos comunitarios | 8 | Ruben |
+| SB31 | TS09 | API de gestión de entrenadores | 5 | Andy |
+| SB32 | TS10 | Panel de administración de agenda | 5 | Andy |
+| SB33 | TS11 | Notificaciones de reserva a entrenadores | 5 | Todos |
+| SB34 | TS12 | Gestión de pagos para entrenadores | 3 | Todos |
+| SB35 | TS13 | Sistema de valoraciones y reseñas | 5 | Todos |
+| SB36 | TS14 | Moderación de comentarios | 3 | Todos |
+| SB37 | TS15 | Organización de torneos | 8 | Todos |
+| SB38 | TS16 | Estadísticas de participación y rendimiento | 5 | Todos |
+
+**Total Story Points Sprint 3:** 76
+
+**Definition of Done:**
+- [ ] Gestión completa de entrenadores con agendas
+- [ ] Sistema de valoraciones y reseñas funcionando
+- [ ] Creación de partidos y torneos operativos
+- [ ] Dashboard de estadísticas para entrenadores
+- [ ] Notificaciones push/email implementadas
+- [ ] Tests de integración y BDD completados
+- [ ] Producto desplegado y funcionando en producción
+
+---
+
+#### Resumen de Sprints
+
+| Sprint | Duración | Story Points | Objetivo Principal |
+|--------|----------|-------------|-------------------|
+| Sprint 1 | 02/04/26 – 08/05/26 | 55 | Infraestructura base y autenticación |
+| Sprint 2 | 09/05/26 – 01/06/26 | 60 | Búsqueda y reserva de canchas |
+| Sprint 3 | 02/06/26 – 15/07/26 | 76 | Gestión de entrenadores, reseñas y torneos |
 ### 5.2.2. Implemented Landing Page Evidence
+
 ### 5.2.3. Implemented Frontend-Web Application Evidence
+
+A continuación se presentan las evidencias de la implementación de la aplicación web PlayMatch, mostrando las principales funcionalidades desarrolladas.
+
+**Login**
+
+<img src="images/ss/login.png" alt="Login" width="800">
+
+**Registro**
+
+<img src="images/ss/registro.png" alt="Registro" width="800">
+
+#### Dashboard
+
+<img src="images/ss/dashboard.png" alt="Dashboard" width="800">
+
+#### Perfil
+
+<img src="images/ss/perfil.png" alt="Perfil" width="800">
+
+#### Servicios
+
+<img src="images/ss/servicios.png" alt="Servicios" width="800">
+
+#### Horario
+
+<img src="images/ss/horario.png" alt="Horario" width="800">
+
+#### Reservas
+
+<img src="images/ss/reservas.png" alt="Reservas" width="800">
+
+#### Clientes
+
+<img src="images/ss/clientes.png" alt="Clientes" width="800">
+
+#### Ingresos
+
+<img src="images/ss/ingresos.png" alt="Ingresos" width="800">
+
+#### Ajustes
+
+<img src="images/ss/ajustes.png" alt="Ajustes" width="800">
+
 ### 5.2.4. Acuerdo de Servicio - SaaS
+
+El presente documento establece el acuerdo de nivel de servicio (SLA - Service Level Agreement) entre MatchPoint y los usuarios de la plataforma PlayMatch. Este acuerdo define los compromisos de disponibilidad, soporte, seguridad y mantenimiento del servicio tecnológico proporcionado.
+
+#### 5.2.4.1. Descripción del Servicio
+
+PlayMatch es una plataforma SaaS (Software as a Service) desarrollada por MatchPoint que permite a los usuarios:
+
+- Buscar y reservar canchas deportivas en tiempo real
+- Contratar servicios de entrenador
+- Gestionar pagos de manera segura
+- Organizar partidos y torneos
+- Dejar valoraciones y reseñas
+
+El servicio está disponible a través de:
+- **Frontend Web:** https://matchpoint-frontend-hkfqnuy5y-stephanos-projects-199e78ac.vercel.app
+- **Backend API:** https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
+
+#### 5.2.4.2. Disponibilidad del Servicio
+
+| Métrica | Compromiso | Descripción |
+|---------|------------|-------------|
+| Uptime Mensual | 99.5% | Porcentaje de tiempo que el servicio está operativo |
+| Tiempo de Respuesta | < 3 segundos | Tiempo promedio de carga de páginas |
+| Disponibilidad API | 99.5% | Disponibilidad de los endpoints REST |
+| Mantenimiento Programado | < 4 horas/mes | Tiempo máximo de mantenimiento planificado |
+
+**Matriz de Disponibilidad:**
+
+| Nivel de Servicio | Descripción | Disponibilidad |
+|-------------------|-------------|-----------------|
+| Crítico | Generación de reservas y pagos | 99.9% |
+| Alto | Búsqueda de canchas y perfiles | 99.5% |
+| Medio | Valoraciones y comentarios | 99.0% |
+| Bajo | Estadísticas y reportes | 98.5% |
+
+#### 5.2.4.3. Compromisos de Soporte Técnico
+
+| Canal de Soporte | Disponibilidad | Tiempo de Respuesta |
+|-----------------|----------------|-------------------|
+| Email support@matchpoint.com | 24/7 | 24-48 horas |
+|Centro de ayuda en línea | 24/7 | Inmediato |
+| Chat en aplicación | 8am - 10pm (L-S) | < 15 minutos |
+
+**Niveles de Severidad:**
+
+| Severidad | Descripción | Tiempo de Resolución |
+|----------|------------|------------------|
+| Crítica | Sistema no disponible, pérdida de datos | < 4 horas |
+| Alta | Funcionalidad principal afectada | < 24 horas |
+| Media | Funcionalidad secundaria afectada | < 72 horas |
+| Baja | Mejoras cosmeticías | < 7 días |
+
+#### 5.2.4.4. Mantenimiento y Actualizaciones
+
+**Mantenimiento Programado:**
+
+- Las actualizaciones de seguridad se aplicarán dentro de las 72 horas posteriores a su liberación
+- El mantenimiento planificado se realizará en horarios de baja actividad (madrugada, 2am-6am)
+- Los usuarios serán notificados con 48 horas de anticipación
+
+**Actualizaciones del Sistema:**
+
+- Actualizaciones menores (patches): Mensuales
+- Actualizaciones mayores: Trimestrales
+- Nuevas funcionalidades: Según backlog del producto
+
+#### 5.2.4.5. Seguridad y Protección de Datos
+
+**Medidas de Seguridad:**
+
+- Cifrado de datos en tránsito mediante TLS 1.3
+- Almacenamiento cifrado de contraseñas con bcrypt
+- Autenticación mediante JWT con rotación de tokens
+- Protección contra CSRF y XSS
+- Copias de seguridad diarias automatizadas
+
+**Cumplimiento:**
+
+- Los datos de usuarios son tratados según la legislación peruana de protección de datos personales
+- Cumplimiento con OWASP Top 10 para seguridad web
+- Políticas de retención de datos: 2 años inactivos
+
+#### 5.2.4.6. Responsabilidades del Proveedor (MatchPoint)
+
+MatchPoint se compromete a:
+
+- Mantener la disponibilidad del servicio según los niveles establecidos
+- Proteger la confidencialidad y seguridad de los datos de los usuarios
+- Proveer soporte técnico según los tiempos comprometidos
+- Comunicar cualquier interrupción del servicio con anticipación
+- Mantener actualizar la documentación de la API
+
+#### 5.2.4.7. Responsabilidades del Usuario
+
+Los usuarios se comprometen a:
+
+- Mantener sus credenciales de acceso de forma segura
+- Reportar cualquier anomalía o incidente de seguridad
+- No intentar acceder a sistemas terceros sin autorización
+- Cumplir con los términos de uso de la plataforma
+- Realizar pagos de las reservaciones a tiempo
+
+#### 5.2.4.8. Limitaciones y Exclusiones
+
+**El SLA no cubre:**
+
+- Problemas de conectividad del usuario final
+- Fallos de servicios de terceros ajenos a Render/Vercel
+- Fuerza mayor (desastres naturales, cortes de energía)
+- Mantenimiento de emergencia no planificado
+- Uso indebido o violación de Términos de Uso
+
+**Límites de Uso:**
+
+- Máximo de 1000 solicitudes API por minuto por usuario
+- Máximo de 100 reservas activas por usuário
+- Almacenamiento de 50MB por perfil de usuario
+
+#### 5.2.4.9. Terminación del Servicio
+
+**Por parte del usuario:**
+
+- El usuário puede cerrar su cuenta en cualquier momento
+- Los datos serán eliminados dentro de 30 días de la solicitud
+
+**Por parte de MatchPoint:**
+
+- Notificación con 30 días de anticipación
+- Reembolso proporcional en caso de suscripción anual
+
+**En caso de Terminación:**
+
+- Exportación de datos disponible por 30 días
+- Eliminación segura de datos después de ese período
+
+#### 5.2.4.10. Métricas de Monitoreo
+
+MatchPoint utiliza herramientas de monitoreo para garantizar los niveles de servicio:
+
+- **Uptime Monitoring:** Pingdom, UptimeRobot
+- **Performance:** Vercel Analytics, Render Metrics
+- **Logs:** Stackdriver, CloudWatch
+- **Alerting:** PagerDuty, OpsGenie
+
+**Dashboard público de disponibilidad:**
+
+Los usuarios pueden consultar el estado del servicio en: status.matchpoint.com
+
+---
+
+**Versión del SLA:** 1.0  
+**Fecha de vigencia:** Mayo 2026  
+**Próxima revisión:** Julio 2026
+
 ### 5.2.5. Implemented Native-Mobile Application Evidence
+
+A continuación se presentan las evidencias de la implementación de la aplicación móvil MatchPoint, mostrando las principales funcionalidades desarrolladas.
+
+#### Registro
+
+<img src="images/ss/mb_registro.png" alt="Registro" width="400">
+
+#### Login
+
+<img src="images/ss/mb_login.png" alt="Login" width="400">
+
+#### Coaches
+
+<img src="images/ss/mb_coaches.png" alt="Coaches" width="400">
+
+#### Servicios
+
+<img src="images/ss/mb_servicios.png" alt="Servicios" width="400">
+
+#### Reservas
+
+<img src="images/ss/mb_reservas.png" alt="Reservas" width="400">
+
+#### Perfil
+
+<img src="images/ss/mb_perfil.png" alt="Perfil" width="400">
+
 ### 5.2.6. Implemented RESTful API and/or Serverless Backend Evidence
+
+A continuación se presentan las evidencias de la implementación del backend, mostrando las bases de datos y tablas creadas.
+
+#### Bookings
+
+<img src="images/ss/bk_bookings.png" alt="Bookings" width="800">
+
+#### Coach Services and Reviews
+
+<img src="images/ss/bk_coachservicesandreview.png" alt="Coach Services and Reviews" width="800">
+
+#### Coaches
+
+<img src="images/ss/bk_coaches.png" alt="Coaches" width="800">
+
+#### Client Relations
+
+<img src="images/ss/bk_cra.png" alt="Client Relations" width="800">
+
+#### Payments and User Profiles
+
+<img src="images/ss/bk_paymentanduserprofile.png" alt="Payments and User Profiles" width="800">
+
+#### Users
+
+<img src="images/ss/bk_user.png" alt="Users" width="800">
+
 ### 5.2.7. RESTful API documentation
 
 #### Bound context
@@ -1556,8 +2165,47 @@ BookingsController
 | Bookings | PUT         | /api/v1/bookings/{id} | actualizar reserva | UpdateBooking |
 | Bookings | DELETE      | /api/v1/bookings/{id} | eliminar reserva | DeleteBooking |
 ### 5.2.8. Team Collaboration Insights
+Durante el desarrollo del proyecto MatchPoint, se realizó un seguimiento continuo de la actividad de trabajo mediante las analíticas proporcionadas por GitHub. Estas métricas permitieron evaluar el nivel de contribución, frecuencia de commits y participación en los distintos repositorios del proyecto.
+
+El ecosistema de MatchPoint fue dividido en cuatro repositorios principales: reporte académico, backend, frontend web y aplicación móvil. Esta separación permitió mantener una mejor organización del código, facilitar el trabajo colaborativo y distribuir adecuadamente las responsabilidades de desarrollo.
+
+![organizacion](./images/organizacion-github.png)
+
+**Repositorio de Reporte**
+
+El repositorio de reporte fue utilizado para gestionar la documentación académica y técnica del proyecto. Las analíticas muestran la evolución progresiva de la documentación, así como la actualización constante de diagramas, evidencias y apartados relacionados con el desarrollo de MatchPoint
+
+![repositorio-porte](./images/contributors-report.png)
+
+**Repositorio Backend**
+
+El repositorio backend concentró el desarrollo de la lógica de negocio, endpoints REST, pruebas unitarias, pruebas integrales y documentación de la API. Las métricas reflejan una alta actividad relacionada con la implementación y validación de funcionalidades esenciales para el funcionamiento de la plataforma.
+
+![repositorio-backend](./images/contributiors-backend.png)
+
+**Repositorio Frontend Web**
+
+El repositorio frontend web se encargó de la interfaz de usuario, componentes visuales y experiencia del usuario. Las métricas reflejan una actividad constante en la implementación y mejora de la interfaz de usuario.
+
+![repositorio-frontend](./images/contibutiors-front.png)
+
+**Repositorio Mobile**
+
+El repositorio mobile se encargó de la interfaz de usuario, componentes visuales y experiencia del usuario. Las métricas reflejan una actividad constante en la implementación y mejora de la interfaz de usuario.
+
+![repositorio-mobile](./images/contribuitors-movil.png)
+
+**Análisis temporal de commits**
+
+Adicionalmente, se analizaron las métricas temporales de actividad del proyecto. Las gráficas obtenidas muestran que la mayor cantidad de commits se concentró durante el mes de mayo, periodo en el cual se inició oficialmente el desarrollo de MatchPoint.
+
+![coomits](./images/commints-backend.png)
+
 ## 5.3. Video About-the-Product
 
+![abouth-product](./images/abouth-product.png)
+
+link: https://drive.google.com/drive/folders/1MyKL9n-xxVZmLDKc7TqeWE0-Bz4VgN54?usp=sharing 
 
 # Part II: Verification, Validation & Pipeline 
 # Capítulo VI: Product Verification & Validation
@@ -1833,6 +2481,15 @@ Feature: Gestión de Sesiones de Entrenamiento
 mvn test -Dtest=CucumberTestRunner
 ![cucumber-test-runner](./images/bdd-test.png)
 ### 6.1.4. Core System Tests.
+
+Para evaluar el rendimiento general y la optimización del sistema desde la perspectiva del usuario final, se realizaron pruebas utilizando Google PageSpeed Insights sobre la aplicación web desplegada (frontend). Estas pruebas permitieron medir métricas clave de desempeño como Performance, Accessibility, Best Practices y SEO, verificando así la eficiencia del tiempo de carga, la usabilidad y la correcta implementación de estándares web.
+
+![google-pagespeed-insights](./images/pagespeed-1.png)
+![google-pagespeed-insights](./images/pagespeed-2.png)
+![google-pagespeed-insights](./images/pagespeed-3.png)
+![google-pagespeed-insights](./images/pagespeed-4.png)
+![google-pagespeed-insights](./images/pagespeed-5.png)
+
 ## 6.2. Static testing & Verification
 ### 6.2.1. Static Code Analysis
 #### 6.2.1.1. Coding standard & Code conventions.
@@ -1855,15 +2512,551 @@ mvn test -Dtest=CucumberTestRunner
 # Capítulo VII: DevOps Practices
 ## 7.1. Continuous Integration
 ### 7.1.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CI | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | GitHub Actions | Soporte nativo para Maven/Gradle, JUnit |
+| Frontend (Vue) | GitHub Actions | Compatible con npm/vite |
+
+#### Prácticas de Integración Continua
+
+**Políticas de Merge:**
+- Todos los commits deben pasar build y tests antes de merge
+- Branch protection en `main`/`develop`
+- Revisión de código obligatoria (mínimo 1 approval)
+
 ### 7.1.2. Build & Test Suite Pipeline Components.
+
+#### 7.1.2.1 Backend (Java Spring Boot + JUnit)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias | JUnit 5 + Mockito |
+| Integration Tests | Pruebas de integración | Spring Boot Test + `@Transactional` |
+| Build | Compilación y empaquetado | Maven |
+
+**Workflow - Backend CI:**
+
+```yaml
+# .github/workflows/maven.yml
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      database:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: "spring"
+          POSTGRES_USER: "root"
+          POSTGRES_PASSWORD: "password"
+
+    env:
+      SPRING_PROFILES_ACTIVE: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run tests
+        run: mvn test
+```
+
+**Estructura de Tests - JUnit:**
+
+```
+Backend/src/test/
+├── java/com/matchpoint/
+│   ├── bookings/
+│   │   ├── application/internal/commandservices/
+│   │   │   └── BookingCommandServiceImplTest.java      # Unit tests (Mockito)
+│   │   └── interfaces/rest/
+│   │       ├── BookingIntegrationTest.java              # Integration tests (BD real)
+│   │       └── CoachBookingIntegrationTest.java        # Integration tests (BD real)
+│   ├── users/
+│   │   └── application/internal/commandservices/
+│   │       └── UserProfileCommandServiceImplTest.java # Unit tests (Mockito)
+│   ├── payments/
+│   ├── coaches/
+│   └── courts/
+└── resources/
+    └── application-test.properties                     # Config para PostgreSQL en CI
+```
+
+**Resultados de Tests - Backend:**
+
+![backend-ci-workflow](./images/backend-ci-workflow.png)
+> Backend CI - Workflow en GitHub Actions
+
+![backend-ci-test-results](./images/backend-ci-test-results.png)
+> Backend CI - Resultados de tests
+
+**Tipos de Tests:**
+
+| Tipo | Anotación | BD | Uso |
+|------|-----------|-----|-----|
+| Unit Test | `@ExtendWith(MockitoExtension.class)` | Mock | Validar lógica de negocio |
+| Integration Test | `@SpringBootTest` + `@Transactional` | PostgreSQL real | Validar queries y persistencia |
+
+#### 7.1.2.2 Frontend (Vue + Vite + Vitest)
+
+**Pipeline Components:**
+
+| Componente | Descripción | Herramienta |
+|------------|-------------|-------------|
+| Unit Tests | Pruebas unitarias de composables y componentes | Vitest + Vue Test Utils |
+| Component Tests | Pruebas de comportamiento de componentes | Vue Test Utils |
+| Build | Compilación para producción | Vite |
+
+**Workflow - Frontend CI:**
+
+```yaml
+# .github/workflows/frontend-ci.yml
+name: Frontend CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:unit
+```
+
+**Resultados de Tests - Frontend:**
+
+![frontend-ci-workflow](./images/frontend-ci-workflow.png)
+> Frontend CI - Workflow en GitHub Actions
+
+![frontend-ci-test-results](./images/frontend-ci-test-results.png)
+> Frontend CI - Resultados de tests
+
+**package.json - Scripts:**
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:unit": "vitest run"
+  }
+}
+```
+
+**Tipos de Tests:**
+
+| Tipo | Herramienta | Descripción |
+|------|-------------|-------------|
+| Unit Test | Vitest | Validar lógica de composables y helpers |
+| Component Test | Vue Test Utils + happy-dom | Validar renderizado e interacciones de componentes |
+
 ## 7.2. Continuous Delivery
 ### 7.2.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CD | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | Render | Soporte para aplicaciones Java |
+| Frontend (Vue) | Vercel | Despliegue automático con CDN global |
+
+#### Estrategias de Despliegue
+
+#### Environments
+
+![envs](./images/diagram-1778455140955.png)
+
 ### 7.2.2. Stages Deployment Pipeline Components.
+
+#### Diagrama de Stages - CD Pipeline
+
+![stages](./images/diagram-1778455063397.png)
+
+##### Backend (Java Spring) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Compilación Maven |
+| Test | Automatic | Unit + Integration tests |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
+
+##### Frontend (Vue) - Stages
+
+| Stage | Trigger | Descripción |
+|-------|---------|-------------|
+| Build | Push a cualquier branch | Build con environment de dev |
+| Preview | PR abierta | URL de preview automática |
+| Staging | Merge a develop | Despliegue automático a staging |
+| Production | Merge a main | Despliegue automático a producción |
+
 ## 7.3. Continuous deployment
 ### 7.3.1. Tools and Practices.
+
+#### Herramientas Seleccionadas
+
+| Servicio | Herramienta CD | Justificación |
+|----------|----------------|---------------|
+| Backend (Java Spring) | Render + GitHub Actions | Despliegue automático desde main a producción |
+| Frontend Web (Vue) | Vercel + GitHub Actions | Despliegue automático con zero-downtime |
+| App Móvil (Android/Kotlin) | Google Play Console + GitHub Actions | Despliegue automático a Play Store (canales gradualmente) |
+
+#### Estrategias de Despliegue Automático a Producción
+
+**Políticas de Despliegue Continuo:**
+
+- Todos los commits a `main` se despliegan automáticamente a producción sin intervención manual
+- Rollbacks automáticos si los health checks fallan
+- Canales graduals para app móvil: 10% → 25% → 50% → 100%
+- Monitoreo en tiempo real post-despliegue
+- Alertas inmediatas si se detectan errores críticos
+
+#### Diferencia CD (Delivery) vs CD (Deployment)
+
+| Aspecto | Continuous Delivery | Continuous Deployment |
+|--------|-------------------|----------------------|
+| **Aprobación** | Manual antes de producción | Automática a producción |
+| **Riesgo** | Menor (requiere validación) | Mayor (requiere monitoreo robusto) |
+| **Frecuencia** | Cuando se aprueba | Cada commit a main |
+| **PlayMatch** | Usado en Staging | Usado en Production |
+
 ### 7.3.2. Production Deployment Pipeline Components.
 
+#### Diagrama General - CD (Deployment) Pipeline
 
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    CONTINUOUS DEPLOYMENT FLOW                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Developer Push to main                                          │
+│         ↓                                                         │
+│  GitHub Actions Trigger                                          │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  1. BACKEND (Java Spring)                                │   │
+│  │     - Build & Test (Maven)                              │   │
+│  │     - Deploy to Render (Production)                     │   │
+│  │     - Run smoke tests                                   │   │
+│  │     - Alert on failure                                  │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  2. FRONTEND WEB (Vue)                                   │   │
+│  │     - Build (Vite) with PROD environment               │   │
+│  │     - Deploy to Vercel (Production)                     │   │
+│  │     - Invalidate CDN cache                              │   │
+│  │     - Run E2E tests                                     │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │  3. MOBILE APP (Android/Kotlin)                          │   │
+│  │     - Build signed APK/AAB (Gradle)                     │   │
+│  │     - Deploy to Google Play Console                      │   │
+│  │     - Gradual rollout (10% initial)                     │   │
+│  │     - Monitor crash rates & ANRs                        │   │
+│  │     - Auto-expand % if stable                           │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│         ↓                                                         │
+│  Health Checks & Monitoring                                      │
+│         ↓                                                         │
+│  Deployment Complete / Rollback if Failed                        │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+#### Backend (Java Spring) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Maven | `mvn clean package -DskipTests` |
+| **Deploy** | Render | Push a contenedor; Render redeploy automático |
+| **Database** | PostgreSQL | Migraciones automáticas (Flyway) |
+| **Health Check** | Spring Boot Actuator | GET `/actuator/health` (timeout 30s) |
+| **Monitoring** | New Relic / Datadog | Monitoreo de performance y errores |
+| **Rollback** | Render | Automático si health check falla |
+
+**Workflow - Backend Production Deployment:**
+
+```yaml
+# .github/workflows/backend-deploy-prod.yml
+name: Backend Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests
+
+      - name: Deploy to Render
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_PRODUCTION_DEPLOY_HOOK }}
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK"
+
+      - name: Health Check
+        run: |
+          for i in {1..30}; do
+            if curl -f https://api.playmatch.com/actuator/health; then
+              echo " API is healthy"
+              exit 0
+            fi
+            echo " Waiting for API... ($i/30)"
+            sleep 2
+          done
+          echo " Health check failed"
+          exit 1
+
+      - name: Notify Slack
+        if: always()
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "Backend Production Deployment: ${{ job.status }}"
+            }
+```
+
+#### Frontend Web (Vue) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Vite | `npm run build` (producción optimizada) |
+| **Deploy** | Vercel | Detecta cambios en git; deploya automático |
+| **CDN** | Vercel Edge Network | Distribuye a nivel global |
+| **SSL** | Vercel Managed SSL | Certificado automático |
+| **Monitoring** | Vercel Analytics | Métricas de performance |
+| **E2E Tests** | Playwright | Valida flujos críticos post-deploy |
+
+**Workflow - Frontend Production Deployment:**
+
+```yaml
+# .github/workflows/frontend-deploy-prod.yml
+name: Frontend Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:unit
+
+      - name: Build for production
+        env:
+          VITE_API_URL: https://api.playmatch.com
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: vercel/action@master
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          production: true
+
+      - name: E2E Tests (Production)
+        run: npm run test:e2e:prod
+```
+
+#### Mobile App (Android/Kotlin) - Production Deployment
+
+| Componente | Herramienta | Acción |
+|------------|------------|--------|
+| **Code** | GitHub | Merge a main dispara workflow |
+| **Build** | Gradle | `./gradlew bundleRelease` (genera AAB) |
+| **Sign** | Keystore | Firma con clave de producción |
+| **Deploy** | Google Play Console | Carga AAB a Play Store |
+| **Rollout** | Play Console | Inicia con 10%, escala gradualmente |
+| **Monitoring** | Play Console Dashboard | Crash rates, ANRs, reviews |
+| **Rollback** | Play Console | Manual si se detectan fallos críticos |
+
+**Workflow - Mobile App Production Deployment:**
+
+```yaml
+# .github/workflows/mobile-deploy-prod.yml
+name: Mobile App Deploy to Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'mobile/**'
+      - '.github/workflows/mobile-deploy-prod.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Build Release Bundle
+        run: |
+          cd mobile
+          ./gradlew bundleRelease
+
+      - name: Sign Bundle
+        env:
+          KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_FILE" | base64 -d > keystore.jks
+          # Gradle ya gestiona la firma automáticamente con gradle.properties
+
+      - name: Upload to Google Play Console
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_CONSOLE_SERVICE_ACCOUNT }}
+          packageName: com.matchpoint.app
+          releaseFiles: 'mobile/app/build/outputs/bundle/release/*.aab'
+          track: production
+          inAppUpdatePriority: 5
+          rolloutPercentage: 10
+
+      - name: Monitor Rollout
+        run: |
+          echo " Initial rollout: 10%"
+          echo " Monitoring crash rates for 24 hours..."
+          echo " If stable, gradual expansion: 10% → 25% → 50% → 100%"
+
+      - name: Notify Team
+        uses: slackapi/slack-github-action@v1
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": " Mobile App v${{ github.ref }} deployed to Play Store (10% rollout)"
+            }
+```
+
+#### Monitoreo Post-Deployment
+
+| Servicio | Métrica Crítica | Umbral de Alerta |
+|----------|-----------------|------------------|
+| **Backend** | Latencia API | > 500ms |
+| **Backend** | Error Rate | > 1% |
+| **Backend** | CPU / Memoria | > 80% |
+| **Frontend** | Largest Contentful Paint (LCP) | > 2.5s |
+| **Frontend** | First Input Delay (FID) | > 100ms |
+| **Mobile** | Crash Rate | > 0.1% |
+| **Mobile** | ANR Rate | > 0.05% |
+| **Mobile** | Rating (Play Store) | < 3.5 estrellas |
+
+#### Estrategia de Rollback
+
+**Trigger de Rollback Automático:**
+
+```
+IF health_check_failed OR error_rate > 5% OR crash_rate > 1%
+  THEN rollback_to_previous_version
+  SEND alert_to_oncall_engineer
+END
+```
+
+**Rollback Manual:**
+
+- Backend: Render permite revert a versión anterior en 1 click
+- Frontend: Vercel revert a último deployment funcional
+- Mobile: Google Play manual rollback (limita a 2 versiones anteriores)
 
 ## Conclusiones
 ### Conclusiones y recomendaciones.
