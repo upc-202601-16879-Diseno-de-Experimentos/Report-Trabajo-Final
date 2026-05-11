@@ -498,7 +498,7 @@ De esta manera, PlayMatch se convierte en un ecosistema que integra oferta y dem
 
 | Integrantes | Descripción | Conocimientos |
 | :--- | :--- | :--- |
-| <img src="images/sebastian.jpg" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u20241A314 | Estudiante de 6to ciclo de la carrera de Ingeniería de Software | Tengo conocimientos en frontend, UX/UI y backend, con intenciones de seguir adquiriendo habilidades en el campo del desarrollo web y de aplicaciones. |
+| <img src="images/sebastian.jpg" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u20241A314 | Estudiante de 7mo ciclo de la carrera de Ingeniería de Software | Tengo conocimientos en frontend, UX/UI y backend, con intenciones de seguir adquiriendo habilidades en el campo del desarrollo web y de aplicaciones. |
 | <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202312391 |  |  |
 | <img src="images/" alt="Integrante3" width="100" height="120"><br>**Andy Alejandro Mio Mejia**<br>u202022211 |  |  |
 | <img src="images/stephano.png" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202311294 | Estudiante de 7mo ciclo de Ingeniería de Software con 19 años. | Desarrollador Fullstack con visión arquitectónica. Experto en backend (Java/Spring Boot, C#/.NET Core) y frontend (Vue.js, Angular, Next.js). Dominio en diseño de sistemas con DDD, arquitecturas de microservicios y bases de datos relacionales/NoSQL. Experiencia en metodologías ágiles para transformar requerimientos en soluciones tecnológicas robustas. |
