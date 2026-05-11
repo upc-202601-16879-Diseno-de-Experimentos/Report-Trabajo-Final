@@ -501,7 +501,7 @@ De esta manera, PlayMatch se convierte en un ecosistema que integra oferta y dem
 | <img src="images/" alt="Integrante1" width="100" height="120"><br>**Sebastian Ernesto Gutarra Velapatiño**<br>u202022211 |  |  |
 | <img src="images/" alt="Integrante2" width="100" height="120"><br>**Miguel Angel Hallasi Saravia**<br>u202312391 |  |  |
 | <img src="images/" alt="Integrante3" width="100" height="120"><br>**Andy Alejandro Mio Mejia**<br>u202022211 |  |  |
-| <img src="images/" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202022211 |  |  |
+| <img src="images/stephano.png" alt="Integrante4" width="100" height="120"><br>**Stephano Renan Valdivia Quispe**<br>u202311294 | Estudiante de 7mo ciclo de Ingeniería de Software con 19 años. | Desarrollador Fullstack con visión arquitectónica. Experto en backend (Java/Spring Boot, C#/.NET Core) y frontend (Vue.js, Angular, Next.js). Dominio en diseño de sistemas con DDD, arquitecturas de microservicios y bases de datos relacionales/NoSQL. Experiencia en metodologías ágiles para transformar requerimientos en soluciones tecnológicas robustas. |
 | <img src="images/ruben.jpg" alt="Integrante5" width="100" height="120"><br>**Ruben Genaro Velasquez Chambi**<br>u202022211 | Soy un estudiante de 8vo ciclo de la carrera de ingenieria de software, me gusta aprender nuevas tecnologias y aplicarlas en proyectos innovadores.  | Tengo conocimientos en multiples lengujaes python,c++,c#,java,kotlin,dart,javascript,typescript y frameworks como nodejs,django,flutter, spring boot y bases de datos sql y no sql. Tambien tengo conocimientos en metodologias agiles como scrum|
 
 
