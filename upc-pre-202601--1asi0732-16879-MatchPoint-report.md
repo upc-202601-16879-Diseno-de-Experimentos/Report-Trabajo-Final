@@ -1365,24 +1365,24 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
-![wireframes](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/WIREF.PNG)
+![wireframes](images/WIREF.PNG)
 
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
-![wireflow diagram1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow1.PNG)
-![wireflow diagram2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow2.PNG)
-![wireflow diagram3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow3.PNG)
-![wireflow diagram4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow4.PNG)
-![wireflow diagram5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow5.PNG)
+![wireflow diagram1](images/flow1.PNG)
+![wireflow diagram2](images/flow2.PNG)
+![wireflow diagram3](images/flow3.PNG)
+![wireflow diagram4](images/flow4.PNG)
+![wireflow diagram5](images/flow5.PNG)
 
 ### 4.4.3. Mobile Applications Mock-ups.
-![](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/MOCKU%7D.PNG)
+![mockup](images/MOCKU}.PNG)
 
 ### 4.4.4. Mobile Applications User Flow Diagrams.
-![user flow1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow1.PNG)
-![user flow2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow2.PNG)
-![user flow3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow3.PNG)
-![user flow4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow4.PNG)
-![user flow5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow5.PNG)
+![user flow1](images/uflow1.PNG)
+![user flow2](images/uflow2.PNG)
+![user flow3](images/uflow3.PNG)
+![user flow4](images/uflow4.PNG)
+![user flow5](images/uflow5.PNG)
 
 ## 4.5. Mobile Applications Prototyping.
 
