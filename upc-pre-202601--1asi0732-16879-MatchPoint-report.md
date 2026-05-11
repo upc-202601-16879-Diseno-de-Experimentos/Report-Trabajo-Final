@@ -1171,14 +1171,14 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
-<img src="images/WIREF.png"/>
+<img src="./images/WIREF.png"/>
 
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
-<img src="images/flow1.png"/>
-<img src="images/flow2.png"/>
-<img src="images/flow3.png"/>
-<img src="images/flow4.png"/>
-<img src="images/flow5.png"/>
+<img src="./images/flow1.png"/>
+<img src="./images/flow2.png"/>
+<img src="./images/flow3.png"/>
+<img src="./images/flow4.png"/>
+<img src="./images/flow5.png"/>
 
 ### 4.4.3. Mobile Applications Mock-ups.
 
