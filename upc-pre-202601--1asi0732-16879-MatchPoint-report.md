@@ -1122,7 +1122,31 @@ La versión web de PlayMatch está diseñada para ofrecer una experiencia fluida
 
 #### 4.1.3.1 IOS Mobile Style Guidelines
 
+La versión iOS de PlayMatch está diseñada siguiendo las Human Interface Guidelines de Apple, priorizando una experiencia visual limpia, intuitiva y fluida para los usuarios de iPhone y iPad.
+
+Diseño responsivo: La interfaz se adapta a diferentes tamaños de pantalla de dispositivos Apple, respetando las safe areas y garantizando una correcta visualización en dispositivos con notch o Dynamic Island.
+
+Animaciones fluidas: Las transiciones entre pantallas y elementos interactivos utilizan animaciones suaves y naturales, brindando una experiencia moderna y consistente con el ecosistema Apple.
+
+Tipografía y legibilidad: Se emplea una jerarquía visual clara mediante tamaños de texto adecuados y espaciados amplios, favoreciendo la lectura y accesibilidad en dispositivos móviles.
+
+Gestos nativos: La aplicación soporta gestos característicos de iOS, como el deslizamiento lateral para regresar entre pantallas, mejorando la experiencia de navegación del usuario.
+
+Diseño minimalista: Los componentes visuales mantienen un estilo limpio y ordenado, utilizando espacios en blanco, iconografía simple y colores equilibrados para reducir la saturación visual.
+
 #### 4.1.3.2 Android Mobile Style Guidelines
+
+La versión Android de PlayMatch sigue los principios de Material Design de Google, ofreciendo una experiencia moderna, dinámica y adaptable a la gran variedad de dispositivos Android.
+
+Diseño responsivo: La interfaz se adapta correctamente a diferentes resoluciones y tamaños de pantalla, garantizando compatibilidad con teléfonos y tabletas Android.
+
+Material Design: La aplicación utiliza componentes visuales propios de Material Design, como tarjetas, botones elevados y efectos de profundidad, proporcionando una experiencia familiar para los usuarios Android.
+
+Retroalimentación visual: Los botones y elementos interactivos muestran efectos visuales al ser presionados, como cambios de color, sombras o animaciones ripple, para indicar correctamente la interacción del usuario.
+
+Navegación optimizada: Se utiliza navegación inferior y menús desplegables para facilitar el acceso rápido a funciones importantes como reservas, búsqueda de canchas y gestión del perfil.
+
+Uso eficiente del espacio: Los elementos visuales están organizados en tarjetas y secciones modulares que permiten mostrar información de manera clara y ordenada incluso en pantallas pequeñas.
 
 ## 4.2. Information Architecture
 
@@ -1341,18 +1365,32 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 
 ### 4.4.1 Mobile Applications Wireframes
 
+![wireframes](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/WIREF.PNG)
+
 ### 4.4.2. Mobile Applications Wireflow Diagrams.
+![wireflow diagram1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow1.PNG)
+![wireflow diagram2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow2.PNG)
+![wireflow diagram3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow3.PNG)
+![wireflow diagram4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow4.PNG)
+![wireflow diagram5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/flow5.PNG)
 
 ### 4.4.3. Mobile Applications Mock-ups.
+![](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/MOCKU%7D.PNG)
 
 ### 4.4.4. Mobile Applications User Flow Diagrams.
+![user flow1](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow1.PNG)
+![user flow2](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow2.PNG)
+![user flow3](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow3.PNG)
+![user flow4](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow4.PNG)
+![user flow5](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/docs/chapter-4/images/uflow5.PNG)
 
 ## 4.5. Mobile Applications Prototyping.
 
 ### 4.5.1. Android Mobile Applications Prototyping.
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=0-1&t=TQpIm5SmWsNhJTd8-1
 
 ### 4.5.2. iOS Mobile Applications Prototyping.
-
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t=TQpIm5SmWsNhJTd8-1
 
 ## 4.6. Web Applications UX/UI Design
 
@@ -1379,6 +1417,8 @@ Está diseñada para guiar a los usuarios (deportistas, entrenadores y administr
 <img src="images/user-flow.png"/>
 
 ## 4.7. Web Applications Prototyping
+https://www.figma.com/design/UUr0y7GZTdAAU3xbkA5g31/MatchPoint?node-id=2007-46&t=TQpIm5SmWsNhJTd8-1
+
 ## 4.8. Domain-Driven Software Architecture
 ### 4.8.1. Software Architecture Context Diagram
 
