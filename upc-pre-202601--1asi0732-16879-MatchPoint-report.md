@@ -2203,7 +2203,7 @@ Adicionalmente, se analizaron las métricas temporales de actividad del proyecto
 
 ## 5.3. Video About-the-Product
 
-![abouth-product](./images/abouth-product.png)
+![abouth-product](./images/Abouth-product.png)
 
 link: https://drive.google.com/drive/folders/1MyKL9n-xxVZmLDKc7TqeWE0-Bz4VgN54?usp=sharing 
 
