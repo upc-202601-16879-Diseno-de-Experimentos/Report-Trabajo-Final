@@ -3058,8 +3058,58 @@ END
 - Frontend: Vercel revert a último deployment funcional
 - Mobile: Google Play manual rollback (limita a 2 versiones anteriores)
 
-## Conclusiones
+## Conclusiones y recomendaciones.
 ### Conclusiones y recomendaciones.
+
+#### Conclusiones
+
+1. **Desarrollo de aplicación móvil funcional**
+   Se desarrolló exitosamente una aplicación móvil Android con Kotlin y Jetpack Compose que permite a los usuarios autenticarse, visualizar coaches y servicios, y crear reservas. La app se integró con el backend desplegado en Render, demostrando la viabilidad de una arquitectura distribuida.
+
+2. **Pruebas automatizadas garantizan calidad**
+   Se configuró un entorno de pruebas local con H2 que permite ejecutar 25 tests automatizados (unitarios e integración) sin afectar el entorno de producción. Los tests validan la lógica de negocio del backend, reduciendo riesgos de fallos en producción.
+
+3. **Integración frontend-backend operativos**
+   La app móvil comunica correctamente con los endpoints del backend mediante APIs REST con autenticación JWT. El flujo de reservas end-to-end funciona correctamente, desde la selección de servicios hasta la persistencia en base de datos.
+
+4. **Gestión de proyectos colaborativa**
+   El uso de Git con ramas específicas por funcionalidad permitió que múltiples integrantes trabajaran en paralelo sin conflictos mayores. La estrategia de merge de ramas y PR facilitó la integración controlada del código.
+
+5. **Despliegue en producción automatizado**
+   El backend está desplegado en Render con PostgreSQL, el frontend web en Vercel, y la app móvil lista para distribución. Los pipelines CI/CD aseguran que cada cambio sea validado antes de llegar a producción.
+
+6. **Cumplimiento de estándares éticos y profesionales**
+   El desarrollo de software con pruebas automatizadas, documentación técnica y despliegues seguros demuestra responsabilidad profesional. Las decisiones técnicas consideraron el impacto en usuarios reales, accesibilidad y estabilidad del sistema.
+
+7. **Documentación técnica completa**
+   Se documentó la API REST con Swagger, se crearon wireframes y mockups, y se integraron múltiples capturas de pantalla en el informe final. Esto facilita el mantenimiento y la transferencia del proyecto a otros desarrolladores.
+
+#### Recomendaciones
+
+1. **Implementar notificaciones push**
+   Se recomienda agregar notificaciones push en la app móvil para alertar a los usuarios sobre el estado de sus reservas, recordatorios de horarios y promociones de coaches.
+
+2. **Optimizar rendimiento de la app móvil**
+   Se sugiere implementar cache local con Room Database para reducir llamadas a la API y mejorar la experiencia offline. También considerar lazy loading para listas grandes.
+
+3. **Ampliar cobertura de pruebas**
+   Aumentar la cobertura de tests unitarios e integración, especialmente para casos de borde como fallos de red, timeouts y manejo de errores del servidor.
+
+4. **Implementar pagos integrados**
+   Desarrollar la pasarela de pagos completa dentro de la app móvil para permitir reservas con pago en línea, no solo visualizando servicios.
+
+5. **Seguridad avanzada**
+   Implementar refresh tokens JWT, HTTPS forzado en todas las comunicaciones, y almacenamiento seguro de credenciales en el dispositivo móvil.
+
+6. **Monitoreo en producción**
+   Agregar herramientas de monitoreo como Sentry o Firebase Crashlytics para detectar y resolver errores en producción rápidamente.
+
+7. **Publicación en tiendas de apps**
+   Preparar el APK firmado para publicación en Google Play Store, incluyendo screenshots, descripciones y políticas de privacidad, para facilitar la distribución a usuarios finales.
+
+8. ** internacionalización**
+   Considerar agregar soporte para múltiples idiomas (español, inglés) para expandir la plataforma a mercados internacionales.
+
 ### Video App Validation
 ### Video About-the-Team.
 
