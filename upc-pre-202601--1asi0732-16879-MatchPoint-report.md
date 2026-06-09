@@ -3102,8 +3102,164 @@ END
 # Capítulo VIII: Experiment-Driven Development 
 ## 8.1. Experiment Planning 
 ### 8.1.1. As-Is Summary. 
+La aplicación actual **PlayMatch**, desarrollada por la startup **MatchPoint**, es una plataforma web y móvil orientada a conectar deportistas aficionados con canchas deportivas y entrenadores independientes. Ofrece funcionalidades esenciales como el registro e inicio de sesión de usuarios (jugadores y entrenadores), búsqueda y reserva de canchas deportivas con filtros básicos por ubicación y tipo de deporte, gestión del perfil profesional del entrenador, visualización de servicios y agenda, y un sistema de valoraciones y reseñas. El backend se encuentra desplegado en Render con documentación Swagger, y el frontend web en Vercel mediante integración continua con GitHub Actions.
+
+Sin embargo, la experiencia de usuario presenta inconsistencias notables entre las plataformas web y móvil, y varias funcionalidades clave definidas en el backlog permanecen sin implementarse o sin conectarse a los endpoints disponibles en el backend. La interfaz, aunque funcional, carece de elementos visuales que refuercen la identidad de marca, y algunos flujos de usuario resultan poco intuitivos comparados con aplicaciones modernas de referencia.
+
+## Problemas identificados:
+
+### Experiencia de usuario (UX) y navegación
+- **Menú de usuario no contextual:** Las opciones de perfil, ajustes y cierre de sesión están dispersas en la navegación principal, en lugar de estar agrupadas en un menú desplegable en la esquina superior derecha como lo hacen aplicaciones ampliamente usadas como Google, GitHub o Notion. Esto hace que la interfaz se sienta poco familiar y distante del estándar moderno que los usuarios ya conocen y esperan.
+- **Formularios mal proporcionados:** Los formularios (registro, inicio de sesión, creación de servicios) ocupan demasiado espacio en pantalla, lo que genera una experiencia visual pobre y desperdicio de espacio en pantallas anchas de escritorio.
+- **Espacios vacíos sin información de valor:** Varias secciones del frontend (dashboard del entrenador, pantalla de inicio del jugador) presentan áreas en blanco que no ofrecen contenido relevante al usuario, reduciendo la percepción de calidad y utilidad de la plataforma.
+
+### Identidad visual y diseño
+- **Logo inconsistente en el panel del entrenador:** El panel de control del entrenador utiliza un logo o ícono poco representativo que no se alinea con la identidad visual definida en la guía de estilos de PlayMatch. Esto afecta la coherencia de marca.
+- **Ausencia de anuncios o contenido contextual:** La interfaz carece de secciones de anuncios o contenido dinámico relacionado (novedades deportivas, promos de canchas, torneos destacados), lo que hace que algunas vistas luzcan vacías e incompletas frente al usuario.
+
+### Funcionalidades limitadas
+- **Sin opción de editar servicios:** Los entrenadores actualmente no pueden editar los servicios ya publicados desde la interfaz. Una vez creado un servicio, no existe un flujo de edición accesible, lo que obliga al usuario a eliminar y recrear servicios para actualizar información.
+
+- **Sin integración con servicios externos:** La plataforma no integra pasarelas de pago reales (como Stripe), servicios de autenticación de Google.
+
+### Versión móvil
+- **Búsqueda de canchas deficiente en móvil:** En la aplicación Android, la búsqueda de canchas deportivas carece de filtros avanzados y no ofrece una experiencia fluida de exploración. Los resultados se presentan de forma poco visual y sin ordenamiento por relevancia o cercanía.
+- **Sistema de calificaciones incompleto en móvil:** Las valoraciones y reseñas de canchas y entrenadores no se muestran correctamente en la versión móvil, limitando la capacidad del usuario para tomar decisiones informadas antes de realizar una reserva.
+- **Experiencia inconsistente entre plataformas:** Ciertos flujos disponibles en la web (como la perfil de usuario) no tienen equivalente en la aplicación móvil, generando una experiencia fragmentada para los usuarios que alternan entre dispositivos.
+
+- **Falta de icono:** La aplicacion no cuenta con un icono para la aplicacion, se muestra el icono por defecto de Android.
 ### 8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims. 
-### 8.1.3. Experiment-Ready Questions. 
+
+### Assumptions (Suposiciones):
+
+- **Menú desplegable de usuario:** Se asume que los usuarios ya están familiarizados con el patrón de avatar + dropdown en la esquina superior derecha por su uso diario en plataformas como Google, GitHub y LinkedIn, y que adoptarlo en PlayMatch haría la interfaz sentirse más moderna, reconocible y confiable, incluso si el número de clics no varía significativamente.
+- **Anuncios contextuales:** Se asume que mostrar anuncios o contenido relacionado (torneos próximos, canchas disponibles cerca, promos de entrenadores destacados) en las pantallas con menor densidad de información aumentará el tiempo de sesión y la interacción del usuario con la plataforma.
+- **Formularios centrados y compactos:** Se asume que reducir el tamaño visual de los formularios y centrarlos en la pantalla, complementando el espacio restante con información útil (estadísticas, tips, contenido sugerido), mejorará la percepción de calidad de la interfaz y reducirá el abandono de formularios.
+- **Edición de servicios del entrenador:** Se asume que la falta de edición de servicios ya publicados genera frustración en los entrenadores, quienes son un segmento clave para el modelo de negocio de la plataforma.
+- **Integración de pagos:** Se asume que la ausencia de una pasarela de pago real es una barrera significativa para la conversión de usuarios, ya que impide completar el ciclo de reserva de forma confiable.
+- **Búsqueda por geolocalización en móvil:** Se asume que los usuarios móviles prefieren encontrar canchas cercanas a su ubicación actual sobre buscar por nombre o distrito, lo que sugiere que integrar geolocalización incrementaría las reservas realizadas desde la app.
+- **Autenticación con Google:** Se asume que ofrecer el inicio de sesión con Google reduciría la fricción en el proceso de registro y login, dado que es el método preferido por los usuarios jóvenes en plataformas digitales peruanas.
+- **Ícono de app:** Se asume que la ausencia de un ícono personalizado en la aplicación Android genera una percepción de producto inacabado y poco profesional, afectando la confianza del usuario desde el primer momento de instalación.
+
+### Knowledge Gaps (Brechas de Conocimiento):
+
+- **Patrones de uso del menú de perfil:** No se dispone de datos cuantitativos sobre con qué frecuencia los usuarios acceden a ajustes, perfil o cierre de sesión, ni si encuentran dificultades para ubicar estas opciones en la navegación actual.
+- **Impacto de los anuncios contextuales:** Falta información sobre qué tipo de contenido contextual (torneos, canchas destacadas, coaches recomendados) genera mayor engagement en plataformas deportivas similares.
+- **Tasa de abandono en formularios:** No existen datos sobre en qué punto del flujo de registro o creación de servicios los usuarios abandonan el proceso.
+- **Comportamiento móvil vs. web:** Se carece de métricas comparativas sobre la distribución de sesiones entre la aplicación Android y la plataforma web, lo que dificulta priorizar en cuál plataforma enfocar las mejoras de experiencia.
+- **Impacto del ícono en la percepción inicial:** No se cuenta con feedback de usuarios sobre si la ausencia del ícono personalizado influye en la decisión de continuar usando la app tras instalarla.
+- **Preferencia de método de autenticación:** No se sabe si los usuarios de PlayMatch prefieren el registro con email/contraseña o si optarían por autenticación social (Google) si estuviese disponible.
+- **Efectividad de las calificaciones en la decisión de reserva móvil:** No hay datos sobre si los usuarios en móvil consultan las reseñas antes de reservar, y si su falta de visibilidad impacta realmente la tasa de conversión en esa plataforma.
+- **Frecuencia de edición de servicios por entrenadores:** Se desconoce con qué frecuencia los entrenadores necesitan actualizar sus servicios y si actualmente recurren a eliminar y recrear el servicio como workaround.
+
+### Ideas:
+
+- **Implementar dropdown de perfil de usuario:** Rediseñar la navegación incorporando un avatar clicable en la esquina superior derecha que despliegue un menú con opciones de: Ver perfil, Ajustes de cuenta y Cerrar sesión. El objetivo principal no es reducir clics, sino alinear la interfaz con el patrón visual que los usuarios ya reconocen de plataformas como Google, GitHub y Notion, generando una sensación de modernidad y familiaridad desde el primer uso.
+- **Sección de anuncios dinámicos y contenido relacionado:** Agregar en el dashboard un carrusel o panel lateral con anuncios contextuales: torneos próximos, canchas con alta disponibilidad en la zona, entrenadores destacados de la semana y tips deportivos.
+- **Rediseño de formularios con contenido complementario:** Mover los formularios principales (registro, login, creación de servicios) y utilizar el espacio liberado para mostrar información de valor: estadísticas de la plataforma, testimonios de usuarios, beneficios del plan premium o imágenes motivacionales alineadas a la guía de estilos.
+- **Rediseño del logo en el panel del entrenador:** Aplicar el ícono oficial de PlayMatch en el panel del entrenador, asegurando consistencia con la identidad visual definida en la guía de estilos.
+- **Funcionalidad de edición de servicios del entrenador:** Implementar un flujo de edición inline en la sección de servicios del entrenador, permitiendo modificar nombre, descripción, precio y disponibilidad de cada servicio publicado sin necesidad de eliminarlo y recrearlo.
+- **Mejorar búsqueda de canchas en móvil:** Incorporar el permiso de ubicación en la app Android para mostrar canchas ordenadas por distancia al usuario.
+- **Mejorar visualización de calificaciones en móvil:** Rediseñar las tarjetas de entrenadores y canchas en la app Android para mostrar de forma prominente la calificación promedio (estrellas), número de reseñas y los últimos comentarios relevantes antes de que el usuario acceda al detalle completo.
+- **Implementar ícono personalizado para la app Android:** Diseñar y publicar el ícono oficial de PlayMatch como launcher icon de la aplicación Android, reemplazando el ícono por defecto del sistema.
+- **Autenticación con Google (OAuth):** Integrar el inicio de sesión con Google como método alternativo al registro tradicional, reduciendo la fricción de entrada para nuevos usuarios y aprovechando la infraestructura de OAuth 2.0.
+- **Explorar integración con pasarela de pago real:** Evaluar la integración con Culqi (enfocada en el mercado peruano), Stripe  o cualquier metodo como pasarela de pago para completar el flujo de reserva y pago en la plataforma, habilitando el modelo de negocio real de la startup.
+
+### Claims (Afirmaciones):
+
+- **Familiaridad y modernidad con menú desplegable:** Se afirma que implementar un menú de perfil desplegable en la esquina superior derecha haría que la aplicación se perciba como más moderna y familiar, al adoptar el patrón visual que los usuarios ya reconocen de plataformas como Google, GitHub y Notion, incrementando así la confianza y comodidad del usuario al navegar por PlayMatch.
+- **Aumento de engagement con anuncios contextuales:** Se postula que mostrar contenido dinámico y anuncios relacionados en las pantallas con menor densidad de información aumentará el tiempo de permanencia del usuario en la plataforma y el número de interacciones por sesión.
+- **Reducción de abandono con formularios mejor diseñados:** Se afirma que centrar los formularios y complementar el espacio visual con contenido informativo reducirá la tasa de abandono durante el proceso de registro y creación de servicios, al mejorar la percepción de calidad de la interfaz.
+- **Incremento en reservas con geolocalización móvil:** Se sostiene que integrar la búsqueda por ubicación actual en la app Android incrementaría las reservas realizadas desde dispositivos móviles, dado que la inmediatez y la proximidad son factores determinantes en la decisión de reserva de un deportista aficionado.
+- **Mayor retención de entrenadores con edición de servicios:** Se afirma que ofrecer la posibilidad de editar servicios publicados disminuiría la fricción del flujo del entrenador, incrementando la tasa de actualización de perfiles y la percepción de control sobre su presencia en la plataforma.
+- **Incremento de conversión con integración de pagos reales:** Se postula que la disponibilidad de una pasarela de pago real habilitará el ciclo completo de reserva y pago, siendo un requisito indispensable para que la plataforma genere ingresos reales y valide su modelo de negocio ante inversores y usuarios.
+- **Mejor percepción de marca con logo consistente:** Se afirma que mantener la coherencia del logotipo oficial de PlayMatch en todas las secciones de la aplicación (incluido el panel del entrenador) reforzará la identidad de marca y generará mayor confianza en los usuarios de ambos segmentos objetivo.
+
+### 8.1.3  Experiment-Ready Questions. 
+
+Esta sección presenta las preguntas derivadas de las suposiciones, brechas de conocimiento, ideas y afirmaciones del 8.1.2. Se clasifican en dos tipos:
+
+- **Belief-Led (BL):** Preguntas que buscan probar una creencia o premisa existente.
+- **Exploratory (EX):** Preguntas que buscan recopilar conocimiento donde no hay creencias previas suficientes.
+
+Cada pregunta es evaluada con cuatro criterios (escala 1–5):
+
+- **Confidence:** Qué tan seguros estamos de que la premisa detrás de la pregunta es cierta. Mayor puntaje = mayor certeza previa.
+- **Risk:** Qué tan costoso sería ignorar esta pregunta. Mayor puntaje = mayor riesgo si no se responde.
+- **Impact:** Qué tan grande sería el impacto positivo si se confirma y actúa sobre la respuesta. Mayor puntaje = mayor impacto en el negocio o experiencia de usuario.
+- **Interest:** Qué tan relevante o urgente resulta esta pregunta para el equipo y los stakeholders. Mayor puntaje = mayor urgencia o interés estratégico.
+
+**Total Score** = Confidence + Risk + Impact + Interest (máximo 20 puntos).
+
+---
+
+| # | Question | Confidence | Risk | Impact | Interest | Total Score |
+|---|----------|:----------:|:----:|:------:|:--------:|:-----------:|
+| BL-01 | ¿Agregar un menú desplegable de perfil en la esquina superior derecha hace que los usuarios perciban la aplicación como más moderna y familiar, comparado con la navegación actual? | 4 | 3 | 4 | 4 | **15** |
+| BL-02 | ¿Mostrar anuncios contextuales (torneos, canchas cercanas, entrenadores destacados) en el dashboard incrementa el tiempo de sesión promedio del usuario en la plataforma? | 3 | 2 | 4 | 4 | **13** |
+| BL-03 | ¿Centrar los formularios de registro y login y complementar el espacio visual con contenido informativo reduce la tasa de abandono del proceso de registro? | 3 | 3 | 3 | 3 | **12** |
+| BL-04 | ¿La ausencia de la opción de editar servicios publicados es percibida como un problema significativo por los entrenadores registrados en la plataforma? | 5 | 4 | 4 | 5 | **18** |
+| BL-05 | ¿Ofrecer inicio de sesión con Google como alternativa reduce la tasa de abandono en el flujo de registro de nuevos usuarios? | 4 | 3 | 4 | 4 | **15** |
+| BL-06 | ¿La ausencia de un ícono personalizado en la app Android afecta negativamente la percepción de profesionalismo antes de que el usuario la use por primera vez? | 4 | 2 | 2 | 2 | **10** |
+| BL-07 | ¿Integrar búsqueda por geolocalización en la app Android incrementa el número de reservas completadas desde dispositivos móviles? | 4 | 4 | 5 | 5 | **18** |
+| EX-01 | ¿Con qué frecuencia los usuarios actuales acceden a perfil, ajustes y cierre de sesión durante una sesión típica, y qué dificultades encuentran para ubicarlas? | 2 | 3 | 3 | 3 | **11** |
+| EX-02 | ¿Qué tipo de contenido contextual (torneos, canchas disponibles, coaches recomendados, tips deportivos) resulta más relevante para los jugadores en el dashboard de PlayMatch? | 2 | 2 | 4 | 4 | **12** |
+| EX-03 | ¿En qué paso específico del flujo de registro o creación de servicios los usuarios abandonan con mayor frecuencia el proceso? | 2 | 3 | 4 | 3 | **12** |
+| EX-04 | ¿Con qué frecuencia los entrenadores necesitan modificar sus servicios publicados, y cómo resuelven actualmente esta limitación? | 2 | 4 | 4 | 4 | **14** |
+| EX-05 | ¿Qué porcentaje de sesiones activas provienen de la app Android versus la web, y en qué funcionalidades difieren más los comportamientos entre plataformas? | 2 | 3 | 4 | 3 | **12** |
+| EX-06 | ¿Los usuarios de la app Android consultan calificaciones y reseñas antes de reservar, y la falta de visibilidad de estas reseñas impacta su decisión? | 2 | 4 | 4 | 4 | **14** |
+| EX-07 | ¿Qué método de autenticación preferirían los usuarios potenciales si pudiesen elegir entre email/contraseña, Google u otras alternativas? | 2 | 3 | 4 | 3 | **12** |
+
+---
+
+### Aplicación de la Técnica 5Ws + 1H
+
+Se aplica la técnica a las **tres preguntas con mayor Total Score** para descubrir premisas ocultas y generar nuevas preguntas exploratorias derivadas.
+
+---
+
+#### BL-04 — Edición de servicios del entrenador (Score: 18/20)
+
+> *¿La ausencia de la opción de editar servicios publicados es percibida como un problema significativo por los entrenadores registrados en la plataforma?*
+
+| W/H | Pregunta derivada |
+|:---:|-------------------|
+| **Who** | ¿Qué perfil de entrenador (con mayor o menor cantidad de servicios publicados) siente con más intensidad la falta de edición? ¿Los entrenadores nuevos o los que llevan más tiempo en la plataforma? |
+| **What** | ¿Qué campos específicos del servicio (nombre, precio, descripción, disponibilidad) necesitan actualizarse con mayor frecuencia según los entrenadores? |
+| **Where** | ¿En qué sección de la interfaz del entrenador espera el usuario encontrar el botón de edición de un servicio existente? |
+| **When** | ¿En qué situaciones concretas (cambio de tarifa, actualización de horarios, corrección de descripción) el entrenador intenta editar un servicio y descubre que no puede? |
+| **Why** | ¿Por qué el flujo actual obliga a eliminar y recrear servicios en lugar de editarlos, y cuál fue la razón de diseño original detrás de esta limitación? |
+| **How** | ¿Cómo prefieren los entrenadores que funcione la edición: modal emergente, edición inline directamente en la tarjeta del servicio, o una pantalla separada de formulario? |
+
+---
+
+#### BL-07 — Geolocalización móvil → reservas (Score: 18/20)
+
+> *¿Integrar búsqueda por geolocalización en la app Android incrementa el número de reservas completadas desde dispositivos móviles?*
+
+| W/H | Pregunta derivada |
+|:---:|-------------------|
+| **Who** | ¿Qué tipo de usuario móvil (jugador ocasional vs. jugador recurrente) se beneficia más de ver canchas ordenadas por proximidad a su ubicación actual? |
+| **What** | ¿Qué información adicional a la distancia (tiempo de desplazamiento, disponibilidad inmediata, precio) necesita ver el usuario en la tarjeta de resultado para decidir reservar? |
+| **Where** | ¿El usuario prefiere ver los resultados de canchas cercanas en un listado con distancia o en un mapa interactivo con marcadores? |
+| **When** | ¿En qué momento del día o contexto (saliendo del trabajo, fin de semana, de camino a la zona deportiva) es más probable que el usuario busque una cancha desde su móvil usando su ubicación actual? |
+| **Why** | ¿Por qué la búsqueda actual por nombre o distrito no es suficiente para los usuarios móviles, y qué barrera concreta les impide encontrar canchas disponibles cerca sin geolocalización? |
+| **How** | ¿Cómo debería solicitarse el permiso de ubicación (al abrir la app, al acceder a la búsqueda, o mediante un botón "Buscar cerca de mí") para generar mayor aceptación por parte del usuario? |
+
+---
+
+#### BL-01 — Menú desplegable de perfil (Score: 15/20)
+
+> *¿Agregar un menú desplegable de perfil en la esquina superior derecha hace que los usuarios perciban la aplicación como más moderna y familiar, comparado con la navegación actual?*
+
+| W/H | Pregunta derivada |
+|:---:|-------------------|
+| **Who** | ¿Qué segmento de usuario (jugador aficionado o entrenador) reconoce más fácilmente el patrón de avatar + dropdown en la esquina superior derecha por su uso previo en otras plataformas? |
+| **What** | ¿Qué combinación de elementos visuales (foto de perfil, inicial del nombre, ícono de usuario) y opciones del menú (perfil, ajustes, cerrar sesión) genera mayor sensación de familiaridad en el usuario? |
+| **Where** | ¿En qué sección de la aplicación (barra de navegación superior, header del dashboard, vista móvil) resulta más natural y esperado el posicionamiento del menú de perfil desplegable? |
+| **When** | ¿En qué momento de su primera sesión el usuario busca instintivamente el menú de perfil en la esquina superior derecha, evidenciando que ese es su modelo mental predominante? |
+| **Why** | ¿Por qué la exposición diaria a plataformas como Google, GitHub y Notion genera en el usuario la expectativa de encontrar el acceso a su cuenta en esa ubicación específica de la interfaz? |
+| **How** | ¿Cómo influye la presencia o ausencia del menú desplegable de perfil en la esquina superior derecha en la calificación de modernidad que el usuario le asigna a la aplicación durante una prueba de usabilidad? | 
 ### 8.1.4. Question Backlog. 
 ### 8.1.5. Experiment Cards. 
 ## 8.2. Experiment Design 
