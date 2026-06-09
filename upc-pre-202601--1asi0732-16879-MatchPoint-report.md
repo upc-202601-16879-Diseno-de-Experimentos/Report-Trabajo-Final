@@ -2533,6 +2533,24 @@ Para evaluar el rendimiento general y la optimización del sistema desde la pers
 ### 6.2.2. Reviews
 ## 6.3. Validation Interviews.
 ### 6.3.1. Diseño de Entrevistas.
+Estas preguntas presentaremos en las entrevistas de validación para evaluar la usabilidad de la aplicación actual y cómo reacciona un usuario ante la interfaz.
+
+1. ¿La aplicación proporciona información clara para cada una de las secciones?
+2. ¿Te sientes informado sobre el progreso de las acciones que realizas en la aplicación?
+3. ¿Has notado alguna inconsistencia en la terminología o el diseño a lo largo de la aplicación?
+
+Un escenario de prueba sería asignarle la tarea de crear su propio servicio a ofrecer en la sección "Mis Servicios".
+
+1. ¿Consideras que fue fácil cumplir con esta tarea?
+2. ¿El resultado fue el que esperabas?
+
+Para finalizar, preguntamos sobre la experiencia general.
+
+1. ¿Qué fue lo más frustrante? Si pudieras cambiar alguna cosa, ¿qué sería?
+2. ¿Sientes que la aplicación tiene un diseño limpio y sin desorden?
+3. ¿Existen elementos visuales o funcionales que te resulten confusos o inesperados?
+4. ¿Qué mecanismos de ayuda o advertencias te gustaría que existieran para evitar errores?
+
 ### 6.3.2. Registro de Entrevistas.
 ### 6.3.3. Evaluaciones según heurísticas.
 ## 6.4. Auditoría de Experiencias de Usuario
