@@ -3356,22 +3356,139 @@ Se aplica la técnica a las **tres preguntas con mayor Total Score** para descub
 | **Why** | ¿Por qué la exposición diaria a plataformas como Google, GitHub y Notion genera en el usuario la expectativa de encontrar el acceso a su cuenta en esa ubicación específica de la interfaz? |
 | **How** | ¿Cómo influye la presencia o ausencia del menú desplegable de perfil en la esquina superior derecha en la calificación de modernidad que el usuario le asigna a la aplicación durante una prueba de usabilidad? | 
 ### 8.1.4. Question Backlog. 
+Esta sección consolida el backlog priorizado de preguntas de experimentación. La priorización se basa en el puntaje total obtenido a partir de los criterios de **Confidence**, **Risk**, **Impact** e **Interest**.
+
+| Prioridad | ID | Tipo | Pregunta resumida | Total Score | Decisión |
+|---|---|---|---|:---:|---|
+| 1 | BL-04 | Belief-Led | Ausencia de edición de servicios en el panel del entrenador | **18** | Ejecutar experimento prioritario |
+| 2 | BL-07 | Belief-Led | Búsqueda móvil por geolocalización para incrementar reservas | **18** | Ejecutar experimento prioritario |
+| 3 | BL-01 | Belief-Led | Menú desplegable de perfil para mejorar familiaridad y modernidad | **15** | Ejecutar experimento prioritario |
+| 4 | BL-05 | Belief-Led | Inicio de sesión con Google para reducir abandono | **15** | Mantener en cola inmediata |
+| 5 | EX-04 | Exploratory | Frecuencia real de edición de servicios por entrenadores | **14** | Usar como soporte cualitativo |
+| 6 | EX-06 | Exploratory | Impacto de reseñas en la reserva móvil | **14** | Mantener para investigación posterior |
+| 7 | BL-02 | Belief-Led | Anuncios contextuales para aumentar tiempo de sesión | **13** | Postergar hasta cerrar experimentos core |
+| 8 | BL-03 | Belief-Led | Formularios centrados para reducir abandono | **12** | Postergar a segunda ronda |
+| 9 | EX-02 | Exploratory | Contenido contextual más relevante en dashboard | **12** | Postergar a segunda ronda |
+| 10 | EX-03 | Exploratory | Punto exacto de abandono en formularios | **12** | Mantener como apoyo analítico |
+| 11 | EX-05 | Exploratory | Diferencias de comportamiento móvil vs. web | **12** | Mantener como apoyo analítico |
+| 12 | EX-07 | Exploratory | Preferencia de método de autenticación | **12** | Mantener como apoyo analítico |
+| 13 | EX-01 | Exploratory | Uso actual de opciones de perfil y ajustes | **11** | Investigar si BL-01 escala |
+| 14 | BL-06 | Belief-Led | Impacto del ícono Android en percepción inicial | **10** | Baja prioridad |
+
+
 ### 8.1.5. Experiment Cards. 
+Las siguientes tarjetas describen los tres experimentos priorizados. Cada tarjeta se presenta con lado frontal y lado posterior para asegurar trazabilidad entre pregunta, creencia, intervención mínima, medidas, condiciones y escala de observación.
+
+#### Experiment Card EC-01 - BL-04
+
+**Lado frontal**
+
+| Campo | Contenido |
+|---|---|
+| Pregunta | ¿La ausencia de la opción de editar servicios publicados es percibida como un problema significativo por los entrenadores registrados en la plataforma? |
+| Motivación | La imposibilidad de editar obliga a eliminar y recrear servicios, generando fricción en un segmento clave para el modelo de negocio. Si esta fricción reduce recurrencia o deteriora la actualización del catálogo, el costo estratégico es alto. |
+| Belief / Hipótesis | Creemos que permitir la edición directa de servicios reducirá fricción operativa en el panel del entrenador y aumentará la permanencia y uso recurrente del segmento B2B. |
+| Simplest Useful Thing (Qué) | Incorporar un botón `Editar` en cada servicio publicado del panel del entrenador y permitir modificar nombre, precio, descripción y disponibilidad desde un formulario inline o modal, sin rediseñar el resto del flujo. |
+
+**Lado posterior**
+
+| Componente | Detalle |
+|---|---|
+| Medidas | **M-02** como medida primaria y **M-01** como medida secundaria. |
+| Condición experimental | **C-01-EXP:** entrenadores con acceso al botón `Editar` y persistencia de cambios sobre servicios existentes. |
+| Condición de control | **C-01-CTL:** entrenadores navegando el estado As-Is, donde solo pueden eliminar y recrear servicios. |
+| Escala | **M-02** y **M-01** son medidas de razón expresadas en porcentaje. Unidad de análisis: entrenador activo por cohorte mensual para M-02 y sesión con intención de reserva para M-01. |
+
+#### Experiment Card EC-02 - BL-07
+
+**Lado frontal**
+
+| Campo | Contenido |
+|---|---|
+| Pregunta | ¿Integrar búsqueda por geolocalización en la app Android incrementa el número de reservas completadas desde dispositivos móviles? |
+| Motivación | La búsqueda móvil actual es poco fluida y no ordena resultados por cercanía, lo que debilita la utilidad del producto en un contexto donde la inmediatez es crítica. Comprobar este punto permite intervenir directamente sobre una debilidad del As-Is con impacto potencial sobre reservas y velocidad del flujo. |
+| Belief / Hipótesis | Creemos que una búsqueda móvil basada en ubicación actual disminuirá el esfuerzo de exploración y elevará la probabilidad de completar una reserva desde Android. |
+| Simplest Useful Thing (Qué) | Incorporar en Android un botón `Usar mi ubicación` dentro del buscador de canchas y mostrar resultados ordenados por distancia, manteniendo intactos los demás pasos del flujo de reserva. |
+
+**Lado posterior**
+
+| Componente | Detalle |
+|---|---|
+| Medidas | **M-01** como medida primaria y **M-03** como medida secundaria. |
+| Condición experimental | **C-02-EXP:** usuarios Android con acceso al botón `Usar mi ubicación` y resultados ordenados por cercanía. |
+| Condición de control | **C-02-CTL:** usuarios Android con el buscador actual basado en nombre, distrito o filtros básicos sin ordenamiento por proximidad. |
+| Escala | **M-01** es una medida de razón expresada en porcentaje y **M-03** es una medida de razón expresada en tiempo. Unidad de análisis: sesión móvil con búsqueda de cancha. |
+
+#### Experiment Card EC-03 - BL-01
+
+**Lado frontal**
+
+| Campo | Contenido |
+|---|---|
+| Pregunta | ¿Agregar un menú desplegable de perfil en la esquina superior derecha hace que los usuarios perciban la aplicación como más moderna y familiar, comparado con la navegación actual? |
+| Motivación | El estado As-Is documenta que las acciones de perfil, ajustes y cierre de sesión están dispersas. Esta inconsistencia afecta la familiaridad de la interfaz y puede introducir fricción cognitiva innecesaria en flujos frecuentes. Comprobar esta hipótesis es estratégico porque el costo de intervención es bajo y el aprendizaje sobre arquitectura de información es alto. |
+| Belief / Hipótesis | Creemos que agrupar acciones de cuenta en un menú contextual alineado con patrones ampliamente conocidos reducirá la carga cognitiva y hará más eficiente la navegación hacia tareas posteriores. |
+| Simplest Useful Thing (Qué) | Incorporar un avatar clicable en la esquina superior derecha del dashboard que despliegue un menú con `Ver perfil`, `Ajustes` y `Cerrar sesión`, sin modificar otras secciones del sistema. |
+
+**Lado posterior**
+
+| Componente | Detalle |
+|---|---|
+| Medidas | **M-03** como medida primaria y **M-01** como medida secundaria. |
+| Condición experimental | **C-03-EXP:** usuarios con menú desplegable contextual visible en la esquina superior derecha. |
+| Condición de control | **C-03-CTL:** usuarios navegando la estructura As-Is, con acciones de cuenta dispersas en la navegación actual. |
+| Escala | **M-03** se mide en tiempo y **M-01** en porcentaje. Unidad de análisis: sesión de usuario que incluye navegación de cuenta y, cuando corresponda, culmina en reserva. |
+
 ## 8.2. Experiment Design 
 ### 8.2.1. Hypotheses. 
+En esta sección se formulan las hipótesis de trabajo y sus correspondientes hipótesis nulas.
+#### H-01 - Edición de servicios del entrenador
+
+**Hipótesis de trabajo:** Creemos que habilitar la edición directa de servicios publicados en el panel del entrenador incrementará la recurrencia y reducirá la fricción operativa del segmento B2B, cuya evidencia se reflejará en **M-02** y **M-01**, bajo las circunstancias de **C-01-EXP** frente a **C-01-CTL**.
+
+**Hipótesis nula:** Creemos que las diferencias observadas entre **C-01-EXP** y **C-01-CTL** en **M-02** y **M-01** se deberán al azar y no a la disponibilidad de edición directa de servicios.
+
+#### H-02 - Búsqueda móvil por geolocalización
+
+**Hipótesis de trabajo:** Creemos que incorporar búsqueda por ubicación actual en Android incrementará la probabilidad de completar reservas móviles y reducirá el tiempo requerido para concretarlas, cuya evidencia se reflejará en **M-01** y **M-03**, bajo las circunstancias de **C-02-EXP** frente a **C-02-CTL**.
+
+**Hipótesis nula:** Creemos que las diferencias observadas entre **C-02-EXP** y **C-02-CTL** en **M-01** y **M-03** se deberán al azar y no a la incorporación de búsqueda por ubicación actual.
+
+#### H-03 - Menú desplegable de perfil
+
+**Hipótesis de trabajo:** Creemos que agrupar las acciones de cuenta en un menú desplegable contextual reducirá la fricción cognitiva y hará más eficiente la navegación del usuario, cuya evidencia se reflejará en **M-03** y **M-01**, bajo las circunstancias de **C-03-EXP** frente a **C-03-CTL**.
+
+**Hipótesis nula:** Creemos que las diferencias observadas entre **C-03-EXP** y **C-03-CTL** en **M-03** y **M-01** se deberán al azar y no a la incorporación del menú desplegable contextual.
+
 ### 8.2.2. Domain Business Metrics 
 Esta sección tiene como objetivo alinear la medición de los experimentos con los objetivos reales del negocio de MatchPoint, mitigando el riesgo de basar decisiones en "vanity metrics" o datos irrelevantes. A continuación, se detallan los indicadores predefinidos para evaluar el éxito de las hipótesis planteadas:
 
-| Métrica | Alineación | Fórmula | Técnica de recolección | Meta deseada |
-|---|---|---|---|---|
-| Tasa de Conversión de Reservas (Confirmed Bookings) | Alineada con la Hipótesis 1 y con el business outcome de aumentar las reservas confirmadas y los pagos procesados. | (Reservas confirmadas / Búsquedas realizadas) x 100 | Event Tracking en los botones `Buscar` y `Confirmar` mediante Google Analytics o Vercel Analytics | 15% |
-| Tasa de Retención de Entrenadores (Retention Rate) | Alineada con la Hipótesis 2 y con el objetivo de incrementar la recurrencia y permanencia de entrenadores en la plataforma. | ((E_final - E_nuevos) / E_inicio) x 100 | Reportes mensuales de la base de datos de perfiles activos en el backend | > 85% |
-| Tiempo Promedio de Completitud de Reserva (Booking Lead Time) | Alineada con la Hipótesis 1, ya que un flujo más rápido valida la promesa de acceso ágil y organizado a canchas y entrenadores. | Promedio de (Tiempo de confirmación - Tiempo de inicio de búsqueda) | Monitoreo de duración de sesión por embudo (Funnel Session Duration) en Firebase Analytics | Menos de 2 minutos |
-| Índice de Confianza del Ecosistema (Average Rating) | Alineada con la Hipótesis 3 y con el objetivo de fortalecer la confianza, la reputación y la conversión dentro del ecosistema. | Suma de estrellas / Total de reseñas | Datos agregados del módulo de Reviews en el backend | 4.2 / 5.0 estrellas |
-| Tasa de Participación en Torneos (Tournament Participation Rate) | Alineada con la Hipótesis 4 y con el objetivo de fortalecer la comunidad, aumentar la fidelización y elevar el uso recurrente de la plataforma. | (Usuarios inscritos en torneos / Usuarios activos del periodo) x 100 | Registros de inscripciones y participación en el módulo de torneos del backend | 20% en los primeros 3 meses |
+| ID | Métrica | Alineación | Fórmula | Técnica de recolección | Meta deseada |
+|---|---|---|---|---|---|
+| M-01 | Tasa de Conversión de Reservas (Confirmed Bookings) | Alineada con la Hipótesis 1 y con el business outcome de aumentar las reservas confirmadas y los pagos procesados. | (Reservas confirmadas / Búsquedas realizadas) x 100 | Event Tracking en los botones `Buscar` y `Confirmar` mediante Google Analytics o Vercel Analytics | 15% |
+| M-02 | Tasa de Retención de Entrenadores (Retention Rate) | Alineada con la Hipótesis 2 y con el objetivo de incrementar la recurrencia y permanencia de entrenadores en la plataforma. | ((E_final - E_nuevos) / E_inicio) x 100 | Reportes mensuales de la base de datos de perfiles activos en el backend | > 85% |
+| M-03 | Tiempo Promedio de Completitud de Reserva (Booking Lead Time) | Alineada con la Hipótesis 1, ya que un flujo más rápido comprueba la promesa de acceso ágil y organizado a canchas y entrenadores. | Promedio de (Tiempo de confirmación - Tiempo de inicio de búsqueda) | Monitoreo de duración de sesión por embudo (Funnel Session Duration) en Firebase Analytics | Menos de 2 minutos |
+| M-04 | Índice de Confianza del Ecosistema (Average Rating) | Alineada con la Hipótesis 3 y con el objetivo de fortalecer la confianza, la reputación y la conversión dentro del ecosistema. | Suma de estrellas / Total de reseñas | Datos del sistema de reviews y calificaciones almacenados en el backend | 4.2 / 5.0 estrellas |
+| M-05 | Tasa de Participación en Torneos (Tournament Participation Rate) | Alineada con la Hipótesis 4 y con el objetivo de fortalecer la comunidad, aumentar la fidelización y elevar el uso recurrente de la plataforma. | (Usuarios inscritos en torneos / Usuarios activos del periodo) x 100 | Registros de inscripciones y participación en el módulo de torneos del backend | 20% en los primeros 3 meses |
 
 ### 8.2.3. Measures. 
+La selección de medidas para cada experimento sigue dos principios. Primero, **representatividad**, es decir, la medida debe reflejar el cambio que se desea comprobar en relación con una hipótesis de negocio. Segundo, **eficiencia**, es decir, la medida debe poder recolectarse en el menor tiempo posible sin sacrificar capacidad explicativa.
+
+| Experimento | Medida primaria | Medida secundaria | Justificación de representatividad | Criterio de eficiencia |
+|---|---|---|---|---|
+| **EC-01 / BL-04** Edición de servicios | **M-02** | **M-01** | **M-02** es la medida más representativa porque la hipótesis afecta directamente la permanencia y recurrencia del entrenador, que es el outcome central de la Hipótesis 2. **M-01** se incorpora como medida secundaria para observar si una oferta más actualizada y gestionable preserva o mejora la actividad del marketplace. | **M-02** requiere observación mensual, pero captura el efecto de negocio real del cambio. **M-01** permite detectar señales tempranas sin esperar un ciclo completo de retención. |
+| **EC-02 / BL-07** Geolocalización móvil | **M-01** | **M-03** | **M-01** es la medida más representativa porque la pregunta experimental se formula sobre reservas completadas desde móvil. **M-03** complementa la explicación causal al observar si la búsqueda por ubicación reduce el tiempo necesario para concretar la reserva. | Ambas medidas pueden capturarse desde las primeras sesiones móviles instrumentadas, lo que permite comprobar la hipótesis sin esperar métricas de largo plazo. |
+| **EC-03 / BL-01** Menú desplegable de perfil | **M-03** | **M-01** | **M-03** se selecciona como proxy de fricción navegacional: si el patrón visual coincide con el modelo mental del usuario, la interacción posterior debería ser más eficiente. **M-01** se usa como medida secundaria para verificar que la intervención no perjudica el comportamiento core del negocio y, idealmente, acompañe una mejora de conversión. | Ambas medidas pueden capturarse de forma automática durante sesiones reales. Esto evita recurrir a mediciones más lentas o costosas sin perder observabilidad del efecto. |
+
 ### 8.2.4. Conditions. 
+Las condiciones experimentales se definen para aislar el factor causal dominante en cada respuesta observada. En todos los casos se recomienda asignación aleatoria, ventana temporal comparable y mantenimiento de la misma oferta funcional fuera del elemento intervenido.
+
+| ID de condición | Experimento | Condición experimental | Condición de control | Factores que deben mantenerse constantes |
+|---|---|---|---|---|
+| C-01 | EC-01 / BL-04 Edición de servicios | Entrenadores con acceso a edición directa sobre servicios ya publicados desde el panel profesional. | Entrenadores que mantienen el flujo As-Is, en el que solo pueden eliminar y recrear servicios. | Misma base de entrenadores, mismo catálogo inicial, mismo periodo de observación, misma política de publicación y mismos canales de adquisición. |
+| C-02 | EC-02 / BL-07 Geolocalización móvil | Usuarios Android con buscador enriquecido por ubicación actual y resultados ordenados por cercanía. | Usuarios Android con buscador As-Is basado en nombre, distrito o filtros básicos sin proximidad automática. | Misma oferta de canchas, mismas reglas de reserva, mismo rango horario de observación, mismo dispositivo objetivo y mismo funnel posterior a la búsqueda. |
+| C-03 | EC-03 / BL-01 Menú desplegable de perfil | Usuarios expuestos a un avatar contextual en esquina superior derecha con acceso agrupado a perfil, ajustes y cierre de sesión. | Usuarios expuestos a la navegación As-Is, donde las acciones de cuenta permanecen dispersas. | Misma información de cuenta, mismos destinos navegacionales, mismo contenido de las páginas y mismo flujo funcional de reserva posterior. |
+
 ### 8.2.5. Scale Calculations and Decisions. 
 ### 8.2.6. Methods Selection. 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection. 
