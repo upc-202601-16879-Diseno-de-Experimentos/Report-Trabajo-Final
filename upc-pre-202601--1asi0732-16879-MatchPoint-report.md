@@ -2552,6 +2552,20 @@ Para finalizar, preguntamos sobre la experiencia general.
 4. ¿Qué mecanismos de ayuda o advertencias te gustaría que existieran para evitar errores?
 
 ### 6.3.2. Registro de Entrevistas.
+
+#### Segmento 2 :Entrenadores Independientes 
+
+**Entrevista 1**
+
+![Entrevista-1](./images/entrevista-validation-1.png)
+* Entrevistada: Jazmin
+* **Link:** https://www.youtube.com/watch?v=L-lqyWAddt4 
+
+**Analisis de la entrevista**
+
+La entrevista permitió evaluar la percepción de la usuaria sobre una aplicación orientada a la gestión de entrenadores deportivos. Durante la sesión, Jazmín logró identificar y explicar correctamente las principales funcionalidades del sistema, incluyendo el inicio de sesión, la gestión de perfil, la creación de servicios, la administración de horarios y el seguimiento de reservas e ingresos. La entrevistada destacó que la información se encuentra organizada de manera clara y que cada sección cumple una función específica, facilitando la navegación y comprensión de la plataforma. Asimismo, valoró positivamente el diseño visual, la legibilidad de los textos y la integración de notificaciones en tiempo real para mantener un mejor control de las actividades y reservas.
+
+Por otro lado, la entrevista permitió identificar oportunidades de mejora relacionadas principalmente con la experiencia de gestión y comunicación. Jazmín sugirió optimizar el diseño del módulo de horarios para hacerlo más intuitivo y atractivo, además de incorporar mayores opciones de edición para configurar la disponibilidad de los servicios según días y horarios específicos. También manifestó interés en contar con herramientas de comunicación integradas, como chat o llamadas, que faciliten la coordinación con los clientes ante cambios o cancelaciones. En general, la evaluación fue positiva, ya que la usuaria comprendió fácilmente el propósito de la aplicación y consideró que sus funcionalidades serían útiles para la administración eficiente de actividades deportivas.
 ### 6.3.3. Evaluaciones según heurísticas.
 ## 6.4. Auditoría de Experiencias de Usuario
 ### 6.4.1. Auditoría realizada.
