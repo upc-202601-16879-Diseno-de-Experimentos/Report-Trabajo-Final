@@ -3360,6 +3360,16 @@ Se aplica la técnica a las **tres preguntas con mayor Total Score** para descub
 ## 8.2. Experiment Design 
 ### 8.2.1. Hypotheses. 
 ### 8.2.2. Domain Business Metrics 
+Esta sección tiene como objetivo alinear la medición de los experimentos con los objetivos reales del negocio de MatchPoint, mitigando el riesgo de basar decisiones en "vanity metrics" o datos irrelevantes. A continuación, se detallan los indicadores predefinidos para evaluar el éxito de las hipótesis planteadas:
+
+| Métrica | Alineación | Fórmula | Técnica de recolección | Meta deseada |
+|---|---|---|---|---|
+| Tasa de Conversión de Reservas (Confirmed Bookings) | Alineada con la Hipótesis 1 y con el business outcome de aumentar las reservas confirmadas y los pagos procesados. | (Reservas confirmadas / Búsquedas realizadas) x 100 | Event Tracking en los botones `Buscar` y `Confirmar` mediante Google Analytics o Vercel Analytics | 15% |
+| Tasa de Retención de Entrenadores (Retention Rate) | Alineada con la Hipótesis 2 y con el objetivo de incrementar la recurrencia y permanencia de entrenadores en la plataforma. | ((E_final - E_nuevos) / E_inicio) x 100 | Reportes mensuales de la base de datos de perfiles activos en el backend | > 85% |
+| Tiempo Promedio de Completitud de Reserva (Booking Lead Time) | Alineada con la Hipótesis 1, ya que un flujo más rápido valida la promesa de acceso ágil y organizado a canchas y entrenadores. | Promedio de (Tiempo de confirmación - Tiempo de inicio de búsqueda) | Monitoreo de duración de sesión por embudo (Funnel Session Duration) en Firebase Analytics | Menos de 2 minutos |
+| Índice de Confianza del Ecosistema (Average Rating) | Alineada con la Hipótesis 3 y con el objetivo de fortalecer la confianza, la reputación y la conversión dentro del ecosistema. | Suma de estrellas / Total de reseñas | Datos agregados del módulo de Reviews en el backend | 4.2 / 5.0 estrellas |
+| Tasa de Participación en Torneos (Tournament Participation Rate) | Alineada con la Hipótesis 4 y con el objetivo de fortalecer la comunidad, aumentar la fidelización y elevar el uso recurrente de la plataforma. | (Usuarios inscritos en torneos / Usuarios activos del periodo) x 100 | Registros de inscripciones y participación en el módulo de torneos del backend | 20% en los primeros 3 meses |
+
 ### 8.2.3. Measures. 
 ### 8.2.4. Conditions. 
 ### 8.2.5. Scale Calculations and Decisions. 
