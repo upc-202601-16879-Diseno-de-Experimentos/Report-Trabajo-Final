@@ -2528,7 +2528,70 @@ Para evaluar el rendimiento general y la optimización del sistema desde la pers
 
 ## 6.2. Static testing & Verification
 ### 6.2.1. Static Code Analysis
+Esta sección aborda las técnicas de verificación y análisis estático del código, las cuales permiten garantizar que el software cumpla con los requisitos de calidad y seguridad antes de ser ejecutado. Gracias a estos métodos, es posible detectar problemas en etapas tempranas del proceso de desarrollo.
+
+El análisis estático consiste en examinar el código fuente sin ponerlo en funcionamiento, apoyándose tanto en herramientas automatizadas como en revisiones realizadas por desarrolladores. Este procedimiento facilita la identificación de errores, riesgos de seguridad y posibles mejoras en la estructura del código, contribuyendo así a incrementar la calidad del producto final y a disminuir los costos asociados a correcciones en fases más avanzadas del proyecto.
+
 #### 6.2.1.1. Coding standard & Code conventions.
+Para garantizar la calidad, mantenibilidad y consistencia del software, el equipo de desarrollo sigue estándares de codificación específicos para cada tecnología utilizada en el proyecto. Estos estándares permiten que el código sea más legible, fácil de mantener y comprensible para todos los miembros del equipo.
+
+#### Backend (Spring Boot - Java)
+
+En el desarrollo del backend se siguen las convenciones establecidas por las guías de código de Java y las buenas prácticas recomendadas para Spring Boot.
+
+#### Estándares aplicados
+
+* Uso de nomenclatura **camelCase** para variables y métodos.
+* Uso de nomenclatura **PascalCase** para clases, interfaces y records.
+* Nombres descriptivos para clases, métodos y variables.
+* Separación clara de responsabilidades siguiendo principios de Arquitectura por Capas y Domain-Driven Design (DDD).
+* Uso de anotaciones de Spring Boot de forma consistente.
+* Eliminación de código duplicado y métodos innecesarios.
+* Documentación de métodos complejos mediante comentarios cuando sea necesario.
+* Organización de paquetes según el contexto de negocio y responsabilidades técnicas.
+
+#### Pruebas Unitarias (JUnit)
+
+Las pruebas automatizadas se desarrollan utilizando JUnit siguiendo buenas prácticas de testing.
+
+#### Estándares aplicados
+
+* Aplicación del patrón AAA (Arrange, Act, Assert).
+* Nombres de pruebas descriptivos que indiquen claramente el comportamiento esperado.
+* Independencia entre casos de prueba.
+* Uso de datos de prueba representativos.
+* Cobertura de escenarios positivos, negativos y casos límite.
+* Evitar dependencias externas mediante mocks cuando corresponda.
+
+#### Frontend (Vue.js)
+
+El desarrollo frontend sigue las convenciones recomendadas por Vue.js y JavaScript moderno.
+
+#### Estándares aplicados
+
+* Uso de **camelCase** para variables, funciones y propiedades.
+* Uso de **PascalCase** para componentes Vue.
+* Componentes reutilizables y de responsabilidad única.
+* Organización del código mediante carpetas por funcionalidades.
+* Indentación consistente de 2 espacios.
+* Eliminación de código muerto y dependencias no utilizadas.
+* Validación de datos recibidos desde servicios externos.
+* Uso de ESLint para verificar automáticamente el cumplimiento de las reglas de estilo y calidad del código.
+
+#### Aplicación Móvil (Kotlin)
+
+El desarrollo móvil sigue las convenciones oficiales recomendadas para Kotlin y Android.
+
+#### Estándares aplicados
+
+* Uso de **camelCase** para variables y funciones.
+* Uso de **PascalCase** para clases, interfaces y objetos.
+* Aplicación de los principios SOLID cuando sea posible.
+* Funciones pequeñas y enfocadas en una única responsabilidad.
+* Manejo adecuado de valores nulos mediante las características de Kotlin.
+* Organización modular del código para facilitar el mantenimiento.
+* Comentarios únicamente cuando aporten información relevante que no sea evidente en el código.
+
 #### 6.2.1.2. Code Quality & Code Security.
 ### 6.2.2. Reviews
 ## 6.3. Validation Interviews.
