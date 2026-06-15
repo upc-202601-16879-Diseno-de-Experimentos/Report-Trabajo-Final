@@ -2664,22 +2664,31 @@ Descripción: Al clickear en Mi Perfil se espera que le muestre al usuario los d
 Recomendación: Se le puede hacer más amena la espera al usuario si se coloca una barra de progreso para estimar cuánto tiwempo estará esperando.
 
 Problema #2: En la pantalla Reservas no hay opción para crear una nueva reserva. 
+
 Severidad: 2 
+
 Heurística violada: Consistencia y estándares 
+
 Descripción: Falta un botón para agregar nuevas reservas en la pantalla "Reservas", porque puede darse el caso que el usuario entrenador neesite añadir reservas.
 ![Error en Reservas](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/reservaserror.png)
 Recomendación: Colocar un botón para agregar nuevas reservas en la esquina derecha superior, para hacer match con la pantalla Mis Servicios, el usuario ya está acostumbrado a encontrar un botón de añadir en esa ubicación.
 
 Problema #3: No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo. 
+
 Severidad: 3 
+
 Heurística violada: Consistencia y estándares
+
 Descripción: Al dirigirnos a la apntalla Clientes, no muestra opciones de filtrar la información alusuario, ni la de añadir uno nuevo.
 ![Error de clientes](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/clienteserror.png)
 Recomendación: Colocar una barra de botones de filtrado como se hizo en Reservas, además de añadir un botón para que el entrenador cree un nuevo cliente, estos cambios se harán en lugares ya conocidos y acostumbrados por el usuario.
 
 Problema #4 : Se debe aumentar las divisiones de horas en Mi Horario Semanal. 
+
 Severidad: 1 
+
 Heurística violada: Coincidencia entre el sistema y el mundo real 
+
 Descripción: La forma en la que Horario Semanal muestra la información es muy pobre porque solo muestra 3 horas en particular, ade más de verse muy vacío. 
 ![Error de horarios](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/horarioserror.png)
 Recomendación: Mostrarle al usuario más horarios en dichos recuadros, o sino mejorar su presentación en la interfaz de los que se muestren. En vista del usuario, le será más agradable tener todas las horas del día a su disposición para planificar.
