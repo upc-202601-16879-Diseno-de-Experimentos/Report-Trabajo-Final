@@ -2653,7 +2653,7 @@ Tabla de resumen:
 
 **Heurísticas y Recomendaciones:**
 
-Problema #1: En la pantalla Mi Perfil tarda mucho en cargar los datos. 
+**Problema #1:** En la pantalla Mi Perfil tarda mucho en cargar los datos. 
 
 Severidad: 4 
 
@@ -2663,7 +2663,8 @@ Descripción: Al clickear en Mi Perfil se espera que le muestre al usuario los d
 ![Error en Perfil](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/perfilerror.png)
 Recomendación: Se le puede hacer más amena la espera al usuario si se coloca una barra de progreso para estimar cuánto tiwempo estará esperando.
 
-Problema #2: En la pantalla Reservas no hay opción para crear una nueva reserva. 
+
+**Problema #2:** En la pantalla Reservas no hay opción para crear una nueva reserva. 
 
 Severidad: 2 
 
@@ -2673,7 +2674,8 @@ Descripción: Falta un botón para agregar nuevas reservas en la pantalla "Reser
 ![Error en Reservas](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/reservaserror.png)
 Recomendación: Colocar un botón para agregar nuevas reservas en la esquina derecha superior, para hacer match con la pantalla Mis Servicios, el usuario ya está acostumbrado a encontrar un botón de añadir en esa ubicación.
 
-Problema #3: No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo. 
+
+**Problema #3:** No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo. 
 
 Severidad: 3 
 
@@ -2683,7 +2685,8 @@ Descripción: Al dirigirnos a la apntalla Clientes, no muestra opciones de filtr
 ![Error de clientes](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/clienteserror.png)
 Recomendación: Colocar una barra de botones de filtrado como se hizo en Reservas, además de añadir un botón para que el entrenador cree un nuevo cliente, estos cambios se harán en lugares ya conocidos y acostumbrados por el usuario.
 
-Problema #4 : Se debe aumentar las divisiones de horas en Mi Horario Semanal. 
+
+**Problema #4** : Se debe aumentar las divisiones de horas en Mi Horario Semanal. 
 
 Severidad: 1 
 
