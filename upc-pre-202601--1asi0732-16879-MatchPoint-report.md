@@ -2630,6 +2630,27 @@ La entrevista permitió evaluar la percepción de la usuaria sobre una aplicaci�
 
 Por otro lado, la entrevista permitió identificar oportunidades de mejora relacionadas principalmente con la experiencia de gestión y comunicación. Jazmín sugirió optimizar el diseño del módulo de horarios para hacerlo más intuitivo y atractivo, además de incorporar mayores opciones de edición para configurar la disponibilidad de los servicios según días y horarios específicos. También manifestó interés en contar con herramientas de comunicación integradas, como chat o llamadas, que faciliten la coordinación con los clientes ante cambios o cancelaciones. En general, la evaluación fue positiva, ya que la usuaria comprendió fácilmente el propósito de la aplicación y consideró que sus funcionalidades serían útiles para la administración eficiente de actividades deportivas.
 ### 6.3.3. Evaluaciones según heurísticas.
+
+Aplicación a evluar: MatchPoint
+
+Tareas a evaluar:
+- En la pantalla Mi Perfil tarda mucho en cargar los datos.
+- En la pantalla Reservas no hay opción para crear una nueva reserva.
+- No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo.
+- Se debe aumentar las divisiones de horas en Mi Horario Semanal.
+
+Tabla de resumen:
+| Escala de Severidad | 1 | 2 | 3 | 4 | 5 |
+|---------------------|---|---|---|---|---|
+| Descripción         | No tan grave | Leve | Moderado | Grave | Muy grave |
+
+| #Orden | Problema | Escala de Severidad | Heurístiva / Principio violado  | 
+|---------------------|---|---|---|
+| #1  | En la pantalla Mi Perfil tarda mucho en cargar los datos. |  |  | 
+| #2  | En la pantalla Reservas no hay opción para crear una nueva reserva. |  |  | 
+| #3  | No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo. |  |  | 
+| #4  | Se debe aumentar las divisiones de horas en Mi Horario Semanal. |  |  | 
+
 ## 6.4. Auditoría de Experiencias de Usuario
 ### 6.4.1. Auditoría realizada.
 #### 6.4.1.1. Información del grupo auditado.
