@@ -2651,10 +2651,14 @@ Tabla de resumen:
 | #3  | No hay filtros para ordenar clientes, ni la opción de añadir uno nuevo. | 3 | Consistencia y estándares | 
 | #4  | Se debe aumentar las divisiones de horas en Mi Horario Semanal. | 1 | Coincidencia entre el sistema y el mundo real | 
 
-Heurísticas y Recomendaciones:
+**Heurísticas y Recomendaciones:**
+
 Problema #1: En la pantalla Mi Perfil tarda mucho en cargar los datos. 
+
 Severidad: 4 
+
 Heurística violada: Visibilidad del estado del sistema  
+
 Descripción: Al clickear en Mi Perfil se espera que le muestre al usuario los datos de sí mismo que ha proporcionado; sin embargo, solamente muestra al usuario que se encunetra esperando el mensaje de "Cargando perfil..."
 ![Error en Perfil](https://raw.githubusercontent.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/main/images/perfilerror.png)
 Recomendación: Se le puede hacer más amena la espera al usuario si se coloca una barra de progreso para estimar cuánto tiwempo estará esperando.
