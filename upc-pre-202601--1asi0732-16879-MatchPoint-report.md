@@ -2593,7 +2593,61 @@ El desarrollo móvil sigue las convenciones oficiales recomendadas para Kotlin y
 * Comentarios únicamente cuando aporten información relevante que no sea evidente en el código.
 
 #### 6.2.1.2. Code Quality & Code Security.
+
+Para garantizar la robustez, mantenibilidad y seguridad de la plataforma **PlayMatch**, el equipo implementa un enfoque de análisis estático continuo apoyado por herramientas automatizadas y políticas rigurosas de desarrollo. Esto permite identificar vulnerabilidades, código redundante o ineficiente, y malas prácticas antes de que el código sea integrado a la rama principal (`main` o `develop`).
+
+##### **Code Quality (Calidad de Código)**
+
+El análisis de calidad se enfoca en evaluar la legibilidad, mantenibilidad y complejidad del software. Se utilizan las siguientes herramientas y métricas:
+
+*   **Herramientas de Análisis Estático (Linters y Analizadores):**
+    *   **Backend (Java/Spring Boot):** Se utiliza **SonarCloud** integrado en el pipeline de GitHub Actions para el escaneo automático de cada Pull Request. Adicionalmente, se configuran localmente plugins como **Checkstyle** (para validar el estilo de codificación de Java) y **SpotBugs** (para identificar patrones de bugs comunes).
+    *   **Frontend (Vue.js):** Se emplea **ESLint** configurado con reglas recomendadas de Vue y **Prettier** para formatear el código de manera uniforme. El linter se ejecuta localmente antes de cada commit y de forma automatizada en el pipeline de CI.
+    *   **Aplicación Móvil (Kotlin):** Se utiliza **Detekt** para el análisis estático de código Kotlin (enfocado en encontrar "code smells" y problemas de complejidad) y **Ktlint** para asegurar la adherencia a la guía oficial de estilo de Kotlin.
+*   **Métricas y Quality Gates (Umbrales de Calidad):**
+    Para que una rama pueda ser integrada a producción o desarrollo, debe superar los umbrales definidos en el *Quality Gate* de SonarCloud:
+    *   **Cobertura de Pruebas Unitarias (Code Coverage):** Mínimo **80%** en código nuevo.
+    *   **Duplicación de Código (Code Duplications):** Menor al **3%**.
+    *   **Deuda Técnica (Technical Debt):** Ratio inferior al **5%** (calificación 'A' en mantenibilidad).
+    *   **Bugs:** Cero bugs críticos o de alta prioridad (calificación 'A' en confiabilidad).
+
+##### **Code Security (Seguridad de Código)**
+
+La seguridad del código se gestiona mediante análisis estático orientado a seguridad (SAST) y análisis de dependencias (SCA):
+
+*   **SAST (Static Application Security Testing):**
+    *   Mediante **SonarCloud**, se escanea el código en busca de *Security Hotspots* y vulnerabilidades comunes (como inyección SQL, desbordamientos de datos, mal manejo de excepciones o algoritmos criptográficos débiles).
+    *   Se validan las directrices de seguridad de OWASP Top 10 aplicadas a Spring Boot (por ejemplo, asegurar que la autenticación de Spring Security esté correctamente configurada y no permita accesos no autorizados a endpoints protegidos).
+*   **SCA (Software Composition Analysis - Análisis de Dependencias):**
+    *   **GitHub Dependabot:** Se encuentra habilitado en todos los repositorios del proyecto. Dependabot escanea de forma continua las dependencias declaradas en `pom.xml` (backend Maven) y `package.json` (frontend npm) para detectar bibliotecas obsoletas o con vulnerabilidades de seguridad conocidas (CVE). Genera automáticamente Pull Requests de actualización cuando detecta una alerta de seguridad.
+    *   **OWASP Dependency-Check:** Integrado opcionalmente en el proceso de construcción de Maven para auditar las dependencias del backend durante la fase de empaquetado.
+*   **Detección de Credenciales (Secret Scanning):**
+    *   Se utiliza **GitHub Secret Scanning** para evitar que credenciales, tokens de API o claves de bases de datos se suban accidentalmente al repositorio público. En caso de detectar un secreto, el commit es alertado y bloqueado de forma inmediata.
+
 ### 6.2.2. Reviews
+
+Las revisiones de código (Code Reviews) son una práctica fundamental en **MatchPoint** para asegurar que el código cumpla con los estándares de diseño y calidad establecidos antes de su integración final en la rama común de desarrollo (`develop`) o de producción (`main`).
+
+##### **Proceso de Pull Requests y Peer Review**
+
+El equipo adopta una estrategia basada en **Trunk-Based Development** con ramas de características cortas. El flujo de trabajo para las revisiones sigue estos pasos:
+
+1.  **Creación de Ramas de Trabajo:** Cada desarrollador trabaja en una rama aislada con una nomenclatura estandarizada:
+    *   `feature/<id-historia-de-usuario>-<descripcion-corta>` para nuevas características.
+    *   `bugfix/<descripcion-corta>` para la corrección de errores.
+    *   `hotfix/<descripcion-corta>` para correcciones urgentes en producción.
+2.  **Apertura del Pull Request (PR):** Al finalizar la tarea, se crea un PR apuntando a la rama base (`develop` o `main`). El PR debe incluir una descripción clara del cambio realizado, las historias de usuario asociadas y las instrucciones de prueba correspondientes.
+3.  **Ejecución del pipeline de Integración Continua (CI):** La creación del PR activa automáticamente el pipeline de GitHub Actions (para backend o frontend). Este ejecuta la compilación de la aplicación y la suite completa de pruebas unitarias e integradas. Si el pipeline falla o el Quality Gate no es aprobado, el PR se bloquea y no se puede realizar el merge.
+4.  **Asignación de Revisores (Peer Review):** Se asigna al menos a **un miembro del equipo** como revisor técnico del código propuesto. Los revisores analizan la lógica, diseño, estructura y legibilidad del código.
+5.  **Criterios de Aceptación para el Revisor (Checklist de Revisión):**
+    Durante el proceso de revisión, el revisor debe validar los siguientes puntos clave:
+    *   **Funcionalidad:** El código implementa correctamente la historia de usuario y pasa todas las pruebas locales descritas.
+    *   **Arquitectura y Buenas Prácticas:** Se respetan los principios **SOLID**, la separación de responsabilidades por capas del backend, y la modularización de componentes en el frontend Vue.
+    *   **Estilo:** Cumplimiento de las guías de código (camelCase, PascalCase, organización de archivos).
+    *   **Tests:** Se han añadido pruebas unitarias o de integración relevantes para cubrir los nuevos flujos.
+    *   **Seguridad:** No hay contraseñas, secretos o URLs duras (hardcoded) en el código.
+6.  **Resolución de Comentarios:** Si el revisor encuentra oportunidades de mejora o bugs, realiza comentarios detallados en líneas de código específicas del PR. El desarrollador autor debe implementar los cambios sugeridos y actualizar el PR.
+7.  **Aprobación y Merge:** Una vez que el revisor otorga su aprobación (`Approve`), y todos los checks automáticos de GitHub Actions están en verde, el desarrollador o el revisor realiza el merge de la rama utilizando la estrategia *Squash and Merge* para mantener un historial de commits limpio en la rama principal.
 ## 6.3. Validation Interviews.
 ### 6.3.1. Diseño de Entrevistas.
 Estas preguntas presentaremos en las entrevistas de validación para evaluar la usabilidad de la aplicación actual y cómo reacciona un usuario ante la interfaz.
