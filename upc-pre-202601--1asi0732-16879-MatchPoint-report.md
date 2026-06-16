@@ -3585,6 +3585,18 @@ Los métodos de investigación que hemos elegido, siguiendo el principio de Simp
 Además seleccionamos Google Lighthouse para evaluar la calidad técnica de la plataforma web. El método empleado consistió en ejecutar auditorías Lighthouse sobre las principales vistas de la aplicación, incluyendo el catálogo de servicios, el sistema de reservas y la gestión de horarios, y analizar las puntuaciones obtenidas en las 4 categorías.
 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection. 
+
+La estrategia de análisis de datos se centró en la evaluación de la calidad técnica de la plataforma web mediante Google Lighthouse. Se llevaron a cabo las pruebas de rendimiento, accesibilidad y mejores prácticas en nuestra aplicación MatchPoint para evaluar su desempeño y optimizar la experiencia de usuario.
+
+Los principales KPIs considerados fueron:
+
+Performance Score: mide el rendimiento general de la aplicación y la velocidad de carga de las páginas.
+Accessibility Score: evalúa el cumplimiento de buenas prácticas de accesibilidad para usuarios con distintas necesidades.
+Best Practices Score: verifica la implementación correcta de estándares modernos de desarrollo web.
+SEO Score: mide el nivel de optimización de la plataforma para motores de búsqueda.
+
+Como metas de calidad, se estableció alcanzar puntuaciones iguales o superiores a 90 puntos en cada una de las categorías evaluadas. Estas métricas permiten detectar diferencias significativas en la calidad técnica de la plataforma y facilitan la identificación de oportunidades de mejora antes de su despliegue en producción.
+
 ### 8.2.8. Web and Mobile Tracking Plan. 
 ## 8.3. Experimentation 
 ### 8.3.1. To-Be User Stories. 
