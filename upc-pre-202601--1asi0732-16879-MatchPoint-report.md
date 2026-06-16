@@ -2629,6 +2629,19 @@ Para finalizar, preguntamos sobre la experiencia general.
 La entrevista permitió evaluar la percepción de la usuaria sobre una aplicación orientada a la gestión de entrenadores deportivos. Durante la sesión, Jazmín logró identificar y explicar correctamente las principales funcionalidades del sistema, incluyendo el inicio de sesión, la gestión de perfil, la creación de servicios, la administración de horarios y el seguimiento de reservas e ingresos. La entrevistada destacó que la información se encuentra organizada de manera clara y que cada sección cumple una función específica, facilitando la navegación y comprensión de la plataforma. Asimismo, valoró positivamente el diseño visual, la legibilidad de los textos y la integración de notificaciones en tiempo real para mantener un mejor control de las actividades y reservas.
 
 Por otro lado, la entrevista permitió identificar oportunidades de mejora relacionadas principalmente con la experiencia de gestión y comunicación. Jazmín sugirió optimizar el diseño del módulo de horarios para hacerlo más intuitivo y atractivo, además de incorporar mayores opciones de edición para configurar la disponibilidad de los servicios según días y horarios específicos. También manifestó interés en contar con herramientas de comunicación integradas, como chat o llamadas, que faciliten la coordinación con los clientes ante cambios o cancelaciones. En general, la evaluación fue positiva, ya que la usuaria comprendió fácilmente el propósito de la aplicación y consideró que sus funcionalidades serían útiles para la administración eficiente de actividades deportivas.
+
+**Entrevista 2**
+
+![Entrevista-2](./images/entrevista-2.png)
+* Entrevistado: Ventino
+* Edad: 20 años
+* Ocupación: Entrenador independiente
+* **Link:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202312391_upc_edu_pe/IQCNT_iglOI1QLZ1CjmJ2eweASMmHe7EO0OoPgfbgPf2bhE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJTeUZpbGVzTGlua0NvcHkifX0&e=HuSp6E
+
+**Análisis de la entrevista**
+
+La entrevista con Ventino, entrenador independiente de 20 años, permitió evaluar su experiencia con la aplicación MatchPoint. Durante la sesión, el entrevistado mencionó que la plataforma es intuitiva y fácil de usar para administrar sus actividades como entrenador. Sin embargo, identificó una oportunidad de mejora importante, la necesidad de incorporar mayores opciones de pago, ya que actualmente solo se cuenta con métodos limitados que no se adaptan a las preferencias de todos sus clientes. Esta retroalimentación es relevante para mejorar la conversión de reservas y la experiencia del usuario.
+
 ### 6.3.3. Evaluaciones según heurísticas.
 
 Aplicación a evaluar: MatchPoint
