@@ -3578,9 +3578,12 @@ Este enfoque utiliza métricas para evaluar el cumplimiento de las hipótesis en
 | Creemos que al incorporar la función de geolocalización y resultados ordenados por cercanía, mejorará la experiencia de usuario y se concretarán un 30% de reservas de canchas o servicios | Implementar búsqueda por proximidad para usuarios Android. | <15% | 15%-30% | 30-55% | ≥55% |
 | Creemos que un 50% de usuarios sentirán que ha mejorado la experiencia de uso de la plataforma al haber agrupado perfil, ajustes y cierre de sesión, en lugar de estar dispersos en puntos alejados de la interfaz. | Implementar un avatar contextual que agrupe perfil, ajustes y cierre de sesión | <25% | 25-50% | 50-75% | ≥75% |
 
-### 8.2.6. Methods Selection. 
+### 8.2.6. Methods Selection.
+
 Los métodos de investigación que hemos elegido, siguiendo el principio de Simplest Useful Thing, son las entrevistas y las pruebas de usabilidad.
+
 Hemos entrevistado a nuestros dos segmentos objetivos: deportistas aficionados y entrenadores independientes. Las entrevistas permitieron recopilar información sobre las necesidades y preferencias de los usuarios potenciales.
+
 Además seleccionamos Google Lighthouse para evaluar la calidad técnica de la plataforma web. El método empleado consistió en ejecutar auditorías Lighthouse sobre las principales vistas de la aplicación, incluyendo el catálogo de servicios, el sistema de reservas y la gestión de horarios, y analizar las puntuaciones obtenidas en las 4 categorías.
 
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection. 
