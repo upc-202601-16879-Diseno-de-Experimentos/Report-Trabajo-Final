@@ -3597,10 +3597,10 @@ Los principales KPIs considerados fueron:
 
 Como metas de calidad, se estableció alcanzar puntuaciones iguales o superiores a 90 puntos en cada una de las categorías evaluadas. Estas métricas permiten detectar diferencias significativas en la calidad técnica de la plataforma y facilitan la identificación de oportunidades de mejora antes de su despliegue en producción.
 
-![kpisbookings](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/main/images/lhbookings.png)
-![kpispayments](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/main/images/lhpayments.png)
-![kpisschedules](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/main/images/lhschedule.png)
-![kpisservices](https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final/blob/main/images/lhservices.png)
+![kpisbookings](./images/lhbookings.png)
+![kpispayments](./images/lhpayments.png)
+![kpisschedules](./images/lhschedule.png)
+![kpisservices](./images/lhservices.png)
 
 ### 8.2.8. Web and Mobile Tracking Plan. 
 ## 8.3. Experimentation 
