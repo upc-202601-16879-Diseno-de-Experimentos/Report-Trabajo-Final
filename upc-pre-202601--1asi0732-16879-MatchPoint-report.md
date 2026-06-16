@@ -3580,9 +3580,7 @@ Este enfoque utiliza métricas para evaluar el cumplimiento de las hipótesis en
 
 ### 8.2.6. Methods Selection.
 
-Los métodos de investigación que hemos elegido, siguiendo el principio de Simplest Useful Thing, son las entrevistas y las pruebas de usabilidad.
-
-Hemos entrevistado a nuestros dos segmentos objetivos: deportistas aficionados y entrenadores independientes. Las entrevistas permitieron recopilar información sobre las necesidades y preferencias de los usuarios potenciales.
+Los métodos de investigación que hemos elegido, siguiendo el principio de Simplest Useful Thing, son las entrevistas y las pruebas de usabilidad. Hemos entrevistado a nuestros dos segmentos objetivos: deportistas aficionados y entrenadores independientes. Las entrevistas permitieron recopilar información sobre las necesidades y preferencias de los usuarios potenciales.
 
 Además seleccionamos Google Lighthouse para evaluar la calidad técnica de la plataforma web. El método empleado consistió en ejecutar auditorías Lighthouse sobre las principales vistas de la aplicación, incluyendo el catálogo de servicios, el sistema de reservas y la gestión de horarios, y analizar las puntuaciones obtenidas en las 4 categorías.
 
