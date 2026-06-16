@@ -3570,15 +3570,19 @@ Las condiciones experimentales se definen para aislar el factor causal dominante
 | C-03 | EC-03 / BL-01 Menú desplegable de perfil | Usuarios expuestos a un avatar contextual en esquina superior derecha con acceso agrupado a perfil, ajustes y cierre de sesión. | Usuarios expuestos a la navegación As-Is, donde las acciones de cuenta permanecen dispersas. | Misma información de cuenta, mismos destinos navegacionales, mismo contenido de las páginas y mismo flujo funcional de reserva posterior. |
 
 ### 8.2.5. Scale Calculations and Decisions. 
-Este enfoque utiliza métricas para evaluar el cumplimiento de las hipótesis en un proyecto. Cada hipótesis se asocia con un indicador de éxito: se considera ideal cuando la métrica alcanza plenamente el objetivo, aceptable cuando está entre el mínimo y el ideal, y desfavorable si queda por debajo del mínimo de 10% del objetivo, requiriendo así una revisión. Un nivel excelente se define como cuando el valor supera el ideal en un 25% o más. La evidencia se obtendrá mediante las opiniones de los entrevistados, apartir de ello puntuaremos su nivel de satisfacción.
+Este enfoque utiliza métricas para evaluar el cumplimiento de las hipótesis en un proyecto. Cada hipótesis se asocia con un indicador de éxito: se considera ideal cuando la métrica alcanza plenamente el objetivo, aceptable cuando está entre el mínimo y el ideal, y desfavorable si queda por debajo de la mitad del porcentaje objetivo, requiriendo así una revisión. Un nivel excelente se define como cuando el valor supera el ideal en un 25% o más. La evidencia se obtendrá mediante las opiniones de los entrevistados, apartir de ello puntuaremos su nivel de satisfacción.
 
 | Scale Calculation | Decisión | Desfavorable | Aceptable | Ideal | Excelente |
 |---|---|---|---|---|---|
-| Creemos que con acceso a edición directa de los servicios, los entrenadores van a tener más libertad de crear sus servicios, lo que aumentaría la cantidad de servicios registrados en un 40% | Implementar la opción de editar o eliminar los servicios de los entrenadores || X|||
-| Creemos que al incorporar la función de geolocalización y resultados ordenados por cercanía, mejorará la experiencia de usuario y se concretarán un 30% de reservas de canchas o servicios | Implementar búsqueda por proximidad para usuarios Android. ||| X ||
-| Creemos que un 50% de usuarios sentirán que ha mejorado la experiencia de uso de la plataforma al haber agrupado perfil, ajustes y cierre de sesión, en lugar de estar dispersos en puntos alejados de la interfaz. | Implementar un avatar contextual que agrupe perfil, ajustes y cierre de sesión || X |||
+| Creemos que con acceso a edición directa de los servicios, los entrenadores van a tener más libertad de crear sus servicios, lo que aumentaría la cantidad de servicios registrados en un 40% | Implementar la opción de editar o eliminar los servicios de los entrenadores | <20% | 20-40% | 40%-65% | ≥65% |
+| Creemos que al incorporar la función de geolocalización y resultados ordenados por cercanía, mejorará la experiencia de usuario y se concretarán un 30% de reservas de canchas o servicios | Implementar búsqueda por proximidad para usuarios Android. | <15% | 15%-30% | 30-55% | ≥55% |
+| Creemos que un 50% de usuarios sentirán que ha mejorado la experiencia de uso de la plataforma al haber agrupado perfil, ajustes y cierre de sesión, en lugar de estar dispersos en puntos alejados de la interfaz. | Implementar un avatar contextual que agrupe perfil, ajustes y cierre de sesión | <25% | 25-50% | 50-75% | ≥75% |
 
 ### 8.2.6. Methods Selection. 
+Los métodos de investigación que hemos elegido, siguiendo el principio de Simplest Useful Thing, son las entrevistas y las pruebas de usabilidad.
+Hemos entrevistado a nuestros dos segmentos objetivos: deportistas aficionados y entrenadores independientes. Las entrevistas permitieron recopilar información sobre las necesidades y preferencias de los usuarios potenciales.
+Además seleccionamos Google Lighthouse para evaluar la calidad técnica de la plataforma web. El método empleado consistió en ejecutar auditorías Lighthouse sobre las principales vistas de la aplicación, incluyendo el catálogo de servicios, el sistema de reservas y la gestión de horarios, y analizar las puntuaciones obtenidas en las 4 categorías.
+
 ### 8.2.7. Data Analytics: Goals, KPIs and Metrics Selection. 
 ### 8.2.8. Web and Mobile Tracking Plan. 
 ## 8.3. Experimentation 
