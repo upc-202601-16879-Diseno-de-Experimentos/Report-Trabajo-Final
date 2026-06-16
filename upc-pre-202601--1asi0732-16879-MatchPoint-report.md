@@ -346,11 +346,20 @@ https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
   - [6.2. Static testing \& Verification](#62-static-testing--verification)
     - [6.2.1. Static Code Analysis](#621-static-code-analysis)
       - [6.2.1.1. Coding standard \& Code conventions.](#6211-coding-standard--code-conventions)
+      - [Backend (Spring Boot - Java)](#backend-spring-boot---java)
+      - [Estándares aplicados](#estándares-aplicados)
+      - [Pruebas Unitarias (JUnit)](#pruebas-unitarias-junit)
+      - [Estándares aplicados](#estándares-aplicados-1)
+      - [Frontend (Vue.js)](#frontend-vuejs)
+      - [Estándares aplicados](#estándares-aplicados-2)
+      - [Aplicación Móvil (Kotlin)](#aplicación-móvil-kotlin)
+      - [Estándares aplicados](#estándares-aplicados-3)
       - [6.2.1.2. Code Quality \& Code Security.](#6212-code-quality--code-security)
     - [6.2.2. Reviews](#622-reviews)
   - [6.3. Validation Interviews.](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
     - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
+      - [Segmento 2 :Entrenadores Independientes](#segmento-2-entrenadores-independientes)
     - [6.3.3. Evaluaciones según heurísticas.](#633-evaluaciones-según-heurísticas)
   - [6.4. Auditoría de Experiencias de Usuario](#64-auditoría-de-experiencias-de-usuario)
     - [6.4.1. Auditoría realizada.](#641-auditoría-realizada)
@@ -391,8 +400,52 @@ https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
       - [Mobile App (Android/Kotlin) - Production Deployment](#mobile-app-androidkotlin---production-deployment)
       - [Monitoreo Post-Deployment](#monitoreo-post-deployment)
       - [Estrategia de Rollback](#estrategia-de-rollback)
+  - [7.4. Continuous Monitoring](#74-continuous-monitoring)
+    - [7.4.1. Tools and Practices](#741-tools-and-practices)
+      - [Herramientas Seleccionadas](#herramientas-seleccionadas-3)
+      - [Prácticas de Monitorización](#prácticas-de-monitorización)
+    - [7.4.2. Monitoring Pipeline Components](#742-monitoring-pipeline-components)
+    - [7.4.3. Alerting Pipeline Components](#743-alerting-pipeline-components)
+    - [7.4.4. Notification Pipeline Components](#744-notification-pipeline-components)
+- [Capítulo VIII: Experiment-Driven Development](#capítulo-viii-experiment-driven-development)
+  - [8.1. Experiment Planning](#81-experiment-planning)
+    - [8.1.1. As-Is Summary.](#811-as-is-summary)
+  - [Problemas identificados:](#problemas-identificados)
+    - [Experiencia de usuario (UX) y navegación](#experiencia-de-usuario-ux-y-navegación)
+    - [Identidad visual y diseño](#identidad-visual-y-diseño)
+    - [Funcionalidades limitadas](#funcionalidades-limitadas)
+    - [Versión móvil](#versión-móvil)
+    - [8.1.2. Raw Material: Assumptions, Knowledge Gaps, Ideas, Claims.](#812-raw-material-assumptions-knowledge-gaps-ideas-claims)
+    - [Assumptions (Suposiciones):](#assumptions-suposiciones)
+    - [Knowledge Gaps (Brechas de Conocimiento):](#knowledge-gaps-brechas-de-conocimiento)
+    - [Ideas:](#ideas)
+    - [Claims (Afirmaciones):](#claims-afirmaciones)
+    - [8.1.3  Experiment-Ready Questions.](#813--experiment-ready-questions)
+    - [Aplicación de la Técnica 5Ws + 1H](#aplicación-de-la-técnica-5ws--1h)
+      - [BL-04 — Edición de servicios del entrenador (Score: 18/20)](#bl-04--edición-de-servicios-del-entrenador-score-1820)
+      - [BL-07 — Geolocalización móvil → reservas (Score: 18/20)](#bl-07--geolocalización-móvil--reservas-score-1820)
+      - [BL-01 — Menú desplegable de perfil (Score: 15/20)](#bl-01--menú-desplegable-de-perfil-score-1520)
+    - [8.1.4. Question Backlog.](#814-question-backlog)
+    - [8.1.5. Experiment Cards.](#815-experiment-cards)
+      - [Experiment Card EC-01 - BL-04](#experiment-card-ec-01---bl-04)
+      - [Experiment Card EC-02 - BL-07](#experiment-card-ec-02---bl-07)
+      - [Experiment Card EC-03 - BL-01](#experiment-card-ec-03---bl-01)
+  - [8.2. Experiment Design](#82-experiment-design)
+    - [8.2.1. Hypotheses.](#821-hypotheses)
+      - [H-01 - Edición de servicios del entrenador](#h-01---edición-de-servicios-del-entrenador)
+      - [H-02 - Búsqueda móvil por geolocalización](#h-02---búsqueda-móvil-por-geolocalización)
+      - [H-03 - Menú desplegable de perfil](#h-03---menú-desplegable-de-perfil)
+    - [8.2.2. Domain Business Metrics](#822-domain-business-metrics)
+    - [8.2.3. Measures.](#823-measures)
+    - [8.2.4. Conditions.](#824-conditions)
+    - [8.2.5. Scale Calculations and Decisions.](#825-scale-calculations-and-decisions)
+    - [8.2.6. Methods Selection.](#826-methods-selection)
+    - [8.2.7. Data Analytics: Goals, KPIs and Metrics Selection.](#827-data-analytics-goals-kpis-and-metrics-selection)
+    - [8.2.8. Web and Mobile Tracking Plan.](#828-web-and-mobile-tracking-plan)
+  - [8.3. Experimentation](#83-experimentation)
+    - [8.3.1. To-Be User Stories.](#831-to-be-user-stories)
+    - [8.3.2. To-Be Product Backlog](#832-to-be-product-backlog)
   - [Conclusiones y recomendaciones.](#conclusiones-y-recomendaciones)
-    - [Conclusiones y recomendaciones.](#conclusiones-y-recomendaciones-1)
       - [Conclusiones](#conclusiones)
       - [Recomendaciones](#recomendaciones)
     - [Video App Validation](#video-app-validation)
@@ -2716,10 +2769,34 @@ Recomendación: Mostrarle al usuario más horarios en dichos recuadros, o sino m
 #### 6.4.1.2. Cronograma de auditoría realizada.
 #### 6.4.1.3. Contenido de auditoría realizada.
 ### 6.4.2. Auditoría recibida.
+
 #### 6.4.2.1. Información del grupo auditor.
+**Startup Auditada:** MatchPoint  
+**Producto Auditado:** PlayMatch (Web & Mobile)  
+**Grupo Auditor:** (Grupo Asignado - Sección SW72)  
+**Objetivo:** Evaluar la usabilidad, flujos de navegación, integración y despliegue del aplicativo móvil y backend para identificar puntos de fricción y posibles mejoras en la experiencia del usuario final.
+
 #### 6.4.2.2. Cronograma de auditoría recibida.
+- **Inicio de la evaluación:** 15 de Junio de 2026.
+- **Revisión de flujos Mobile & Backend:** 16 de Junio de 2026.
+- **Entrega de reporte de hallazgos:** 16 de Junio de 2026.
+- **Implementación de mejoras (Subsanación):** 16 de Junio de 2026.
+
 #### 6.4.2.3. Contenido de auditoría recibida.
+El grupo auditor evaluó nuestro producto enfocándose en la integración de despliegue a producción y la usabilidad de la aplicación móvil. A continuación se presentan los hallazgos principales:
+
+1. **Hallazgo 1 (Backend/DevOps):** Inconvenientes en el despliegue automático a producción (Railway). Se reportó que ciertas entidades fallaban al compilar en el entorno de producción debido a conflictos con la configuración de constructores vacíos (Lombok).
+2. **Hallazgo 2 (Mobile - UX):** En la vista principal de *coaches* (entrenadores), se visualizaron opciones de búsqueda y filtros que no poseían funcionalidad activa o causaban confusión visual en la navegación.
+3. **Hallazgo 3 (Mobile - Flujo de Usuario):** El flujo de registro de nuevos usuarios en la app móvil se interrumpía. Permitía intentar crear un perfil antes de asegurar la autenticación obligatoria del usuario, generando errores en la sesión.
+4. **Hallazgo 4 (Mobile/Integración):** La aplicación móvil presentaba errores de sintaxis en paquetes internos y estaba apuntando a un entorno local/desarrollo en lugar de consumir la API oficial desplegada en Railway, lo que impedía probar la integración final.
+
 #### 6.4.2.4. Resumen de modificaciones para subsanar hallazgos.
+En base a la retroalimentación recibida, nuestro equipo realizó las siguientes modificaciones (reflejadas en los commits más recientes):
+
+- **Subsanación Hallazgo 1 (Backend):** Se corrigieron las anotaciones de Lombok (`@NoArgsConstructor`) para evitar conflictos durante el *build* en Railway y se actualizó la configuración de producción para un despliegue sin interrupciones.
+- **Subsanación Hallazgo 2 (Mobile):** Se decidió ocultar temporalmente la barra de búsqueda y las opciones de filtro en la vista de *coaches* para limpiar la interfaz y evitar confusiones hasta que estas funcionalidades estén completamente implementadas en el backend.
+- **Subsanación Hallazgo 3 (Mobile):** Se rediseñó el flujo de registro en la app móvil. Ahora, el sistema exige y verifica correctamente la autenticación del usuario antes de permitirle crear su perfil, bloqueando flujos inconsistentes.
+- **Subsanación Hallazgo 4 (Mobile):** Se solucionaron los errores de sintaxis (*invalid compackage declaration*) y se actualizó la URL base (`BASE_URL`) dentro de la app móvil para que consuma correctamente el entorno de producción en Railway.
 # Capítulo VII: DevOps Practices
 ## 7.1. Continuous Integration
 ### 7.1.1. Tools and Practices.
@@ -3270,10 +3347,63 @@ END
 - Mobile: Google Play manual rollback (limita a 2 versiones anteriores)
 
 ## 7.4. Continuous Monitoring 
+
+La monitorización continua es fundamental para garantizar la disponibilidad, el rendimiento y la fiabilidad de la plataforma MatchPoint en producción. A través de un enfoque proactivo, recopilamos métricas en tiempo real de nuestros servicios (Backend, Frontend y Mobile) para detectar anomalías antes de que afecten significativamente a los usuarios.
+
 ### 7.4.1. Tools and Practices 
+
+#### Herramientas Seleccionadas
+- **Sentry**: Para el rastreo de errores y reporte de crashes (Crash Reporting) tanto en el Frontend Web (Vue) como en la aplicación móvil (Android/Kotlin).
+- **Spring Boot Actuator & Prometheus/Grafana**: Para la recolección de métricas de rendimiento y salud de los microservicios en el Backend (Java Spring Boot).
+- **Logtail / Render Logs**: Para la agregación centralizada de logs del backend.
+- **Vercel Analytics**: Para monitorizar el rendimiento del lado del cliente (Web Vitals) en el Frontend.
+
+#### Prácticas de Monitorización
+- **Monitorización Proactiva**: No solo reaccionamos a caídas, sino que observamos tendencias (por ejemplo, picos de latencia o consumo de memoria) para anticipar problemas de escalabilidad.
+- **Trazabilidad Completa**: Uso de identificadores de correlación (Correlation IDs) en las solicitudes para seguir el flujo desde el Frontend/Mobile hasta la base de datos.
+- **Dashboards Centralizados**: Paneles visuales accesibles para todo el equipo de desarrollo que muestran el estado de salud en tiempo real.
+
 ### 7.4.2. Monitoring Pipeline Components 
+
+Nuestro pipeline de monitorización se divide según la arquitectura del sistema:
+
+- **Backend (Render / Spring Boot)**:
+  - **Health Checks**: Endpoints `/actuator/health` verificados periódicamente para asegurar que el servicio y la conexión a la base de datos están activos.
+  - **Métricas APM (Application Performance Monitoring)**: Seguimiento del tiempo de respuesta promedio (Latencia), rendimiento (Throughput - peticiones por segundo) y tasa de errores HTTP 5xx.
+  - **Recursos de Infraestructura**: Uso de CPU, Memoria RAM y conexiones activas a la base de datos a través de los paneles de métricas de Render.
+
+- **Frontend Web (Vercel / Vue)**:
+  - **Web Vitals Tracking**: Monitorización de métricas clave de experiencia de usuario como LCP (Largest Contentful Paint), FID (First Input Delay) y CLS (Cumulative Layout Shift).
+  - **Error Tracking**: Captura de excepciones de JavaScript no controladas y errores en llamadas a la API (Sentry).
+
+- **Mobile App (Android / Play Console)**:
+  - **Crashlytics / Sentry**: Captura de excepciones fatales y no fatales, agrupando errores por stack trace y dispositivo.
+  - **Android Vitals**: Monitorización de tasas de ANR (Application Not Responding) y consumo de batería a través de Google Play Console.
+
 ### 7.4.3. Alerting Pipeline Components 
-### 7.4.4. Notification Pipeline Components.
+
+El sistema de alertas está configurado para evaluar las métricas recopiladas frente a umbrales predefinidos. Si una métrica cruza su umbral crítico, se dispara una alerta.
+
+| Métrica | Umbral Crítico (Error) | Umbral de Advertencia (Warning) |
+|---------|------------------------|---------------------------------|
+| Tasa de Errores (Backend HTTP 5xx) | > 5% en 5 minutos | > 1% en 5 minutos |
+| Latencia (Backend P95) | > 1000ms | > 500ms |
+| CPU Usage (Backend) | > 90% sostenido | > 75% sostenido |
+| Crash Rate (Mobile) | > 1% de sesiones | > 0.5% de sesiones |
+| Disponibilidad (Uptime) | < 99.9% | < 99.95% |
+
+### 7.4.4. Notification Pipeline Components
+
+Para garantizar que el equipo responda de manera ágil ante cualquier incidente, las alertas generadas son canalizadas a través de nuestro pipeline de notificaciones, dependiendo de la severidad del problema.
+
+- **Severidad Baja/Informativa (Canal de Discord/Slack)**:
+  - Notificaciones sobre advertencias tempranas (ej. uso de memoria al 75%) o builds de CI/CD completados.
+  - El equipo revisa estos mensajes durante el horario de trabajo regular.
+
+- **Severidad Alta/Crítica (Paginación / Email / Notificaciones Push)**:
+  - Incidentes como caídas del sistema (Uptime check failed) o tasas de error de pago superiores al umbral crítico.
+  - Se utilizan webhooks integrados con herramientas como PagerDuty u Opsgenie para notificar al desarrollador en guardia (On-call engineer) de forma inmediata, incluso fuera de horario laboral.
+  - Se genera automáticamente un "Incident Report" inicial para coordinar la respuesta.
 # Capítulo VIII: Experiment-Driven Development 
 ## 8.1. Experiment Planning 
 ### 8.1.1. As-Is Summary. 
