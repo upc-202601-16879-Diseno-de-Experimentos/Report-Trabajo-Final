@@ -2766,9 +2766,62 @@ Recomendación: Mostrarle al usuario más horarios en dichos recuadros, o sino m
 
 ## 6.4. Auditoría de Experiencias de Usuario
 ### 6.4.1. Auditoría realizada.
+
+En esta sección se detalla el proceso y los resultados de la auditoría de Experiencia de Usuario (UX) que el equipo de **MatchPoint** realizó sobre el producto de otro grupo del curso, con el fin de evaluar la usabilidad, detectar fallos de diseño y proponer mejoras bajo estándares de la industria.
+
 #### 6.4.1.1. Información del grupo auditado.
+
+El equipo auditado para este experimento fue el siguiente:
+*   **Grupo:** Grupo 2
+*   **Startup:** FitLife
+*   **Aplicación:** FitLife App
+*   **Descripción del Producto:** Plataforma web y móvil diseñada para conectar a entusiastas del fitness con entrenadores personales y nutricionistas. Permite crear rutinas de ejercicio personalizadas, planes alimenticios y realizar un seguimiento diario de métricas corporales y progreso físico.
+
 #### 6.4.1.2. Cronograma de auditoría realizada.
+
+La auditoría de experiencia de usuario se llevó a cabo en cuatro fases bien definidas durante el ciclo del proyecto:
+
+| Fase | Actividad | Fecha | Responsables |
+|:---|:---|:---|:---|
+| **Fase 1: Planificación** | Definición del alcance de la auditoría, selección de los flujos de usuario clave a evaluar (Registro, Compra de plan, Visualización de rutinas) y asignación de tareas de auditoría. | 15/05/2026 | Equipo MatchPoint |
+| **Fase 2: Ejecución** | Pruebas exploratorias del prototipo desplegado de *FitLife*, realización de pruebas de usuario y documentación inicial de comportamientos inesperados o bloqueos. | 18/05/2026 | Equipo MatchPoint |
+| **Fase 3: Análisis** | Evaluación detallada utilizando las 10 Heurísticas de Jakob Nielsen. Clasificación y asignación de niveles de severidad (0 al 4) para cada problema detectado. | 20/05/2026 | Equipo MatchPoint |
+| **Fase 4: Cierre** | Elaboración del reporte de auditoría UX final y entrega formal de los hallazgos y recomendaciones al Grupo 2 (FitLife). | 22/05/2026 | Equipo MatchPoint |
+
 #### 6.4.1.3. Contenido de auditoría realizada.
+
+A continuación se presenta el resumen de los problemas de usabilidad detectados en la aplicación **FitLife App** de acuerdo con la escala de severidad de Nielsen (1: Leve, 2: Moderado, 3: Grave, 4: Catastrófico).
+
+##### **Tabla de Resumen de Hallazgos**
+
+| ID | Problema Detectado | Severidad | Heurística Violada |
+|:---|:---|:---|:---|
+| #1 | Ausencia de botón de retorno o salida clara en el catálogo interactivo de nutricionistas. | 3 (Grave) | Control y libertad del usuario |
+| #2 | El formulario de registro muestra un mensaje de error genérico ("Acción inválida") al usar correos sin formato válido. | 2 (Moderado) | Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores |
+| #3 | Imposibilidad de buscar recetas físicas con filtros avanzados (alergias alimentarias, ingredientes faltantes). | 3 (Grave) | Flexibilidad y eficiencia de uso |
+| #4 | Inconsistencia de color en botones de acción principal en la versión web (azul y verde indistintamente). | 1 (Leve) | Consistencia y estándares |
+
+##### **Detalle de las Heurísticas Violadas y Recomendaciones**
+
+*   **Problema #1: Ausencia de botón de retorno o salida clara en el catálogo interactivo de nutricionistas.**
+    *   **Heurística violada:** Control y libertad del usuario (Heurística #3).
+    *   **Descripción:** Al navegar en el detalle de un perfil de nutricionista dentro del catálogo, el usuario no encuentra un botón visible para regresar a la vista de búsqueda anterior, viéndose forzado a recargar la página o utilizar el botón "Atrás" del propio navegador web, lo cual interrumpe el flujo normal del sistema.
+    *   **Recomendación:** Agregar un botón flotante o un enlace superior de tipo "Volver al catálogo" en la esquina superior izquierda de la vista de detalle.
+
+*   **Problema #2: El formulario de registro muestra un mensaje de error genérico ("Acción inválida") al usar correos sin formato válido.**
+    *   **Heurística violada:** Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores (Heurística #9).
+    *   **Descripción:** Si un usuario introduce un correo electrónico inválido (ej. "usuario@correo"), el sistema no especifica la causa del error en el campo correspondiente, sino que levanta un cuadro de alerta flotante con el texto "Acción inválida", impidiendo que el usuario sepa cómo subsanar la falla.
+    *   **Recomendación:** Implementar validación en tiempo real en el campo de texto con un mensaje claro abajo que indique: *"Por favor, ingrese una dirección de correo válida (ejemplo@dominio.com)"*.
+
+*   **Problema #3: Imposibilidad de buscar recetas físicas con filtros avanzados (alergias alimentarias, ingredientes faltantes).**
+    *   **Heurística violada:** Flexibilidad y eficiencia de uso (Heurística #7).
+    *   **Descripción:** Los usuarios que desean buscar recetas dietéticas no pueden filtrar el contenido según sus restricciones médicas o intolerancias alimentarias (ej. libre de gluten o lactosa). Esto obliga tanto a usuarios avanzados como novatos a realizar una búsqueda secuencial y leer receta por receta.
+    *   **Recomendación:** Añadir un menú desplegable de filtros rápidos en la barra de búsqueda para categorizar los platillos por tipo de dieta y alérgenos comunes.
+
+*   **Problema #4: Inconsistencia de color en botones de acción principal en la versión web.**
+    *   **Heurística violada:** Consistencia y estándares (Heurística #4).
+    *   **Descripción:** En la pantalla de perfil del entrenador, el botón principal para "Reservar cita" es de color azul, mientras que en la pantalla de inicio el botón principal de acción es verde. Esta falta de consistencia confunde sobre qué elementos son interactivos y cuáles son de prioridad alta.
+    *   **Recomendación:** Unificar el color de los botones principales bajo un único color de acento de marca (ej. usar verde de forma consistente para todas las acciones principales).
 ### 6.4.2. Auditoría recibida.
 #### 6.4.2.1. Información del grupo auditor.
 #### 6.4.2.2. Cronograma de auditoría recibida.
