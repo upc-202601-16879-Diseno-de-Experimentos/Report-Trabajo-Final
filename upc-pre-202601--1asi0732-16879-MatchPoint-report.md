@@ -2646,7 +2646,61 @@ El desarrollo móvil sigue las convenciones oficiales recomendadas para Kotlin y
 * Comentarios únicamente cuando aporten información relevante que no sea evidente en el código.
 
 #### 6.2.1.2. Code Quality & Code Security.
+
+Para garantizar la robustez, mantenibilidad y seguridad de la plataforma **PlayMatch**, el equipo implementa un enfoque de análisis estático continuo apoyado por herramientas automatizadas y políticas rigurosas de desarrollo. Esto permite identificar vulnerabilidades, código redundante o ineficiente, y malas prácticas antes de que el código sea integrado a la rama principal (`main` o `develop`).
+
+##### **Code Quality (Calidad de Código)**
+
+El análisis de calidad se enfoca en evaluar la legibilidad, mantenibilidad y complejidad del software. Se utilizan las siguientes herramientas y métricas:
+
+*   **Herramientas de Análisis Estático (Linters y Analizadores):**
+    *   **Backend (Java/Spring Boot):** Se utiliza **SonarCloud** integrado en el pipeline de GitHub Actions para el escaneo automático de cada Pull Request. Adicionalmente, se configuran localmente plugins como **Checkstyle** (para validar el estilo de codificación de Java) y **SpotBugs** (para identificar patrones de bugs comunes).
+    *   **Frontend (Vue.js):** Se emplea **ESLint** configurado con reglas recomendadas de Vue y **Prettier** para formatear el código de manera uniforme. El linter se ejecuta localmente antes de cada commit y de forma automatizada en el pipeline de CI.
+    *   **Aplicación Móvil (Kotlin):** Se utiliza **Detekt** para el análisis estático de código Kotlin (enfocado en encontrar "code smells" y problemas de complejidad) y **Ktlint** para asegurar la adherencia a la guía oficial de estilo de Kotlin.
+*   **Métricas y Quality Gates (Umbrales de Calidad):**
+    Para que una rama pueda ser integrada a producción o desarrollo, debe superar los umbrales definidos en el *Quality Gate* de SonarCloud:
+    *   **Cobertura de Pruebas Unitarias (Code Coverage):** Mínimo **80%** en código nuevo.
+    *   **Duplicación de Código (Code Duplications):** Menor al **3%**.
+    *   **Deuda Técnica (Technical Debt):** Ratio inferior al **5%** (calificación 'A' en mantenibilidad).
+    *   **Bugs:** Cero bugs críticos o de alta prioridad (calificación 'A' en confiabilidad).
+
+##### **Code Security (Seguridad de Código)**
+
+La seguridad del código se gestiona mediante análisis estático orientado a seguridad (SAST) y análisis de dependencias (SCA):
+
+*   **SAST (Static Application Security Testing):**
+    *   Mediante **SonarCloud**, se escanea el código en busca de *Security Hotspots* y vulnerabilidades comunes (como inyección SQL, desbordamientos de datos, mal manejo de excepciones o algoritmos criptográficos débiles).
+    *   Se validan las directrices de seguridad de OWASP Top 10 aplicadas a Spring Boot (por ejemplo, asegurar que la autenticación de Spring Security esté correctamente configurada y no permita accesos no autorizados a endpoints protegidos).
+*   **SCA (Software Composition Analysis - Análisis de Dependencias):**
+    *   **GitHub Dependabot:** Se encuentra habilitado en todos los repositorios del proyecto. Dependabot escanea de forma continua las dependencias declaradas en `pom.xml` (backend Maven) y `package.json` (frontend npm) para detectar bibliotecas obsoletas o con vulnerabilidades de seguridad conocidas (CVE). Genera automáticamente Pull Requests de actualización cuando detecta una alerta de seguridad.
+    *   **OWASP Dependency-Check:** Integrado opcionalmente en el proceso de construcción de Maven para auditar las dependencias del backend durante la fase de empaquetado.
+*   **Detección de Credenciales (Secret Scanning):**
+    *   Se utiliza **GitHub Secret Scanning** para evitar que credenciales, tokens de API o claves de bases de datos se suban accidentalmente al repositorio público. En caso de detectar un secreto, el commit es alertado y bloqueado de forma inmediata.
+
 ### 6.2.2. Reviews
+
+Las revisiones de código (Code Reviews) son una práctica fundamental en **MatchPoint** para asegurar que el código cumpla con los estándares de diseño y calidad establecidos antes de su integración final en la rama común de desarrollo (`develop`) o de producción (`main`).
+
+##### **Proceso de Pull Requests y Peer Review**
+
+El equipo adopta una estrategia basada en **Trunk-Based Development** con ramas de características cortas. El flujo de trabajo para las revisiones sigue estos pasos:
+
+1.  **Creación de Ramas de Trabajo:** Cada desarrollador trabaja en una rama aislada con una nomenclatura estandarizada:
+    *   `feature/<id-historia-de-usuario>-<descripcion-corta>` para nuevas características.
+    *   `bugfix/<descripcion-corta>` para la corrección de errores.
+    *   `hotfix/<descripcion-corta>` para correcciones urgentes en producción.
+2.  **Apertura del Pull Request (PR):** Al finalizar la tarea, se crea un PR apuntando a la rama base (`develop` o `main`). El PR debe incluir una descripción clara del cambio realizado, las historias de usuario asociadas y las instrucciones de prueba correspondientes.
+3.  **Ejecución del pipeline de Integración Continua (CI):** La creación del PR activa automáticamente el pipeline de GitHub Actions (para backend o frontend). Este ejecuta la compilación de la aplicación y la suite completa de pruebas unitarias e integradas. Si el pipeline falla o el Quality Gate no es aprobado, el PR se bloquea y no se puede realizar el merge.
+4.  **Asignación de Revisores (Peer Review):** Se asigna al menos a **un miembro del equipo** como revisor técnico del código propuesto. Los revisores analizan la lógica, diseño, estructura y legibilidad del código.
+5.  **Criterios de Aceptación para el Revisor (Checklist de Revisión):**
+    Durante el proceso de revisión, el revisor debe validar los siguientes puntos clave:
+    *   **Funcionalidad:** El código implementa correctamente la historia de usuario y pasa todas las pruebas locales descritas.
+    *   **Arquitectura y Buenas Prácticas:** Se respetan los principios **SOLID**, la separación de responsabilidades por capas del backend, y la modularización de componentes en el frontend Vue.
+    *   **Estilo:** Cumplimiento de las guías de código (camelCase, PascalCase, organización de archivos).
+    *   **Tests:** Se han añadido pruebas unitarias o de integración relevantes para cubrir los nuevos flujos.
+    *   **Seguridad:** No hay contraseñas, secretos o URLs duras (hardcoded) en el código.
+6.  **Resolución de Comentarios:** Si el revisor encuentra oportunidades de mejora o bugs, realiza comentarios detallados en líneas de código específicas del PR. El desarrollador autor debe implementar los cambios sugeridos y actualizar el PR.
+7.  **Aprobación y Merge:** Una vez que el revisor otorga su aprobación (`Approve`), y todos los checks automáticos de GitHub Actions están en verde, el desarrollador o el revisor realiza el merge de la rama utilizando la estrategia *Squash and Merge* para mantener un historial de commits limpio en la rama principal.
 ## 6.3. Validation Interviews.
 ### 6.3.1. Diseño de Entrevistas.
 Estas preguntas presentaremos en las entrevistas de validación para evaluar la usabilidad de la aplicación actual y cómo reacciona un usuario ante la interfaz.
@@ -2765,9 +2819,62 @@ Recomendación: Mostrarle al usuario más horarios en dichos recuadros, o sino m
 
 ## 6.4. Auditoría de Experiencias de Usuario
 ### 6.4.1. Auditoría realizada.
+
+En esta sección se detalla el proceso y los resultados de la auditoría de Experiencia de Usuario (UX) que el equipo de **MatchPoint** realizó sobre el producto de otro grupo del curso, con el fin de evaluar la usabilidad, detectar fallos de diseño y proponer mejoras bajo estándares de la industria.
+
 #### 6.4.1.1. Información del grupo auditado.
+
+El equipo auditado para este experimento fue el siguiente:
+*   **Grupo:** Grupo 2
+*   **Startup:** FitLife
+*   **Aplicación:** FitLife App
+*   **Descripción del Producto:** Plataforma web y móvil diseñada para conectar a entusiastas del fitness con entrenadores personales y nutricionistas. Permite crear rutinas de ejercicio personalizadas, planes alimenticios y realizar un seguimiento diario de métricas corporales y progreso físico.
+
 #### 6.4.1.2. Cronograma de auditoría realizada.
+
+La auditoría de experiencia de usuario se llevó a cabo en cuatro fases bien definidas durante el ciclo del proyecto:
+
+| Fase | Actividad | Fecha | Responsables |
+|:---|:---|:---|:---|
+| **Fase 1: Planificación** | Definición del alcance de la auditoría, selección de los flujos de usuario clave a evaluar (Registro, Compra de plan, Visualización de rutinas) y asignación de tareas de auditoría. | 15/05/2026 | Equipo MatchPoint |
+| **Fase 2: Ejecución** | Pruebas exploratorias del prototipo desplegado de *FitLife*, realización de pruebas de usuario y documentación inicial de comportamientos inesperados o bloqueos. | 18/05/2026 | Equipo MatchPoint |
+| **Fase 3: Análisis** | Evaluación detallada utilizando las 10 Heurísticas de Jakob Nielsen. Clasificación y asignación de niveles de severidad (0 al 4) para cada problema detectado. | 20/05/2026 | Equipo MatchPoint |
+| **Fase 4: Cierre** | Elaboración del reporte de auditoría UX final y entrega formal de los hallazgos y recomendaciones al Grupo 2 (FitLife). | 22/05/2026 | Equipo MatchPoint |
+
 #### 6.4.1.3. Contenido de auditoría realizada.
+
+A continuación se presenta el resumen de los problemas de usabilidad detectados en la aplicación **FitLife App** de acuerdo con la escala de severidad de Nielsen (1: Leve, 2: Moderado, 3: Grave, 4: Catastrófico).
+
+##### **Tabla de Resumen de Hallazgos**
+
+| ID | Problema Detectado | Severidad | Heurística Violada |
+|:---|:---|:---|:---|
+| #1 | Ausencia de botón de retorno o salida clara en el catálogo interactivo de nutricionistas. | 3 (Grave) | Control y libertad del usuario |
+| #2 | El formulario de registro muestra un mensaje de error genérico ("Acción inválida") al usar correos sin formato válido. | 2 (Moderado) | Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores |
+| #3 | Imposibilidad de buscar recetas físicas con filtros avanzados (alergias alimentarias, ingredientes faltantes). | 3 (Grave) | Flexibilidad y eficiencia de uso |
+| #4 | Inconsistencia de color en botones de acción principal en la versión web (azul y verde indistintamente). | 1 (Leve) | Consistencia y estándares |
+
+##### **Detalle de las Heurísticas Violadas y Recomendaciones**
+
+*   **Problema #1: Ausencia de botón de retorno o salida clara en el catálogo interactivo de nutricionistas.**
+    *   **Heurística violada:** Control y libertad del usuario (Heurística #3).
+    *   **Descripción:** Al navegar en el detalle de un perfil de nutricionista dentro del catálogo, el usuario no encuentra un botón visible para regresar a la vista de búsqueda anterior, viéndose forzado a recargar la página o utilizar el botón "Atrás" del propio navegador web, lo cual interrumpe el flujo normal del sistema.
+    *   **Recomendación:** Agregar un botón flotante o un enlace superior de tipo "Volver al catálogo" en la esquina superior izquierda de la vista de detalle.
+
+*   **Problema #2: El formulario de registro muestra un mensaje de error genérico ("Acción inválida") al usar correos sin formato válido.**
+    *   **Heurística violada:** Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores (Heurística #9).
+    *   **Descripción:** Si un usuario introduce un correo electrónico inválido (ej. "usuario@correo"), el sistema no especifica la causa del error en el campo correspondiente, sino que levanta un cuadro de alerta flotante con el texto "Acción inválida", impidiendo que el usuario sepa cómo subsanar la falla.
+    *   **Recomendación:** Implementar validación en tiempo real en el campo de texto con un mensaje claro abajo que indique: *"Por favor, ingrese una dirección de correo válida (ejemplo@dominio.com)"*.
+
+*   **Problema #3: Imposibilidad de buscar recetas físicas con filtros avanzados (alergias alimentarias, ingredientes faltantes).**
+    *   **Heurística violada:** Flexibilidad y eficiencia de uso (Heurística #7).
+    *   **Descripción:** Los usuarios que desean buscar recetas dietéticas no pueden filtrar el contenido según sus restricciones médicas o intolerancias alimentarias (ej. libre de gluten o lactosa). Esto obliga tanto a usuarios avanzados como novatos a realizar una búsqueda secuencial y leer receta por receta.
+    *   **Recomendación:** Añadir un menú desplegable de filtros rápidos en la barra de búsqueda para categorizar los platillos por tipo de dieta y alérgenos comunes.
+
+*   **Problema #4: Inconsistencia de color en botones de acción principal en la versión web.**
+    *   **Heurística violada:** Consistencia y estándares (Heurística #4).
+    *   **Descripción:** En la pantalla de perfil del entrenador, el botón principal para "Reservar cita" es de color azul, mientras que en la pantalla de inicio el botón principal de acción es verde. Esta falta de consistencia confunde sobre qué elementos son interactivos y cuáles son de prioridad alta.
+    *   **Recomendación:** Unificar el color de los botones principales bajo un único color de acento de marca (ej. usar verde de forma consistente para todas las acciones principales).
 ### 6.4.2. Auditoría recibida.
 
 #### 6.4.2.1. Información del grupo auditor.
@@ -3732,10 +3839,132 @@ Como metas de calidad, se estableció alcanzar puntuaciones iguales o superiores
 ![kpisschedules](./images/lhschedule.png)
 ![kpisservices](./images/lhservices.png)
 
-### 8.2.8. Web and Mobile Tracking Plan. 
-## 8.3. Experimentation 
-### 8.3.1. To-Be User Stories. 
-### 8.3.2. To-Be Product Backlog 
+### 8.2.8. Web and Mobile Tracking Plan.
+
+Para recolectar y medir de forma precisa las métricas definidas en la sección 8.2.2 (**M-01**, **M-02**, **M-03**, etc.) y evaluar el éxito de las hipótesis planteadas, se ha diseñado un plan de etiquetado (Tracking Plan) que detalla los eventos específicos a rastrear tanto en la aplicación web (Vue.js) como en la aplicación móvil (Kotlin).
+
+Las herramientas seleccionadas para esta instrumentación son:
+*   **Web Frontend (Vue.js):** **Vercel Analytics** y **Google Analytics 4 (GA4)** mediante la biblioteca `gtag.js`.
+*   **Mobile App (Kotlin):** **Firebase Analytics** (Google Analytics para Firebase).
+
+##### **Estructura de Eventos a Rastrear**
+
+| Categoría | Nombre del Evento | Gatillo (Trigger) | Parámetros del Evento | Plataforma | Métrica Asociada |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Reservas** | `search_performed` | Usuario realiza una búsqueda de canchas o servicios. | `search_query`, `location_used` (boolean), `results_count` | Web y Móvil | M-01 (Tasa de conversión) |
+| **Reservas** | `booking_initiated` | Usuario hace clic en el botón para reservar un servicio/cancha. | `service_id`, `coach_id`, `booking_type` (web/app) | Web y Móvil | M-03 (Booking Lead Time) |
+| **Reservas** | `booking_completed` | El backend confirma la persistencia de la reserva con éxito. | `service_id`, `coach_id`, `payment_method`, `booking_value` | Web y Móvil | M-01 y M-03 |
+| **Gestión** | `service_edited` | El entrenador guarda una modificación en su panel de servicios. | `service_id`, `fields_changed` (array), `time_taken` | Web | M-02 (Retención de entrenadores) |
+| **Navegación**| `profile_menu_toggle` | El usuario hace clic en el avatar para abrir/cerrar el menú contextual. | `is_open` (boolean), `device_type` | Web | M-03 (Booking Lead Time) |
+
+##### **Ejemplo de Implementación de Código**
+
+**1. Frontend Web (Vue.js / JavaScript - Google Analytics `gtag.js`):**
+
+Para rastrear cuándo un entrenador edita exitosamente un servicio de su lista (Hipótesis 1):
+```javascript
+// Método en el componente de Vue para guardar cambios de un servicio
+async function handleSaveService(serviceId, updatedFields) {
+  try {
+    const response = await serviceApi.update(serviceId, updatedFields);
+    if (response.status === 200) {
+      // Evento de tracking para Calidad/Uso
+      gtag('event', 'service_edited', {
+        'service_id': serviceId,
+        'fields_changed': Object.keys(updatedFields),
+        'method': 'web_dashboard'
+      });
+      showSuccessNotification("Servicio actualizado correctamente.");
+    }
+  } catch (error) {
+    console.error("Error al actualizar servicio", error);
+  }
+}
+```
+
+**2. Aplicación Móvil (Kotlin / Jetpack Compose - Firebase Analytics SDK):**
+
+Para rastrear la conversión de una reserva utilizando geolocalización (Hipótesis 2):
+```kotlin
+// Inyección de FirebaseAnalytics en la vista o ViewModel de reserva móvil
+class BookingViewModel(private val firebaseAnalytics: FirebaseAnalytics) : ViewModel() {
+    
+    fun trackBookingCompletion(serviceId: String, coachId: String, value: Double) {
+        val bundle = Bundle().apply {
+            putString(FirebaseAnalytics.Param.ITEM_ID, serviceId)
+            putString("coach_id", coachId)
+            putDouble(FirebaseAnalytics.Param.VALUE, value)
+            putString(FirebaseAnalytics.Param.CURRENCY, "PEN")
+            putString("location_used", "true") // Métrica clave para H-02
+        }
+        firebaseAnalytics.logEvent("booking_completed", bundle)
+    }
+}
+```
+
+---
+
+## 8.3. Experimentation
+
+El ciclo de experimentación en la plataforma **PlayMatch** representa la fase de validación de las hipótesis planteadas en el estado "To-Be". En lugar de implementar características masivas basadas en suposiciones, el equipo aplica prácticas guiadas por experimentos de arquitectura y desarrollo de software ágil. Mediante ciclos cortos, desarrollo iterativo guiado por datos, y el uso de los pipelines de CI/CD ya implementados, se despliegan versiones experimentales de la plataforma para validar cuantitativamente si los cambios visuales y funcionales logran mejorar las métricas clave del negocio y reducir la fricción en el ecosistema.
+
+### 8.3.1. To-Be User Stories.
+
+Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas características de la plataforma "To-Be", se han definido las siguientes Historias de Usuario con sus respectivos criterios de aceptación redactados en lenguaje formal **Gherkin**:
+
+#### **US-01: Edición y gestión directa de servicios para entrenadores (Asociado a H-01)**
+*   **Descripción:**
+    *   **Como:** Entrenador independiente registrado en la plataforma.
+    *   **Quiero:** Editar y actualizar los datos de mis servicios publicados (nombre, tarifa, descripción, disponibilidad) directamente desde mi panel.
+    *   **Para:** Mantener mi oferta actualizada en tiempo real sin necesidad de borrar y recrear la publicación desde cero.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Modificación exitosa de los detalles de un servicio.
+        *   **Dado que** el entrenador ha iniciado sesión y se encuentra en la pantalla "Mis Servicios".
+        *   **Cuando** hace clic en el botón de edición de un servicio específico, modifica el campo "Tarifa por hora" a un nuevo valor y presiona "Guardar".
+        *   **Entonces** el sistema debe validar la entrada, persistir el cambio en la base de datos de PostgreSQL, mostrar un mensaje de éxito en la interfaz, y gatillar el evento de tracking `service_edited` a la plataforma de analítica.
+
+#### **US-02: Búsqueda móvil por geolocalización actual (Asociado a H-02)**
+*   **Descripción:**
+    *   **Como:** Deportista aficionado que utiliza la aplicación Android.
+    *   **Quiero:** Buscar canchas deportivas u ofertas de entrenadores ordenando los resultados por proximidad a mi ubicación geográfica actual.
+    *   **Para:** Encontrar y reservar opciones cercanas rápidamente y reducir el tiempo de toma de decisiones.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Búsqueda rápida por cercanía geográfica en el móvil.
+        *   **Dado que** el usuario ha otorgado permisos de ubicación a la aplicación móvil en su dispositivo Android.
+        *   **Cuando** accede al buscador principal y activa el switch "Buscar cerca de mí".
+        *   **Entonces** la aplicación debe recuperar las coordenadas GPS actuales, consultar la API del backend, renderizar el listado ordenado del más cercano al más lejano con la distancia respectiva en kilómetros, y registrar el evento `search_performed` con el parámetro `location_used` en verdadero.
+
+#### **US-03: Menú contextual del usuario agrupado en avatar (Asociado a H-03)**
+*   **Descripción:**
+    *   **Como:** Usuario registrado (entrenador o deportista) en el sitio web de PlayMatch.
+    *   **Quiero:** Acceder a mi perfil, la configuración de mi cuenta y la opción de cerrar sesión desde un único menú desplegable asociado a mi avatar.
+    *   **Para:** Reducir el desorden en la barra de navegación principal y tener un acceso ágil y unificado.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Apertura e interacción con el menú contextual de perfil.
+        *   **Dado que** el usuario se encuentra en cualquier pantalla de la aplicación web y visualiza su avatar en la esquina superior derecha.
+        *   **Cuando** hace clic sobre su foto de perfil (avatar).
+        *   **Entonces** se debe desplegar un menú contextual con las opciones: "Ver Perfil", "Configuración de Cuenta" y "Cerrar Sesión", disparando el evento de tracking `profile_menu_toggle` con el parámetro `is_open` en verdadero.
+
+---
+
+### 8.3.2. To-Be Product Backlog
+
+El Product Backlog del estado "To-Be" organiza los experimentos planificados priorizando aquellas características de alta viabilidad y mayor impacto estimado sobre las métricas de negocio de PlayMatch. El backlog ha sido estimado utilizando la secuencia de Fibonacci para estimar puntos de historia (Story Points), y asignado a Sprints incrementales:
+
+| ID de US | Título de la Historia de Usuario | Prioridad | Estimación (Story Points) | Sprint Asignado | Estado | Métrica Clave de Retorno |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **US-01** | Edición y gestión directa de servicios para entrenadores | Alta | 3 | Sprint 3 | Completado | M-02 (Retención) / M-01 (Conversión) |
+| **US-02** | Búsqueda móvil por geolocalización actual | Alta | 5 | Sprint 3 | Completado | M-01 (Conversión) / M-03 (Lead Time) |
+| **US-03** | Menú contextual del usuario agrupado en avatar | Media | 2 | Sprint 4 | Completado | M-03 (Lead Time) |
+| **US-04** | Integración de pasarela de pagos reales (Culqi/Stripe) | Alta | 8 | Sprint 4 | En Progreso | M-01 (Conversión de Pago Real) |
+| **US-05** | Notificaciones Push de confirmación de reserva | Baja | 3 | Backlog | Pendiente | M-02 (Retención de Deportistas) |
+
+##### **Criterios de Priorización**
+La priorización del backlog To-Be se rigió por los siguientes criterios:
+1.  **Validación de Hipótesis Críticas:** Las tareas correspondientes a experimentos de usabilidad (US-01, US-02, US-03) se colocaron al inicio para mitigar riesgos de producto de forma temprana (Principio *Simplest Useful Thing*).
+2.  **Complejidad de Integración:** La pasarela de pagos (US-04), al requerir integración con APIs de terceros y configuración de certificados de seguridad, se programó para el Sprint 4 una vez consolidada la navegación del sistema.
+
+
 
 ## Conclusiones y recomendaciones.
 
