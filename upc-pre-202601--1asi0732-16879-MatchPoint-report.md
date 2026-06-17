@@ -3709,10 +3709,132 @@ Como metas de calidad, se estableció alcanzar puntuaciones iguales o superiores
 ![kpisschedules](./images/lhschedule.png)
 ![kpisservices](./images/lhservices.png)
 
-### 8.2.8. Web and Mobile Tracking Plan. 
-## 8.3. Experimentation 
-### 8.3.1. To-Be User Stories. 
-### 8.3.2. To-Be Product Backlog 
+### 8.2.8. Web and Mobile Tracking Plan.
+
+Para recolectar y medir de forma precisa las métricas definidas en la sección 8.2.2 (**M-01**, **M-02**, **M-03**, etc.) y evaluar el éxito de las hipótesis planteadas, se ha diseñado un plan de etiquetado (Tracking Plan) que detalla los eventos específicos a rastrear tanto en la aplicación web (Vue.js) como en la aplicación móvil (Kotlin).
+
+Las herramientas seleccionadas para esta instrumentación son:
+*   **Web Frontend (Vue.js):** **Vercel Analytics** y **Google Analytics 4 (GA4)** mediante la biblioteca `gtag.js`.
+*   **Mobile App (Kotlin):** **Firebase Analytics** (Google Analytics para Firebase).
+
+##### **Estructura de Eventos a Rastrear**
+
+| Categoría | Nombre del Evento | Gatillo (Trigger) | Parámetros del Evento | Plataforma | Métrica Asociada |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Reservas** | `search_performed` | Usuario realiza una búsqueda de canchas o servicios. | `search_query`, `location_used` (boolean), `results_count` | Web y Móvil | M-01 (Tasa de conversión) |
+| **Reservas** | `booking_initiated` | Usuario hace clic en el botón para reservar un servicio/cancha. | `service_id`, `coach_id`, `booking_type` (web/app) | Web y Móvil | M-03 (Booking Lead Time) |
+| **Reservas** | `booking_completed` | El backend confirma la persistencia de la reserva con éxito. | `service_id`, `coach_id`, `payment_method`, `booking_value` | Web y Móvil | M-01 y M-03 |
+| **Gestión** | `service_edited` | El entrenador guarda una modificación en su panel de servicios. | `service_id`, `fields_changed` (array), `time_taken` | Web | M-02 (Retención de entrenadores) |
+| **Navegación**| `profile_menu_toggle` | El usuario hace clic en el avatar para abrir/cerrar el menú contextual. | `is_open` (boolean), `device_type` | Web | M-03 (Booking Lead Time) |
+
+##### **Ejemplo de Implementación de Código**
+
+**1. Frontend Web (Vue.js / JavaScript - Google Analytics `gtag.js`):**
+
+Para rastrear cuándo un entrenador edita exitosamente un servicio de su lista (Hipótesis 1):
+```javascript
+// Método en el componente de Vue para guardar cambios de un servicio
+async function handleSaveService(serviceId, updatedFields) {
+  try {
+    const response = await serviceApi.update(serviceId, updatedFields);
+    if (response.status === 200) {
+      // Evento de tracking para Calidad/Uso
+      gtag('event', 'service_edited', {
+        'service_id': serviceId,
+        'fields_changed': Object.keys(updatedFields),
+        'method': 'web_dashboard'
+      });
+      showSuccessNotification("Servicio actualizado correctamente.");
+    }
+  } catch (error) {
+    console.error("Error al actualizar servicio", error);
+  }
+}
+```
+
+**2. Aplicación Móvil (Kotlin / Jetpack Compose - Firebase Analytics SDK):**
+
+Para rastrear la conversión de una reserva utilizando geolocalización (Hipótesis 2):
+```kotlin
+// Inyección de FirebaseAnalytics en la vista o ViewModel de reserva móvil
+class BookingViewModel(private val firebaseAnalytics: FirebaseAnalytics) : ViewModel() {
+    
+    fun trackBookingCompletion(serviceId: String, coachId: String, value: Double) {
+        val bundle = Bundle().apply {
+            putString(FirebaseAnalytics.Param.ITEM_ID, serviceId)
+            putString("coach_id", coachId)
+            putDouble(FirebaseAnalytics.Param.VALUE, value)
+            putString(FirebaseAnalytics.Param.CURRENCY, "PEN")
+            putString("location_used", "true") // Métrica clave para H-02
+        }
+        firebaseAnalytics.logEvent("booking_completed", bundle)
+    }
+}
+```
+
+---
+
+## 8.3. Experimentation
+
+El ciclo de experimentación en la plataforma **PlayMatch** representa la fase de validación de las hipótesis planteadas en el estado "To-Be". En lugar de implementar características masivas basadas en suposiciones, el equipo aplica prácticas guiadas por experimentos de arquitectura y desarrollo de software ágil. Mediante ciclos cortos, desarrollo iterativo guiado por datos, y el uso de los pipelines de CI/CD ya implementados, se despliegan versiones experimentales de la plataforma para validar cuantitativamente si los cambios visuales y funcionales logran mejorar las métricas clave del negocio y reducir la fricción en el ecosistema.
+
+### 8.3.1. To-Be User Stories.
+
+Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas características de la plataforma "To-Be", se han definido las siguientes Historias de Usuario con sus respectivos criterios de aceptación redactados en lenguaje formal **Gherkin**:
+
+#### **US-01: Edición y gestión directa de servicios para entrenadores (Asociado a H-01)**
+*   **Descripción:**
+    *   **Como:** Entrenador independiente registrado en la plataforma.
+    *   **Quiero:** Editar y actualizar los datos de mis servicios publicados (nombre, tarifa, descripción, disponibilidad) directamente desde mi panel.
+    *   **Para:** Mantener mi oferta actualizada en tiempo real sin necesidad de borrar y recrear la publicación desde cero.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Modificación exitosa de los detalles de un servicio.
+        *   **Dado que** el entrenador ha iniciado sesión y se encuentra en la pantalla "Mis Servicios".
+        *   **Cuando** hace clic en el botón de edición de un servicio específico, modifica el campo "Tarifa por hora" a un nuevo valor y presiona "Guardar".
+        *   **Entonces** el sistema debe validar la entrada, persistir el cambio en la base de datos de PostgreSQL, mostrar un mensaje de éxito en la interfaz, y gatillar el evento de tracking `service_edited` a la plataforma de analítica.
+
+#### **US-02: Búsqueda móvil por geolocalización actual (Asociado a H-02)**
+*   **Descripción:**
+    *   **Como:** Deportista aficionado que utiliza la aplicación Android.
+    *   **Quiero:** Buscar canchas deportivas u ofertas de entrenadores ordenando los resultados por proximidad a mi ubicación geográfica actual.
+    *   **Para:** Encontrar y reservar opciones cercanas rápidamente y reducir el tiempo de toma de decisiones.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Búsqueda rápida por cercanía geográfica en el móvil.
+        *   **Dado que** el usuario ha otorgado permisos de ubicación a la aplicación móvil en su dispositivo Android.
+        *   **Cuando** accede al buscador principal y activa el switch "Buscar cerca de mí".
+        *   **Entonces** la aplicación debe recuperar las coordenadas GPS actuales, consultar la API del backend, renderizar el listado ordenado del más cercano al más lejano con la distancia respectiva en kilómetros, y registrar el evento `search_performed` con el parámetro `location_used` en verdadero.
+
+#### **US-03: Menú contextual del usuario agrupado en avatar (Asociado a H-03)**
+*   **Descripción:**
+    *   **Como:** Usuario registrado (entrenador o deportista) en el sitio web de PlayMatch.
+    *   **Quiero:** Acceder a mi perfil, la configuración de mi cuenta y la opción de cerrar sesión desde un único menú desplegable asociado a mi avatar.
+    *   **Para:** Reducir el desorden en la barra de navegación principal y tener un acceso ágil y unificado.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Apertura e interacción con el menú contextual de perfil.
+        *   **Dado que** el usuario se encuentra en cualquier pantalla de la aplicación web y visualiza su avatar en la esquina superior derecha.
+        *   **Cuando** hace clic sobre su foto de perfil (avatar).
+        *   **Entonces** se debe desplegar un menú contextual con las opciones: "Ver Perfil", "Configuración de Cuenta" y "Cerrar Sesión", disparando el evento de tracking `profile_menu_toggle` con el parámetro `is_open` en verdadero.
+
+---
+
+### 8.3.2. To-Be Product Backlog
+
+El Product Backlog del estado "To-Be" organiza los experimentos planificados priorizando aquellas características de alta viabilidad y mayor impacto estimado sobre las métricas de negocio de PlayMatch. El backlog ha sido estimado utilizando la secuencia de Fibonacci para estimar puntos de historia (Story Points), y asignado a Sprints incrementales:
+
+| ID de US | Título de la Historia de Usuario | Prioridad | Estimación (Story Points) | Sprint Asignado | Estado | Métrica Clave de Retorno |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **US-01** | Edición y gestión directa de servicios para entrenadores | Alta | 3 | Sprint 3 | Completado | M-02 (Retención) / M-01 (Conversión) |
+| **US-02** | Búsqueda móvil por geolocalización actual | Alta | 5 | Sprint 3 | Completado | M-01 (Conversión) / M-03 (Lead Time) |
+| **US-03** | Menú contextual del usuario agrupado en avatar | Media | 2 | Sprint 4 | Completado | M-03 (Lead Time) |
+| **US-04** | Integración de pasarela de pagos reales (Culqi/Stripe) | Alta | 8 | Sprint 4 | En Progreso | M-01 (Conversión de Pago Real) |
+| **US-05** | Notificaciones Push de confirmación de reserva | Baja | 3 | Backlog | Pendiente | M-02 (Retención de Deportistas) |
+
+##### **Criterios de Priorización**
+La priorización del backlog To-Be se rigió por los siguientes criterios:
+1.  **Validación de Hipótesis Críticas:** Las tareas correspondientes a experimentos de usabilidad (US-01, US-02, US-03) se colocaron al inicio para mitigar riesgos de producto de forma temprana (Principio *Simplest Useful Thing*).
+2.  **Complejidad de Integración:** La pasarela de pagos (US-04), al requerir integración con APIs de terceros y configuración de certificados de seguridad, se programó para el Sprint 4 una vez consolidada la navegación del sistema.
+
+
 
 ## Conclusiones y recomendaciones.
 
