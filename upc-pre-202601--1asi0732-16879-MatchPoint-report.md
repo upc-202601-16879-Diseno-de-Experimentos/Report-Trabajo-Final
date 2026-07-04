@@ -3964,12 +3964,28 @@ La priorización del backlog To-Be se rigió por los siguientes criterios:
 1.  **Validación de Hipótesis Críticas:** Las tareas correspondientes a experimentos de usabilidad (US-01, US-02, US-03) se colocaron al inicio para mitigar riesgos de producto de forma temprana (Principio *Simplest Useful Thing*).
 2.  **Complejidad de Integración:** La pasarela de pagos (US-04), al requerir integración con APIs de terceros y configuración de certificados de seguridad, se programó para el Sprint 4 una vez consolidada la navegación del sistema.
 
+### 8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle
+#### 8.3.3.1. To-Be Sprint Backlogs
+#### 8.3.3.2. Implemented To-Be Landing Page Evidence
+#### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
+#### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
+#### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
+#### 8.3.3.6. Team Collaboration Insights
+### 8.3.4. To-Be Validation Interviews
+#### 8.3.4.1. Diseño de Entrevistas.
+#### 8.3.4.2. Registro de Entrevistas.
+## 8.4. Experiment Aftermath & Analysis
+### 8.4.1. Analysis and Interpretation of Results
+### 8.4.2. Re-scored and Re-prioritized Question Backlog
+## 8.5. Continuous Learning
+### 8.5.1. Shareback Session Artifacts: Learning Workflow
+## 8.6. To-Be Software Platform Pre-launch
+### 8.6.1. About-the-Product Intro Video
+## Matriz de Evaluación Etica y de Impacto
 
 
-## Conclusiones y recomendaciones.
-
-
-#### Conclusiones
+### Conclusiones y recomendaciones.
+## Conclusiones
 
 1. **Desarrollo de aplicación móvil funcional**
    Se desarrolló exitosamente una aplicación móvil Android con Kotlin y Jetpack Compose que permite a los usuarios autenticarse, visualizar coaches y servicios, y crear reservas. La app se integró con el backend desplegado en Render, demostrando la viabilidad de una arquitectura distribuida.
