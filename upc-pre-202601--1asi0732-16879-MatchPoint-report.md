@@ -3911,7 +3911,6 @@ El ciclo de experimentación en la plataforma **PlayMatch** representa la fase d
 ### 8.3.1. To-Be User Stories.
 
 Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas características de la plataforma "To-Be", se han definido las siguientes Historias de Usuario con sus respectivos criterios de aceptación redactados en lenguaje formal **Gherkin**:
-
 #### **US-01: Edición y gestión directa de servicios para entrenadores (Asociado a H-01)**
 *   **Descripción:**
     *   **Como:** Entrenador independiente registrado en la plataforma.
@@ -3944,6 +3943,78 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Dado que** el usuario se encuentra en cualquier pantalla de la aplicación web y visualiza su avatar en la esquina superior derecha.
         *   **Cuando** hace clic sobre su foto de perfil (avatar).
         *   **Entonces** se debe desplegar un menú contextual con las opciones: "Ver Perfil", "Configuración de Cuenta" y "Cerrar Sesión", disparando el evento de tracking `profile_menu_toggle` con el parámetro `is_open` en verdadero.
+
+
+#### **US-04: Autenticación con un solo clic mediante Google OAuth 2.0 (Asociado a H-05)**
+*   **Descripción:**
+    *   **Como:** Usuario registrado o nuevo en la web y móvil de MatchPoint.
+    *   **Quiero:** Iniciar sesión y registrarme instantáneamente con mi cuenta de Google.
+    *   **Para:** Agilizar mi ingreso a la plataforma y no tener que recordar credenciales adicionales.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Autenticación rápida de usuario con Google.
+        *   **Dado que** el usuario se encuentra en la pantalla de inicio de sesión de la web o móvil.
+        *   **Cuando** presiona el botón "Continuar con Google" y confirma su cuenta en la ventana emergente.
+        *   **Entonces** el sistema valida criptográficamente el ID Token, aprovisiona de forma automatizada su perfil de usuario si es nuevo e ingresa al usuario a su panel de control.
+
+#### **US-05: Rediseño Premium de la Landing Page con Llamadas a la Acción de Descarga y Sección de Reseñas**
+*   **Descripción:**
+    *   **Como:** Visitante o potencial usuario de MatchPoint.
+    *   **Quiero:** Ver una landing page interactiva con fotografías reales del equipo, testimonios y botones para descargar la APK o ir a la web.
+    *   **Para:** Validar la seriedad del producto y empezar a utilizarlo de inmediato.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Navegación interactiva y descarga en la Landing Page.
+        *   **Dado que** el visitante se encuentra en la Landing Page oficial.
+        *   **Cuando** hace clic en "Descargar APK" o interactúa con las flechas del carrusel de opiniones.
+        *   **Entonces** el sistema descarga el archivo correspondiente o desplaza dinámicamente las reseñas de usuarios reales respetando los colores corporativos.
+
+#### **US-06: Configuración y Gestión de Horarios Multirango para Entrenadores**
+*   **Descripción:**
+    *   **Como:** Entrenador registrado en la web de MatchPoint.
+    *   **Quiero:** Registrar múltiples bloques de disponibilidad por día (ej. mañana y tarde) de forma independiente.
+    *   **Para:** Adaptar mi oferta de horarios a mi agenda cambiante y optimizar mis reservas de clases.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Registro de disponibilidad flexible multirango.
+        *   **Dado que** el entrenador está en la pantalla de gestión de agenda.
+        *   **Cuando** habilita un día de la semana, añade múltiples rangos de inicio/fin y los guarda.
+        *   **Entonces** el sistema valida que no existan traslapes horarias, persiste la agenda y la renderiza de forma limpia en la vista previa semanal.
+
+#### **US-07: Detalle Geográfico e Información de Cancha en Historial de Reservas**
+*   **Descripción:**
+    *   **Como:** Deportista aficionado autenticado en la aplicación móvil.
+    *   **Quiero:** Ver el nombre real de la cancha reservada y su ubicación exacta con indicador en el listado de reservas.
+    *   **Para:** Identificar rápidamente los detalles del club y coordinar el partido con otros participantes sin confusión.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Carga del listado con nombres reales y direcciones.
+        *   **Dado que** el deportista tiene reservas activas y se dirige a la sección "Mis Reservas".
+        *   **Cuando** la pantalla se carga con los datos de la API.
+        *   **Entonces** cada tarjeta debe mostrar el nombre completo de la cancha alquilada (ej. Club Las Terrazas) y su dirección física con el icono de geolocalización en vez de un texto genérico de reserva.
+
+#### **US-08: Búsqueda por coincidencia y similitud de canchas y entrenadores en el móvil**
+*   **Descripción:**
+    *   **Como:** Deportista aficionado que utiliza la aplicación Android.
+    *   **Quiero:** Buscar canchas o entrenadores escribiendo términos parciales y sin importar diferencias de mayúsculas/minúsculas.
+    *   **Para:** No tener que escribir el nombre exacto de la ubicación o el deporte y encontrar resultados de manera flexible y rápida.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Búsqueda flexible de canchas por coincidencia parcial de ubicación.
+        *   **Dado que** el deportista se encuentra en la pantalla de búsqueda de canchas.
+        *   **Cuando** escribe "mira" en el campo de búsqueda de ubicación.
+        *   **Entonces** la aplicación filtra las canchas localmente e incluye todas aquellas cuyo nombre o ubicación coincidan parcialmente (ej: "Club Las Terrazas Miraflores" o "Miraflores"), ignorando la presencia de mayúsculas o minúsculas.
+
+---
+---
+
+## Tabla de Historias de Usuario "To-Be"
+
+| Epic/User Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic/Hypothesis ID) |
+| :--- | :--- | :--- | :--- | :--- |
+| **US-01** | Edición de servicios para entrenadores | Como entrenador, quiero editar directamente mis servicios (nombre, tarifa, descripción) para no tener que borrarlos y recrearlos. | **Escenario: Modificación exitosa**<br>Given entrenador está en "Mis Servicios"<br>When edita la tarifa y guarda<br>Then sistema persiste en PostgreSQL y muestra mensaje. | H-01 |
+| **US-02** | Búsqueda móvil por geolocalización | Como deportista aficionado, quiero buscar canchas por proximidad geográfica actual para decidir rápidamente. | **Escenario: Búsqueda rápida por cercanía**<br>Given permisos GPS concedidos<br>When activa "Buscar cerca de mí"<br>Then ordena por kilómetros a la redonda. | H-02 |
+| **US-03** | Menú contextual agrupado en avatar | Como usuario registrado, quiero ver mis opciones de cuenta agrupadas en un dropdown del avatar para desaturar la cabecera. | **Escenario: Apertura de menú**<br>Given usuario en pantalla web<br>When clica sobre su foto de perfil<br>Then despliega dropdown con opciones de cuenta. | H-03 |
+| **US-04** | Google Sign-In (OAuth 2.0) | Como usuario nuevo o recurrente, quiero iniciar sesión con un solo clic con Google para evitar llenar formularios extensos. | **Escenario: Autenticación rápida**<br>Given pantalla de login<br>When pulsa "Continuar con Google"<br>Then valida token, aprovisiona cuenta y da acceso. | H-05 |
+| **US-05** | Landing Page responsiva de MatchPoint | Como visitante, quiero ver una landing page estética con fotos reales, reseñas y enlaces directos de descarga para usar el producto. | **Escenario: Descarga y lectura**<br>Given visitante en landing page<br>When pulsa "Descargar APK" o lee carrusel<br>Then descarga APK o desliza opiniones con transición. | Landing Page |
+| **US-06** | Horarios multirango de coaches | Como entrenador, quiero configurar múltiples rangos horarios por día para flexibilizar mi disponibilidad horaria. | **Escenario: Registro multirango**<br>Given ajustes de agenda<br>When agrega inicio/fin en un mismo día<br>Then valida superposiciones y muestra vista previa. | Agenda Coach |
+| **US-07** | Detalle geográfico en historial de reservas | Como jugador, quiero ver el nombre real y dirección de la cancha en mis reservas para tener información precisa de mi partido. | **Escenario: Carga de historial**<br>Given pestaña de reservas móvil<br>When carga datos de la API<br>Then visualiza nombre de cancha y dirección con indicador. | Historial Reservas |
+| **US-08** | Búsqueda móvil por coincidencia | Como deportista aficionado, quiero buscar canchas o entrenadores con filtros de coincidencia flexible y case-insensitive. | **Escenario: Búsqueda flexible**<br>Given buscador en el móvil<br>When escribe "mira" en ubicación o deporte<br>Then muestra resultados que contengan la subcadena. | Búsqueda Móvil 
 
 ---
 
