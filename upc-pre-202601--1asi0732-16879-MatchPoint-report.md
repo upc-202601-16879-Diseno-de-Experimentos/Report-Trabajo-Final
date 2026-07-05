@@ -4367,14 +4367,17 @@ Tras presentarle la sección Dashboard:
 1. ¿Qué opinas sobre esta sección principal? ¿La consideras útil e informativa para el usuario?
 
 Tras mostrarle la sección Servicios:
+
 2. ¿Consideras fácil este proceso para crear un servicio? 
 3. ¿El resultado fue el que esperabas?
 
 Tras mostrarle la sección Horario:
+
 4. ¿Cómo te pareció este proceso de creación de un horario?
 5. ¿Qué opinas del mecanismo de advertencia mostrado?
 
 Acabado la visita de toda la página se le formula preguntas generales al entrevistado:
+
 6. ¿La aplicación proporciona información clara para cada una de las secciones?
 7. ¿Sientes que la aplicación tiene un diseño limpio y sin desorden?
 8. ¿Has notado alguna inconsistencia en la terminología o el diseño a lo largo de la aplicación?
