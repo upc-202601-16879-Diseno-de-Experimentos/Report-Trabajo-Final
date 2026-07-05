@@ -4128,8 +4128,8 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
-    <td rowspan="3" align="center"> US-04 </td>
-    <td rowspan="3" align="center"> Google Sign-In (OAuth 2.0) </td>
+    <td rowspan="2" align="center"> US-04 </td>
+    <td rowspan="2" align="center"> Google Sign-In (OAuth 2.0) </td>
     <td align="center"> TA05 </td>
     <td align="center"> Integración OAuth </td>
     <td align="center"> Integrar flujo de autenticación de Google en web y backend. </td>
