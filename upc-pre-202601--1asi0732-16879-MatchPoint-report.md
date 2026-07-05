@@ -4353,11 +4353,6 @@ Durante el ciclo de desarrollo de las características "To-Be", el equipo implem
 *   **Diseño por Contratos (API First):** Para asegurar que el equipo de Frontend (Vue.js) y el equipo de Mobile (Android) pudieran trabajar en paralelo con el equipo de Backend (Spring Boot), se establecieron contratos de API REST claros y se documentaron los *endpoints* mediante Swagger/OpenAPI. Esto redujo drásticamente las fricciones de integración.
 *   **Integración y Despliegue Continuo (CI/CD):** Se consolidó una cultura de automatización apoyada en plataformas en la nube (Vercel para web, Railway/Render para backend). Cada confirmación en las ramas principales gatilló automáticamente la ejecución de pruebas unitarias y el despliegue del producto, reduciendo el *Time to Market* y asegurando que las versiones de prueba siempre reflejaran el estado real del software.
 
-
-#### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
-#### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
-#### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
-#### 8.3.3.6. Team Collaboration Insights
 ### 8.3.4. To-Be Validation Interviews
 #### 8.3.4.1. Diseño de Entrevistas.
 
