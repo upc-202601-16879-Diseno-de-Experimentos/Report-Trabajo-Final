@@ -355,7 +355,10 @@ https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
       - [Aplicación Móvil (Kotlin)](#aplicación-móvil-kotlin)
       - [Estándares aplicados](#estándares-aplicados-3)
       - [6.2.1.2. Code Quality \& Code Security.](#6212-code-quality--code-security)
+        - [**Code Quality (Calidad de Código)**](#code-quality-calidad-de-código)
+        - [**Code Security (Seguridad de Código)**](#code-security-seguridad-de-código)
     - [6.2.2. Reviews](#622-reviews)
+        - [**Proceso de Pull Requests y Peer Review**](#proceso-de-pull-requests-y-peer-review)
   - [6.3. Validation Interviews.](#63-validation-interviews)
     - [6.3.1. Diseño de Entrevistas.](#631-diseño-de-entrevistas)
     - [6.3.2. Registro de Entrevistas.](#632-registro-de-entrevistas)
@@ -366,6 +369,8 @@ https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
       - [6.4.1.1. Información del grupo auditado.](#6411-información-del-grupo-auditado)
       - [6.4.1.2. Cronograma de auditoría realizada.](#6412-cronograma-de-auditoría-realizada)
       - [6.4.1.3. Contenido de auditoría realizada.](#6413-contenido-de-auditoría-realizada)
+        - [**Tabla de Resumen de Hallazgos**](#tabla-de-resumen-de-hallazgos)
+        - [**Detalle de las Heurísticas Violadas y Recomendaciones**](#detalle-de-las-heurísticas-violadas-y-recomendaciones)
     - [6.4.2. Auditoría recibida.](#642-auditoría-recibida)
       - [6.4.2.1. Información del grupo auditor.](#6421-información-del-grupo-auditor)
       - [6.4.2.2. Cronograma de auditoría recibida.](#6422-cronograma-de-auditoría-recibida)
@@ -442,9 +447,15 @@ https://matchpoint-backend-lj56.onrender.com/swagger-ui.html
     - [8.2.6. Methods Selection.](#826-methods-selection)
     - [8.2.7. Data Analytics: Goals, KPIs and Metrics Selection.](#827-data-analytics-goals-kpis-and-metrics-selection)
     - [8.2.8. Web and Mobile Tracking Plan.](#828-web-and-mobile-tracking-plan)
+        - [**Estructura de Eventos a Rastrear**](#estructura-de-eventos-a-rastrear)
+        - [**Ejemplo de Implementación de Código**](#ejemplo-de-implementación-de-código)
   - [8.3. Experimentation](#83-experimentation)
     - [8.3.1. To-Be User Stories.](#831-to-be-user-stories)
+      - [**US-01: Edición y gestión directa de servicios para entrenadores (Asociado a H-01)**](#us-01-edición-y-gestión-directa-de-servicios-para-entrenadores-asociado-a-h-01)
+      - [**US-02: Búsqueda móvil por geolocalización actual (Asociado a H-02)**](#us-02-búsqueda-móvil-por-geolocalización-actual-asociado-a-h-02)
+      - [**US-03: Menú contextual del usuario agrupado en avatar (Asociado a H-03)**](#us-03-menú-contextual-del-usuario-agrupado-en-avatar-asociado-a-h-03)
     - [8.3.2. To-Be Product Backlog](#832-to-be-product-backlog)
+        - [**Criterios de Priorización**](#criterios-de-priorización)
   - [Conclusiones y recomendaciones.](#conclusiones-y-recomendaciones)
       - [Conclusiones](#conclusiones)
       - [Recomendaciones](#recomendaciones)
@@ -4309,7 +4320,38 @@ Esta sección presenta el diseño final e implementación responsive de la Landi
     ![Landing-page6](./images/To-be/landingmatchpoint6.png)
     *Descripción:* Visualiza la sección final de conversión con botones para descargar la APK de Android o ingresar a la versión web del sistema, seguido de los enlaces a redes sociales y los derechos de autor de la plataforma.
 
+### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
 
+Durante el desarrollo del estado "To-Be" para la aplicación web construida con **Vue.js**, se implementaron soluciones centradas en la usabilidad y la resolución de las Historias de Usuario priorizadas:
+
+*   **Menú Contextual de Avatar (US-03):** Se rediseñó la navegación principal integrando un menú desplegable asociado a la foto de perfil del usuario (entrenador o deportista). Esto unifica el acceso a "Ver Perfil", "Configuración" y "Cerrar Sesión", limpiando la barra superior y estandarizando la experiencia con patrones de diseño modernos.
+*   **Gestión Directa de Servicios (US-01):** Se optimizó el panel `ServicesView.vue` permitiendo a los entrenadores editar y eliminar sus servicios publicados directamente. Se aplicaron reglas estrictas de accesibilidad y contraste visual para garantizar que los botones de acción crítica sean intuitivos, agilizando la gestión de la oferta deportiva.
+*   **Carga de Imágenes y Reactividad:** Se implementó una interfaz interactiva para la actualización de la foto de perfil mediante carga de archivos locales convertidos eficientemente a Base64. Además, se solucionaron cuellos de botella en la sincronización de estado (MVCC y caché de Axios), asegurando que el *Dashboard* y las tarjetas de perfil reflejen los cambios instantáneamente (`loadData(true)`), brindando un *feedback* visual inmediato al usuario.
+
+### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
+
+La aplicación móvil, desarrollada nativamente con **Android Jetpack Compose (Kotlin)**, materializa el estado "To-Be" enfocado en la movilidad y la inmediatez para el deportista aficionado:
+
+*   **Búsqueda por Geolocalización Actual (US-02):** Se integró exitosamente la API de Google Maps y los servicios de ubicación en tiempo real. La aplicación ahora solicita permisos dinámicos en tiempo de ejecución, recupera las coordenadas GPS del dispositivo y centra la vista en la ubicación física del usuario para priorizar las canchas y entrenadores más cercanos.
+*   **Interfaz Dinámica Espacial:** Se diseñaron marcadores (pins) personalizados para diferenciar claramente la posición del deportista frente a las opciones deportivas. Esto se complementó con un sistema de *Bottom Sheets* (tarjetas emergentes en la parte inferior) que reaccionan a los toques en el mapa, permitiendo previsualizar distancias, precios y disponibilidad sin perder el contexto geográfico.
+*   **Arquitectura Reactiva:** La implementación de corrutinas y StateFlow garantiza que la renderización de la lista de resultados ordenados por proximidad sea fluida y no bloquee el hilo principal del dispositivo móvil.
+
+### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
+
+El backend "To-Be", construido con **Java Spring Boot** y desplegado de forma continua en **Railway (PostgreSQL)**, fue robustecido para soportar de manera segura y escalable las nuevas características del ecosistema:
+
+*   **Migraciones Automatizadas Continuas:** Para soportar las nuevas cargas útiles de imágenes en formato Base64 sin interrumpir el servicio, se desarrolló el componente `DatabaseMigrationRunner`. Este mecanismo ejecuta comandos DDL directamente al inicio de la aplicación en producción, adaptando dinámicamente el esquema de base de datos (`ALTER TABLE TYPE TEXT`) garantizando la resiliencia estructural.
+*   **Seguridad y Consistencia en OAuth:** Se reforzó significativamente el flujo de autenticación delegada con Google. Se implementaron validaciones de unicidad transaccional (`existsByEmail`) en la capa de dominio (`CoachCommandServiceImpl`) para prevenir la creación de perfiles anómalos o duplicados, protegiendo la integridad de los datos de los usuarios frente a fallos de sincronización.
+*   **Saneamiento de Datos de Producción:** Para acompañar los despliegues, se programaron rutinas de limpieza automática que garantizan la retención del perfil original del usuario (`MIN(id)`) preservando su historial de reservas y reseñas, y eliminando cualquier redundancia transaccional, demostrando madurez en el manejo de bases de datos relacionales en entornos productivos.
+
+### 8.3.3.6. Team Collaboration Insights
+
+Durante el ciclo de desarrollo de las características "To-Be", el equipo implementó un flujo de trabajo altamente colaborativo, apoyado en metodologías ágiles y herramientas modernas para asegurar una integración fluida entre los distintos frentes del proyecto (Frontend, Mobile y Backend):
+
+*   **Gestión Ágil y Repartición de Tareas:** Se utilizó un tablero Kanban para el seguimiento continuo de los *Sprints*. Esto permitió al equipo mantener visibilidad sobre el progreso de las Historias de Usuario, identificando rápidamente bloqueos y balanceando la carga de trabajo entre los desarrolladores para cumplir con los hitos establecidos.
+*   **Estrategia de Ramificación (Git Flow) y Revisión por Pares:** El desarrollo de nuevas características se aisló sistemáticamente en ramas independientes (por ejemplo, `feature/auth` o `tf/stephano`). Antes de integrar cualquier cambio a la rama `main` o `develop`, se requirió la creación de *Pull Requests*, fomentando la revisión de código cruzada (Code Review) para mantener los estándares de calidad y evitar deudas técnicas.
+*   **Diseño por Contratos (API First):** Para asegurar que el equipo de Frontend (Vue.js) y el equipo de Mobile (Android) pudieran trabajar en paralelo con el equipo de Backend (Spring Boot), se establecieron contratos de API REST claros y se documentaron los *endpoints* mediante Swagger/OpenAPI. Esto redujo drásticamente las fricciones de integración.
+*   **Integración y Despliegue Continuo (CI/CD):** Se consolidó una cultura de automatización apoyada en plataformas en la nube (Vercel para web, Railway/Render para backend). Cada confirmación en las ramas principales gatilló automáticamente la ejecución de pruebas unitarias y el despliegue del producto, reduciendo el *Time to Market* y asegurando que las versiones de prueba siempre reflejaran el estado real del software.
 
 
 #### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
