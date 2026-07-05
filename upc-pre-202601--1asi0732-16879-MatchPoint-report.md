@@ -4320,10 +4320,75 @@ Esta sección presenta el diseño final e implementación responsive de la Landi
 #### 8.3.4.1. Diseño de Entrevistas.
 #### 8.3.4.2. Registro de Entrevistas.
 ## 8.4. Experiment Aftermath & Analysis
+
+Esta sección consolida el análisis posterior a la ejecución de los experimentos definidos para la plataforma **MatchPoint**. Los resultados se interpretan como evidencia preliminar basada en las funcionalidades To-Be implementadas, las entrevistas de validación, los hallazgos de auditoría UX, las pruebas de usabilidad y la información recolectada durante el desarrollo.
+
+El propósito principal de este análisis no es afirmar que las hipótesis han sido comprobadas de forma definitiva, sino determinar qué aprendizajes son suficientemente relevantes para orientar las siguientes decisiones del producto. Por ello, cada experimento se evalúa considerando la relación entre la pregunta original, las métricas definidas, la evidencia disponible y la decisión tomada por el equipo.
+
 ### 8.4.1. Analysis and Interpretation of Results
+
+El análisis de resultados se realizó a partir de los tres experimentos priorizados en el Question Backlog: edición de servicios para entrenadores, búsqueda móvil por geolocalización y menú contextual de perfil. Para cada caso se contrastó la hipótesis de trabajo con la evidencia disponible, considerando que algunas métricas cuantitativas requieren una mayor ventana de observación para alcanzar resultados estadísticamente más sólidos.
+
+| Experimento | Hipótesis asociada | Evidencia disponible | Interpretación de resultados | Decisión del equipo |
+|---|---|---|---|---|
+| **EC-01 / BL-04 - Edición de servicios del entrenador** | Permitir la edición directa de servicios reduce la fricción operativa del entrenador y favorece su permanencia en la plataforma. | En las entrevistas de validación, los entrenadores señalaron la necesidad de contar con mayores opciones de edición y configuración de servicios. Además, la historia US-01 fue implementada como parte del backlog To-Be. | La evidencia disponible apoya parcialmente la hipótesis. La posibilidad de modificar servicios sin eliminarlos y recrearlos reduce pasos innecesarios y mejora la percepción de control del entrenador sobre su oferta. Sin embargo, la métrica **M-02** requiere seguimiento posterior para comprobar impacto real en retención. | **Mantener e iterar.** La funcionalidad debe conservarse y complementarse con mejores opciones de disponibilidad y edición de horarios. |
+| **EC-02 / BL-07 - Búsqueda móvil por geolocalización** | Incorporar búsqueda por ubicación actual en Android incrementa la probabilidad de completar reservas móviles y reduce el esfuerzo de exploración. | El estado As-Is identificó una búsqueda móvil limitada. La auditoría recibida también detectó fricción en opciones de búsqueda y filtros móviles. La historia US-02 fue priorizada e implementada dentro del Sprint To-Be. | La evidencia disponible sugiere que la geolocalización tiene alto potencial de impacto, porque conecta directamente con el contexto de uso móvil: encontrar opciones cercanas y reservar con rapidez. No obstante, la hipótesis requiere datos reales de eventos `search_performed` y `booking_completed` para comprobar variación en **M-01** y **M-03**. | **Priorizar siguiente ciclo.** Se mantiene como experimento de alto impacto y debe medirse con analítica móvil real. |
+| **EC-03 / BL-01 - Menú desplegable de perfil** | Agrupar acciones de cuenta en un menú contextual reduce la fricción cognitiva y mejora la familiaridad de la navegación. | El As-Is reportó que las opciones de perfil, ajustes y cierre de sesión estaban dispersas. La historia US-03 implementó el menú contextual en avatar como patrón visual más familiar para usuarios web. | La evidencia apoya parcialmente la hipótesis desde una perspectiva de usabilidad. El menú agrupado mejora el orden visual y alinea la interfaz con patrones conocidos por los usuarios. Su impacto sobre conversión de reservas es indirecto, por lo que **M-03** resulta más representativa que **M-01** para este caso. | **Mantener sin sobreinvertir.** El cambio debe permanecer como mejora de arquitectura de información, pero no desplazar experimentos de mayor impacto comercial. |
+
+En conjunto, los resultados muestran que los experimentos orientados a reducir fricción operacional y mejorar la búsqueda móvil tienen mayor relación directa con los objetivos de negocio de MatchPoint. La edición de servicios fortalece el segmento de entrenadores, mientras que la búsqueda por geolocalización puede impactar directamente el flujo de reservas. El menú contextual mejora la percepción de orden y familiaridad, pero su impacto es principalmente indirecto.
+
+Como conclusión del análisis, el equipo considera que las tres hipótesis mantienen valor para el producto, pero con diferente nivel de prioridad. La búsqueda móvil por geolocalización y la edición de servicios deben continuar en ciclos posteriores con mayor instrumentación de métricas, mientras que el menú desplegable puede consolidarse como mejora estable de usabilidad.
+
 ### 8.4.2. Re-scored and Re-prioritized Question Backlog
+
+Después del análisis de resultados, el Question Backlog fue re-evaluado con los mismos criterios definidos inicialmente: **Confidence**, **Risk**, **Impact** e **Interest**. La nueva priorización refleja el aprendizaje obtenido durante la implementación To-Be, las entrevistas, la auditoría UX y las limitaciones encontradas para recolectar datos cuantitativos completos.
+
+| Nueva prioridad | ID | Pregunta resumida | Score inicial | Score re-evaluado | Cambio | Justificación | Nueva decisión |
+|---|---|---|:---:|:---:|---|---|---|
+| 1 | **BL-07** | Búsqueda móvil por geolocalización para incrementar reservas | 18 | **19** | Sube | La búsqueda móvil mantiene alto riesgo e impacto porque afecta directamente la conversión de reservas. Además, los hallazgos de auditoría refuerzan que la experiencia móvil necesita mejoras en búsqueda y filtros. | Ejecutar nueva medición con Firebase Analytics y eventos reales de reserva. |
+| 2 | **BL-04** | Ausencia de edición de servicios en el panel del entrenador | 18 | **16** | Baja ligeramente | La necesidad fue apoyada parcialmente por entrevistas y por la implementación To-Be, reduciendo incertidumbre. Aun así, sigue siendo relevante para retención y satisfacción del entrenador. | Mantener la funcionalidad y mejorar edición de horarios y disponibilidad. |
+| 3 | **BL-05** | Inicio de sesión con Google para reducir abandono | 15 | **17** | Sube | La fricción de entrada sigue siendo un riesgo importante para usuarios nuevos. Aunque no fue el experimento principal, se relaciona con conversión y adopción temprana. | Priorizar como siguiente experimento de acceso y activación. |
+| 4 | **EX-06** | Impacto de reseñas en la reserva móvil | 14 | **16** | Sube | La decisión de reserva depende de confianza, calificaciones y evidencia social. La sección de testimonios en la landing refuerza esta necesidad, pero falta medir su efecto en móvil. | Investigar en el siguiente ciclo de validación móvil. |
+| 5 | **BL-01** | Menú desplegable de perfil para mejorar familiaridad y modernidad | 15 | **12** | Baja | La implementación mejora la organización visual, pero el impacto directo en conversión es menor que el de búsqueda, reservas o autenticación. | Mantener como mejora estable, sin asignar nueva experimentación inmediata. |
+| 6 | **EX-04** | Frecuencia real de edición de servicios por entrenadores | 14 | **13** | Baja ligeramente | La necesidad aparece respaldada por entrevistas, pero debe seguir observándose con datos de uso del evento `service_edited`. | Usar como soporte analítico de EC-01. |
+| 7 | **BL-02** | Anuncios contextuales para aumentar tiempo de sesión | 13 | **12** | Baja | Puede mejorar engagement, pero no ataca una fricción crítica del flujo de reserva o gestión de entrenadores. | Postergar hasta cerrar experimentos core. |
+
+La re-priorización muestra que el equipo debe concentrar su siguiente ciclo en experimentos con mayor impacto sobre activación, búsqueda y conversión. En consecuencia, las preguntas relacionadas con geolocalización, autenticación y confianza móvil pasan a tener mayor importancia que cambios visuales de menor impacto directo.
+
 ## 8.5. Continuous Learning
+
+El aprendizaje continuo en MatchPoint se entiende como la capacidad del equipo para transformar resultados de experimentación en decisiones concretas de producto, backlog y operación. Cada experimento genera evidencia que permite confirmar parcialmente una suposición, descartarla o reformularla como una nueva pregunta de investigación.
+
+El ciclo de aprendizaje propuesto para la plataforma se organiza de la siguiente manera:
+
+| Etapa | Actividad | Resultado esperado |
+|---|---|---|
+| 1. Recolección de evidencia | Revisar entrevistas, auditorías UX, métricas de uso, eventos de analítica y resultados de pruebas. | Evidencia consolidada por experimento. |
+| 2. Interpretación | Comparar resultados contra hipótesis, métricas y condiciones definidas. | Hipótesis apoyada, inconclusa o debilitada. |
+| 3. Decisión de producto | Definir si la funcionalidad se mantiene, se itera, se posterga o se descarta. | Backlog actualizado y priorizado. |
+| 4. Implementación incremental | Convertir decisiones en historias de usuario, tareas técnicas o mejoras del pipeline. | Sprint Backlog alimentado por aprendizaje. |
+| 5. Nueva medición | Instrumentar eventos y repetir el ciclo con mayor precisión. | Aprendizaje acumulativo y mejora continua. |
+
+Este flujo permite evitar que el equipo tome decisiones únicamente por intuición. En su lugar, cada ajuste del producto se vincula con una pregunta, una hipótesis, una métrica y una evidencia revisada. Para los siguientes ciclos, el equipo debe fortalecer la instrumentación de eventos como `search_performed`, `booking_completed`, `service_edited` y `profile_menu_toggle`, debido a que estos eventos conectan directamente con las métricas **M-01**, **M-02** y **M-03**.
+
 ### 8.5.1. Shareback Session Artifacts: Learning Workflow
+
+La sesión de shareback tuvo como objetivo compartir los aprendizajes obtenidos después de la implementación To-Be y alinear al equipo sobre las decisiones de continuidad del producto. Esta sesión permitió transformar los resultados preliminares de experimentación en acciones concretas para el siguiente ciclo de desarrollo.
+
+| Elemento | Descripción |
+|---|---|
+| **Objetivo de la sesión** | Revisar los resultados preliminares de los experimentos EC-01, EC-02 y EC-03, identificar aprendizajes principales y actualizar la prioridad del Question Backlog. |
+| **Participantes** | Integrantes del equipo MatchPoint responsables de frontend web, backend, aplicación móvil, documentación, pruebas y análisis del producto. |
+| **Artefactos revisados** | Experiment Cards, Question Backlog inicial, Sprint Backlog To-Be, entrevistas de validación, auditoría UX recibida, evidencias de implementación de landing page y funcionalidades To-Be. |
+| **Aprendizaje 1** | La edición directa de servicios es una mejora relevante para entrenadores porque reduce fricción operativa y evita eliminar y recrear publicaciones. |
+| **Aprendizaje 2** | La geolocalización móvil debe continuar como prioridad porque está directamente asociada al contexto de reserva rápida desde Android. |
+| **Aprendizaje 3** | El menú contextual de perfil mejora el orden y familiaridad de la interfaz, pero su impacto principal es de usabilidad, no necesariamente de conversión directa. |
+| **Decisiones tomadas** | Mantener las tres mejoras To-Be, priorizar la medición real de búsqueda móvil, fortalecer edición de servicios y considerar autenticación con Google como siguiente experimento. |
+| **Acciones siguientes** | Instrumentar eventos analíticos, completar validaciones To-Be, mejorar captura de métricas en producción y actualizar el Product Backlog con base en la nueva priorización. |
+| **Resultado del shareback** | El equipo acordó continuar el ciclo de experimentación enfocándose en conversión móvil, retención de entrenadores y reducción de fricción de acceso. |
+
+Como resultado del Learning Workflow, MatchPoint incorpora un mecanismo de mejora continua donde cada release no solo entrega funcionalidades, sino también aprendizaje validado para orientar la evolución del producto. Esto fortalece la toma de decisiones del equipo y permite que el desarrollo futuro se base en evidencia progresiva, no únicamente en suposiciones iniciales.
+
 ## 8.6. To-Be Software Platform Pre-launch
 ### 8.6.1. About-the-Product Intro Video
 ## Matriz de Evaluación Etica y de Impacto
