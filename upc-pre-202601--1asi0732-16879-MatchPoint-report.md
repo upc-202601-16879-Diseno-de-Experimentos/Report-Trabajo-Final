@@ -3911,7 +3911,7 @@ El ciclo de experimentación en la plataforma **PlayMatch** representa la fase d
 ### 8.3.1. To-Be User Stories.
 
 Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas características de la plataforma "To-Be", se han definido las siguientes Historias de Usuario con sus respectivos criterios de aceptación redactados en lenguaje formal **Gherkin**:
-#### **US-01: Edición y gestión directa de servicios para entrenadores (Asociado a H-01)**
+#### **US-01: Edición y gestión directa de servicios para entrenadores (Asociado a EP-01)**
 *   **Descripción:**
     *   **Como:** Entrenador independiente registrado en la plataforma.
     *   **Quiero:** Editar y actualizar los datos de mis servicios publicados (nombre, tarifa, descripción, disponibilidad) directamente desde mi panel.
@@ -3922,7 +3922,7 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** hace clic en el botón de edición de un servicio específico, modifica el campo "Tarifa por hora" a un nuevo valor y presiona "Guardar".
         *   **Entonces** el sistema debe validar la entrada, persistir el cambio en la base de datos de PostgreSQL, mostrar un mensaje de éxito en la interfaz, y gatillar el evento de tracking `service_edited` a la plataforma de analítica.
 
-#### **US-02: Búsqueda móvil por geolocalización actual (Asociado a H-02)**
+#### **US-02: Búsqueda móvil por geolocalización actual (Asociado a EP-02)**
 *   **Descripción:**
     *   **Como:** Deportista aficionado que utiliza la aplicación Android.
     *   **Quiero:** Buscar canchas deportivas u ofertas de entrenadores ordenando los resultados por proximidad a mi ubicación geográfica actual.
@@ -3933,7 +3933,7 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** accede al buscador principal y activa el switch "Buscar cerca de mí".
         *   **Entonces** la aplicación debe recuperar las coordenadas GPS actuales, consultar la API del backend, renderizar el listado ordenado del más cercano al más lejano con la distancia respectiva en kilómetros, y registrar el evento `search_performed` con el parámetro `location_used` en verdadero.
 
-#### **US-03: Menú contextual del usuario agrupado en avatar (Asociado a H-03)**
+#### **US-03: Menú contextual del usuario agrupado en avatar (Asociado a EP-03)**
 *   **Descripción:**
     *   **Como:** Usuario registrado (entrenador o deportista) en el sitio web de PlayMatch.
     *   **Quiero:** Acceder a mi perfil, la configuración de mi cuenta y la opción de cerrar sesión desde un único menú desplegable asociado a mi avatar.
@@ -3945,7 +3945,7 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Entonces** se debe desplegar un menú contextual con las opciones: "Ver Perfil", "Configuración de Cuenta" y "Cerrar Sesión", disparando el evento de tracking `profile_menu_toggle` con el parámetro `is_open` en verdadero.
 
 
-#### **US-04: Autenticación con un solo clic mediante Google OAuth 2.0 (Asociado a H-05)**
+#### **US-04: Autenticación con un solo clic mediante Google OAuth 2.0 (Asociado a EP-03)**
 *   **Descripción:**
     *   **Como:** Usuario registrado o nuevo en la web y móvil de MatchPoint.
     *   **Quiero:** Iniciar sesión y registrarme instantáneamente con mi cuenta de Google.
@@ -3956,18 +3956,18 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** presiona el botón "Continuar con Google" y confirma su cuenta en la ventana emergente.
         *   **Entonces** el sistema valida criptográficamente el ID Token, aprovisiona de forma automatizada su perfil de usuario si es nuevo e ingresa al usuario a su panel de control.
 
-#### **US-05: Rediseño Premium de la Landing Page con Llamadas a la Acción de Descarga y Sección de Reseñas**
+#### **US-05: Rediseño de la Landing Page con Llamadas a la Acción de Descarga (Asociado a EP-04)**
 *   **Descripción:**
     *   **Como:** Visitante o potencial usuario de MatchPoint.
-    *   **Quiero:** Ver una landing page interactiva con fotografías reales del equipo, testimonios y botones para descargar la APK o ir a la web.
-    *   **Para:** Validar la seriedad del producto y empezar a utilizarlo de inmediato.
+    *   **Quiero:** Ver una landing page interactiva con botones claros de llamada a la acción para descargar la APK o acceder a la web.
+    *   **Para:** Empezar a utilizar el producto de inmediato y sin fricciones.
 *   **Criterios de Aceptación (Gherkin):**
-    *   **Escenario:** Navegación interactiva y descarga en la Landing Page.
+    *   **Escenario:** Descarga directa de la aplicación.
         *   **Dado que** el visitante se encuentra en la Landing Page oficial.
-        *   **Cuando** hace clic en "Descargar APK" o interactúa con las flechas del carrusel de opiniones.
-        *   **Entonces** el sistema descarga el archivo correspondiente o desplaza dinámicamente las reseñas de usuarios reales respetando los colores corporativos.
+        *   **Cuando** hace clic en el botón "Descargar APK" o "Ir a la Web".
+        *   **Entonces** el sistema inicia la descarga de la APK o lo redirecciona a la aplicación web de manera inmediata.
 
-#### **US-06: Configuración y Gestión de Horarios Multirango para Entrenadores**
+#### **US-06: Configuración y Gestión de Horarios Multirango para Entrenadores (Asociado a EP-01)**
 *   **Descripción:**
     *   **Como:** Entrenador registrado en la web de MatchPoint.
     *   **Quiero:** Registrar múltiples bloques de disponibilidad por día (ej. mañana y tarde) de forma independiente.
@@ -3978,7 +3978,7 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** habilita un día de la semana, añade múltiples rangos de inicio/fin y los guarda.
         *   **Entonces** el sistema valida que no existan traslapes horarias, persiste la agenda y la renderiza de forma limpia en la vista previa semanal.
 
-#### **US-07: Detalle Geográfico e Información de Cancha en Historial de Reservas**
+#### **US-07: Detalle Geográfico e Información de Cancha en Historial de Reservas (Asociado a EP-02)**
 *   **Descripción:**
     *   **Como:** Deportista aficionado autenticado en la aplicación móvil.
     *   **Quiero:** Ver el nombre real de la cancha reservada y su ubicación exacta con indicador en el listado de reservas.
@@ -3989,7 +3989,7 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** la pantalla se carga con los datos de la API.
         *   **Entonces** cada tarjeta debe mostrar el nombre completo de la cancha alquilada (ej. Club Las Terrazas) y su dirección física con el icono de geolocalización en vez de un texto genérico de reserva.
 
-#### **US-08: Búsqueda por coincidencia y similitud de canchas y entrenadores en el móvil**
+#### **US-08: Búsqueda por coincidencia y similitud de canchas y entrenadores en el móvil (Asociado a EP-02)**
 *   **Descripción:**
     *   **Como:** Deportista aficionado que utiliza la aplicación Android.
     *   **Quiero:** Buscar canchas o entrenadores escribiendo términos parciales y sin importar diferencias de mayúsculas/minúsculas.
@@ -4000,21 +4000,51 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
         *   **Cuando** escribe "mira" en el campo de búsqueda de ubicación.
         *   **Entonces** la aplicación filtra las canchas localmente e incluye todas aquellas cuyo nombre o ubicación coincidan parcialmente (ej: "Club Las Terrazas Miraflores" o "Miraflores"), ignorando la presencia de mayúsculas o minúsculas.
 
----
+#### **US-09: Sección de Reseñas y Testimonios en la Landing Page (Asociado a EP-04)**
+*   **Descripción:**
+    *   **Como:** Visitante o potencial usuario de MatchPoint.
+    *   **Quiero:** Ver una sección de reseñas y testimonios reales con un carrusel interactivo en la landing page.
+    *   **Para:** Validar la credibilidad y seriedad del producto a través de las opiniones de otros usuarios.
+*   **Criterios de Aceptación (Gherkin):**
+    *   **Escenario:** Interacción con el carrusel de reseñas.
+        *   **Dado que** el visitante se encuentra en la Landing Page y visualiza la sección de testimonios.
+        *   **Cuando** interactúa con las flechas de navegación del carrusel de opiniones.
+        *   **Entonces** el sistema desplaza dinámicamente las reseñas de los usuarios reales de forma fluida y respetando los colores corporativos.
+
 ---
 
-## Tabla de Historias de Usuario "To-Be"
+#### Épicas de Usuario (Epics)
+
+A continuación, se describen las Épicas que agrupan las Historias de Usuario (To-Be) según el área funcional de la plataforma MatchPoint:
+
+*   **EP-01: Gestión y Oferta de Servicios para Entrenadores**
+    *   **Descripción:** Agrupa las funcionalidades orientadas a facilitar la edición de servicios y la configuración de disponibilidad horaria flexible para los entrenadores independientes.
+    *   **Historias asociadas:** US-01, US-06.
+*   **EP-02: Geolocalización, Búsqueda y Visualización Móvil**
+    *   **Descripción:** Centrada en optimizar la búsqueda de canchas y entrenadores por proximidad, coincidencia flexible, y la visualización de información geográfica real en el historial de reservas de los deportistas.
+    *   **Historias asociadas:** US-02, US-07, US-08.
+*   **EP-03: Usabilidad, Navegación y Autenticación Agilizada**
+    *   **Descripción:** Comprende la simplificación del acceso a la plataforma mediante OAuth 2.0 y la optimización de la interfaz unificando las opciones de perfil en un menú contextual.
+    *   **Historias asociadas:** US-03, US-04.
+*   **EP-04: Landing Page de Conversión y Validación Social**
+    *   **Descripción:** Abarca el rediseño de la Landing Page interactiva enfocada en la atracción de usuarios mediante llamadas a la acción de descarga directa y testimonios reales.
+    *   **Historias asociadas:** US-05, US-09.
+
+---
+
+#### Tabla de Historias de Usuario "To-Be"
 
 | Epic/User Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic/Hypothesis ID) |
 | :--- | :--- | :--- | :--- | :--- |
-| **US-01** | Edición de servicios para entrenadores | Como entrenador, quiero editar directamente mis servicios (nombre, tarifa, descripción) para no tener que borrarlos y recrearlos. | **Escenario: Modificación exitosa**<br>Given entrenador está en "Mis Servicios"<br>When edita la tarifa y guarda<br>Then sistema persiste en PostgreSQL y muestra mensaje. | H-01 |
-| **US-02** | Búsqueda móvil por geolocalización | Como deportista aficionado, quiero buscar canchas por proximidad geográfica actual para decidir rápidamente. | **Escenario: Búsqueda rápida por cercanía**<br>Given permisos GPS concedidos<br>When activa "Buscar cerca de mí"<br>Then ordena por kilómetros a la redonda. | H-02 |
-| **US-03** | Menú contextual agrupado en avatar | Como usuario registrado, quiero ver mis opciones de cuenta agrupadas en un dropdown del avatar para desaturar la cabecera. | **Escenario: Apertura de menú**<br>Given usuario en pantalla web<br>When clica sobre su foto de perfil<br>Then despliega dropdown con opciones de cuenta. | H-03 |
-| **US-04** | Google Sign-In (OAuth 2.0) | Como usuario nuevo o recurrente, quiero iniciar sesión con un solo clic con Google para evitar llenar formularios extensos. | **Escenario: Autenticación rápida**<br>Given pantalla de login<br>When pulsa "Continuar con Google"<br>Then valida token, aprovisiona cuenta y da acceso. | H-05 |
-| **US-05** | Landing Page responsiva de MatchPoint | Como visitante, quiero ver una landing page estética con fotos reales, reseñas y enlaces directos de descarga para usar el producto. | **Escenario: Descarga y lectura**<br>Given visitante en landing page<br>When pulsa "Descargar APK" o lee carrusel<br>Then descarga APK o desliza opiniones con transición. | Landing Page |
-| **US-06** | Horarios multirango de coaches | Como entrenador, quiero configurar múltiples rangos horarios por día para flexibilizar mi disponibilidad horaria. | **Escenario: Registro multirango**<br>Given ajustes de agenda<br>When agrega inicio/fin en un mismo día<br>Then valida superposiciones y muestra vista previa. | Agenda Coach |
-| **US-07** | Detalle geográfico en historial de reservas | Como jugador, quiero ver el nombre real y dirección de la cancha en mis reservas para tener información precisa de mi partido. | **Escenario: Carga de historial**<br>Given pestaña de reservas móvil<br>When carga datos de la API<br>Then visualiza nombre de cancha y dirección con indicador. | Historial Reservas |
-| **US-08** | Búsqueda móvil por coincidencia | Como deportista aficionado, quiero buscar canchas o entrenadores con filtros de coincidencia flexible y case-insensitive. | **Escenario: Búsqueda flexible**<br>Given buscador en el móvil<br>When escribe "mira" en ubicación o deporte<br>Then muestra resultados que contengan la subcadena. | Búsqueda Móvil 
+| **US-01** | Edición de servicios para entrenadores | Como entrenador, quiero editar directamente mis servicios (nombre, tarifa, descripción) para no tener que borrarlos y recrearlos. | **Escenario: Modificación exitosa**<br>Given entrenador está en "Mis Servicios"<br>When edita la tarifa y guarda<br>Then sistema persiste en PostgreSQL y muestra mensaje. | EP-01 |
+| **US-02** | Búsqueda móvil por geolocalización | Como deportista aficionado, quiero buscar canchas por proximidad geográfica actual para decidir rápidamente. | **Escenario: Búsqueda rápida por cercanía**<br>Given permisos GPS concedidos<br>When activa "Buscar cerca de mí"<br>Then ordena por kilómetros a la redonda. | EP-02 |
+| **US-03** | Menú contextual agrupado en avatar | Como usuario registrado, quiero ver mis opciones de cuenta agrupadas en un dropdown del avatar para desaturar la cabecera. | **Escenario: Apertura de menú**<br>Given usuario en pantalla web<br>When clica sobre su foto de perfil<br>Then despliega dropdown con opciones de cuenta. | EP-03 |
+| **US-04** | Google Sign-In (OAuth 2.0) | Como usuario nuevo o recurrente, quiero iniciar sesión con un solo clic con Google para evitar llenar formularios extensos. | **Escenario: Autenticación rápida**<br>Given pantalla de login<br>When pulsa "Continuar con Google"<br>Then valida token, aprovisiona cuenta y da acceso. | EP-03 |
+| **US-05** | Landing Page responsiva - Descarga | Como visitante, quiero ver botones de llamada a la acción claros e interactivos en la landing page para descargar la APK o acceder a la web. | **Escenario: Descarga directa**<br>Given visitante en landing page<br>When pulsa "Descargar APK" o "Ir a la Web"<br>Then descarga APK o redirige a la aplicación web. | EP-04 |
+| **US-06** | Horarios multirango de coaches | Como entrenador, quiero configurar múltiples rangos horarios por día para flexibilizar mi disponibilidad horaria. | **Escenario: Registro multirango**<br>Given ajustes de agenda<br>When agrega inicio/fin en un mismo día<br>Then valida superposiciones y muestra vista previa. | EP-01 |
+| **US-07** | Detalle geográfico en historial de reservas | Como jugador, quiero ver el nombre real y dirección de la cancha en mis reservas para tener información precisa de mi partido. | **Escenario: Carga de historial**<br>Given pestaña de reservas móvil<br>When carga datos de la API<br>Then visualiza nombre de cancha y dirección con indicador. | EP-02 |
+| **US-08** | Búsqueda móvil por coincidencia | Como deportista aficionado, quiero buscar canchas o entrenadores con filtros de coincidencia flexible y case-insensitive. | **Escenario: Búsqueda flexible**<br>Given buscador en el móvil<br>When escribe "mira" en ubicación o deporte<br>Then muestra resultados que contengan la subcadena. | EP-02 |
+| **US-09** | Sección de Reseñas y Testimonios | Como visitante, quiero ver un carrusel interactivo de reseñas y testimonios reales de otros usuarios en la landing page para verificar la seriedad del producto. | **Escenario: Navegación de carrusel**<br>Given visitante en la sección de reseñas<br>When interactúa con las flechas del carrusel<br>Then el sistema desplaza dinámicamente las reseñas reales. | EP-04 |
 
 ---
 
@@ -4022,21 +4052,233 @@ Para estructurar los experimentos y guiar el desarrollo técnico de las nuevas c
 
 El Product Backlog del estado "To-Be" organiza los experimentos planificados priorizando aquellas características de alta viabilidad y mayor impacto estimado sobre las métricas de negocio de PlayMatch. El backlog ha sido estimado utilizando la secuencia de Fibonacci para estimar puntos de historia (Story Points), y asignado a Sprints incrementales:
 
-| ID de US | Título de la Historia de Usuario | Prioridad | Estimación (Story Points) | Sprint Asignado | Estado | Métrica Clave de Retorno |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **US-01** | Edición y gestión directa de servicios para entrenadores | Alta | 3 | Sprint 3 | Completado | M-02 (Retención) / M-01 (Conversión) |
-| **US-02** | Búsqueda móvil por geolocalización actual | Alta | 5 | Sprint 3 | Completado | M-01 (Conversión) / M-03 (Lead Time) |
-| **US-03** | Menú contextual del usuario agrupado en avatar | Media | 2 | Sprint 4 | Completado | M-03 (Lead Time) |
-| **US-04** | Integración de pasarela de pagos reales (Culqi/Stripe) | Alta | 8 | Sprint 4 | En Progreso | M-01 (Conversión de Pago Real) |
-| **US-05** | Notificaciones Push de confirmación de reserva | Baja | 3 | Backlog | Pendiente | M-02 (Retención de Deportistas) |
+| Orden | User Story Id | Título | Descripción | Story Points (1 / 2 / 3 / 5 / 8) |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | US-05 | Landing Page responsiva - Descarga | Como visitante, quiero ver botones de llamada a la acción claros e interactivos en la landing page para descargar la APK o acceder a la web. | 1 |
+| 2 | US-09 | Sección de Reseñas y Testimonios | Como visitante, quiero ver un carrusel interactivo de reseñas y testimonios reales de otros usuarios en la landing page para verificar la seriedad del producto. | 1 |
+| 3 | US-04 | Google Sign-In (OAuth 2.0) | Como usuario nuevo o recurrente, quiero iniciar sesión con un solo clic con Google para evitar llenar formularios extensos. | 5 |
+| 4 | US-03 | Menú contextual agrupado en avatar | Como usuario registrado, quiero ver mis opciones de cuenta agrupadas en un dropdown del avatar para desaturar la cabecera. | 1 |
+| 5 | US-01 | Edición de servicios para entrenadores | Como entrenador, quiero editar directamente mis servicios (nombre, tarifa, descripción) para no tener que borrarlos y recrearlos. | 2 |
+| 6 | US-06 | Horarios multirango de coaches | Como entrenador, quiero configurar múltiples rangos horarios por día para flexibilizar mi disponibilidad horaria. | 5 |
+| 7 | US-08 | Búsqueda móvil por coincidencia | Como deportista aficionado, quiero buscar canchas o entrenadores con filtros de coincidencia flexible y case-insensitive. | 3 |
+| 8 | US-07 | Detalle geográfico en historial de reservas | Como jugador, quiero ver el nombre real y dirección de la cancha en mis reservas para tener información precisa de mi partido. | 3 |
+| 9 | US-02 | Búsqueda móvil por geolocalización | Como deportista aficionado, quiero buscar canchas por proximidad geográfica actual para decidir rápidamente. | 8 |
 
-##### **Criterios de Priorización**
-La priorización del backlog To-Be se rigió por los siguientes criterios:
-1.  **Validación de Hipótesis Críticas:** Las tareas correspondientes a experimentos de usabilidad (US-01, US-02, US-03) se colocaron al inicio para mitigar riesgos de producto de forma temprana (Principio *Simplest Useful Thing*).
-2.  **Complejidad de Integración:** La pasarela de pagos (US-04), al requerir integración con APIs de terceros y configuración de certificados de seguridad, se programó para el Sprint 4 una vez consolidada la navegación del sistema.
 
 ### 8.3.3. Pipeline-supported, Experiment-Driven To-Be Software Platform Lifecycle
 #### 8.3.3.1. To-Be Sprint Backlogs
+
+<table>
+  <tr>
+    <td> <strong>Sprint </strong></td>
+    <td align="center" colspan="7"> <strong>Sprint To-be</strong> </td>
+  </tr>
+
+   <tr>
+    <td align="center" colspan="2"> <strong>User Story</strong></td>
+    <td align="center" colspan="6"> <strong>Work-item/Task</strong></td>
+  </tr>
+  <tr>
+    <td align="center"> <strong>ID</strong> </td>
+    <td align="center"> <strong>Title</strong></td>
+    <td align="center"> <strong>ID</strong> </td>
+    <td align="center"> <strong>Title</strong></td>
+    <td align="center"> <strong>Description</strong></td>
+    <td align="center"> <strong>Estimation (Hours)</strong></td>
+    <td align="center"> <strong>Assigned To</strong></td>
+    <td align="center"> <strong> Status (To-do/In-Process/To-Review/Done)</strong></td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> US-05 </td>
+    <td rowspan="2" align="center"> Landing Page responsiva - Descarga </td>
+    <td align="center"> TA01 </td>
+    <td align="center"> Maquetación y Enlaces </td>
+    <td align="center"> Diseñar e implementar sección de descarga de APK y enlaces web. </td>
+    <td align="center"> 3.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> Done </td>
+  </tr>
+  <tr>
+    <td align="center"> TA02 </td>
+    <td align="center"> Adaptabilidad Móvil </td>
+    <td align="center"> Pruebas responsive y optimización de diseño en móviles. </td>
+    <td align="center"> 2.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> Done </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> US-09 </td>
+    <td rowspan="2" align="center"> Sección de Reseñas y Testimonios </td>
+    <td align="center"> TA03 </td>
+    <td align="center"> Carrusel Testimonios </td>
+    <td align="center"> Crear carrusel interactivo dinámico de opiniones. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> Done </td>
+  </tr>
+  <tr>
+    <td align="center"> TA04 </td>
+    <td align="center"> Transiciones y Estilos </td>
+    <td align="center"> Aplicar estilos corporativos y transiciones fluidas al carrusel. </td>
+    <td align="center"> 2.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> Done </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="3" align="center"> US-04 </td>
+    <td rowspan="3" align="center"> Google Sign-In (OAuth 2.0) </td>
+    <td align="center"> TA05 </td>
+    <td align="center"> Integración OAuth </td>
+    <td align="center"> Integrar flujo de autenticación de Google en web y backend. </td>
+    <td align="center"> 8.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+
+  <tr>
+    <td align="center"> TA06 </td>
+    <td align="center"> Pruebas en Producción </td>
+    <td align="center"> Validar credenciales y flujos de redirección en entorno de producción. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Stephano Renan Valdivia Quispe </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> US-03 </td>
+    <td rowspan="2" align="center"> Menú contextual en avatar </td>
+    <td align="center"> TA07 </td>
+    <td align="center"> UI Desplegable </td>
+    <td align="center"> Desarrollar el menú contextual asociado al avatar en la cabecera. </td>
+    <td align="center"> 3.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA08 </td>
+    <td align="center"> Lógica e Integración </td>
+    <td align="center"> Vincular redirecciones (Perfil, Ajustes) y cerrar sesión. </td>
+    <td align="center"> 2.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="3" align="center"> US-01 </td>
+    <td rowspan="3" align="center"> Edición de servicios para coaches </td>
+    <td align="center"> TA09 </td>
+    <td align="center"> Formulario de Edición </td>
+    <td align="center"> Diseñar la vista y inputs del formulario de actualización de servicios. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA10 </td>
+    <td align="center"> Persistencia en DB </td>
+    <td align="center"> Crear API endpoint en PostgreSQL y lógica de actualización del servicio. </td>
+    <td align="center"> 6.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA11 </td>
+    <td align="center"> Evento Tracking </td>
+    <td align="center"> Disparar evento de analítica al guardar los cambios del servicio. </td>
+    <td align="center"> 2.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="3" align="center"> US-06 </td>
+    <td rowspan="3" align="center"> Horarios multirango coaches </td>
+    <td align="center"> TA12 </td>
+    <td align="center"> UI Agenda Semanal </td>
+    <td align="center"> Diseñar selector de múltiples bloques horarios en la agenda. </td>
+    <td align="center"> 5.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA13 </td>
+    <td align="center"> Validación de Traslapes </td>
+    <td align="center"> Desarrollar backend validation para evitar colisiones de rango. </td>
+    <td align="center"> 6.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA14 </td>
+    <td align="center"> Render Horarios </td>
+    <td align="center"> Renderizar la cuadrícula semanal limpia en el perfil de coach. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> US-08 </td>
+    <td rowspan="2" align="center"> Búsqueda móvil coincidencia </td>
+    <td align="center"> TA15 </td>
+    <td align="center"> Input Búsqueda </td>
+    <td align="center"> Implementar caja de búsqueda flexible en el frontend móvil. </td>
+    <td align="center"> 3.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA16 </td>
+    <td align="center"> Filtro Insensible </td>
+    <td align="center"> Lógica de filtrado case-insensitive de canchas y entrenadores. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Ruben Genaro Velasquez Chambi </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="2" align="center"> US-07 </td>
+    <td rowspan="2" align="center"> Geografía en historial de reservas </td>
+    <td align="center"> TA17 </td>
+    <td align="center"> UI Tarjeta Historial </td>
+    <td align="center"> Diseñar tarjeta de reserva con indicador de ubicación y dirección. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Stephano Renan Valdivia Quispe </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA18 </td>
+    <td align="center"> Integrar Datos Reales </td>
+    <td align="center"> Consumir endpoint de API para cargar nombres y direcciones de canchas reales. </td>
+    <td align="center"> 4.0 </td>
+    <td align="center"> Stephano Renan Valdivia Quispe </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+  <tr>
+    <td rowspan="3" align="center"> US-02 </td>
+    <td rowspan="3" align="center"> Búsqueda móvil geolocalización </td>
+    <td align="center"> TA19 </td>
+    <td align="center"> Permisos GPS </td>
+    <td align="center"> Lógica de solicitud de permisos geográficos y switch "Cerca de mí". </td>
+    <td align="center"> 3.0 </td>
+    <td align="center"> Stephano Renan Valdivia Quispe </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <tr>
+    <td align="center"> TA20 </td>
+    <td align="center"> Ordenar por Distancia </td>
+    <td align="center"> Consultar API de backend para recuperar distancias en km y ordenar listado. </td>
+    <td align="center"> 8.0 </td>
+    <td align="center"> Stephano Renan Valdivia Quispe </td>
+    <td align="center"> To-do </td>
+  </tr>
+  <!---------------------------------------------------------------------- -->
+</table>
+
 #### 8.3.3.2. Implemented To-Be Landing Page Evidence
 #### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
 #### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
