@@ -3999,6 +3999,15 @@ El backend "To-Be", construido con **Java Spring Boot** y desplegado de forma co
 *   **Seguridad y Consistencia en OAuth:** Se reforzó significativamente el flujo de autenticación delegada con Google. Se implementaron validaciones de unicidad transaccional (`existsByEmail`) en la capa de dominio (`CoachCommandServiceImpl`) para prevenir la creación de perfiles anómalos o duplicados, protegiendo la integridad de los datos de los usuarios frente a fallos de sincronización.
 *   **Saneamiento de Datos de Producción:** Para acompañar los despliegues, se programaron rutinas de limpieza automática que garantizan la retención del perfil original del usuario (`MIN(id)`) preservando su historial de reservas y reseñas, y eliminando cualquier redundancia transaccional, demostrando madurez en el manejo de bases de datos relacionales en entornos productivos.
 
+### 8.3.3.6. Team Collaboration Insights
+
+Durante el ciclo de desarrollo de las características "To-Be", el equipo implementó un flujo de trabajo altamente colaborativo, apoyado en metodologías ágiles y herramientas modernas para asegurar una integración fluida entre los distintos frentes del proyecto (Frontend, Mobile y Backend):
+
+*   **Gestión Ágil y Repartición de Tareas:** Se utilizó un tablero Kanban para el seguimiento continuo de los *Sprints*. Esto permitió al equipo mantener visibilidad sobre el progreso de las Historias de Usuario, identificando rápidamente bloqueos y balanceando la carga de trabajo entre los desarrolladores para cumplir con los hitos establecidos.
+*   **Estrategia de Ramificación (Git Flow) y Revisión por Pares:** El desarrollo de nuevas características se aisló sistemáticamente en ramas independientes (por ejemplo, `feature/auth` o `tf/stephano`). Antes de integrar cualquier cambio a la rama `main` o `develop`, se requirió la creación de *Pull Requests*, fomentando la revisión de código cruzada (Code Review) para mantener los estándares de calidad y evitar deudas técnicas.
+*   **Diseño por Contratos (API First):** Para asegurar que el equipo de Frontend (Vue.js) y el equipo de Mobile (Android) pudieran trabajar en paralelo con el equipo de Backend (Spring Boot), se establecieron contratos de API REST claros y se documentaron los *endpoints* mediante Swagger/OpenAPI. Esto redujo drásticamente las fricciones de integración.
+*   **Integración y Despliegue Continuo (CI/CD):** Se consolidó una cultura de automatización apoyada en plataformas en la nube (Vercel para web, Railway/Render para backend). Cada confirmación en las ramas principales gatilló automáticamente la ejecución de pruebas unitarias y el despliegue del producto, reduciendo el *Time to Market* y asegurando que las versiones de prueba siempre reflejaran el estado real del software.
+
 ## Conclusiones y recomendaciones.
 
 
