@@ -4135,7 +4135,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Integrar flujo de autenticación de Google en web y backend. </td>
     <td align="center"> 8.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
 
   <tr>
@@ -4144,7 +4144,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Validar credenciales y flujos de redirección en entorno de producción. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Stephano Renan Valdivia Quispe </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4155,7 +4155,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Desarrollar el menú contextual asociado al avatar en la cabecera. </td>
     <td align="center"> 3.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA08 </td>
@@ -4163,7 +4163,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Vincular redirecciones (Perfil, Ajustes) y cerrar sesión. </td>
     <td align="center"> 2.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4174,7 +4174,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Diseñar la vista y inputs del formulario de actualización de servicios. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA10 </td>
@@ -4182,7 +4182,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Crear API endpoint en PostgreSQL y lógica de actualización del servicio. </td>
     <td align="center"> 6.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA11 </td>
@@ -4190,7 +4190,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Disparar evento de analítica al guardar los cambios del servicio. </td>
     <td align="center"> 2.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4201,7 +4201,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Diseñar selector de múltiples bloques horarios en la agenda. </td>
     <td align="center"> 5.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA13 </td>
@@ -4209,7 +4209,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Desarrollar backend validation para evitar colisiones de rango. </td>
     <td align="center"> 6.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA14 </td>
@@ -4217,7 +4217,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Renderizar la cuadrícula semanal limpia en el perfil de coach. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4228,7 +4228,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Implementar caja de búsqueda flexible en el frontend móvil. </td>
     <td align="center"> 3.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA16 </td>
@@ -4236,7 +4236,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Lógica de filtrado case-insensitive de canchas y entrenadores. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Ruben Genaro Velasquez Chambi </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4247,7 +4247,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Diseñar tarjeta de reserva con indicador de ubicación y dirección. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Stephano Renan Valdivia Quispe </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA18 </td>
@@ -4255,7 +4255,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Consumir endpoint de API para cargar nombres y direcciones de canchas reales. </td>
     <td align="center"> 4.0 </td>
     <td align="center"> Stephano Renan Valdivia Quispe </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
   <tr>
@@ -4266,7 +4266,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Lógica de solicitud de permisos geográficos y switch "Cerca de mí". </td>
     <td align="center"> 3.0 </td>
     <td align="center"> Stephano Renan Valdivia Quispe </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <tr>
     <td align="center"> TA20 </td>
@@ -4274,7 +4274,7 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
     <td align="center"> Consultar API de backend para recuperar distancias en km y ordenar listado. </td>
     <td align="center"> 8.0 </td>
     <td align="center"> Stephano Renan Valdivia Quispe </td>
-    <td align="center"> To-do </td>
+    <td align="center"> Done </td>
   </tr>
   <!---------------------------------------------------------------------- -->
 </table>
