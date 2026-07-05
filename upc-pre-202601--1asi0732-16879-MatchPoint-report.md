@@ -4280,6 +4280,38 @@ El Product Backlog del estado "To-Be" organiza los experimentos planificados pri
 </table>
 
 #### 8.3.3.2. Implemented To-Be Landing Page Evidence
+
+Esta sección presenta el diseño final e implementación responsive de la Landing Page de la plataforma **MatchPoint** . La página está estructurada para atraer nuevos usuarios, explicar el valor de la plataforma y facilitar la descarga directa de la aplicación móvil APK o el redireccionamiento a la versión web.
+
+**Link de lading-page to-be:** https://upc-202601-16879-diseno-de-experimentos.github.io/LadingPage/#inicio 
+
+*   **Imagen 1: Cabecera y Sección Hero (Inicio)**
+    ![Landing-page1](./images/To-be/landingmatchpoint1.png)
+    *Descripción:* Muestra la sección superior de la página, la cual incluye el logotipo oficial de MatchPoint, un menú de navegación responsivo para desplazarse entre secciones, y una llamada a la acción (CTA) principal clara orientada a reservar canchas, conocer al equipo o iniciar la descarga directa.
+
+*   **Imagen 2: Misión y Visión**
+    ![Landing-page2](./images/To-be/landingmatchpoint2.png)
+    *Descripción:* Detalla el propósito estratégico y los objetivos de la plataforma mediante dos tarjetas limpias y minimalistas que explican la Misión (conectar deportistas y entrenadores) y la Visión (liderar la reserva deportiva en América Latina).
+
+*   **Imagen 3: Servicios Exclusivos**
+    ![Landing-page3](./images/To-be/landingmatchpoint3.png)
+    *Descripción:* Expone en una cuadrícula interactiva las tres ofertas de valor principales de MatchPoint: el alquiler de espacios deportivos, el contacto con coaches calificados y la participación en partidos amistosos o torneos amateurs.
+
+*   **Imagen 4: Nuestro Equipo de Desarrollo**
+    ![Landing-page4](./images/To-be/landingmatchpoint4.png)
+    *Descripción:* Presenta la sección de autoría con las tarjetas de los cinco integrantes del equipo de desarrollo de la UPC, describiendo detalladamente sus roles específicos en la construcción del software (Frontend, Backend, DevOps, QA y Product Owner).
+
+*   **Imagen 5: Opiniones y Testimonios Reales**
+    ![Landing-page5](./images/To-be/landingmatchpoint5.png)
+    *Descripción:* Ilustra la sección del carrusel interactivo de testimonios (US-09). Muestra opiniones de usuarios reales y entrenadores sobre su experiencia de reserva ágil en Lima, permitiendo al usuario deslizar las tarjetas mediante botones direccionales.
+
+*   **Imagen 6: Sección de Descarga (Call to Action) y Pie de Página**
+    ![Landing-page6](./images/To-be/landingmatchpoint6.png)
+    *Descripción:* Visualiza la sección final de conversión con botones para descargar la APK de Android o ingresar a la versión web del sistema, seguido de los enlaces a redes sociales y los derechos de autor de la plataforma.
+
+
+
+
 #### 8.3.3.3. Implemented To-Be Frontend-Web Application Evidence
 #### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
 #### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
