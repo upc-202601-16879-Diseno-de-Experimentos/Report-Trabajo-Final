@@ -4554,6 +4554,13 @@ Como resultado del Learning Workflow, MatchPoint incorpora un mecanismo de mejor
 
 # Anexos
 
-Link del repositorio del Informe: 
-Link del repositorio de la Landing Page: 
-Link de la Landing Page desplegada por GitHub Pages:
+- Link del repositorio del Informe: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Report-Trabajo-Final
+- Link del repositorio de la Landing Page: https://github.com/upc-202601-16879-Diseno-de-Experimentos/LadingPage
+- Link del repositorio web:https://github.com/upc-202601-16879-Diseno-de-Experimentos/Frontend
+- Link del repositorio backend: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Backend
+- Link del repositorio Mobil: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Mobile 
+
+**Deploys:**
+- Front-end:https://matchpoint-frontend-gules.vercel.app/login
+- Back-end:https://matchpoint-api-production-9e17.up.railway.app/swagger-ui/index.html 
+- Landing page: https://upc-202601-16879-diseno-de-experimentos.github.io/LadingPage/
