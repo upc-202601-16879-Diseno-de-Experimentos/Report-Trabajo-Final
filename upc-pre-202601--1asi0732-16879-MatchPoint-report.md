@@ -4556,7 +4556,7 @@ La propuesta To-Be es éticamente viable para un pre-lanzamiento controlado. No 
 ### Video App Validation
 
 En este video probamos cómo se muestra la aplicación en un dispositivo Android.
-[Mira este video](https://youtube.com/shorts/Euy4_ZY4blA?feature=share)
+[Enlace](https://youtube.com/shorts/Euy4_ZY4blA?feature=share)
 
 ### Video About-the-Team.
 
