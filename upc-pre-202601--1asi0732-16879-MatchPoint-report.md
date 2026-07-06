@@ -4378,6 +4378,28 @@ Acabado la visita de toda la página se le formula preguntas generales al entrev
 8. ¿Has notado alguna inconsistencia en la terminología o el diseño a lo largo de la aplicación?
 
 #### 8.3.4.2. Registro de Entrevistas.
+
+**Segmento objetivo: Entrenador independiente**
+
+*Entrevista 1*
+
+Nombre: José Ernesto
+
+Apellidos: Gutarra Ingunza
+
+Edad: 49 años
+
+Distrito: San Juan de Lurigancho
+
+Evidencia de la reunión:
+![Entrevista-ToBe-1](./images/tobeinterview1.PNG)
+
+Enlace de la entrevista: https://youtu.be/LYMlMKis0PI
+
+Resumen de la entrevista:
+
+José Gutarra, entrenador independiente de 49 años, compartió sus opiniones sobre la plataforma de MatchPoint. Resaltó que la interfaz es entendible como usuario, además de las diversas funcionalidades describió que le parecen sencillas pero irá agarrando costumbre mientras más las use, como en el caso de los mensajes de errores. Valoró positivamente la experiencia en general de la aplicación como consistente, clara y ordenada.
+
 ## 8.4. Experiment Aftermath & Analysis
 
 Esta sección consolida el análisis posterior a la ejecución de los experimentos definidos para la plataforma **MatchPoint**. Los resultados se interpretan como evidencia preliminar basada en las funcionalidades To-Be implementadas, las entrevistas de validación, los hallazgos de auditoría UX, las pruebas de usabilidad y la información recolectada durante el desarrollo.
