@@ -4554,6 +4554,10 @@ La propuesta To-Be es éticamente viable para un pre-lanzamiento controlado. No 
   Documentar cada aprendizaje por sprint y convertirlo en ajustes concretos del backlog para sostener mejora continua.
 
 ### Video App Validation
+
+En este video probamos cómo se muestra la aplicación en un dispositivo Android.
+[Mira este video](https://youtube.com/shorts/Euy4_ZY4blA?feature=share)
+
 ### Video About-the-Team.
 
 # Bibliografía
