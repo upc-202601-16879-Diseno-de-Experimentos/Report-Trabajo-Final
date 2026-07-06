@@ -4328,6 +4328,10 @@ Durante el desarrollo del estado "To-Be" para la aplicación web construida con 
 *   **Gestión Directa de Servicios (US-01):** Se optimizó el panel `ServicesView.vue` permitiendo a los entrenadores editar y eliminar sus servicios publicados directamente. Se aplicaron reglas estrictas de accesibilidad y contraste visual para garantizar que los botones de acción crítica sean intuitivos, agilizando la gestión de la oferta deportiva.
 *   **Carga de Imágenes y Reactividad:** Se implementó una interfaz interactiva para la actualización de la foto de perfil mediante carga de archivos locales convertidos eficientemente a Base64. Además, se solucionaron cuellos de botella en la sincronización de estado (MVCC y caché de Axios), asegurando que el *Dashboard* y las tarjetas de perfil reflejen los cambios instantáneamente (`loadData(true)`), brindando un *feedback* visual inmediato al usuario.
 
+![to-be-web](./images/To-be/to-be-web.png)
+
+**Link:** https://matchpoint-frontend-gules.vercel.app/login 
+
 ### 8.3.3.4. Implemented To-Be Native-Mobile Application Evidence
 
 La aplicación móvil, desarrollada nativamente con **Android Jetpack Compose (Kotlin)**, materializa el estado "To-Be" enfocado en la movilidad y la inmediatez para el deportista aficionado:
@@ -4336,6 +4340,9 @@ La aplicación móvil, desarrollada nativamente con **Android Jetpack Compose (K
 *   **Interfaz Dinámica Espacial:** Se diseñaron marcadores (pins) personalizados para diferenciar claramente la posición del deportista frente a las opciones deportivas. Esto se complementó con un sistema de *Bottom Sheets* (tarjetas emergentes en la parte inferior) que reaccionan a los toques en el mapa, permitiendo previsualizar distancias, precios y disponibilidad sin perder el contexto geográfico.
 *   **Arquitectura Reactiva:** La implementación de corrutinas y StateFlow garantiza que la renderización de la lista de resultados ordenados por proximidad sea fluida y no bloquee el hilo principal del dispositivo móvil.
 
+![to-be-mobil](./images/To-be/to-be-mobil.jpeg)
+
+
 ### 8.3.3.5. Implemented To-Be RESTful API and/or Serverless Backend Evidence
 
 El backend "To-Be", construido con **Java Spring Boot** y desplegado de forma continua en **Railway (PostgreSQL)**, fue robustecido para soportar de manera segura y escalable las nuevas características del ecosistema:
@@ -4343,6 +4350,10 @@ El backend "To-Be", construido con **Java Spring Boot** y desplegado de forma co
 *   **Migraciones Automatizadas Continuas:** Para soportar las nuevas cargas útiles de imágenes en formato Base64 sin interrumpir el servicio, se desarrolló el componente `DatabaseMigrationRunner`. Este mecanismo ejecuta comandos DDL directamente al inicio de la aplicación en producción, adaptando dinámicamente el esquema de base de datos (`ALTER TABLE TYPE TEXT`) garantizando la resiliencia estructural.
 *   **Seguridad y Consistencia en OAuth:** Se reforzó significativamente el flujo de autenticación delegada con Google. Se implementaron validaciones de unicidad transaccional (`existsByEmail`) en la capa de dominio (`CoachCommandServiceImpl`) para prevenir la creación de perfiles anómalos o duplicados, protegiendo la integridad de los datos de los usuarios frente a fallos de sincronización.
 *   **Saneamiento de Datos de Producción:** Para acompañar los despliegues, se programaron rutinas de limpieza automática que garantizan la retención del perfil original del usuario (`MIN(id)`) preservando su historial de reservas y reseñas, y eliminando cualquier redundancia transaccional, demostrando madurez en el manejo de bases de datos relacionales en entornos productivos.
+
+![to-be-backend](./images/To-be/to-be-back.png)
+
+**Link:** https://matchpoint-api-production-9e17.up.railway.app/swagger-ui/index.html 
 
 ### 8.3.3.6. Team Collaboration Insights
 
@@ -4560,6 +4571,10 @@ En este video probamos cómo se muestra la aplicación en un dispositivo Android
 
 ### Video About-the-Team.
 
+![team](./images/To-be/to-be-abouth-the-team.png)
+
+**Link:** https://youtu.be/ajd72VlWFaE
+
 # Bibliografía
 
 - Crockford, D. (2008). *JavaScript: The good parts*. O’Reilly Media. [https://www.oreilly.com/library/view/javascript-the-good/9780596517748/](https://www.oreilly.com/library/view/javascript-the-good/9780596517748/)
@@ -4591,6 +4606,7 @@ En este video probamos cómo se muestra la aplicación en un dispositivo Android
 - Link del repositorio web:https://github.com/upc-202601-16879-Diseno-de-Experimentos/Frontend
 - Link del repositorio backend: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Backend
 - Link del repositorio Mobil: https://github.com/upc-202601-16879-Diseno-de-Experimentos/Mobile 
+-Link del Abouth-the-team: https://youtu.be/ajd72VlWFaE 
 
 **Deploys:**
 - Front-end:https://matchpoint-frontend-gules.vercel.app/login
