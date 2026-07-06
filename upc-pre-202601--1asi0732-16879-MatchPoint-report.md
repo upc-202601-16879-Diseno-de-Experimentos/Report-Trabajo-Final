@@ -4471,59 +4471,87 @@ La sesión de shareback tuvo como objetivo compartir los aprendizajes obtenidos 
 Como resultado del Learning Workflow, MatchPoint incorpora un mecanismo de mejora continua donde cada release no solo entrega funcionalidades, sino también aprendizaje validado para orientar la evolución del producto. Esto fortalece la toma de decisiones del equipo y permite que el desarrollo futuro se base en evidencia progresiva, no únicamente en suposiciones iniciales.
 
 ## 8.6. To-Be Software Platform Pre-launch
+La fase de pre-lanzamiento del estado To-Be se enfocó en asegurar que las mejoras validadas en experimentación estén listas para liberarse con riesgo controlado. El criterio principal fue pasar de una implementación funcional a una implementación operable en producción.
+
+**Checklist de pre-lanzamiento (Go/No-Go):**
+
+| Item | Criterio de aceptación | Estado |
+|---|---|---|
+| Funcionalidad crítica | US-01, US-02 y US-03 implementadas y demostrables | Cumplido |
+| Calidad técnica | Build y pruebas en verde en pipeline CI | Cumplido |
+| Integración | Consumo correcto de API desplegada desde Web y Mobile | Cumplido |
+| Observabilidad | Eventos de tracking definidos (`search_performed`, `booking_completed`, `service_edited`, `profile_menu_toggle`) | Parcial |
+| Operación | Estrategia de rollback y monitoreo definida | Cumplido |
+| Riesgo de negocio | Hipótesis priorizadas con plan de siguiente medición | Cumplido |
+
+**Decisión de pre-lanzamiento:**
+- Se aprueba el pre-lanzamiento de la plataforma To-Be para validación ampliada con usuarios reales.
+- Se condiciona el lanzamiento completo a completar instrumentación analítica en móvil y cerrar métricas base de M-01, M-02 y M-03.
+
 ### 8.6.1. About-the-Product Intro Video
+
+El video de pre-lanzamiento presenta la versión web de MatchPoint como evidencia del estado To-Be. Su función es mostrar el flujo principal de navegación, la gestión de servicios y el menú contextual de usuario, dejando registro de cómo las mejoras experimentales se reflejan en la experiencia final del producto.
+
+Este artefacto complementa la validación del capítulo VIII porque documenta visualmente el comportamiento de la app web antes del despliegue ampliado. El contenido del video debe centrarse únicamente en la navegación web y en las acciones principales del entrenador y del deportista dentro de esa plataforma.
+
+**Link del video:** https://youtu.be/AVEv_qbtHSM
+
 ## Matriz de Evaluación Etica y de Impacto
 
+La matriz permite demostrar la capacidad del equipo para reconocer responsabilidades éticas y profesionales, y emitir juicios informados considerando el impacto de la solución de software en contextos sociales, económicos y de seguridad.
 
-### Conclusiones y recomendaciones.
+| Dimensión / Criterio a evaluar | Identificación de Riesgos e Impactos (Positivos y Negativos) | Evaluación del impacto (A quién afecta y cuál es la magnitud) | Estrategias de mitigación / Acciones de diseño |
+|---|---|---|---|
+| **1. Salud pública y seguridad** | **Negativo:** Un mal funcionamiento en reservas, horarios o pagos puede generar frustración, sobrecostos o pérdida de confianza en la plataforma.<br>**Positivo:** Facilita acceso ordenado a servicios deportivos y reduce descoordinaciones entre deportistas y entrenadores. | **Afectados:** Deportistas, entrenadores y administradores de canchas.<br>**Magnitud:** Media-Alta, porque impacta en decisiones reales de tiempo y dinero. | Implementar validaciones en frontend/backend, pruebas unitarias e integración, monitoreo de errores en producción, y protocolo de rollback ante incidentes críticos. |
+| **2. Inclusión y accesibilidad** | **Negativo:** Usuarios con baja alfabetización digital o con limitaciones visuales pueden tener dificultades de uso si la interfaz no es clara.<br>**Positivo:** El rediseño de navegación (menú contextual y flujos más simples) mejora comprensión y uso continuo. | **Afectados:** Usuarios nuevos, usuarios de mayor edad y personas con necesidades de accesibilidad básica.<br>**Magnitud:** Media, por su impacto directo en adopción y permanencia. | Mantener consistencia visual, textos claros, contraste adecuado, jerarquía de navegación simple, pruebas de usabilidad por segmento y mejora continua basada en entrevistas. |
+| **3. Impacto social y cultural** | **Negativo:** Si la plataforma prioriza solo perfiles con mayor visibilidad, puede reducir exposición de entrenadores nuevos o de zonas menos céntricas.<br>**Positivo:** Promueve actividad deportiva y conexión comunitaria entre personas con intereses afines. | **Afectados:** Entrenadores independientes, deportistas aficionados y comunidades deportivas locales.<br>**Magnitud:** Media, por efecto acumulativo en oportunidades de participación. | Definir reglas de descubrimiento más justas (por cercanía, disponibilidad y calidad), evitar sesgos en resultados y monitorear distribución de interacción por tipo de usuario. |
+| **4. Impacto económico** | **Negativo:** Fallas en reserva o futura integración de pagos pueden afectar ingresos de entrenadores y la percepción de confiabilidad del servicio.<br>**Positivo:** Mejora conversión de reservas, aumenta continuidad de uso y abre oportunidades de monetización sostenible. | **Afectados:** Entrenadores, usuarios finales y el equipo emprendedor de MatchPoint.<br>**Magnitud:** Alta, por su relación directa con ingresos y viabilidad del producto. | Trazabilidad completa del flujo de reserva, controles de consistencia transaccional, implementación progresiva de pagos seguros y seguimiento de métricas M-01, M-02 y M-03 antes de escalar. |
+
+**Conclusión ética:**
+La propuesta To-Be es éticamente viable para un pre-lanzamiento controlado. No obstante, el siguiente ciclo debe reforzar seguridad de datos, accesibilidad práctica e indicadores de equidad en exposición de servicios para sostener un impacto positivo y responsable.
+
 ## Conclusiones
 
-1. **Desarrollo de aplicación móvil funcional**
-   Se desarrolló exitosamente una aplicación móvil Android con Kotlin y Jetpack Compose que permite a los usuarios autenticarse, visualizar coaches y servicios, y crear reservas. La app se integró con el backend desplegado en Render, demostrando la viabilidad de una arquitectura distribuida.
+1. **La experimentación permitió priorizar con evidencia.**
+  El capítulo VIII consolidó un enfoque de decisiones guiadas por hipótesis y métricas, evitando priorizaciones basadas solo en intuición.
 
-2. **Pruebas automatizadas garantizan calidad**
-   Se configuró un entorno de pruebas local con H2 que permite ejecutar 25 tests automatizados (unitarios e integración) sin afectar el entorno de producción. Los tests validan la lógica de negocio del backend, reduciendo riesgos de fallos en producción.
+2. **Las mejoras de usabilidad implementadas son consistentes con los hallazgos del As-Is.**
+  La edición de servicios, el menú contextual en avatar y la geolocalización móvil responden directamente a fricciones detectadas en entrevistas y auditorías.
 
-3. **Integración frontend-backend operativos**
-   La app móvil comunica correctamente con los endpoints del backend mediante APIs REST con autenticación JWT. El flujo de reservas end-to-end funciona correctamente, desde la selección de servicios hasta la persistencia en base de datos.
+3. **El mayor potencial de impacto de negocio está en móvil y conversión.**
+  La búsqueda por geolocalización mantiene la prioridad más alta por su relación directa con M-01 (reservas completadas) y M-03 (lead time).
 
-4. **Gestión de proyectos colaborativa**
-   El uso de Git con ramas específicas por funcionalidad permitió que múltiples integrantes trabajaran en paralelo sin conflictos mayores. La estrategia de merge de ramas y PR facilitó la integración controlada del código.
+4. **La mejora del flujo para entrenadores fortalece retención operativa.**
+  La edición directa de servicios reduce carga operativa y aporta control sobre la oferta, con impacto esperado en M-02.
 
-5. **Despliegue en producción automatizado**
-   El backend está desplegado en Render con PostgreSQL, el frontend web en Vercel, y la app móvil lista para distribución. Los pipelines CI/CD aseguran que cada cambio sea validado antes de llegar a producción.
+5. **El equipo alcanzó un nivel adecuado de preparación para pre-lanzamiento.**
+  Se cuenta con funcionalidades core implementadas, integración operativa y una estrategia de despliegue/rollback documentada.
 
-6. **Cumplimiento de estándares éticos y profesionales**
-   El desarrollo de software con pruebas automatizadas, documentación técnica y despliegues seguros demuestra responsabilidad profesional. Las decisiones técnicas consideraron el impacto en usuarios reales, accesibilidad y estabilidad del sistema.
+6. **Aun existe brecha de medición cuantitativa en producción.**
+  Para validar hipótesis de manera concluyente, se debe cerrar la instrumentación analítica y observar resultados por ventana temporal suficiente.
 
-7. **Documentación técnica completa**
-   Se documentó la API REST con Swagger, se crearon wireframes y mockups, y se integraron múltiples capturas de pantalla en el informe final. Esto facilita el mantenimiento y la transferencia del proyecto a otros desarrolladores.
+## Recomendaciones
 
-#### Recomendaciones
+1. **Completar instrumentación analítica de extremo a extremo.**
+  Activar y auditar eventos clave en web y mobile para medir M-01, M-02 y M-03 con consistencia.
 
-1. **Implementar notificaciones push**
-   Se recomienda agregar notificaciones push en la app móvil para alertar a los usuarios sobre el estado de sus reservas, recordatorios de horarios y promociones de coaches.
+2. **Priorizar BL-07 y BL-05 en el próximo ciclo.**
+  Ejecutar medición real de geolocalización y autenticación con Google por su impacto directo en activación y conversión.
 
-2. **Optimizar rendimiento de la app móvil**
-   Se sugiere implementar cache local con Room Database para reducir llamadas a la API y mejorar la experiencia offline. También considerar lazy loading para listas grandes.
+3. **Mantener e iterar BL-04 con foco en productividad del entrenador.**
+  Extender edición de servicios hacia reglas más robustas de disponibilidad y horarios.
 
-3. **Ampliar cobertura de pruebas**
-   Aumentar la cobertura de tests unitarios e integración, especialmente para casos de borde como fallos de red, timeouts y manejo de errores del servidor.
+4. **Consolidar hardening de seguridad antes del release ampliado.**
+  Reforzar manejo de sesiones, rotación de secretos y verificación de permisos en endpoints críticos.
 
-4. **Implementar pagos integrados**
-   Desarrollar la pasarela de pagos completa dentro de la app móvil para permitir reservas con pago en línea, no solo visualizando servicios.
+5. **Formalizar un protocolo de decisión Go/No-Go por release.**
+  Usar checklist con responsables, evidencia mínima y umbrales cuantitativos para cada despliegue.
 
-5. **Seguridad avanzada**
-   Implementar refresh tokens JWT, HTTPS forzado en todas las comunicaciones, y almacenamiento seguro de credenciales en el dispositivo móvil.
+6. **Profundizar validación cualitativa por segmento.**
+  Incorporar más entrevistas a entrenadores y deportistas para detectar barreras que no aparecen en métricas técnicas.
 
-6. **Monitoreo en producción**
-   Agregar herramientas de monitoreo como Sentry o Firebase Crashlytics para detectar y resolver errores en producción rápidamente.
-
-7. **Publicación en tiendas de apps**
-   Preparar el APK firmado para publicación en Google Play Store, incluyendo screenshots, descripciones y políticas de privacidad, para facilitar la distribución a usuarios finales.
-
-8. ** internacionalización**
-   Considerar agregar soporte para múltiples idiomas (español, inglés) para expandir la plataforma a mercados internacionales.
+7. **Mantener el shareback como práctica institucional del equipo.**
+  Documentar cada aprendizaje por sprint y convertirlo en ajustes concretos del backlog para sostener mejora continua.
 
 ### Video App Validation
 ### Video About-the-Team.
